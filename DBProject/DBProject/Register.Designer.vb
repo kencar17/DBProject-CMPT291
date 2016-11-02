@@ -24,8 +24,8 @@ Partial Class Register
     Private Sub InitializeComponent()
         Me.UserNameBox = New System.Windows.Forms.TextBox()
         Me.UserPassBox = New System.Windows.Forms.TextBox()
-        Me.ActualFirstNameBox = New System.Windows.Forms.TextBox()
-        Me.ActualLastNameBox = New System.Windows.Forms.TextBox()
+        Me.FirstNameBox = New System.Windows.Forms.TextBox()
+        Me.LastNameBox = New System.Windows.Forms.TextBox()
         Me.PostBox = New System.Windows.Forms.TextBox()
         Me.AddressBox = New System.Windows.Forms.TextBox()
         Me.CityBox = New System.Windows.Forms.TextBox()
@@ -49,19 +49,19 @@ Partial Class Register
         Me.UserPassBox.Size = New System.Drawing.Size(100, 20)
         Me.UserPassBox.TabIndex = 1
         '
-        'ActualFirstNameBox
+        'FirstNameBox
         '
-        Me.ActualFirstNameBox.Location = New System.Drawing.Point(12, 38)
-        Me.ActualFirstNameBox.Name = "ActualFirstNameBox"
-        Me.ActualFirstNameBox.Size = New System.Drawing.Size(100, 20)
-        Me.ActualFirstNameBox.TabIndex = 2
+        Me.FirstNameBox.Location = New System.Drawing.Point(12, 38)
+        Me.FirstNameBox.Name = "FirstNameBox"
+        Me.FirstNameBox.Size = New System.Drawing.Size(100, 20)
+        Me.FirstNameBox.TabIndex = 2
         '
-        'ActualLastNameBox
+        'LastNameBox
         '
-        Me.ActualLastNameBox.Location = New System.Drawing.Point(118, 38)
-        Me.ActualLastNameBox.Name = "ActualLastNameBox"
-        Me.ActualLastNameBox.Size = New System.Drawing.Size(100, 20)
-        Me.ActualLastNameBox.TabIndex = 3
+        Me.LastNameBox.Location = New System.Drawing.Point(118, 38)
+        Me.LastNameBox.Name = "LastNameBox"
+        Me.LastNameBox.Size = New System.Drawing.Size(100, 20)
+        Me.LastNameBox.TabIndex = 3
         '
         'PostBox
         '
@@ -109,7 +109,7 @@ Partial Class Register
         '
         Me.SubmitButton.Location = New System.Drawing.Point(120, 142)
         Me.SubmitButton.Name = "SubmitButton"
-        Me.SubmitButton.Size = New System.Drawing.Size(75, 23)
+        Me.SubmitButton.Size = New System.Drawing.Size(100, 23)
         Me.SubmitButton.TabIndex = 10
         Me.SubmitButton.Text = "Submit"
         Me.SubmitButton.UseVisualStyleBackColor = True
@@ -126,8 +126,8 @@ Partial Class Register
         Me.Controls.Add(Me.CityBox)
         Me.Controls.Add(Me.AddressBox)
         Me.Controls.Add(Me.PostBox)
-        Me.Controls.Add(Me.ActualLastNameBox)
-        Me.Controls.Add(Me.ActualFirstNameBox)
+        Me.Controls.Add(Me.LastNameBox)
+        Me.Controls.Add(Me.FirstNameBox)
         Me.Controls.Add(Me.UserPassBox)
         Me.Controls.Add(Me.UserNameBox)
         Me.Name = "Register"
@@ -139,8 +139,8 @@ Partial Class Register
 
     Friend WithEvents UserNameBox As TextBox
     Friend WithEvents UserPassBox As TextBox
-    Friend WithEvents ActualFirstNameBox As TextBox
-    Friend WithEvents ActualLastNameBox As TextBox
+    Friend WithEvents FirstNameBox As TextBox
+    Friend WithEvents LastNameBox As TextBox
     Friend WithEvents PostBox As TextBox
     Friend WithEvents AddressBox As TextBox
     Friend WithEvents CityBox As TextBox
