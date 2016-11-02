@@ -4,32 +4,106 @@ Public Class User
     Private username As String
     Private password As String
     Private employee As Boolean
+    Private email As String
+    Private streetAddress As String
+    Private postCode As String
+    Private city As String
+    Private state As String
+    Private country As String
+
+    Public Property UsernameProperty As String
+        Get
+            Return username
+        End Get
+        Set(value As String)
+            username = value
+        End Set
+    End Property
+
+    Public Property PasswordProperty As String
+        Get
+            Return password
+        End Get
+        Set(value As String)
+            password = value
+        End Set
+    End Property
+
+    Public Property EmployeeProperty As Boolean
+        Get
+            Return employee
+        End Get
+        Set(value As Boolean)
+            employee = value
+        End Set
+    End Property
+
+    Public Property EmailProperty As String
+        Get
+            Return email
+        End Get
+        Set(value As String)
+            email = value
+        End Set
+    End Property
+
+    Public Property StreetAddressProperty As String
+        Get
+            Return streetAddress
+        End Get
+        Set(value As String)
+            streetAddress = value
+        End Set
+    End Property
+
+    Public Property PostCodeProperty As String
+        Get
+            Return postCode
+        End Get
+        Set(value As String)
+            postCode = value
+        End Set
+    End Property
+
+    Public Property CityProperty As String
+        Get
+            Return city
+        End Get
+        Set(value As String)
+            city = value
+        End Set
+    End Property
+
+    Public Property StateProperty As String
+        Get
+            Return state
+        End Get
+        Set(value As String)
+            state = value
+        End Set
+    End Property
+
+    Public Property CountryProperty As String
+        Get
+            Return country
+        End Get
+        Set(value As String)
+            country = value
+        End Set
+    End Property
 
     Public Sub New(username As String, password As String, isEmployee As Boolean)
-        Me.username = username
-        Me.password = password
-        Me.employee = isEmployee
+        Me.UsernameProperty = username
+        Me.PasswordProperty = password
+        Me.EmployeeProperty = isEmployee
     End Sub
 
-    Public Function getUsername() As String
-        Return Me.username
-    End Function
-
-    Public Function getPassword() As String
-        Return Me.password
-    End Function
-
-    Public Function IsEmployee() As Boolean
-        Return Me.employee
-    End Function
-
-    Public Shared Function CheckPassword(username As String, passwordToCheck As String) As Boolean
+    Public Function CheckPassword(passwordToCheck As String) As Boolean
         If username Is Nothing Or passwordToCheck Is Nothing Or username.Equals("") Or passwordToCheck.Equals("") Then
             Return False
         End If
-        Dim user As User = FindUser(username)
-        If Not (user Is Nothing And user.getUsername().Equals("")) Then
-            Return BCrypt.Net.BCrypt.Verify(passwordToCheck, user.password)
+        If Not (Me.UsernameProperty.Equals("")) Then
+            Return BCrypt.Net.BCrypt.Verify(passwordToCheck, Me.password)
         End If
 
         Return False

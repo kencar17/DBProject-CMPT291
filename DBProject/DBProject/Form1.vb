@@ -15,16 +15,23 @@ Public Class Form1
 
     Private Sub SignInButton_Click(sender As Object, e As EventArgs) Handles SignInButton.Click
         Me.NotFoundLabel.Visible = False
-        Dim valid As Boolean = User.CheckPassword(UserBox.Text, PassBox.Text)
+        Dim aUser As User = User.FindUser(UserBox.Text)
+        Dim valid As Boolean = aUser.CheckPassword(PassBox.Text)
         If Not valid Then
             Me.NotFoundLabel.Visible = True
             Me.NotFoundLabel.Text = "Invalid user, please register"
+        Else
+            Dim homeForm As New Home
+            homeForm.LoggedInUserProperty = aUser
+            homeForm.CallingFormProperty = Me
+            homeForm.Show()
+            Me.Hide()
+            Me.UserBox.Text = ""
+            Me.PassBox.Text = ""
         End If
     End Sub
 
-    Private Sub RegisterButton_Click(sender As Object, e As EventArgs) Handles RegisterButton.Click
-        Dim username As String = UserBox.Text
-        Dim password As String = PassBox.Text
-        Dim newUser As New User(username, password, False)
+    Private Sub CheckButton_Click(sender As Object, e As EventArgs) Handles CheckButton.Click
+        ' Launch the view inventory form
     End Sub
 End Class
