@@ -116,6 +116,12 @@
     </Compile>
     <Compile Include="SQLConnection.vb" />
     <Compile Include="User.vb" />
+    <Compile Include="ViewInventory.Designer.vb">
+      <DependentUpon>ViewInventory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViewInventory.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewInventory.resx">
+      <DependentUpon>ViewInventory.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
