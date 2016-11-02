@@ -26,6 +26,7 @@ Partial Class Form1
         Me.PassBox = New System.Windows.Forms.TextBox()
         Me.SignInButton = New System.Windows.Forms.Button()
         Me.NotFoundLabel = New System.Windows.Forms.Label()
+        Me.CheckButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'UserBox
@@ -55,16 +56,26 @@ Partial Class Form1
         '
         Me.NotFoundLabel.AutoSize = True
         Me.NotFoundLabel.ForeColor = System.Drawing.Color.Red
-        Me.NotFoundLabel.Location = New System.Drawing.Point(12, 91)
+        Me.NotFoundLabel.Location = New System.Drawing.Point(12, 142)
         Me.NotFoundLabel.Name = "NotFoundLabel"
         Me.NotFoundLabel.Size = New System.Drawing.Size(0, 13)
         Me.NotFoundLabel.TabIndex = 4
+        '
+        'CheckButton
+        '
+        Me.CheckButton.Location = New System.Drawing.Point(77, 94)
+        Me.CheckButton.Name = "CheckButton"
+        Me.CheckButton.Size = New System.Drawing.Size(100, 23)
+        Me.CheckButton.TabIndex = 5
+        Me.CheckButton.Text = "View Inventory"
+        Me.CheckButton.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(264, 113)
+        Me.ClientSize = New System.Drawing.Size(258, 164)
+        Me.Controls.Add(Me.CheckButton)
         Me.Controls.Add(Me.NotFoundLabel)
         Me.Controls.Add(Me.SignInButton)
         Me.Controls.Add(Me.PassBox)
@@ -81,4 +92,5 @@ Partial Class Form1
     Friend WithEvents PassBox As TextBox
     Friend WithEvents SignInButton As Button
     Friend WithEvents NotFoundLabel As Label
+    Friend WithEvents CheckButton As Button
 End Class

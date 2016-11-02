@@ -20,6 +20,18 @@ Public Class Form1
         If Not valid Then
             Me.NotFoundLabel.Visible = True
             Me.NotFoundLabel.Text = "Invalid user, please register"
+        Else
+            Dim homeForm As New Home
+            homeForm.LoggedInUserProperty = aUser
+            homeForm.CallingFormProperty = Me
+            homeForm.Show()
+            Me.Hide()
+            Me.UserBox.Text = ""
+            Me.PassBox.Text = ""
         End If
+    End Sub
+
+    Private Sub CheckButton_Click(sender As Object, e As EventArgs) Handles CheckButton.Click
+        ' Launch the view inventory form
     End Sub
 End Class
