@@ -22,29 +22,75 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.UserBox = New System.Windows.Forms.TextBox()
+        Me.PassBox = New System.Windows.Forms.TextBox()
+        Me.SignInButton = New System.Windows.Forms.Button()
+        Me.RegisterButton = New System.Windows.Forms.Button()
+        Me.NotFoundLabel = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'Button1
+        'UserBox
         '
-        Me.Button1.Location = New System.Drawing.Point(365, 247)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.UserBox.Location = New System.Drawing.Point(75, 12)
+        Me.UserBox.Name = "UserBox"
+        Me.UserBox.Size = New System.Drawing.Size(100, 20)
+        Me.UserBox.TabIndex = 0
+        '
+        'PassBox
+        '
+        Me.PassBox.Location = New System.Drawing.Point(75, 38)
+        Me.PassBox.Name = "PassBox"
+        Me.PassBox.Size = New System.Drawing.Size(100, 20)
+        Me.PassBox.TabIndex = 1
+        '
+        'SignInButton
+        '
+        Me.SignInButton.Location = New System.Drawing.Point(12, 103)
+        Me.SignInButton.Name = "SignInButton"
+        Me.SignInButton.Size = New System.Drawing.Size(75, 23)
+        Me.SignInButton.TabIndex = 2
+        Me.SignInButton.Text = "Sign In"
+        Me.SignInButton.UseVisualStyleBackColor = True
+        '
+        'RegisterButton
+        '
+        Me.RegisterButton.Location = New System.Drawing.Point(164, 103)
+        Me.RegisterButton.Name = "RegisterButton"
+        Me.RegisterButton.Size = New System.Drawing.Size(75, 23)
+        Me.RegisterButton.TabIndex = 3
+        Me.RegisterButton.Text = "Register"
+        Me.RegisterButton.UseVisualStyleBackColor = True
+        '
+        'NotFoundLabel
+        '
+        Me.NotFoundLabel.AutoSize = True
+        Me.NotFoundLabel.ForeColor = System.Drawing.Color.Red
+        Me.NotFoundLabel.Location = New System.Drawing.Point(87, 129)
+        Me.NotFoundLabel.Name = "NotFoundLabel"
+        Me.NotFoundLabel.Size = New System.Drawing.Size(0, 13)
+        Me.NotFoundLabel.TabIndex = 4
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(502, 345)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(251, 179)
+        Me.Controls.Add(Me.NotFoundLabel)
+        Me.Controls.Add(Me.RegisterButton)
+        Me.Controls.Add(Me.SignInButton)
+        Me.Controls.Add(Me.PassBox)
+        Me.Controls.Add(Me.UserBox)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "Car Rental"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Button1 As Button
+    Friend WithEvents UserBox As TextBox
+    Friend WithEvents PassBox As TextBox
+    Friend WithEvents SignInButton As Button
+    Friend WithEvents RegisterButton As Button
+    Friend WithEvents NotFoundLabel As Label
 End Class
