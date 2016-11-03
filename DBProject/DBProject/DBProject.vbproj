@@ -80,6 +80,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewUser.Designer.vb">
+      <DependentUpon>AddNewUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,12 @@
     </Compile>
     <Compile Include="SQLConnection.vb" />
     <Compile Include="User.vb" />
+    <Compile Include="UserAdmin.Designer.vb">
+      <DependentUpon>UserAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ViewInventory.Designer.vb">
       <DependentUpon>ViewInventory.vb</DependentUpon>
     </Compile>
@@ -124,6 +136,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddNewUser.resx">
+      <DependentUpon>AddNewUser.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserAdmin.resx">
+      <DependentUpon>UserAdmin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewInventory.resx">
       <DependentUpon>ViewInventory.vb</DependentUpon>
