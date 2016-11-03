@@ -3,13 +3,22 @@
 Public Class User
     Private username As String
     Private password As String
-    Private employee As Boolean
     Private email As String
     Private streetAddress As String
     Private postCode As String
     Private city As String
     Private state As String
     Private country As String
+    Private name As String
+
+    Public Property NameProperty As String
+        Get
+            Return name
+        End Get
+        Set
+            name = Value
+        End Set
+    End Property
 
     Public Property UsernameProperty As String
         Get
@@ -26,15 +35,6 @@ Public Class User
         End Get
         Set(value As String)
             password = value
-        End Set
-    End Property
-
-    Public Property EmployeeProperty As Boolean
-        Get
-            Return employee
-        End Get
-        Set(value As Boolean)
-            employee = value
         End Set
     End Property
 
@@ -92,10 +92,9 @@ Public Class User
         End Set
     End Property
 
-    Public Sub New(username As String, password As String, isEmployee As Boolean)
+    Public Sub New(username As String, password As String)
         Me.UsernameProperty = username
         Me.PasswordProperty = password
-        Me.EmployeeProperty = isEmployee
     End Sub
 
     Public Function CheckPassword(passwordToCheck As String) As Boolean
@@ -110,10 +109,16 @@ Public Class User
     End Function
 
     Public Shared Function FindUser(username As String) As User
-        Dim checkSQL As String = "SELECT Username, Password, IsEmployee FROM User WHERE Username = @username"
+        Dim checkSQL As String = "SELECT Result.Username, Password, Employee.FirstName, Employee.LastName, Employee.PostalCode, Employee.StreetAddress, Employee.Email, Employee.City, Employee.State, Employee.Country FROM (SELECT Username, Password, PersonID FROM User WHERE Username = 'nathan') Result LEFT JOIN Employee ON Result.PersonID = Employee.EID"
         Dim returnedUsername As String = ""
         Dim returnedPass As String = ""
-        Dim employee As Boolean
+        Dim returnedEmail As String
+        Dim address As String
+        Dim pcode As String
+        Dim returnedCity As String
+        Dim returnedState As String
+        Dim returnedCountry As String
+        Dim employeeName As String
 
         Dim dbConnection = SQLConnection.Instance.GetConnection()
         Using sqlComm As New MySqlCommand()
@@ -128,7 +133,13 @@ Public Class User
                 While sqlReader.Read()
                     returnedUsername = sqlReader("Username").ToString()
                     returnedPass = sqlReader("Password").ToString()
-                    employee = sqlReader("IsEmployee").ToString().Equals("1")
+                    returnedEmail = sqlReader("Email").ToString()
+                    address = sqlReader("StreetAddress").ToString()
+                    pcode = sqlReader("PostalCode").ToString()
+                    returnedCity = sqlReader("City").ToString()
+                    returnedState = sqlReader("State").ToString()
+                    returnedCountry = sqlReader("Country").ToString()
+                    employeeName = sqlReader("FirstName").ToString() & " " & sqlReader("LastName").ToString()
                 End While
             Catch ex As Exception
                 Return Nothing
@@ -137,6 +148,22 @@ Public Class User
         End Using
         SQLConnection.Instance.CloseConnection()
 
-        Return New User(returnedUsername, returnedPass, employee)
+        If Not returnedUsername.Equals(username) Then
+            Return Nothing
+        End If
+
+        Dim newUser As New User(returnedUsername, returnedPass)
+
+        With newUser
+            .CityProperty = returnedCity
+            .CountryProperty = returnedCountry
+            .EmailProperty = returnedEmail
+            .PostCodeProperty = pcode
+            .StateProperty = returnedState
+            .StreetAddressProperty = address
+            .NameProperty = employeeName
+        End With
+
+        Return newUser
     End Function
 End Class
