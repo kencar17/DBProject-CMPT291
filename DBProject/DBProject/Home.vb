@@ -17,10 +17,21 @@ Public Class Home
     End Property
 
     Private Sub Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Console.WriteLine("Loaded")
+        Me.NameLabel.Text = loggedInUser.NameProperty
     End Sub
 
     Private Sub Home_Unload(sender As Object, e As EventArgs) Handles MyBase.Closing
         callingForm.Show()
+    End Sub
+
+    Private Sub LogOutButton_Click(sender As Object, e As EventArgs) Handles LogOutButton.Click
+        Me.Close()
+    End Sub
+
+    Private Sub UserAdminButton_Click(sender As Object, e As EventArgs) Handles UserAdminButton.Click
+        ' Open user admin window
+        Dim userAdminForm As New UserAdmin
+        userAdminForm.CallingFormProperty = Me
+        userAdminForm.Show()
     End Sub
 End Class
