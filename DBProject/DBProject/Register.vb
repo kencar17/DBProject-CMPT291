@@ -2,6 +2,13 @@
 
 Public Class Register
     Private user As User = Nothing
+    Private callingForm As Home
+
+    Private WriteOnly Property CallingFormProperty() As Home
+        Set(value As Home)
+            Me.callingForm = value
+        End Set
+    End Property
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         ' Delete the old user if it existed
@@ -28,6 +35,10 @@ Public Class Register
 
     Public Sub SetUser(user As User)
         Me.user = user
+    End Sub
+
+    Public Sub Register_Unload(sender As Object, e As EventArgs) Handles MyBase.Closing
+        callingForm.Show()
     End Sub
 
     <DllImport("user32.dll", CharSet:=CharSet.Auto)>
