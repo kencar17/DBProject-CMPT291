@@ -39,22 +39,27 @@ Public Class AddNewUser
         If EmailBox.Text.Equals("") Then
             ErrorLabel.Text = "An email must be given."
             Me.ErrorLabel.Visible = True
+            Return
         End If
         If LastnameBox.Text.Equals("") Then
             ErrorLabel.Text = "A last name must be given."
             Me.ErrorLabel.Visible = True
+            Return
         End If
         If FirstnameBox.Text.Equals("") Then
             ErrorLabel.Text = "A first name must be given."
             Me.ErrorLabel.Visible = True
+            Return
         End If
         If PassBox.Text.Equals("") Then
             ErrorLabel.Text = "A password must be given."
             Me.ErrorLabel.Visible = True
+            Return
         End If
         If UsernameBox.Text.Equals("") Then
             ErrorLabel.Text = "A username must be given."
             Me.ErrorLabel.Visible = True
+            Return
         End If
         If Not User.FindUser(Me.UsernameBox.Text) Is Nothing Then
             ErrorLabel.Text = String.Format("{0} already exists", UsernameBox.Text)
