@@ -109,7 +109,7 @@ Public Class User
     End Function
 
     Public Shared Function FindUser(username As String) As User
-        Dim checkSQL As String = "SELECT Result.Username, Password, Employee.FirstName, Employee.LastName, Employee.PostalCode, Employee.StreetAddress, Employee.Email, Employee.City, Employee.State, Employee.Country FROM (SELECT Username, Password, PersonID FROM User WHERE Username = 'nathan') Result LEFT JOIN Employee ON Result.PersonID = Employee.EID"
+        Dim checkSQL As String = "SELECT Result.Username, Password, Employee.FirstName, Employee.LastName, Employee.PostalCode, Employee.StreetAddress, Employee.Email, Employee.City, Employee.State, Employee.Country FROM (SELECT Username, Password, PersonID FROM User WHERE Username = @username) Result LEFT JOIN Employee ON Result.PersonID = Employee.EID"
         Dim returnedUsername As String = ""
         Dim returnedPass As String = ""
         Dim returnedEmail As String
@@ -143,7 +143,6 @@ Public Class User
                 End While
             Catch ex As Exception
                 Return Nothing
-                MsgBox(ex.Message)
             End Try
         End Using
         SQLConnection.Instance.CloseConnection()
