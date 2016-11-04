@@ -63,6 +63,7 @@ Partial Class Form1
         '
         'CheckButton
         '
+        Me.CheckButton.Enabled = False
         Me.CheckButton.Location = New System.Drawing.Point(81, 94)
         Me.CheckButton.Name = "CheckButton"
         Me.CheckButton.Size = New System.Drawing.Size(100, 23)
