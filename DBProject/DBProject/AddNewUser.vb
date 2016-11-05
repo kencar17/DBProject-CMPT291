@@ -11,6 +11,7 @@ Public Class AddNewUser
     End Property
 
     Private Sub AddNewUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.AcceptButton = SubmitButton
         SendMessage(Me.UsernameBox.Handle, &H1501, 0, "Username")
         SendMessage(Me.PassBox.Handle, &H1501, 0, "Password")
         Me.PassBox.PasswordChar = "*"
