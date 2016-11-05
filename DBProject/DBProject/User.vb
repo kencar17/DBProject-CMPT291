@@ -10,6 +10,16 @@ Public Class User
     Private state As String
     Private country As String
     Private name As String
+    Private id As Integer
+
+    Public Property IdProperty As Integer
+        Get
+            Return id
+        End Get
+        Set
+            id = Value
+        End Set
+    End Property
 
     Public Property NameProperty As String
         Get
@@ -164,5 +174,9 @@ Public Class User
         End With
 
         Return newUser
+    End Function
+
+    Public Overrides Function ToString() As String
+        Return username
     End Function
 End Class
