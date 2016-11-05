@@ -20,4 +20,10 @@
         newUserForm.CallingFormProperty = Me
         newUserForm.Show()
     End Sub
+
+    Private Sub RemoveButton_Click(sender As Object, e As EventArgs) Handles RemoveButton.Click
+        Dim deleteUser As New DeleteUser
+        deleteUser.CallingFormProperty = Me
+        deleteUser.Show()
+    End Sub
 End Class

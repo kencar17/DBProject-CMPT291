@@ -38,7 +38,6 @@ Partial Class UserAdmin
         '
         'RemoveButton
         '
-        Me.RemoveButton.Enabled = False
         Me.RemoveButton.Location = New System.Drawing.Point(84, 42)
         Me.RemoveButton.Name = "RemoveButton"
         Me.RemoveButton.Size = New System.Drawing.Size(88, 23)
