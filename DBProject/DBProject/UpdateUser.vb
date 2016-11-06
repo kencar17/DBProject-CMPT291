@@ -99,7 +99,7 @@ Public Class UpdateUser
             PassBox.Text = ""
         End If
 
-        MsgBox(selectedUser.UsernameProperty & " has been updateed.")
+        MsgBox(selectedUser.UsernameProperty & " has been updated.")
     End Sub
 
 
