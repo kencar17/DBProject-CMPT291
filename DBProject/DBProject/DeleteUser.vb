@@ -11,17 +11,22 @@ Public Class DeleteUser
     End Property
 
     Private Sub DeleteUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Init()
+    End Sub
+
+    Private Sub Init()
         Me.AcceptButton = Me.DeleteButton
+        Me.UserSelection.Items.Clear()
 
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComma As New MySqlCommand()
-            With sqlComma
+        Using sqlComm As New MySqlCommand()
+            With sqlComm
                 .Connection = dbconn
                 .CommandText = "SELECT Username, PersonID FROM User"
                 .CommandType = CommandType.Text
             End With
             Try
-                Dim sqlReader As MySqlDataReader = sqlComma.ExecuteReader()
+                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
                 While sqlReader.Read()
                     Dim username As String = sqlReader("Username").ToString()
                     Dim newUser As New User(username, "")
@@ -64,11 +69,10 @@ Public Class DeleteUser
         SQLConnection.Instance.CloseConnection()
 
         MsgBox(selectedUser.UsernameProperty & " has been deleted.")
-
+        Init()
     End Sub
 
     Private Sub DoneButton_Click(sender As Object, e As EventArgs) Handles DoneButton.Click
         Me.Close()
     End Sub
-
 End Class
