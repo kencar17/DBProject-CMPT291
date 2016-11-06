@@ -34,4 +34,9 @@ Public Class Home
         userAdminForm.CallingFormProperty = Me
         userAdminForm.Show()
     End Sub
+
+    Private Sub ReportsButton_Click(sender As Object, e As EventArgs) Handles ReportsButton.Click
+        Dim reportForm As New Reports
+        reportForm.Show()
+    End Sub
 End Class
