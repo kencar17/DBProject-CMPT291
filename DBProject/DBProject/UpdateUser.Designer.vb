@@ -61,7 +61,7 @@ Partial Class UpdateUser
         'EmailBox
         '
         Me.EmailBox.Enabled = False
-        Me.EmailBox.Location = New System.Drawing.Point(23, 171)
+        Me.EmailBox.Location = New System.Drawing.Point(22, 171)
         Me.EmailBox.Name = "EmailBox"
         Me.EmailBox.Size = New System.Drawing.Size(100, 20)
         Me.EmailBox.TabIndex = 21
