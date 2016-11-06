@@ -11,6 +11,26 @@ Public Class User
     Private country As String
     Private name As String
     Private id As Integer
+    Private firstName As String
+    Private lastName As String
+
+    Public Property FirstNameProperty As String
+        Get
+            Return firstName
+        End Get
+        Set
+            firstName = Value
+        End Set
+    End Property
+
+    Public Property LastNameProperty As String
+        Get
+            Return lastName
+        End Get
+        Set
+            lastName = Value
+        End Set
+    End Property
 
     Public Property IdProperty As Integer
         Get
