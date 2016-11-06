@@ -26,4 +26,10 @@
         deleteUser.CallingFormProperty = Me
         deleteUser.Show()
     End Sub
+
+    Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
+        Dim update As New UpdateUser
+        update.CallingFormProperty = Me
+        update.Show()
+    End Sub
 End Class

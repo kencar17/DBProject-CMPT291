@@ -112,9 +112,6 @@ Public Class AddNewUser
         SQLConnection.Instance.CloseConnection()
 
         dbconn = SQLConnection.Instance.GetConnection()
-        Console.WriteLine("~~~~~EID is " & eid)
-        Console.WriteLine("~~~~~Username is " & UsernameBox.Text)
-        Console.WriteLine("~~~~~Pass is " & hashedPass)
         Using sqlCommb As New MySqlCommand()
             With sqlCommb
                 .Connection = dbconn
@@ -127,8 +124,6 @@ Public Class AddNewUser
             Try
                 sqlCommb.ExecuteNonQuery()
             Catch ex As Exception
-                Console.WriteLine("~~~~~Error was " & ex.Message)
-                Console.WriteLine(ex)
             End Try
         End Using
         SQLConnection.Instance.CloseConnection()

@@ -47,7 +47,6 @@ Partial Class UserAdmin
         '
         'UpdateButton
         '
-        Me.UpdateButton.Enabled = False
         Me.UpdateButton.Location = New System.Drawing.Point(84, 72)
         Me.UpdateButton.Name = "UpdateButton"
         Me.UpdateButton.Size = New System.Drawing.Size(88, 23)

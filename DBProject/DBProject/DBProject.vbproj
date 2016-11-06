@@ -127,6 +127,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SQLConnection.vb" />
+    <Compile Include="UpdateUser.Designer.vb">
+      <DependentUpon>UpdateUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="User.vb" />
     <Compile Include="UserAdmin.Designer.vb">
       <DependentUpon>UserAdmin.vb</DependentUpon>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateUser.resx">
+      <DependentUpon>UpdateUser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserAdmin.resx">
       <DependentUpon>UserAdmin.vb</DependentUpon>

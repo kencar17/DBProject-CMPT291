@@ -101,7 +101,7 @@ Partial Class AddNewUser
         '
         'EmailBox
         '
-        Me.EmailBox.Location = New System.Drawing.Point(13, 144)
+        Me.EmailBox.Location = New System.Drawing.Point(12, 144)
         Me.EmailBox.Name = "EmailBox"
         Me.EmailBox.Size = New System.Drawing.Size(100, 20)
         Me.EmailBox.TabIndex = 9
