@@ -131,7 +131,7 @@ Partial Class Register
         Me.Controls.Add(Me.UserPassBox)
         Me.Controls.Add(Me.UserNameBox)
         Me.Name = "Register"
-        Me.Text = "Register"
+        Me.Text = "Register a User"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

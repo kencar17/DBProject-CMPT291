@@ -166,7 +166,7 @@ Partial Class UpdateUser
         Me.Controls.Add(Me.PassBox)
         Me.Controls.Add(Me.UsernameBox)
         Me.Name = "UpdateUser"
-        Me.Text = "UpdateUser"
+        Me.Text = "Update a User"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
