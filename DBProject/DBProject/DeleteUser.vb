@@ -41,8 +41,11 @@ Public Class DeleteUser
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
-        ' 3. Delete the employee with User->PersonID
         Dim selectedUser As User = UserSelection.SelectedItem
+        If selectedUser Is Nothing Then
+            MsgBox("Please select a user.")
+            Return
+        End If
 
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
         Using sqlComm As New MySqlCommand()
