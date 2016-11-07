@@ -55,7 +55,7 @@ Public Class Reports
                     table.AddCell(sqlReader("State"))
                     table.AddCell(sqlReader("Country").ToString())
                     Dim email As String = sqlReader("Email").ToString()
-                    Dim emailLink As New Anchor(email, FontFactory.GetFont("Arial", 12, Font.Underline, New BaseColor(0, 0, 255)))
+                    Dim emailLink As New Anchor(email)
                     emailLink.Reference = "mailto:" & email
                     table.AddCell(emailLink)
                 End While
