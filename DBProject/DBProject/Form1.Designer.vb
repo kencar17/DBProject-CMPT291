@@ -75,15 +75,19 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(263, 164)
+        Me.ClientSize = New System.Drawing.Size(624, 441)
         Me.Controls.Add(Me.CheckButton)
         Me.Controls.Add(Me.NotFoundLabel)
         Me.Controls.Add(Me.SignInButton)
         Me.Controls.Add(Me.PassBox)
         Me.Controls.Add(Me.UserBox)
         Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Car Rental"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
