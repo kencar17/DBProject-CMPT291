@@ -2,12 +2,26 @@
 Imports MySql.Data.MySqlClient
 
 Public Class Form1
+    Dim callingForm As Parent
+
+    Public Property CallingFormProperty As Parent
+        Get
+            Return callingForm
+        End Get
+        Set
+            callingForm = Value
+        End Set
+    End Property
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AcceptButton = SignInButton
         SendMessage(Me.UserBox.Handle, &H1501, 0, "Username")
         SendMessage(Me.PassBox.Handle, &H1501, 0, "Password")
         Me.PassBox.PasswordChar = "*"
         Me.NotFoundLabel.Visible = False
+        Me.AutoSize = True
+        Me.AutoSizeMode = AutoSizeMode.GrowOnly
+        Me.MdiParent = callingForm
     End Sub
 
     <DllImport("user32.dll", CharSet:=CharSet.Auto)>
@@ -31,8 +45,8 @@ Public Class Form1
             Dim homeForm As New Home
             homeForm.LoggedInUserProperty = aUser
             homeForm.CallingFormProperty = Me
+            homeForm.MdiParent = callingForm
             homeForm.Show()
-            Me.Hide()
             Me.UserBox.Text = ""
             Me.PassBox.Text = ""
         End If
