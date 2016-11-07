@@ -19,7 +19,7 @@ Public Class Reports
 
         Dim table As New PdfPTable(9)
         table.WidthPercentage = 90
-        Dim widths = New Integer() {40, 120, 150, 200, 100, 100, 100, 100, 375}
+        Dim widths = New Integer() {40, 120, 135, 200, 100, 100, 100, 100, 325}
         table.SetWidths(widths)
         Dim cell As New PdfPCell(New Phrase("Users"))
         cell.Colspan = 9
@@ -54,7 +54,10 @@ Public Class Reports
                     table.AddCell(sqlReader("City").ToString())
                     table.AddCell(sqlReader("State"))
                     table.AddCell(sqlReader("Country").ToString())
-                    table.AddCell(sqlReader("Email").ToString())
+                    Dim email As String = sqlReader("Email").ToString()
+                    Dim emailLink As New Anchor(email, FontFactory.GetFont("Arial", 12, Font.Underline, New BaseColor(0, 0, 255)))
+                    emailLink.Reference = "mailto:" & email
+                    table.AddCell(emailLink)
                 End While
             Catch ex As Exception
                 MsgBox(ex.Message)
