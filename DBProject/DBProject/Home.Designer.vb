@@ -111,7 +111,6 @@ Partial Class Home
         '
         'ReportsButton
         '
-        Me.ReportsButton.Enabled = False
         Me.ReportsButton.Location = New System.Drawing.Point(13, 129)
         Me.ReportsButton.Name = "ReportsButton"
         Me.ReportsButton.Size = New System.Drawing.Size(115, 23)
