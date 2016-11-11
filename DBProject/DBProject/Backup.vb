@@ -7,7 +7,7 @@ Public Class Backup
     End Sub
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
-        Help.GetHelp()
+        Help.GetHelp("backup")
     End Sub
 
     Private Sub BackupButton_Click(sender As Object, e As EventArgs) Handles BackupButton.Click
