@@ -77,4 +77,8 @@ Public Class Reports
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
         Help.GetHelp("reports")
     End Sub
+
+    Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
+        Me.Close()
+    End Sub
 End Class
