@@ -66,9 +66,7 @@ Partial Class Home
         '
         'BackupButton
         '
-        Me.BackupButton.Enabled = False
-        Me.BackupButton.Location = New System.Drawing.Point(24, 190)
-        Me.BackupButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.BackupButton.Location = New System.Drawing.Point(12, 99)
         Me.BackupButton.Name = "BackupButton"
         Me.BackupButton.Size = New System.Drawing.Size(232, 44)
         Me.BackupButton.TabIndex = 3
