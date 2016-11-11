@@ -74,7 +74,6 @@ Partial Class Home
         '
         'HelpButton
         '
-        Me.HelpButton.Enabled = False
         Me.HelpButton.Location = New System.Drawing.Point(12, 158)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(116, 23)

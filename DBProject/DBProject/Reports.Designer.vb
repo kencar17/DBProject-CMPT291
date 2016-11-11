@@ -23,6 +23,7 @@ Partial Class Reports
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.ViewUsersButton = New System.Windows.Forms.Button()
+        Me.HelpButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ViewUsersButton
@@ -34,11 +35,21 @@ Partial Class Reports
         Me.ViewUsersButton.Text = "View Users"
         Me.ViewUsersButton.UseVisualStyleBackColor = True
         '
+        'HelpButton
+        '
+        Me.HelpButton.Location = New System.Drawing.Point(13, 226)
+        Me.HelpButton.Name = "HelpButton"
+        Me.HelpButton.Size = New System.Drawing.Size(75, 23)
+        Me.HelpButton.TabIndex = 1
+        Me.HelpButton.Text = "Help"
+        Me.HelpButton.UseVisualStyleBackColor = True
+        '
         'Reports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(263, 261)
+        Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.ViewUsersButton)
         Me.Name = "Reports"
         Me.Text = "Reports"
@@ -47,4 +58,5 @@ Partial Class Reports
     End Sub
 
     Friend WithEvents ViewUsersButton As Button
+    Friend WithEvents HelpButton As Button
 End Class

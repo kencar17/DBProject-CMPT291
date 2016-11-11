@@ -129,4 +129,8 @@ Public Class UpdateUser
         Me.StateBox.Text = selectedUser.StateProperty
         Me.UsernameBox.Text = selectedUser.UsernameProperty
     End Sub
+
+    Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
+        Me.Close()
+    End Sub
 End Class

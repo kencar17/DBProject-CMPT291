@@ -11,6 +11,7 @@ Public Class AddNewUser
     End Property
 
     Private Sub AddNewUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.WindowState = FormWindowState.Maximized
         Me.AcceptButton = SubmitButton
         SendMessage(Me.UsernameBox.Handle, &H1501, 0, "Username")
         SendMessage(Me.PassBox.Handle, &H1501, 0, "Password")
@@ -129,6 +130,10 @@ Public Class AddNewUser
         SQLConnection.Instance.CloseConnection()
 
         MsgBox("User added!")
+        Me.Close()
+    End Sub
+
+    Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
         Me.Close()
     End Sub
 End Class
