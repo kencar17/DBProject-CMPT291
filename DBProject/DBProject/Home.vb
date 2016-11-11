@@ -31,6 +31,7 @@ Public Class Home
     Private Sub UserAdminButton_Click(sender As Object, e As EventArgs) Handles UserAdminButton.Click
         ' Open user admin window
         Dim userAdminForm As New UserAdmin
+        userAdminForm.MdiParent = Me.MdiParent
         userAdminForm.CallingFormProperty = Me
         userAdminForm.Show()
     End Sub

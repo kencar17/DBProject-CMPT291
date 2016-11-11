@@ -34,6 +34,7 @@ Partial Class AddNewUser
         Me.EmailBox = New System.Windows.Forms.TextBox()
         Me.SubmitButton = New System.Windows.Forms.Button()
         Me.ErrorLabel = New System.Windows.Forms.Label()
+        Me.CloseButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'UsernameBox
@@ -126,11 +127,21 @@ Partial Class AddNewUser
         Me.ErrorLabel.Text = "User already exists"
         Me.ErrorLabel.Visible = False
         '
+        'CloseButton
+        '
+        Me.CloseButton.Location = New System.Drawing.Point(13, 186)
+        Me.CloseButton.Name = "CloseButton"
+        Me.CloseButton.Size = New System.Drawing.Size(99, 23)
+        Me.CloseButton.TabIndex = 12
+        Me.CloseButton.Text = "Close"
+        Me.CloseButton.UseVisualStyleBackColor = True
+        '
         'AddNewUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(263, 191)
+        Me.ClientSize = New System.Drawing.Size(263, 225)
+        Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.ErrorLabel)
         Me.Controls.Add(Me.SubmitButton)
         Me.Controls.Add(Me.EmailBox)
@@ -162,4 +173,5 @@ Partial Class AddNewUser
     Friend WithEvents EmailBox As TextBox
     Friend WithEvents SubmitButton As Button
     Friend WithEvents ErrorLabel As Label
+    Friend WithEvents CloseButton As Button
 End Class
