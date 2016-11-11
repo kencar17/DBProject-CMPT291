@@ -25,6 +25,7 @@ Partial Class DeleteUser
         Me.UserSelection = New System.Windows.Forms.ComboBox()
         Me.DeleteButton = New System.Windows.Forms.Button()
         Me.DoneButton = New System.Windows.Forms.Button()
+        Me.HelpButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'UserSelection
@@ -47,18 +48,28 @@ Partial Class DeleteUser
         '
         'DoneButton
         '
-        Me.DoneButton.Location = New System.Drawing.Point(94, 68)
+        Me.DoneButton.Location = New System.Drawing.Point(12, 68)
         Me.DoneButton.Name = "DoneButton"
         Me.DoneButton.Size = New System.Drawing.Size(75, 23)
         Me.DoneButton.TabIndex = 2
         Me.DoneButton.Text = "Close"
         Me.DoneButton.UseVisualStyleBackColor = True
         '
+        'HelpButton
+        '
+        Me.HelpButton.Location = New System.Drawing.Point(176, 68)
+        Me.HelpButton.Name = "HelpButton"
+        Me.HelpButton.Size = New System.Drawing.Size(75, 23)
+        Me.HelpButton.TabIndex = 3
+        Me.HelpButton.Text = "Help"
+        Me.HelpButton.UseVisualStyleBackColor = True
+        '
         'DeleteUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(263, 103)
+        Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.DoneButton)
         Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.UserSelection)
@@ -71,4 +82,5 @@ Partial Class DeleteUser
     Friend WithEvents UserSelection As ComboBox
     Friend WithEvents DeleteButton As Button
     Friend WithEvents DoneButton As Button
+    Friend WithEvents HelpButton As Button
 End Class
