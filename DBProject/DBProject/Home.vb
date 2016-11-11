@@ -47,4 +47,10 @@ Public Class Home
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
         Help.GetHelp("home")
     End Sub
+
+    Private Sub CarAdminButton_Click(sender As Object, e As EventArgs) Handles CarAdminButton.Click
+        Dim carAdminForm As New CarAdministrationvb
+        carAdminForm.MdiParent = Me.MdiParent
+        carAdminForm.Show()
+    End Sub
 End Class

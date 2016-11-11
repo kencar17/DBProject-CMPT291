@@ -90,10 +90,22 @@
     <Compile Include="AddNewUser.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CarAdministrationvb.Designer.vb">
+      <DependentUpon>CarAdministrationvb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CarAdministrationvb.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DeleteUser.Designer.vb">
       <DependentUpon>DeleteUser.vb</DependentUpon>
     </Compile>
     <Compile Include="DeleteUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewVehicle.Designer.vb">
+      <DependentUpon>AddNewVehicle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewVehicle.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.vb">
@@ -110,6 +122,7 @@
     <Compile Include="Home.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Inventory.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -137,10 +150,22 @@
     <Compile Include="Register.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RemoveVehicle.Designer.vb">
+      <DependentUpon>RemoveVehicle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveVehicle.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reports.Designer.vb">
       <DependentUpon>Reports.vb</DependentUpon>
     </Compile>
     <Compile Include="Reports.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchVehicles.Designer.vb">
+      <DependentUpon>SearchVehicles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SearchVehicles.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SQLConnection.vb" />
@@ -174,8 +199,14 @@
     <EmbeddedResource Include="AddNewUser.resx">
       <DependentUpon>AddNewUser.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CarAdministrationvb.resx">
+      <DependentUpon>CarAdministrationvb.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeleteUser.resx">
       <DependentUpon>DeleteUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewVehicle.resx">
+      <DependentUpon>AddNewVehicle.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
@@ -195,8 +226,14 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RemoveVehicle.resx">
+      <DependentUpon>RemoveVehicle.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchVehicles.resx">
+      <DependentUpon>SearchVehicles.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateUser.resx">
       <DependentUpon>UpdateUser.vb</DependentUpon>
