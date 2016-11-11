@@ -19,6 +19,14 @@
 
     
     <url>
+     <loc>/home/</loc>
+     <lastmod>2016-11-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/ua/</loc>
      <lastmod>2016-11-11</lastmod>
      <changefreq>daily</changefreq>

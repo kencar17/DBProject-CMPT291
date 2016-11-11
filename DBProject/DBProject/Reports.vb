@@ -73,4 +73,8 @@ Public Class Reports
         MsgBox("Report saved to " & fpath)
         Process.Start(fpath)
     End Sub
+
+    Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
+        Help.GetHelp("reports")
+    End Sub
 End Class

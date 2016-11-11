@@ -45,6 +45,6 @@ Public Class Home
     End Sub
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
-
+        Help.GetHelp("home")
     End Sub
 End Class

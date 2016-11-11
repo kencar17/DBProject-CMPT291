@@ -133,4 +133,8 @@ Public Class UpdateUser
     Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
         Me.Close()
     End Sub
+
+    Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
+        Help.GetHelp("ua")
+    End Sub
 End Class
