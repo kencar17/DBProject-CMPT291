@@ -59,6 +59,10 @@
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MySqlBackup, Version=2.0.9.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySqlBackup.NET.2.0.9.4\lib\net45\MySqlBackup.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -94,6 +98,12 @@
       <DependentUpon>CarAdministrationvb.vb</DependentUpon>
     </Compile>
     <Compile Include="CarAdministrationvb.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Backup.Designer.vb">
+      <DependentUpon>Backup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Backup.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DeleteUser.Designer.vb">
@@ -199,8 +209,13 @@
     <EmbeddedResource Include="AddNewUser.resx">
       <DependentUpon>AddNewUser.vb</DependentUpon>
     </EmbeddedResource>
+<<<<<<< 55b921efbfa499e53e840702f8738d42c2ab8f72
     <EmbeddedResource Include="CarAdministrationvb.resx">
       <DependentUpon>CarAdministrationvb.vb</DependentUpon>
+=======
+    <EmbeddedResource Include="Backup.resx">
+      <DependentUpon>Backup.vb</DependentUpon>
+>>>>>>> add MySqlBackup package
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteUser.resx">
       <DependentUpon>DeleteUser.vb</DependentUpon>
