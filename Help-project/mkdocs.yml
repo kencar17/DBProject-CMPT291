@@ -2,5 +2,6 @@ site_name: Car Rental documentation
 pages:
     - Home: index.md
     - Getting Started: gs.md
+    - The Home Screen: home.md
     - User Administration: ua.md
 theme: readthedocs

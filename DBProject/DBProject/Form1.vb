@@ -62,6 +62,6 @@ Public Class Form1
     End Sub
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
-        Help.GetHelp("getting-started")
+        Help.GetHelp("gs")
     End Sub
 End Class
