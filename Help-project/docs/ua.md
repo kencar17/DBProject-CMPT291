@@ -1,4 +1,3 @@
-# User Administration
 Our car rental system allows employees to perform user administration easily and quickly. The operations supported include user creation, deletion, and modification. To begin user administration, [log in](#registered-employee) to open the [employee home screen](#the-home-screen). From the employee home screen, select User Administration:
 
 ![Home](UserAdministration.PNG)
