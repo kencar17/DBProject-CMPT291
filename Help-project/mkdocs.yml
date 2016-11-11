@@ -5,4 +5,5 @@ pages:
     - The Home Screen: home.md
     - User Administration: ua.md
     - Reports: reports.md
+    - System Backup: backup.md
 theme: readthedocs

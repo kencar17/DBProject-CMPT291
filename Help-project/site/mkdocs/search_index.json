@@ -59,6 +59,11 @@
             "location": "/reports/",
             "text": "Several reports can be generated using our system, like seeing all the users registered on the system.\n\n\nTo generate a report, click on the button corresponding to the report you want to generate. A copy of the report will be saved on your desktop in PDF format, and the report will also be opened on your screen.",
             "title": "Reports"
+        },
+        {
+            "location": "/backup/",
+            "text": "Backing up the database system is easy with our backup system. Once you have logged on to the system, select Back Up System. This will present you with options to back up the system, see this help, or to return to the Home screen:\n\n\n\n\nIf you select the Back Up System option, the database contents will be saved to your desktop as a .sql file that can be directly imported into a MySQL database to recreate both the database structure and contents. The file is named as follows:\n\n\nCarRentals yyyyMMdd HHmm.sql\n\n\n\n\nwhere:\n- yyyy is the current year (i.e., 2016)\n- MM is the current month (i.e., 06)\n- dd is the current day of month (i.e., 04)\n- HH is the current hour of day in 24-hour time\n- mm is the current minute of hour\n\n\nWhen you select the option to back up, the system will respond that it has successfully backed up the database.",
+            "title": "System Backup"
         }
     ]
 }
