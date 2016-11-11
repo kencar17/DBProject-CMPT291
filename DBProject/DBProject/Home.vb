@@ -18,10 +18,12 @@ Public Class Home
 
     Private Sub Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.NameLabel.Text = loggedInUser.NameProperty
+        Me.WindowState = FormWindowState.Maximized
     End Sub
 
     Private Sub Home_Unload(sender As Object, e As EventArgs) Handles MyBase.Closing
         callingForm.Show()
+        callingForm.WindowState = FormWindowState.Maximized
     End Sub
 
     Private Sub LogOutButton_Click(sender As Object, e As EventArgs) Handles LogOutButton.Click
@@ -38,6 +40,11 @@ Public Class Home
 
     Private Sub ReportsButton_Click(sender As Object, e As EventArgs) Handles ReportsButton.Click
         Dim reportForm As New Reports
+        reportForm.MdiParent = Me.MdiParent
         reportForm.Show()
+    End Sub
+
+    Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
+
     End Sub
 End Class
