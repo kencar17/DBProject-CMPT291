@@ -60,4 +60,8 @@ Public Class Form1
     Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
         Me.MdiParent.Close()
     End Sub
+
+    Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
+        Help.GetHelp("getting-started")
+    End Sub
 End Class

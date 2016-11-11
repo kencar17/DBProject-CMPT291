@@ -1,0 +1,5 @@
+site_name: Car Rental documentation
+pages:
+    - Home: index.md
+    - Getting Started: gs.md
+theme: readthedocs

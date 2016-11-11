@@ -1,0 +1,49 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Welcome to our Car Rental system",
+            "title": "Home"
+        },
+        {
+            "location": "/#welcome-to-our-car-rental-system",
+            "text": "",
+            "title": "Welcome to our Car Rental system"
+        },
+        {
+            "location": "/gs/",
+            "text": "Getting Started\n\n\nRegistered Employee\n\n\nIf you're already a registered employee, enter your username and password when prompted, and press Submit:\n\n\n\n\nGuest\n\n\nIf you're not a registered guest, feel free to view our inventory using the View Inventory button:\n\n\n\n\nThe Employee Home Screen\n\n\nThe Home Screen\n\n\nUser Administration\n\n\nOur car rental system allows employees to perform user administration easily and quickly. The operations supported include user creation, deletion, and modification. To begin user administration, \nlog in\n to open the \nemployee home screen\n. From the employee home screen, select User Administration:\n\n\n\n\nThe following screen will appear:",
+            "title": "Getting Started"
+        },
+        {
+            "location": "/gs/#getting-started",
+            "text": "",
+            "title": "Getting Started"
+        },
+        {
+            "location": "/gs/#registered-employee",
+            "text": "If you're already a registered employee, enter your username and password when prompted, and press Submit:",
+            "title": "Registered Employee"
+        },
+        {
+            "location": "/gs/#guest",
+            "text": "If you're not a registered guest, feel free to view our inventory using the View Inventory button:",
+            "title": "Guest"
+        },
+        {
+            "location": "/gs/#the-employee-home-screen",
+            "text": "",
+            "title": "The Employee Home Screen"
+        },
+        {
+            "location": "/gs/#the-home-screen",
+            "text": "",
+            "title": "The Home Screen"
+        },
+        {
+            "location": "/gs/#user-administration",
+            "text": "Our car rental system allows employees to perform user administration easily and quickly. The operations supported include user creation, deletion, and modification. To begin user administration,  log in  to open the  employee home screen . From the employee home screen, select User Administration:   The following screen will appear:",
+            "title": "User Administration"
+        }
+    ]
+}
