@@ -35,7 +35,7 @@ Public Class AddNewUser
     End Function
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
-        ' 5. Create a User with the given info
+        ' First, do some error checking
         Me.ErrorLabel.Visible = False
 
         If UsernameBox.Text.Equals("") Then
@@ -63,20 +63,26 @@ Public Class AddNewUser
             Me.ErrorLabel.Visible = True
             Return
         End If
+        ' Check if the user already exists using the check implemented in my User class
         If Not User.FindUser(Me.UsernameBox.Text) Is Nothing Then
             ErrorLabel.Text = String.Format("{0} already exists", UsernameBox.Text)
             ErrorLabel.Visible = True
             Return
         End If
 
+        ' Hash the password
         Dim hashedPass As String = BCrypt.Net.BCrypt.HashPassword(PassBox.Text)
 
+        ' Get a connection to the database
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
+        ' Set up a command to run some SQL with
         Using sqlComm As New MySqlCommand()
             With sqlComm
-                .Connection = dbconn
+                .Connection = dbconn ' Tell the sql command to use the connection we got just above
+                ' Give the command some sql to run
                 .CommandText = "INSERT INTO Employee (FirstName, LastName, PostalCode, StreetAddress, City, State, Country, Email) VALUES (@firstname, @lastname, @pcode, @addr, @city, @state, @country, @email)"
                 .CommandType = CommandType.Text
+                ' Add the values. The sql above has keys such as @firstname which will now be replaced:
                 .Parameters.AddWithValue("@firstname", FirstnameBox.Text)
                 .Parameters.AddWithValue("@lastname", LastnameBox.Text)
                 .Parameters.AddWithValue("@pcode", PostcodeBox.Text)
@@ -86,13 +92,17 @@ Public Class AddNewUser
                 .Parameters.AddWithValue("@country", CountryBox.Text)
                 .Parameters.AddWithValue("@email", EmailBox.Text)
             End With
+            ' Run the command. This command doesn't give back any results, so can just use ExecuteNonQuery
             sqlComm.ExecuteNonQuery()
         End Using
+        ' Finally close the connection
         SQLConnection.Instance.CloseConnection()
 
+        ' Get another connection and command
         dbconn = SQLConnection.Instance.GetConnection()
         Dim eid As String
         Using sqlComma As New MySqlCommand()
+            ' Give the command the sql stuff to get the EID of the Employee just inserted above
             With sqlComma
                 .Connection = dbconn
                 .CommandText = "SELECT EID FROM Employee WHERE FirstName = @firstname AND LastName = @lastname AND Email = @email"
@@ -102,16 +112,20 @@ Public Class AddNewUser
                 .Parameters.AddWithValue("@email", EmailBox.Text)
             End With
             Try
+                ' This time I need data returned so I get a data reader
                 Dim sqlReader As MySqlDataReader = sqlComma.ExecuteReader()
                 While sqlReader.Read()
+                    ' While I'm reading the results of the query, I look for the column EID and store the contents into my variable eid
                     eid = sqlReader("EID").ToString()
                 End While
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
         End Using
+        ' Finally close the connection
         SQLConnection.Instance.CloseConnection()
 
+        ' Get another connection and do another insert similar to the first one, this time using the eid I got above
         dbconn = SQLConnection.Instance.GetConnection()
         Using sqlCommb As New MySqlCommand()
             With sqlCommb
