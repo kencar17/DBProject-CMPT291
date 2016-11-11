@@ -51,7 +51,7 @@ Partial Class DeleteUser
         Me.DoneButton.Name = "DoneButton"
         Me.DoneButton.Size = New System.Drawing.Size(75, 23)
         Me.DoneButton.TabIndex = 2
-        Me.DoneButton.Text = "Done"
+        Me.DoneButton.Text = "Close"
         Me.DoneButton.UseVisualStyleBackColor = True
         '
         'DeleteUser
