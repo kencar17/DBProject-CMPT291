@@ -35,6 +35,7 @@ Partial Class UpdateUser
         Me.PassBox = New System.Windows.Forms.TextBox()
         Me.UsernameBox = New System.Windows.Forms.TextBox()
         Me.UserSelection = New System.Windows.Forms.ComboBox()
+        Me.CloseButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ErrorLabel
@@ -147,11 +148,21 @@ Partial Class UpdateUser
         Me.UserSelection.Size = New System.Drawing.Size(121, 21)
         Me.UserSelection.TabIndex = 24
         '
+        'CloseButton
+        '
+        Me.CloseButton.Location = New System.Drawing.Point(22, 215)
+        Me.CloseButton.Name = "CloseButton"
+        Me.CloseButton.Size = New System.Drawing.Size(99, 23)
+        Me.CloseButton.TabIndex = 25
+        Me.CloseButton.Text = "Close"
+        Me.CloseButton.UseVisualStyleBackColor = True
+        '
         'UpdateUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 219)
+        Me.ClientSize = New System.Drawing.Size(284, 250)
+        Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.UserSelection)
         Me.Controls.Add(Me.ErrorLabel)
         Me.Controls.Add(Me.SubmitButton)
@@ -185,4 +196,5 @@ Partial Class UpdateUser
     Friend WithEvents PassBox As TextBox
     Friend WithEvents UsernameBox As TextBox
     Friend WithEvents UserSelection As ComboBox
+    Friend WithEvents CloseButton As Button
 End Class
