@@ -64,7 +64,6 @@ Partial Class Home
         '
         'BackupButton
         '
-        Me.BackupButton.Enabled = False
         Me.BackupButton.Location = New System.Drawing.Point(12, 99)
         Me.BackupButton.Name = "BackupButton"
         Me.BackupButton.Size = New System.Drawing.Size(116, 23)

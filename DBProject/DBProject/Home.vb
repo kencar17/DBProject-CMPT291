@@ -47,4 +47,10 @@ Public Class Home
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
         Help.GetHelp("home")
     End Sub
+
+    Private Sub BackupButton_Click(sender As Object, e As EventArgs) Handles BackupButton.Click
+        Dim bakForm As New Backup
+        bakForm.MdiParent = Me.MdiParent
+        bakForm.Show()
+    End Sub
 End Class
