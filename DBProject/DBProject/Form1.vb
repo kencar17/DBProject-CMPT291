@@ -21,6 +21,7 @@ Public Class Form1
         Me.NotFoundLabel.Visible = False
         Me.AutoSize = True
         Me.AutoSizeMode = AutoSizeMode.GrowOnly
+        Me.WindowState = FormWindowState.Maximized
         Me.MdiParent = callingForm
     End Sub
 
@@ -45,7 +46,7 @@ Public Class Form1
             Dim homeForm As New Home
             homeForm.LoggedInUserProperty = aUser
             homeForm.CallingFormProperty = Me
-            homeForm.MdiParent = callingForm
+            homeForm.MdiParent = Me.MdiParent
             homeForm.Show()
             Me.UserBox.Text = ""
             Me.PassBox.Text = ""
@@ -54,5 +55,9 @@ Public Class Form1
 
     Private Sub CheckButton_Click(sender As Object, e As EventArgs) Handles CheckButton.Click
         ' Launch the view inventory form
+    End Sub
+
+    Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
+        Me.MdiParent.Close()
     End Sub
 End Class

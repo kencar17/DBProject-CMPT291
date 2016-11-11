@@ -27,25 +27,27 @@ Partial Class Form1
         Me.SignInButton = New System.Windows.Forms.Button()
         Me.NotFoundLabel = New System.Windows.Forms.Label()
         Me.CheckButton = New System.Windows.Forms.Button()
+        Me.CloseButton = New System.Windows.Forms.Button()
+        Me.HelpButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'UserBox
         '
-        Me.UserBox.Location = New System.Drawing.Point(81, 12)
+        Me.UserBox.Location = New System.Drawing.Point(260, 135)
         Me.UserBox.Name = "UserBox"
         Me.UserBox.Size = New System.Drawing.Size(100, 20)
         Me.UserBox.TabIndex = 0
         '
         'PassBox
         '
-        Me.PassBox.Location = New System.Drawing.Point(81, 38)
+        Me.PassBox.Location = New System.Drawing.Point(260, 161)
         Me.PassBox.Name = "PassBox"
         Me.PassBox.Size = New System.Drawing.Size(100, 20)
         Me.PassBox.TabIndex = 1
         '
         'SignInButton
         '
-        Me.SignInButton.Location = New System.Drawing.Point(81, 65)
+        Me.SignInButton.Location = New System.Drawing.Point(260, 188)
         Me.SignInButton.Name = "SignInButton"
         Me.SignInButton.Size = New System.Drawing.Size(100, 23)
         Me.SignInButton.TabIndex = 2
@@ -64,18 +66,38 @@ Partial Class Form1
         'CheckButton
         '
         Me.CheckButton.Enabled = False
-        Me.CheckButton.Location = New System.Drawing.Point(81, 94)
+        Me.CheckButton.Location = New System.Drawing.Point(260, 217)
         Me.CheckButton.Name = "CheckButton"
         Me.CheckButton.Size = New System.Drawing.Size(100, 23)
         Me.CheckButton.TabIndex = 5
         Me.CheckButton.Text = "View Inventory"
         Me.CheckButton.UseVisualStyleBackColor = True
         '
+        'CloseButton
+        '
+        Me.CloseButton.Location = New System.Drawing.Point(260, 276)
+        Me.CloseButton.Name = "CloseButton"
+        Me.CloseButton.Size = New System.Drawing.Size(100, 23)
+        Me.CloseButton.TabIndex = 6
+        Me.CloseButton.Text = "Close"
+        Me.CloseButton.UseVisualStyleBackColor = True
+        '
+        'HelpButton
+        '
+        Me.HelpButton.Location = New System.Drawing.Point(260, 247)
+        Me.HelpButton.Name = "HelpButton"
+        Me.HelpButton.Size = New System.Drawing.Size(100, 23)
+        Me.HelpButton.TabIndex = 7
+        Me.HelpButton.Text = "Help"
+        Me.HelpButton.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(624, 441)
+        Me.Controls.Add(Me.HelpButton)
+        Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.CheckButton)
         Me.Controls.Add(Me.NotFoundLabel)
         Me.Controls.Add(Me.SignInButton)
@@ -98,4 +120,6 @@ Partial Class Form1
     Friend WithEvents SignInButton As Button
     Friend WithEvents NotFoundLabel As Label
     Friend WithEvents CheckButton As Button
+    Friend WithEvents CloseButton As Button
+    Friend WithEvents HelpButton As Button
 End Class
