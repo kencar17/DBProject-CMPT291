@@ -209,13 +209,11 @@
     <EmbeddedResource Include="AddNewUser.resx">
       <DependentUpon>AddNewUser.vb</DependentUpon>
     </EmbeddedResource>
-<<<<<<< 55b921efbfa499e53e840702f8738d42c2ab8f72
     <EmbeddedResource Include="CarAdministrationvb.resx">
       <DependentUpon>CarAdministrationvb.vb</DependentUpon>
-=======
+    </EmbeddedResource>
     <EmbeddedResource Include="Backup.resx">
       <DependentUpon>Backup.vb</DependentUpon>
->>>>>>> add MySqlBackup package
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteUser.resx">
       <DependentUpon>DeleteUser.vb</DependentUpon>
