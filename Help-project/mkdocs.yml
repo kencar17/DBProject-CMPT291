@@ -4,4 +4,5 @@ pages:
     - Getting Started: gs.md
     - The Home Screen: home.md
     - User Administration: ua.md
+    - Reports: reports.md
 theme: readthedocs
