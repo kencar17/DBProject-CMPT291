@@ -25,6 +25,8 @@ Partial Class UserAdmin
         Me.NewButton = New System.Windows.Forms.Button()
         Me.RemoveButton = New System.Windows.Forms.Button()
         Me.UpdateButton = New System.Windows.Forms.Button()
+        Me.CloseButton = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'NewButton
@@ -54,11 +56,31 @@ Partial Class UserAdmin
         Me.UpdateButton.Text = "Update a User"
         Me.UpdateButton.UseVisualStyleBackColor = True
         '
+        'CloseButton
+        '
+        Me.CloseButton.Location = New System.Drawing.Point(84, 102)
+        Me.CloseButton.Name = "CloseButton"
+        Me.CloseButton.Size = New System.Drawing.Size(88, 23)
+        Me.CloseButton.TabIndex = 3
+        Me.CloseButton.Text = "Close"
+        Me.CloseButton.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(84, 131)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(88, 23)
+        Me.Button2.TabIndex = 4
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'UserAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(263, 108)
+        Me.ClientSize = New System.Drawing.Size(263, 167)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.UpdateButton)
         Me.Controls.Add(Me.RemoveButton)
         Me.Controls.Add(Me.NewButton)
@@ -71,4 +93,6 @@ Partial Class UserAdmin
     Friend WithEvents NewButton As Button
     Friend WithEvents RemoveButton As Button
     Friend WithEvents UpdateButton As Button
+    Friend WithEvents CloseButton As Button
+    Friend WithEvents Button2 As Button
 End Class
