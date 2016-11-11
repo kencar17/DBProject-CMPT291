@@ -12,12 +12,7 @@
         },
         {
             "location": "/gs/",
-            "text": "Getting Started\n\n\nRegistered Employee\n\n\nIf you're already a registered employee, enter your username and password when prompted, and press Submit:\n\n\n\n\nGuest\n\n\nIf you're not a registered guest, feel free to view our inventory using the View Inventory button:",
-            "title": "Getting Started"
-        },
-        {
-            "location": "/gs/#getting-started",
-            "text": "",
+            "text": "Registered Employee\n\n\nIf you're already a registered employee, enter your username and password when prompted, and press Submit:\n\n\n\n\nGuest\n\n\nIf you're not a registered guest, feel free to view our inventory using the View Inventory button:",
             "title": "Getting Started"
         },
         {
@@ -32,22 +27,12 @@
         },
         {
             "location": "/home/",
-            "text": "The Home Screen\n\n\nThe home screen is your portal to the system's functionality. Here, you can do common operations such as performing user administration. Simply select the operation you would like to perform. Or, you can select Logout to quit your session.",
-            "title": "The Home Screen"
-        },
-        {
-            "location": "/home/#the-home-screen",
             "text": "The home screen is your portal to the system's functionality. Here, you can do common operations such as performing user administration. Simply select the operation you would like to perform. Or, you can select Logout to quit your session.",
             "title": "The Home Screen"
         },
         {
             "location": "/ua/",
-            "text": "User Administration\n\n\nOur car rental system allows employees to perform user administration easily and quickly. The operations supported include user creation, deletion, and modification. To begin user administration, \nlog in\n to open the \nemployee home screen\n. From the employee home screen, select User Administration:\n\n\n\n\nThe following screen will appear:\n\n\n\n\nAdding a User\n\n\nTo add a user to the system, first \nopen the user administration\n screen, and select the Add New User option. This will open the new user screen:\n\n\n\n\nYou will need to know the following information:\n- A unique username\n- Strong, private password\n- First name\n- Last name\n- Full Address\n- Email\n\n\nEnter the information, then click on Submit. The system will notify you that the user has been registered. If the system requires you to change the information you entered, you will be informed when you click on Submit.\n\n\nDeleting a User\n\n\nTo delete a user from the system, first \nopen the user administration\n screen, and select the Delete a User option. This will open the user deletion screen:\n\n\n\n\nWhen you have made your selection and are ready to delete the user, press the Delete button. Once you are done deleting users, press the Done button. The system will notify you that the deletion has been completed.\n\n\nUpdating a User\n\n\nTo update a user in the system, first \nopen the user administration\n screen, and select the Update a User option. This will open the user modification screen:\n\n\n\n\nSelect the username of the user you wish to update from the drop-down box at the top of the screen. This will update the screen with the current information of the user. \nPlease refer to the section on \npasswords\n for more information on the password modification box.\n The username of the user cannot be changed. Once you are satisfied with the information you have modified, press the Submit button. The system will notify you that the update has been completed.\n\n\nPasswords\n\n\nWhen you select a user from the drop-down menu, you will notice that the user's password is not shown. This is to protect the privacy of users in the system. \nBy default, if you do not enter a password, the password will not be changed. If you enter a password, the user's password will be changed. Do not enter text into the password box unless you want to change the user's password.",
-            "title": "User Administration"
-        },
-        {
-            "location": "/ua/#user-administration",
-            "text": "Our car rental system allows employees to perform user administration easily and quickly. The operations supported include user creation, deletion, and modification. To begin user administration,  log in  to open the  employee home screen . From the employee home screen, select User Administration:   The following screen will appear:",
+            "text": "Our car rental system allows employees to perform user administration easily and quickly. The operations supported include user creation, deletion, and modification. To begin user administration, \nlog in\n to open the \nemployee home screen\n. From the employee home screen, select User Administration:\n\n\n\n\nThe following screen will appear:\n\n\n\n\nAdding a User\n\n\nTo add a user to the system, first \nopen the user administration\n screen, and select the Add New User option. This will open the new user screen:\n\n\n\n\nYou will need to know the following information:\n- A unique username\n- Strong, private password\n- First name\n- Last name\n- Full Address\n- Email\n\n\nEnter the information, then click on Submit. The system will notify you that the user has been registered. If the system requires you to change the information you entered, you will be informed when you click on Submit.\n\n\nDeleting a User\n\n\nTo delete a user from the system, first \nopen the user administration\n screen, and select the Delete a User option. This will open the user deletion screen:\n\n\n\n\nWhen you have made your selection and are ready to delete the user, press the Delete button. Once you are done deleting users, press the Done button. The system will notify you that the deletion has been completed.\n\n\nUpdating a User\n\n\nTo update a user in the system, first \nopen the user administration\n screen, and select the Update a User option. This will open the user modification screen:\n\n\n\n\nSelect the username of the user you wish to update from the drop-down box at the top of the screen. This will update the screen with the current information of the user. \nPlease refer to the section on \npasswords\n for more information on the password modification box.\n The username of the user cannot be changed. Once you are satisfied with the information you have modified, press the Submit button. The system will notify you that the update has been completed.\n\n\nPasswords\n\n\nWhen you select a user from the drop-down menu, you will notice that the user's password is not shown. This is to protect the privacy of users in the system. \nBy default, if you do not enter a password, the password will not be changed. If you enter a password, the user's password will be changed. Do not enter text into the password box unless you want to change the user's password.",
             "title": "User Administration"
         },
         {
@@ -69,6 +54,11 @@
             "location": "/ua/#passwords",
             "text": "When you select a user from the drop-down menu, you will notice that the user's password is not shown. This is to protect the privacy of users in the system.  By default, if you do not enter a password, the password will not be changed. If you enter a password, the user's password will be changed. Do not enter text into the password box unless you want to change the user's password.",
             "title": "Passwords"
+        },
+        {
+            "location": "/reports/",
+            "text": "Several reports can be generated using our system, like seeing all the users registered on the system.\n\n\nTo generate a report, click on the button corresponding to the report you want to generate. A copy of the report will be saved on your desktop in PDF format, and the report will also be opened on your screen.",
+            "title": "Reports"
         }
     ]
 }
