@@ -25,6 +25,12 @@ Partial Class Reports
         Me.ViewUsersButton = New System.Windows.Forms.Button()
         Me.HelpButton = New System.Windows.Forms.Button()
         Me.CloseButton = New System.Windows.Forms.Button()
+        Me.FeedbackButton = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PDFOption = New System.Windows.Forms.RadioButton()
+        Me.ExcelOption = New System.Windows.Forms.RadioButton()
+        Me.BothOption = New System.Windows.Forms.RadioButton()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ViewUsersButton
@@ -54,16 +60,71 @@ Partial Class Reports
         Me.CloseButton.Text = "Close"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
+        'FeedbackButton
+        '
+        Me.FeedbackButton.Location = New System.Drawing.Point(13, 43)
+        Me.FeedbackButton.Name = "FeedbackButton"
+        Me.FeedbackButton.Size = New System.Drawing.Size(75, 23)
+        Me.FeedbackButton.TabIndex = 3
+        Me.FeedbackButton.Text = "Feedback"
+        Me.FeedbackButton.UseVisualStyleBackColor = True
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.BothOption)
+        Me.Panel1.Controls.Add(Me.ExcelOption)
+        Me.Panel1.Controls.Add(Me.PDFOption)
+        Me.Panel1.Location = New System.Drawing.Point(114, 13)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(137, 100)
+        Me.Panel1.TabIndex = 4
+        '
+        'PDFOption
+        '
+        Me.PDFOption.AutoSize = True
+        Me.PDFOption.Checked = True
+        Me.PDFOption.Location = New System.Drawing.Point(4, 4)
+        Me.PDFOption.Name = "PDFOption"
+        Me.PDFOption.Size = New System.Drawing.Size(46, 17)
+        Me.PDFOption.TabIndex = 0
+        Me.PDFOption.TabStop = True
+        Me.PDFOption.Text = "PDF"
+        Me.PDFOption.UseVisualStyleBackColor = True
+        '
+        'ExcelOption
+        '
+        Me.ExcelOption.AutoSize = True
+        Me.ExcelOption.Location = New System.Drawing.Point(4, 27)
+        Me.ExcelOption.Name = "ExcelOption"
+        Me.ExcelOption.Size = New System.Drawing.Size(51, 17)
+        Me.ExcelOption.TabIndex = 1
+        Me.ExcelOption.Text = "Excel"
+        Me.ExcelOption.UseVisualStyleBackColor = True
+        '
+        'BothOption
+        '
+        Me.BothOption.AutoSize = True
+        Me.BothOption.Location = New System.Drawing.Point(4, 50)
+        Me.BothOption.Name = "BothOption"
+        Me.BothOption.Size = New System.Drawing.Size(47, 17)
+        Me.BothOption.TabIndex = 2
+        Me.BothOption.Text = "Both"
+        Me.BothOption.UseVisualStyleBackColor = True
+        '
         'Reports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(263, 261)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.FeedbackButton)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.ViewUsersButton)
         Me.Name = "Reports"
         Me.Text = "Reports"
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -71,4 +132,9 @@ Partial Class Reports
     Friend WithEvents ViewUsersButton As Button
     Friend WithEvents HelpButton As Button
     Friend WithEvents CloseButton As Button
+    Friend WithEvents FeedbackButton As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents BothOption As RadioButton
+    Friend WithEvents ExcelOption As RadioButton
+    Friend WithEvents PDFOption As RadioButton
 End Class
