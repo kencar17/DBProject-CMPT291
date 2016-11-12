@@ -60,4 +60,10 @@ Public Class Home
         bakForm.Show()
 
     End Sub
+
+    Private Sub BranchButton_Click(sender As Object, e As EventArgs) Handles BranchButton.Click
+        Dim branchWindow As New Branches
+        branchWindow.MdiParent = Me.MdiParent
+        branchWindow.Show()
+    End Sub
 End Class
