@@ -130,4 +130,8 @@ Public Class Feedback
             e.Handled = True
         End If
     End Sub
+
+    Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
+        Help.GetHelp("feedback")
+    End Sub
 End Class
