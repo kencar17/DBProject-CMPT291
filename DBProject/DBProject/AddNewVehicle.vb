@@ -4,68 +4,75 @@ Public Class AddNewVehicle
         Me.wrongInfo.Visible = False
 
         If VINbox.Text.Equals("") Then
-            wrongInfo.Text.Equals("A VIN number must be given")
+            wrongInfo.Text = "A VIN number must be given"
             Me.wrongInfo.Visible = True
             Return
         End If
 
         If MakeBox.Text.Equals("") Then
-            wrongInfo.Text.Equals("A vehicle make must be given")
+            wrongInfo.Text = "A vehicle make must be given"
             Me.wrongInfo.Visible = True
             Return
         End If
 
         If ModelBox.Text.Equals("") Then
-            wrongInfo.Text.Equals("A vehicle model must be given")
+            wrongInfo.Text = "A vehicle model must be given"
             Me.wrongInfo.Visible = True
             Return
         End If
 
         If ClassBox.Text.Equals("") Then
-            wrongInfo.Text.Equals("A vehicle class must be given")
+            wrongInfo.Text = "A vehicle class must be given"
             Me.wrongInfo.Visible = True
             Return
         End If
 
         If KMBox.Text.Equals("") Then
-            wrongInfo.Text.Equals("The Kilometers of the vehicle must be given")
+            wrongInfo.Text = "The Kilometers of the vehicle must be given"
             Me.wrongInfo.Visible = True
             Return
         End If
 
         If YearBox.Text.Equals("") Then
-            wrongInfo.Text.Equals("The year the vehicle was made must be given")
+            wrongInfo.Text = "The year the vehicle was made must be given"
             Me.wrongInfo.Visible = True
             Return
         End If
 
         If SeatsBox.Text.Equals("") Then
-            wrongInfo.Text.Equals("Seating capacity must be given")
+            wrongInfo.Text = "Seating capacity must be given"
             Me.wrongInfo.Visible = True
             Return
         End If
 
         If GVWRBox.Text.Equals("") Then
-            wrongInfo.Text.Equals("The Gross Vehicle Weight Rating must be given")
+            wrongInfo.Text = "The Gross Vehicle Weight Rating must be given"
             Me.wrongInfo.Visible = True
             Return
         End If
 
         If TransBox.Text.Equals("") Then
-            wrongInfo.Text.Equals("The type of transmission must be given")
+            wrongInfo.Text = "The type of transmission must be given"
             Me.wrongInfo.Visible = True
             Return
         End If
 
         If AvailBox.Text.Equals("") Then
-            wrongInfo.Text.Equals("Must have availability")
+            wrongInfo.Text = "Must have availability"
             Me.wrongInfo.Visible = True
             Return
         End If
 
         If CoverageBox.Text.Equals("") Then
-            wrongInfo.Text.Equals("The coverage of the vehicle must be given")
+            wrongInfo.Text = "The coverage of the vehicle must be given"
             Me.wrongInfo.Visible = True
+            Return
+        End If
+
+        Dim vehicle = Inventory.FindVehicle(Me.VINbox.Text)
+        If vehicle Is Nothing Then
+            wrongInfo.Text = "VIN already in database"
+            wrongInfo.Visible = True
             Return
         End If
 
@@ -94,6 +101,14 @@ Public Class AddNewVehicle
         SQLConnection.Instance.CloseConnection()
         MsgBox("Vehicle Added")
         Me.Close()
+    End Sub
+
+    Private Sub GoBack_Click(sender As Object, e As EventArgs) Handles GoBack.Click
+        Me.Close()
+    End Sub
+
+    Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
+        Help.GetHelp("addNewVehicle")
     End Sub
 
     'FIDD.Items.Add(Something)

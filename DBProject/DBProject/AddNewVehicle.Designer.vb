@@ -49,6 +49,8 @@ Partial Class AddNewVehicle
         Me.Label13 = New System.Windows.Forms.Label()
         Me.addVehicle = New System.Windows.Forms.Button()
         Me.wrongInfo = New System.Windows.Forms.Label()
+        Me.GoBack = New System.Windows.Forms.Button()
+        Me.HelpButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -271,12 +273,33 @@ Partial Class AddNewVehicle
         Me.wrongInfo.Size = New System.Drawing.Size(264, 31)
         Me.wrongInfo.TabIndex = 28
         Me.wrongInfo.Text = "Incorrect Information"
+        Me.wrongInfo.Visible = False
+        '
+        'GoBack
+        '
+        Me.GoBack.Location = New System.Drawing.Point(596, 43)
+        Me.GoBack.Name = "GoBack"
+        Me.GoBack.Size = New System.Drawing.Size(186, 50)
+        Me.GoBack.TabIndex = 29
+        Me.GoBack.Text = "Back"
+        Me.GoBack.UseVisualStyleBackColor = True
+        '
+        'HelpButton
+        '
+        Me.HelpButton.Location = New System.Drawing.Point(596, 99)
+        Me.HelpButton.Name = "HelpButton"
+        Me.HelpButton.Size = New System.Drawing.Size(186, 50)
+        Me.HelpButton.TabIndex = 30
+        Me.HelpButton.Text = "Help"
+        Me.HelpButton.UseVisualStyleBackColor = True
         '
         'AddNewVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(794, 659)
+        Me.Controls.Add(Me.HelpButton)
+        Me.Controls.Add(Me.GoBack)
         Me.Controls.Add(Me.wrongInfo)
         Me.Controls.Add(Me.addVehicle)
         Me.Controls.Add(Me.Label13)
@@ -338,4 +361,6 @@ Partial Class AddNewVehicle
     Friend WithEvents Label13 As Label
     Friend WithEvents addVehicle As Button
     Friend WithEvents wrongInfo As Label
+    Friend WithEvents GoBack As Button
+    Friend WithEvents HelpButton As Button
 End Class
