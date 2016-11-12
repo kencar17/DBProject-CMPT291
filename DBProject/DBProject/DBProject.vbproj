@@ -175,6 +175,12 @@
     <Compile Include="UpdateUser.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UpdateVehicle.Designer.vb">
+      <DependentUpon>UpdateVehicle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateVehicle.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="User.vb" />
     <Compile Include="UserAdmin.Designer.vb">
       <DependentUpon>UserAdmin.vb</DependentUpon>
@@ -237,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateUser.resx">
       <DependentUpon>UpdateUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateVehicle.resx">
+      <DependentUpon>UpdateVehicle.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserAdmin.resx">
       <DependentUpon>UserAdmin.vb</DependentUpon>

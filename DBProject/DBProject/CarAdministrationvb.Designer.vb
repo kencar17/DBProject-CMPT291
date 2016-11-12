@@ -26,6 +26,7 @@ Partial Class CarAdministrationvb
         Me.SearchB = New System.Windows.Forms.Button()
         Me.RemoveVehicleB = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
+        Me.UpdateButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'AddVehicleB
@@ -39,7 +40,7 @@ Partial Class CarAdministrationvb
         '
         'SearchB
         '
-        Me.SearchB.Location = New System.Drawing.Point(12, 136)
+        Me.SearchB.Location = New System.Drawing.Point(12, 190)
         Me.SearchB.Name = "SearchB"
         Me.SearchB.Size = New System.Drawing.Size(204, 48)
         Me.SearchB.TabIndex = 1
@@ -48,7 +49,7 @@ Partial Class CarAdministrationvb
         '
         'RemoveVehicleB
         '
-        Me.RemoveVehicleB.Location = New System.Drawing.Point(12, 82)
+        Me.RemoveVehicleB.Location = New System.Drawing.Point(12, 136)
         Me.RemoveVehicleB.Name = "RemoveVehicleB"
         Me.RemoveVehicleB.Size = New System.Drawing.Size(204, 48)
         Me.RemoveVehicleB.TabIndex = 3
@@ -65,11 +66,21 @@ Partial Class CarAdministrationvb
         Me.BackButton.UseCompatibleTextRendering = True
         Me.BackButton.UseVisualStyleBackColor = True
         '
+        'UpdateButton
+        '
+        Me.UpdateButton.Location = New System.Drawing.Point(12, 82)
+        Me.UpdateButton.Name = "UpdateButton"
+        Me.UpdateButton.Size = New System.Drawing.Size(204, 48)
+        Me.UpdateButton.TabIndex = 5
+        Me.UpdateButton.Text = "Update Vehicle"
+        Me.UpdateButton.UseVisualStyleBackColor = True
+        '
         'CarAdministrationvb
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(620, 521)
+        Me.Controls.Add(Me.UpdateButton)
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.RemoveVehicleB)
         Me.Controls.Add(Me.SearchB)
@@ -84,4 +95,5 @@ Partial Class CarAdministrationvb
     Friend WithEvents SearchB As Button
     Friend WithEvents RemoveVehicleB As Button
     Friend WithEvents BackButton As Button
+    Friend WithEvents UpdateButton As Button
 End Class

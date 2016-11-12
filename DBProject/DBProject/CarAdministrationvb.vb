@@ -20,4 +20,10 @@
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
         Me.Close()
     End Sub
+
+    Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
+        Dim UpdateVehicle As New UpdateVehicle
+        UpdateVehicle.MdiParent = Me.MdiParent
+        UpdateVehicle.Show()
+    End Sub
 End Class

@@ -17,8 +17,8 @@ Public Class Inventory
         Get
             Return vin
         End Get
-        Set
-            vin = Value
+        Set(value As String)
+            vin = value
         End Set
     End Property
 
@@ -53,8 +53,8 @@ Public Class Inventory
         Get
             Return km
         End Get
-        Set
-            km = Value
+        Set(value As String)
+            km = value
         End Set
     End Property
 
@@ -62,8 +62,8 @@ Public Class Inventory
         Get
             Return year
         End Get
-        Set
-            year = Value
+        Set(value As String)
+            year = value
         End Set
     End Property
 
@@ -71,8 +71,8 @@ Public Class Inventory
         Get
             Return seats
         End Get
-        Set
-            seats = Value
+        Set(value As String)
+            seats = value
         End Set
     End Property
 
@@ -80,8 +80,8 @@ Public Class Inventory
         Get
             Return gvwr
         End Get
-        Set
-            gvwr = Value
+        Set(value As String)
+            gvwr = value
         End Set
     End Property
 
@@ -98,8 +98,8 @@ Public Class Inventory
         Get
             Return lPlateNum
         End Get
-        Set
-            lPlateNum = Value
+        Set(value As String)
+            lPlateNum = value
         End Set
     End Property
 
@@ -107,8 +107,8 @@ Public Class Inventory
         Get
             Return available
         End Get
-        Set
-            available = Value
+        Set(value As String)
+            available = value
         End Set
     End Property
 
@@ -116,9 +116,85 @@ Public Class Inventory
         Get
             Return coverage
         End Get
-        Set
-            coverage = Value
+        Set(value As String)
+            coverage = value
         End Set
     End Property
 
+    Public Sub New(vin As String)
+        Me.VinProperty = vin
+    End Sub
+
+
+    Public Shared Function FindVehicle(vin As String) As Inventory
+        Dim checkSQL As String = "SELECT VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage FROM Vehicle WHERE VIN = @vin"
+        Dim returnedVin As String = ""
+        Dim returnedMake As String
+        Dim returnedModel As String
+        Dim returnedClass As String
+        Dim returnedKm As String
+        Dim returnedYear As String
+        Dim returnedSeats As String
+        Dim returnedGVWR As String
+        Dim returnedTrans As String
+        Dim returnedPlate As String
+        Dim returnedAvail As String
+        Dim returnedCoverage As String
+
+        Dim dbConnection = SQLConnection.Instance.GetConnection()
+        Using sqlComm As New MySqlCommand()
+            With sqlComm
+                .Connection = dbConnection
+                .CommandText = checkSQL
+                .CommandType = CommandType.Text
+                .Parameters.AddWithValue("@vin", vin)
+            End With
+            Try
+                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+                While sqlReader.Read()
+                    returnedVin = sqlReader("VIN").ToString()
+                    returnedMake = sqlReader("Make").ToString()
+                    returnedModel = sqlReader("Model").ToString()
+                    returnedClass = sqlReader("Class").ToString()
+                    returnedKm = sqlReader("Km").ToString()
+                    returnedYear = sqlReader("Year").ToString()
+                    returnedSeats = sqlReader("Seats").ToString()
+                    returnedGVWR = sqlReader("GVWR").ToString()
+                    returnedTrans = sqlReader("Transmission").ToString()
+                    returnedPlate = sqlReader("License").ToString()
+                    returnedAvail = sqlReader("Available").ToString()
+                    returnedCoverage = sqlReader("Coverage").ToString()
+                End While
+            Catch ex As Exception
+                Return Nothing
+            End Try
+        End Using
+        SQLConnection.Instance.CloseConnection()
+
+        If Not returnedVin.Equals(vin) Then
+            Return Nothing
+        End If
+
+        Dim newVehicle As New Inventory(returnedVin)
+
+        With newVehicle
+            .MakeProperty = returnedMake
+            .ModelProperty = returnedModel
+            .VClassProperty = returnedClass
+            .KmProperty = returnedKm
+            .YearProperty = returnedYear
+            .SeatsProperty = returnedSeats
+            .GvwrProperty = returnedGVWR
+            .TransmissionProperty = returnedTrans
+            .LPlateNumProperty = returnedPlate
+            .AvailableProperty = returnedAvail
+            .CoverageProperty = returnedCoverage
+        End With
+
+        Return newVehicle
+    End Function
+
+    Public Overrides Function ToString() As String
+        Return vin
+    End Function
 End Class
