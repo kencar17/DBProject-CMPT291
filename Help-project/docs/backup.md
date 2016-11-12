@@ -9,6 +9,7 @@ CarRentals yyyyMMdd HHmm.sql
 ```
 
 where:
+
 - yyyy is the current year (i.e., 2016)
 - MM is the current month (i.e., 06)
 - dd is the current day of month (i.e., 04)

@@ -12,6 +12,7 @@ To add a user to the system, first [open the user administration](#User-Administ
 ![Add a User](NewUser.png)
 
 You will need to know the following information:
+
 - A unique username
 - Strong, private password
 - First name

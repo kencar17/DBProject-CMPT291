@@ -76,7 +76,7 @@ Partial Class Form1
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(260, 305)
+        Me.CloseButton.Location = New System.Drawing.Point(260, 304)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(100, 23)
         Me.CloseButton.TabIndex = 6
@@ -85,7 +85,7 @@ Partial Class Form1
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(260, 247)
+        Me.HelpButton.Location = New System.Drawing.Point(260, 275)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(100, 23)
         Me.HelpButton.TabIndex = 7
@@ -94,7 +94,7 @@ Partial Class Form1
         '
         'RateButton
         '
-        Me.RateButton.Location = New System.Drawing.Point(260, 276)
+        Me.RateButton.Location = New System.Drawing.Point(260, 246)
         Me.RateButton.Name = "RateButton"
         Me.RateButton.Size = New System.Drawing.Size(100, 23)
         Me.RateButton.TabIndex = 8

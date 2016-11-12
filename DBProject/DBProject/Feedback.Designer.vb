@@ -23,7 +23,7 @@ Partial Class Feedback
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Feedback))
-        Me.OrderIDBox = New System.Windows.Forms.TextBox()
+        Me.TIDBox = New System.Windows.Forms.TextBox()
         Me.s1 = New System.Windows.Forms.PictureBox()
         Me.s2 = New System.Windows.Forms.PictureBox()
         Me.s3 = New System.Windows.Forms.PictureBox()
@@ -39,6 +39,8 @@ Partial Class Feedback
         Me.SubmitButton = New System.Windows.Forms.Button()
         Me.CancelButton = New System.Windows.Forms.Button()
         Me.CharCounter = New System.Windows.Forms.Label()
+        Me.unusedLabelX = New System.Windows.Forms.Label()
+        Me.errorLabel = New System.Windows.Forms.Label()
         CType(Me.s1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.s2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.s3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,12 +53,12 @@ Partial Class Feedback
         CType(Me.s10, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'OrderIDBox
+        'TIDBox
         '
-        Me.OrderIDBox.Location = New System.Drawing.Point(88, 13)
-        Me.OrderIDBox.Name = "OrderIDBox"
-        Me.OrderIDBox.Size = New System.Drawing.Size(222, 20)
-        Me.OrderIDBox.TabIndex = 0
+        Me.TIDBox.Location = New System.Drawing.Point(126, 13)
+        Me.TIDBox.Name = "TIDBox"
+        Me.TIDBox.Size = New System.Drawing.Size(222, 20)
+        Me.TIDBox.TabIndex = 0
         '
         's1
         '
@@ -214,11 +216,33 @@ Partial Class Feedback
         Me.CharCounter.Text = "0 / 500"
         Me.CharCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'unusedLabelX
+        '
+        Me.unusedLabelX.AutoSize = True
+        Me.unusedLabelX.Location = New System.Drawing.Point(12, 16)
+        Me.unusedLabelX.Name = "unusedLabelX"
+        Me.unusedLabelX.Size = New System.Drawing.Size(77, 13)
+        Me.unusedLabelX.TabIndex = 16
+        Me.unusedLabelX.Text = "Transaction ID"
+        '
+        'errorLabel
+        '
+        Me.errorLabel.AutoSize = True
+        Me.errorLabel.ForeColor = System.Drawing.Color.Red
+        Me.errorLabel.Location = New System.Drawing.Point(12, 230)
+        Me.errorLabel.Name = "errorLabel"
+        Me.errorLabel.Size = New System.Drawing.Size(118, 13)
+        Me.errorLabel.TabIndex = 17
+        Me.errorLabel.Text = "Transaction ID required"
+        Me.errorLabel.Visible = False
+        '
         'Feedback
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(398, 261)
+        Me.Controls.Add(Me.errorLabel)
+        Me.Controls.Add(Me.unusedLabelX)
         Me.Controls.Add(Me.CharCounter)
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.SubmitButton)
@@ -234,7 +258,7 @@ Partial Class Feedback
         Me.Controls.Add(Me.s3)
         Me.Controls.Add(Me.s2)
         Me.Controls.Add(Me.s1)
-        Me.Controls.Add(Me.OrderIDBox)
+        Me.Controls.Add(Me.TIDBox)
         Me.Name = "Feedback"
         Me.Text = "Feedback"
         CType(Me.s1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -252,7 +276,7 @@ Partial Class Feedback
 
     End Sub
 
-    Friend WithEvents OrderIDBox As TextBox
+    Friend WithEvents TIDBox As TextBox
     Friend WithEvents s1 As PictureBox
     Friend WithEvents s2 As PictureBox
     Friend WithEvents s3 As PictureBox
@@ -268,4 +292,6 @@ Partial Class Feedback
     Friend WithEvents SubmitButton As Button
     Friend WithEvents CancelButton As Button
     Friend WithEvents CharCounter As Label
+    Friend WithEvents unusedLabelX As Label
+    Friend WithEvents errorLabel As Label
 End Class

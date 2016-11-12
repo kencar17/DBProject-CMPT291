@@ -2,6 +2,7 @@ site_name: Car Rental documentation
 pages:
     - Home: index.md
     - Getting Started: gs.md
+    - Giving Feedback: feedback.md
     - The Home Screen: home.md
     - User Administration: ua.md
     - Reports: reports.md

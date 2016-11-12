@@ -1,7 +1,9 @@
 ﻿Imports System.Runtime.InteropServices
+Imports MySql.Data.MySqlClient
 
 Public Class Feedback
     Private stars As New List(Of PictureBox)
+    Private starCount As Integer = 1
     Private callingForm As Form1
 
     Public WriteOnly Property CallingFormProperty As Form1
@@ -16,6 +18,8 @@ Public Class Feedback
 
     Private Sub UpdateStars(starIndex As Integer)
         ' Update the stars
+        starCount = starIndex
+        Console.WriteLine(starCount)
         For Each yellowStar As PictureBox In stars.GetRange(0, starIndex)
             yellowStar.Image = My.Resources.star
         Next
@@ -25,8 +29,8 @@ Public Class Feedback
     End Sub
 
     Private Sub Feedback_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        SendMessage(Me.OrderIDBox.Handle, &H1501, 0, "Order ID")
-        SendMessage(Me.ReviewBox.Handle, &H1501, 0, "Enter your review...")
+        CharCounter.ForeColor = Color.Green
+        TIDBox.TextAlign = HorizontalAlignment.Right
         stars.Add(Me.s1)
         stars.Add(Me.s2)
         stars.Add(Me.s3)
@@ -92,8 +96,42 @@ Public Class Feedback
         CharCounter.Text = charCount & " / 500"
     End Sub
 
-    <DllImport("user32.dll", CharSet:=CharSet.Auto)>
-    Private Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal msg As Integer, ByVal wParam As Integer, <MarshalAs(UnmanagedType.LPWStr)> ByVal lParam As String) As Int32
-    End Function
+    Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
+        ' 1. Check that the given orderID exists. If it does, store it
+        ' 2. 
+        ' UPDATE Transaction SET ExperienceRating=@stars,ReviewComments=@comments WHERE TID=@identifier
+        errorLabel.Visible = False
 
+        If TIDBox.Text.Length < 1 Then
+            errorLabel.Text = "Transaction ID required"
+            errorLabel.Visible = True
+            Return
+        End If
+
+        Dim dbConn As MySqlConnection = SQLConnection.Instance.GetConnection()
+        Using sqlComm As New MySqlCommand()
+            With sqlComm
+                .Connection = dbConn
+                .CommandText = "UPDATE Transaction SET ExperienceRating=@stars,ReviewComments=@comments WHERE TID=@identifier"
+                .CommandType = CommandType.Text
+                .Parameters.AddWithValue("@stars", starCount)
+                .Parameters.AddWithValue("@comments", ReviewBox.Text)
+                .Parameters.AddWithValue("@identifier", CInt(TIDBox.Text))
+            End With
+            sqlComm.ExecuteNonQuery()
+        End Using
+        dbConn.Close()
+        MsgBox("Your feedback has been recorded. Thank you!")
+        Me.Close()
+    End Sub
+
+    Private Sub TIDBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles TIDBox.KeyPress
+        If Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
+        Help.GetHelp("feedback")
+    End Sub
 End Class
