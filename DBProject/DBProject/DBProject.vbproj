@@ -118,6 +118,12 @@
     <Compile Include="AddNewVehicle.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Feedback.Designer.vb">
+      <DependentUpon>Feedback.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     <EmbeddedResource Include="AddNewVehicle.resx">
       <DependentUpon>AddNewVehicle.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Feedback.resx">
+      <DependentUpon>Feedback.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +285,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LICENSE.txt" />
+    <None Include="Resources\star-empty.png" />
+    <None Include="Resources\star.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

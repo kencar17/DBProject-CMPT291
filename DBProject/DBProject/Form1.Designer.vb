@@ -29,6 +29,7 @@ Partial Class Form1
         Me.CheckButton = New System.Windows.Forms.Button()
         Me.CloseButton = New System.Windows.Forms.Button()
         Me.HelpButton = New System.Windows.Forms.Button()
+        Me.RateButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'UserBox
@@ -75,7 +76,7 @@ Partial Class Form1
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(260, 276)
+        Me.CloseButton.Location = New System.Drawing.Point(260, 305)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(100, 23)
         Me.CloseButton.TabIndex = 6
@@ -91,11 +92,21 @@ Partial Class Form1
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = True
         '
+        'RateButton
+        '
+        Me.RateButton.Location = New System.Drawing.Point(260, 276)
+        Me.RateButton.Name = "RateButton"
+        Me.RateButton.Size = New System.Drawing.Size(100, 23)
+        Me.RateButton.TabIndex = 8
+        Me.RateButton.Text = "Give Feedback"
+        Me.RateButton.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(624, 441)
+        Me.Controls.Add(Me.RateButton)
         Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.CheckButton)
@@ -122,4 +133,5 @@ Partial Class Form1
     Friend WithEvents CheckButton As Button
     Friend WithEvents CloseButton As Button
     Friend WithEvents HelpButton As Button
+    Friend WithEvents RateButton As Button
 End Class

@@ -64,4 +64,11 @@ Public Class Form1
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
         Help.GetHelp("gs")
     End Sub
+
+    Private Sub RateButton_Click(sender As Object, e As EventArgs) Handles RateButton.Click
+        Dim fback As New Feedback
+        fback.MdiParent = Me.MdiParent
+        fback.CallingFormProperty = Me
+        fback.Show()
+    End Sub
 End Class
