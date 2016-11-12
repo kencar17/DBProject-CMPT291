@@ -31,6 +31,7 @@ Partial Class Home
         Me.NameLabel = New System.Windows.Forms.Label()
         Me.UnusedLabel1 = New System.Windows.Forms.Label()
         Me.ReportsButton = New System.Windows.Forms.Button()
+        Me.BranchButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'UserAdminButton
@@ -63,8 +64,8 @@ Partial Class Home
         '
         'BackupButton
         '
-        Me.BackupButton.Location = New System.Drawing.Point(13, 98)
-        Me.BackupButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.BackupButton.Location = New System.Drawing.Point(12, 128)
+        Me.BackupButton.Margin = New System.Windows.Forms.Padding(2)
         Me.BackupButton.Name = "BackupButton"
         Me.BackupButton.Size = New System.Drawing.Size(116, 23)
         Me.BackupButton.TabIndex = 3
@@ -73,16 +74,16 @@ Partial Class Home
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(12, 158)
+        Me.HelpButton.Location = New System.Drawing.Point(11, 188)
         Me.HelpButton.Name = "HelpButton"
-        Me.HelpButton.Size = New System.Drawing.Size(116, 23)
+        Me.HelpButton.Size = New System.Drawing.Size(117, 23)
         Me.HelpButton.TabIndex = 4
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = True
         '
         'LogOutButton
         '
-        Me.LogOutButton.Location = New System.Drawing.Point(134, 158)
+        Me.LogOutButton.Location = New System.Drawing.Point(134, 188)
         Me.LogOutButton.Name = "LogOutButton"
         Me.LogOutButton.Size = New System.Drawing.Size(116, 23)
         Me.LogOutButton.TabIndex = 5
@@ -109,18 +110,28 @@ Partial Class Home
         '
         'ReportsButton
         '
-        Me.ReportsButton.Location = New System.Drawing.Point(13, 129)
+        Me.ReportsButton.Location = New System.Drawing.Point(12, 159)
         Me.ReportsButton.Name = "ReportsButton"
-        Me.ReportsButton.Size = New System.Drawing.Size(115, 23)
+        Me.ReportsButton.Size = New System.Drawing.Size(116, 23)
         Me.ReportsButton.TabIndex = 9
         Me.ReportsButton.Text = "Reports"
         Me.ReportsButton.UseVisualStyleBackColor = True
+        '
+        'BranchButton
+        '
+        Me.BranchButton.Location = New System.Drawing.Point(13, 100)
+        Me.BranchButton.Name = "BranchButton"
+        Me.BranchButton.Size = New System.Drawing.Size(115, 23)
+        Me.BranchButton.TabIndex = 10
+        Me.BranchButton.Text = "Branches"
+        Me.BranchButton.UseVisualStyleBackColor = True
         '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(263, 193)
+        Me.ClientSize = New System.Drawing.Size(263, 224)
+        Me.Controls.Add(Me.BranchButton)
         Me.Controls.Add(Me.ReportsButton)
         Me.Controls.Add(Me.UnusedLabel1)
         Me.Controls.Add(Me.NameLabel)
@@ -146,4 +157,5 @@ Partial Class Home
     Friend WithEvents NameLabel As Label
     Friend WithEvents UnusedLabel1 As Label
     Friend WithEvents ReportsButton As Button
+    Friend WithEvents BranchButton As Button
 End Class
