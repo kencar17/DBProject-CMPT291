@@ -106,6 +106,12 @@
     <Compile Include="Backup.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="createOrder.Designer.vb">
+      <DependentUpon>createOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="createOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DeleteUser.Designer.vb">
       <DependentUpon>DeleteUser.vb</DependentUpon>
     </Compile>
@@ -221,6 +227,9 @@
     <EmbeddedResource Include="Backup.resx">
       <DependentUpon>Backup.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="createOrder.resx">
+      <DependentUpon>createOrder.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeleteUser.resx">
       <DependentUpon>DeleteUser.vb</DependentUpon>
     </EmbeddedResource>
@@ -289,7 +298,7 @@
     <None Include="Resources\star.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
