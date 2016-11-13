@@ -4,6 +4,7 @@ pages:
     - Getting Started: gs.md
     - Giving Feedback: feedback.md
     - The Home Screen: home.md
+    - Branch Administration: branches.md
     - User Administration: ua.md
     - Reports: reports.md
     - System Backup: backup.md

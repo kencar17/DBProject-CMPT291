@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2016-11-12</lastmod>
+     <lastmod>2016-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>/gs/</loc>
-     <lastmod>2016-11-12</lastmod>
+     <lastmod>2016-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,7 +20,7 @@
     
     <url>
      <loc>/feedback/</loc>
-     <lastmod>2016-11-12</lastmod>
+     <lastmod>2016-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,7 +28,15 @@
     
     <url>
      <loc>/home/</loc>
-     <lastmod>2016-11-12</lastmod>
+     <lastmod>2016-11-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/branches/</loc>
+     <lastmod>2016-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -36,7 +44,7 @@
     
     <url>
      <loc>/ua/</loc>
-     <lastmod>2016-11-12</lastmod>
+     <lastmod>2016-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -44,7 +52,7 @@
     
     <url>
      <loc>/reports/</loc>
-     <lastmod>2016-11-12</lastmod>
+     <lastmod>2016-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -52,7 +60,7 @@
     
     <url>
      <loc>/backup/</loc>
-     <lastmod>2016-11-12</lastmod>
+     <lastmod>2016-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
