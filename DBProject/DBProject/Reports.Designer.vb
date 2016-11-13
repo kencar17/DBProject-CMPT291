@@ -27,9 +27,10 @@ Partial Class Reports
         Me.CloseButton = New System.Windows.Forms.Button()
         Me.FeedbackButton = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PDFOption = New System.Windows.Forms.RadioButton()
-        Me.ExcelOption = New System.Windows.Forms.RadioButton()
         Me.BothOption = New System.Windows.Forms.RadioButton()
+        Me.ExcelOption = New System.Windows.Forms.RadioButton()
+        Me.PDFOption = New System.Windows.Forms.RadioButton()
+        Me.BranchButton = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -79,6 +80,26 @@ Partial Class Reports
         Me.Panel1.Size = New System.Drawing.Size(137, 100)
         Me.Panel1.TabIndex = 4
         '
+        'BothOption
+        '
+        Me.BothOption.AutoSize = True
+        Me.BothOption.Location = New System.Drawing.Point(4, 50)
+        Me.BothOption.Name = "BothOption"
+        Me.BothOption.Size = New System.Drawing.Size(47, 17)
+        Me.BothOption.TabIndex = 2
+        Me.BothOption.Text = "Both"
+        Me.BothOption.UseVisualStyleBackColor = True
+        '
+        'ExcelOption
+        '
+        Me.ExcelOption.AutoSize = True
+        Me.ExcelOption.Location = New System.Drawing.Point(4, 27)
+        Me.ExcelOption.Name = "ExcelOption"
+        Me.ExcelOption.Size = New System.Drawing.Size(51, 17)
+        Me.ExcelOption.TabIndex = 1
+        Me.ExcelOption.Text = "Excel"
+        Me.ExcelOption.UseVisualStyleBackColor = True
+        '
         'PDFOption
         '
         Me.PDFOption.AutoSize = True
@@ -91,31 +112,21 @@ Partial Class Reports
         Me.PDFOption.Text = "PDF"
         Me.PDFOption.UseVisualStyleBackColor = True
         '
-        'ExcelOption
+        'BranchButton
         '
-        Me.ExcelOption.AutoSize = True
-        Me.ExcelOption.Location = New System.Drawing.Point(4, 27)
-        Me.ExcelOption.Name = "ExcelOption"
-        Me.ExcelOption.Size = New System.Drawing.Size(51, 17)
-        Me.ExcelOption.TabIndex = 1
-        Me.ExcelOption.Text = "Excel"
-        Me.ExcelOption.UseVisualStyleBackColor = True
-        '
-        'BothOption
-        '
-        Me.BothOption.AutoSize = True
-        Me.BothOption.Location = New System.Drawing.Point(4, 50)
-        Me.BothOption.Name = "BothOption"
-        Me.BothOption.Size = New System.Drawing.Size(47, 17)
-        Me.BothOption.TabIndex = 2
-        Me.BothOption.Text = "Both"
-        Me.BothOption.UseVisualStyleBackColor = True
+        Me.BranchButton.Location = New System.Drawing.Point(13, 73)
+        Me.BranchButton.Name = "BranchButton"
+        Me.BranchButton.Size = New System.Drawing.Size(75, 23)
+        Me.BranchButton.TabIndex = 5
+        Me.BranchButton.Text = "Branches"
+        Me.BranchButton.UseVisualStyleBackColor = True
         '
         'Reports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(263, 261)
+        Me.Controls.Add(Me.BranchButton)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.FeedbackButton)
         Me.Controls.Add(Me.CloseButton)
@@ -137,4 +148,5 @@ Partial Class Reports
     Friend WithEvents BothOption As RadioButton
     Friend WithEvents ExcelOption As RadioButton
     Friend WithEvents PDFOption As RadioButton
+    Friend WithEvents BranchButton As Button
 End Class

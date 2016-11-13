@@ -238,4 +238,138 @@ Public Class Reports
             End If
         End If
     End Sub
+
+    Private Sub BranchButton_Click(sender As Object, e As EventArgs) Handles BranchButton.Click
+        If PDFOption.Checked Or BothOption.Checked Then
+            Dim branchReport As New Document(PageSize.LETTER.Rotate(), 10, 10, 30, 30)
+            Dim fname As String = "Branches " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".pdf"
+            Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
+            Dim stream As New FileStream(fpath, FileMode.Create)
+            Dim pdfWriter As PdfWriter = PdfWriter.GetInstance(branchReport, stream)
+
+            With branchReport
+                .AddAuthor("Group 10")
+                .AddSubject("Summary of branches our company owns.")
+                .AddTitle("Branch Report")
+                .AddCreationDate()
+                .Open()
+            End With
+
+            Dim table As New PdfPTable(6)
+            table.WidthPercentage = 90
+            Dim widths = New Integer() {1, 1, 1, 1, 1, 1}
+            table.SetWidths(widths)
+            Dim cell As New PdfPCell(New Phrase("Branches"))
+            cell.Colspan = 6
+            cell.HorizontalAlignment = 1
+            table.AddCell(cell)
+
+            table.AddCell("Branch ID")
+            table.AddCell("Address")
+            table.AddCell("Email")
+            table.AddCell("Phone")
+            table.AddCell("Fax")
+            table.AddCell("Manager")
+
+            Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
+            Using sqlComm As New MySqlCommand()
+                With sqlComm
+                    .Connection = dbconn
+                    .CommandText = "SELECT BID, Branch.StreetAddress, Branch.PostalCode, Branch.City, Branch.State, Branch.Country, Branch.Email, Branch.Phone, Fax, FirstName, LastName FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID"
+                    .CommandType = CommandType.Text
+                End With
+                Try
+                    Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+                    While sqlReader.Read()
+                        table.AddCell(sqlReader("BID").ToString())
+
+                        Dim address As String = sqlReader("StreetAddress").ToString() & " "
+                        address &= sqlReader("PostalCode").ToString() & " "
+                        address &= sqlReader("City").ToString() & " "
+                        address &= sqlReader("State").ToString() & " "
+                        address &= sqlReader("PostalCode").ToString() & " "
+                        address &= sqlReader("Country").ToString()
+                        table.AddCell(address)
+
+                        table.AddCell(sqlReader("Email").ToString())
+                        table.AddCell(sqlReader("Phone").ToString())
+                        table.AddCell(sqlReader("Fax").ToString())
+
+                        Dim name As String = sqlReader("FirstName").ToString() & " " & sqlReader("LastName").ToString()
+                        table.AddCell(name)
+                    End While
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+            End Using
+            SQLConnection.Instance.CloseConnection()
+
+            branchReport.Add(table)
+            branchReport.Close()
+            pdfWriter.Close()
+            stream.Close()
+
+            MsgBox("Report saved to " & fpath)
+
+            If PDFOption.Checked Then
+                Process.Start(fpath)
+            End If
+        End If
+
+        If ExcelOption.Checked Or BothOption.Checked Then
+            Dim report As String = ""
+            Dim fname As String = "Branches " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
+            Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
+            Dim writer As New StreamWriter(fpath, True)
+            writer.Write("Branch ID, Address, Email, Phone, Fax, Manager")
+
+
+            Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
+            Using sqlComm As New MySqlCommand()
+                With sqlComm
+                    .Connection = dbconn
+                    .CommandText = "SELECT BID, Branch.StreetAddress, Branch.PostalCode, Branch.City, Branch.State, Branch.Country, Branch.Email, Branch.Phone, Fax, FirstName, LastName FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID"
+                    .CommandType = CommandType.Text
+                End With
+                Try
+                    Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+                    While sqlReader.Read()
+                        Dim bid As Integer = CInt(sqlReader("BID").ToString())
+
+                        Dim address As String = sqlReader("StreetAddress").ToString() & " "
+                        address &= sqlReader("PostalCode").ToString() & " "
+                        address &= sqlReader("City").ToString() & " "
+                        address &= sqlReader("State").ToString() & " "
+                        address &= sqlReader("PostalCode").ToString() & " "
+                        address &= sqlReader("Country").ToString()
+                        address = address.Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+
+                        Dim email As String = sqlReader("Email").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+                        Dim phone As String = sqlReader("Phone").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+                        Dim fax As String = sqlReader("Fax").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+                        Dim manager As String = (sqlReader("FirstName").ToString() & " " & sqlReader("LastName").ToString()).Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+
+                        ' Little trick to ensure the phone and fax are recognized as strings
+                        phone &= vbTab
+                        fax &= vbTab
+
+                        Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}" & delim & "{3}" & delim & "{4}" & delim & "{5}",
+                                                         bid, address, email, phone, fax, manager)
+
+                        writer.Write(vbCrLf & row)
+                    End While
+                    writer.Close()
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+            End Using
+            SQLConnection.Instance.CloseConnection()
+
+            MsgBox("Report saved to " & fpath)
+
+            If ExcelOption.Checked Then
+                Process.Start(fpath)
+            End If
+        End If
+    End Sub
 End Class
