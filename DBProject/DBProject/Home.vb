@@ -66,4 +66,10 @@ Public Class Home
         branchWindow.MdiParent = Me.MdiParent
         branchWindow.Show()
     End Sub
+
+    Private Sub TypeButton_Click(sender As Object, e As EventArgs) Handles TypeButton.Click
+        Dim types As New TypesAdministration
+        types.MdiParent = Me.MdiParent
+        types.Show()
+    End Sub
 End Class
