@@ -7,7 +7,7 @@ Public Class NewBranch
     End Sub
 
     Private Sub HButton_Click(sender As Object, e As EventArgs) Handles HButton.Click
-        Help.GetHelp()
+        Help.GetHelp("branches")
     End Sub
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click

@@ -18,7 +18,7 @@
     End Sub
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
-        Help.GetHelp()
+        Help.GetHelp("branches")
     End Sub
 
     Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
