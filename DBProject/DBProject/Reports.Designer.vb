@@ -31,6 +31,7 @@ Partial Class Reports
         Me.ExcelOption = New System.Windows.Forms.RadioButton()
         Me.PDFOption = New System.Windows.Forms.RadioButton()
         Me.BranchButton = New System.Windows.Forms.Button()
+        Me.TypeButton = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -121,11 +122,21 @@ Partial Class Reports
         Me.BranchButton.Text = "Branches"
         Me.BranchButton.UseVisualStyleBackColor = True
         '
+        'TypeButton
+        '
+        Me.TypeButton.Location = New System.Drawing.Point(12, 102)
+        Me.TypeButton.Name = "TypeButton"
+        Me.TypeButton.Size = New System.Drawing.Size(75, 23)
+        Me.TypeButton.TabIndex = 6
+        Me.TypeButton.Text = "Types"
+        Me.TypeButton.UseVisualStyleBackColor = True
+        '
         'Reports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(263, 261)
+        Me.Controls.Add(Me.TypeButton)
         Me.Controls.Add(Me.BranchButton)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.FeedbackButton)
@@ -149,4 +160,5 @@ Partial Class Reports
     Friend WithEvents ExcelOption As RadioButton
     Friend WithEvents PDFOption As RadioButton
     Friend WithEvents BranchButton As Button
+    Friend WithEvents TypeButton As Button
 End Class
