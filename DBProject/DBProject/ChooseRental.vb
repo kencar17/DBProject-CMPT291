@@ -79,6 +79,42 @@ Public Class ChooseRental
 
         BothRadio.Checked = True
 
+        dbconn = SQLConnection.Instance.GetConnection()
+        Using sqlComm As New MySqlCommand()
+            With sqlComm
+                .Connection = dbconn
+                .CommandText = "SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
+                                FROM Vehicle, Types where Vehicle.Class = Types.Type
+                                and Vehicle.Available = 1"
+                .CommandType = CommandType.Text
+            End With
+            Try
+                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+                While sqlReader.Read()
+                    Dim vehicleInfo As New VehicleInfo
+                    vehicleInfo.MakeProperty = sqlReader("Make").ToString()
+                    vehicleInfo.ModelProperty = sqlReader("Model").ToString()
+                    vehicleInfo.VClassProperty = sqlReader("Class").ToString()
+                    vehicleInfo.YearProperty = sqlReader("Year").ToString()
+                    vehicleInfo.SeatsProperty = sqlReader("Seats").ToString()
+                    vehicleInfo.GvwrProperty = sqlReader("GVWR").ToString()
+                    vehicleInfo.TransmissionProperty = sqlReader("Transmission").ToString()
+                    vehicleInfo.DailyRateProperty = sqlReader("DailyRate").ToString()
+                    vehicleInfo.WeeklyRateProperty = sqlReader("WeeklyRate").ToString()
+                    vehicleInfo.MonthlyRateProperty = sqlReader("MonthlyRate").ToString()
+
+                    Dim row = New String() {vehicleInfo.MakeProperty, vehicleInfo.ModelProperty,
+                                          vehicleInfo.VClassProperty, vehicleInfo.YearProperty,
+                                          vehicleInfo.SeatsProperty, vehicleInfo.TransmissionProperty,
+                                          vehicleInfo.GvwrProperty, vehicleInfo.DailyRateProperty,
+                                          vehicleInfo.WeeklyRateProperty, vehicleInfo.MonthlyRateProperty}
+                    vehicleTable.Rows.Add(row)
+                End While
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End Using
+        SQLConnection.Instance.CloseConnection()
 
     End Sub
 End Class
