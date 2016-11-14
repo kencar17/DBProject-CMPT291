@@ -1,5 +1,13 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class ViewInventory
+    Private callingForm As Form1
+
+    Public WriteOnly Property CallingFormProperty As Form1
+        Set(value As Form1)
+            callingForm = value
+        End Set
+    End Property
+
     Private Sub ViewInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
         Using sqlComm As New MySqlCommand()
@@ -31,5 +39,9 @@ Public Class ViewInventory
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
         Me.Close()
+    End Sub
+
+    Private Sub ViewInventory_Unload(sender As Object, e As EventArgs) Handles MyBase.Closing
+        callingForm.WindowState = FormWindowState.Maximized
     End Sub
 End Class
