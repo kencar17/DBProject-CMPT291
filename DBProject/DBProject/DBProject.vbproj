@@ -197,17 +197,10 @@
     <Compile Include="NewBranch.vb">
       <SubType>Form</SubType>
     </Compile>
-
     <Compile Include="NewType.Designer.vb">
       <DependentUpon>NewType.vb</DependentUpon>
     </Compile>
     <Compile Include="NewType.vb">
-      <SubType>Form</SubType>
-      </Compile>
-    <Compile Include="OrderSummary.Designer.vb">
-      <DependentUpon>OrderSummary.vb</DependentUpon>
-    </Compile>
-    <Compile Include="OrderSummary.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OrderSummary.Designer.vb">
@@ -346,10 +339,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewType.resx">
       <DependentUpon>NewType.vb</DependentUpon>
-<<<<<<< HEAD
-=======
-      </EmbeddedResource>
->>>>>>> fix merge issue
+    </EmbeddedResource>
     <EmbeddedResource Include="OrderSummary.resx">
       <DependentUpon>OrderSummary.vb</DependentUpon>
     </EmbeddedResource>
