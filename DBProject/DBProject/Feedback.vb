@@ -19,7 +19,6 @@ Public Class Feedback
     Private Sub UpdateStars(starIndex As Integer)
         ' Update the stars
         starCount = starIndex
-        Console.WriteLine(starCount)
         For Each yellowStar As PictureBox In stars.GetRange(0, starIndex)
             yellowStar.Image = My.Resources.star
         Next
