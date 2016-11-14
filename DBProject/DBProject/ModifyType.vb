@@ -15,12 +15,11 @@ Public Class ModifyType
             Try
                 Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
                 While sqlReader.Read()
-                    Dim atype As New Type
+                    Dim atype As New Type(sqlReader("Type").ToString())
                     atype.TidProperty = CInt(sqlReader("TID").ToString())
-                    atype.DrateProperty = CDec(sqlReader("DailyRate").ToString())
-                    atype.WrateProperty = CDec(sqlReader("WeeklyRate").ToString())
-                    atype.MrateProperty = CDec(sqlReader("MonthlyRate").ToString())
-                    atype.TypeProperty = sqlReader("Type").ToString()
+                    atype.DailyRateProperty = CDec(sqlReader("DailyRate").ToString())
+                    atype.WeeklyRateProperty = CDec(sqlReader("WeeklyRate").ToString())
+                    atype.MonthlyRateProperty = CDec(sqlReader("MonthlyRate").ToString())
                     TypeSelection.Items.Add(atype)
                 End While
             Catch ex As Exception
@@ -95,10 +94,10 @@ Public Class ModifyType
 
     Private Sub TypeSelection_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TypeSelection.SelectedIndexChanged
         Dim selectedType As Type = TypeSelection.SelectedItem
-        Type.Text = selectedType.TypeProperty
-        DailyRate.Value = selectedType.DrateProperty
-        WeeklyRate.Value = selectedType.WrateProperty
-        MonthlyRate.Value = selectedType.MrateProperty
+        Type.Text = selectedType.VehicleTypeProperty
+        DailyRate.Value = selectedType.DailyRateProperty
+        WeeklyRate.Value = selectedType.WeeklyRateProperty
+        MonthlyRate.Value = selectedType.MonthlyRateProperty
 
         Type.Enabled = True
         DailyRate.Enabled = True
