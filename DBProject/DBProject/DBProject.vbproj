@@ -197,7 +197,6 @@
     <Compile Include="NewBranch.vb">
       <SubType>Form</SubType>
     </Compile>
-
     <Compile Include="NewType.Designer.vb">
       <DependentUpon>NewType.vb</DependentUpon>
     </Compile>
