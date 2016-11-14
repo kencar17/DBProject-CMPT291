@@ -25,7 +25,28 @@ Public Class ChooseRental
     End Sub
 
     Private Sub seatsCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles seatsCombo.SelectedIndexChanged
+        vehicleTable.Rows.Clear()
 
+        If seatsCombo.SelectedItem.Equals(1) = True Then
+            populateVehiclesTable("SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
+                                   FROM Vehicle, Types where Vehicle.Class = Types.Type
+                                   and Vehicle.Available = 1 and Vehicle.Seats = 1")
+        End If
+        If seatsCombo.SelectedItem.Equals(2) = True Then
+            populateVehiclesTable("SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
+                                   FROM Vehicle, Types where Vehicle.Class = Types.Type
+                                   and Vehicle.Available = 1 and Vehicle.Seats = 2")
+        End If
+        If seatsCombo.SelectedItem.Equals(3) = True Then
+            populateVehiclesTable("SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
+                                   FROM Vehicle, Types where Vehicle.Class = Types.Type
+                                   and Vehicle.Available = 1 and Vehicle.Seats = 3")
+        End If
+        If seatsCombo.SelectedItem.Equals(4) = True Then
+            populateVehiclesTable("SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
+                                   FROM Vehicle, Types where Vehicle.Class = Types.Type
+                                   and Vehicle.Available = 1 and Vehicle.Seats = 4")
+        End If
     End Sub
 
     Private Sub ChooseRental_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -79,13 +100,19 @@ Public Class ChooseRental
 
         BothRadio.Checked = True
 
+        populateVehiclesTable("SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
+                                FROM Vehicle, Types where Vehicle.Class = Types.Type
+                                and Vehicle.Available = 1")
+
+    End Sub
+
+    Sub populateVehiclesTable(sqlText As String)
+        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
         dbconn = SQLConnection.Instance.GetConnection()
         Using sqlComm As New MySqlCommand()
             With sqlComm
                 .Connection = dbconn
-                .CommandText = "SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
-                                FROM Vehicle, Types where Vehicle.Class = Types.Type
-                                and Vehicle.Available = 1"
+                .CommandText = sqlText
                 .CommandType = CommandType.Text
             End With
             Try
@@ -115,6 +142,6 @@ Public Class ChooseRental
             End Try
         End Using
         SQLConnection.Instance.CloseConnection()
-
     End Sub
+
 End Class
