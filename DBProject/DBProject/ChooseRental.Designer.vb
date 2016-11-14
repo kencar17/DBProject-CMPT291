@@ -22,7 +22,7 @@ Partial Class ChooseRental
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.vehicleTable = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.typeCombo = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -45,19 +45,19 @@ Partial Class ChooseRental
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DataGridView1
+        'vehicleTable
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column10, Me.Column8, Me.Column9})
-        Me.DataGridView1.Location = New System.Drawing.Point(51, 195)
-        Me.DataGridView1.MinimumSize = New System.Drawing.Size(1047, 532)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowTemplate.Height = 31
-        Me.DataGridView1.Size = New System.Drawing.Size(1183, 532)
-        Me.DataGridView1.TabIndex = 0
+        Me.vehicleTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.vehicleTable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column10, Me.Column8, Me.Column9})
+        Me.vehicleTable.Location = New System.Drawing.Point(51, 195)
+        Me.vehicleTable.MinimumSize = New System.Drawing.Size(1047, 532)
+        Me.vehicleTable.Name = "vehicleTable"
+        Me.vehicleTable.RowTemplate.Height = 31
+        Me.vehicleTable.Size = New System.Drawing.Size(1183, 532)
+        Me.vehicleTable.TabIndex = 0
         '
         'Label1
         '
@@ -247,16 +247,16 @@ Partial Class ChooseRental
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.typeCombo)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.vehicleTable)
         Me.Name = "ChooseRental"
         Me.Text = "ChooseRental"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents vehicleTable As DataGridView
     Friend WithEvents Label1 As Label
     Friend WithEvents typeCombo As ComboBox
     Friend WithEvents Label2 As Label
