@@ -30,4 +30,5 @@
         Hide()
         callingForm.doAThing()
     End Sub
+
 End Class
