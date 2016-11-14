@@ -1,4 +1,4 @@
-Vehicles come in many different types, and each type needs to have a different daily, weekly, and monthly rates. To accommodate this, logged-in employees can  create new vehicle types or update existing vehicle types. To begin using the vehicle type system, select Car Types from the employee home screen. You will be presented with the following screen:
+Vehicles come in many different types, and each type needs to have a different daily, weekly, and monthly rates. To accommodate this, logged-in employees can  create new vehicle types or update existing vehicle types. To begin using the vehicle type system, make sure you're [logged in](gs.md) select Car Types from the employee home screen. You will be presented with the following screen:
 
 ![Type Administration](TypeAdministration.png)
 

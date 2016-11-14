@@ -1,6 +1,6 @@
 Our group spans many branches, and with our recent success, it is likely that we will be expanding rapidly. Also, sometimes branches move or close altogether. To accommodate this, employees can create, update, and delete branch locations as necessary.
 
-To begin, ensure you have logged on to the system, then select the Branches option on the home screen. You will see a branch administration screen:
+To begin, ensure you have [logged on](gs.md) to the system, then select the Branches option on the home screen. You will see a branch administration screen:
 
 ![Branch Administration](BranchAdministration.png)
 
@@ -30,7 +30,7 @@ To modify a branch, select Modify a Branch from the branch administration screen
 
 ![Modify a Branch](ModifyBranch.png)
 
-First, select the branch you want to modify from the drop-down list at the top of the window. You will see the current information presented from the system. At this point, you can change any or all of the email, phone number, fax number, email, or manager. **Note that if a branch is moving location, it should be deleted then a new branch created.** The address information of a branch cannot be changed for security reasons.
+First, select the branch you want to modify from the drop-down list at the top of the window. You will see the current information presented from the system. At this point, you can change any or all of the email, phone number, fax number, email, or manager. **Note that if a branch is moving location, it should be deleted, then a new branch created.** The address information of a branch cannot be changed for security reasons.
 
 Once you are satisfied with the information for the branch, simply press Submit, and the branch will be updated. The system will let you know if there were any issues with the information you entered, and once the branch has been modified, the system will let you know that it was successful.
 
