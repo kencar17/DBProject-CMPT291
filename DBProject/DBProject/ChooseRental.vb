@@ -29,9 +29,11 @@ Public Class ChooseRental
     End Sub
 
     Private Sub ChooseRental_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        seatsCombo.Items.Add("All")
         For seat As Integer = 1 To 4
             seatsCombo.Items.Add(seat)
         Next
+        seatsCombo.SelectedItem = "All"
 
         typeCombo.Items.Add("All")
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
@@ -74,6 +76,9 @@ Public Class ChooseRental
         End Using
         SQLConnection.Instance.CloseConnection()
         makeCombo.SelectedItem = "All"
+
+        BothRadio.Checked = True
+
 
     End Sub
 End Class
