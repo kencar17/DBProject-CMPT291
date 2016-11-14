@@ -57,7 +57,7 @@ Partial Class createOrder
         '
         'nextButton
         '
-        Me.nextButton.Location = New System.Drawing.Point(639, 655)
+        Me.nextButton.Location = New System.Drawing.Point(639, 705)
         Me.nextButton.Name = "nextButton"
         Me.nextButton.Size = New System.Drawing.Size(129, 41)
         Me.nextButton.TabIndex = 0
@@ -83,7 +83,7 @@ Partial Class createOrder
         'CLnameLabel
         '
         Me.CLnameLabel.AutoSize = True
-        Me.CLnameLabel.Location = New System.Drawing.Point(74, 333)
+        Me.CLnameLabel.Location = New System.Drawing.Point(74, 348)
         Me.CLnameLabel.Name = "CLnameLabel"
         Me.CLnameLabel.Size = New System.Drawing.Size(104, 25)
         Me.CLnameLabel.TabIndex = 3
@@ -101,7 +101,7 @@ Partial Class createOrder
         '
         'CLnameTextField
         '
-        Me.CLnameTextField.Location = New System.Drawing.Point(215, 333)
+        Me.CLnameTextField.Location = New System.Drawing.Point(215, 348)
         Me.CLnameTextField.Name = "CLnameTextField"
         Me.CLnameTextField.Size = New System.Drawing.Size(161, 29)
         Me.CLnameTextField.TabIndex = 5
@@ -109,7 +109,7 @@ Partial Class createOrder
         'CemailLabel
         '
         Me.CemailLabel.AutoSize = True
-        Me.CemailLabel.Location = New System.Drawing.Point(74, 368)
+        Me.CemailLabel.Location = New System.Drawing.Point(74, 398)
         Me.CemailLabel.Name = "CemailLabel"
         Me.CemailLabel.Size = New System.Drawing.Size(66, 25)
         Me.CemailLabel.TabIndex = 6
@@ -117,7 +117,7 @@ Partial Class createOrder
         '
         'CEmailTextBox
         '
-        Me.CEmailTextBox.Location = New System.Drawing.Point(215, 368)
+        Me.CEmailTextBox.Location = New System.Drawing.Point(215, 398)
         Me.CEmailTextBox.Name = "CEmailTextBox"
         Me.CEmailTextBox.Size = New System.Drawing.Size(161, 29)
         Me.CEmailTextBox.TabIndex = 7
@@ -125,7 +125,7 @@ Partial Class createOrder
         'AgeLabel
         '
         Me.AgeLabel.AutoSize = True
-        Me.AgeLabel.Location = New System.Drawing.Point(77, 403)
+        Me.AgeLabel.Location = New System.Drawing.Point(77, 448)
         Me.AgeLabel.Name = "AgeLabel"
         Me.AgeLabel.Size = New System.Drawing.Size(54, 25)
         Me.AgeLabel.TabIndex = 8
@@ -133,7 +133,7 @@ Partial Class createOrder
         '
         'CAgeTextBox
         '
-        Me.CAgeTextBox.Location = New System.Drawing.Point(215, 403)
+        Me.CAgeTextBox.Location = New System.Drawing.Point(215, 448)
         Me.CAgeTextBox.Name = "CAgeTextBox"
         Me.CAgeTextBox.Size = New System.Drawing.Size(61, 29)
         Me.CAgeTextBox.TabIndex = 9
@@ -149,15 +149,15 @@ Partial Class createOrder
         '
         'CaddressTextField
         '
-        Me.CaddressTextField.Location = New System.Drawing.Point(549, 403)
+        Me.CaddressTextField.Location = New System.Drawing.Point(549, 448)
         Me.CaddressTextField.Name = "CaddressTextField"
-        Me.CaddressTextField.Size = New System.Drawing.Size(161, 29)
+        Me.CaddressTextField.Size = New System.Drawing.Size(219, 29)
         Me.CaddressTextField.TabIndex = 11
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(409, 333)
+        Me.Label3.Location = New System.Drawing.Point(409, 348)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 25)
         Me.Label3.TabIndex = 12
@@ -167,13 +167,13 @@ Partial Class createOrder
         '
         Me.CcityTextField.Location = New System.Drawing.Point(549, 298)
         Me.CcityTextField.Name = "CcityTextField"
-        Me.CcityTextField.Size = New System.Drawing.Size(161, 29)
+        Me.CcityTextField.Size = New System.Drawing.Size(219, 29)
         Me.CcityTextField.TabIndex = 13
         '
         'provinceLabel
         '
         Me.provinceLabel.AutoSize = True
-        Me.provinceLabel.Location = New System.Drawing.Point(411, 368)
+        Me.provinceLabel.Location = New System.Drawing.Point(411, 398)
         Me.provinceLabel.Name = "provinceLabel"
         Me.provinceLabel.Size = New System.Drawing.Size(94, 25)
         Me.provinceLabel.TabIndex = 14
@@ -181,15 +181,15 @@ Partial Class createOrder
         '
         'CProvinceTextField
         '
-        Me.CProvinceTextField.Location = New System.Drawing.Point(549, 333)
+        Me.CProvinceTextField.Location = New System.Drawing.Point(549, 348)
         Me.CProvinceTextField.Name = "CProvinceTextField"
-        Me.CProvinceTextField.Size = New System.Drawing.Size(161, 29)
+        Me.CProvinceTextField.Size = New System.Drawing.Size(219, 29)
         Me.CProvinceTextField.TabIndex = 15
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(411, 403)
+        Me.Label4.Location = New System.Drawing.Point(411, 448)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(81, 25)
         Me.Label4.TabIndex = 16
@@ -197,15 +197,15 @@ Partial Class createOrder
         '
         'CCountryTextField
         '
-        Me.CCountryTextField.Location = New System.Drawing.Point(549, 368)
+        Me.CCountryTextField.Location = New System.Drawing.Point(549, 398)
         Me.CCountryTextField.Name = "CCountryTextField"
-        Me.CCountryTextField.Size = New System.Drawing.Size(161, 29)
+        Me.CCountryTextField.Size = New System.Drawing.Size(219, 29)
         Me.CCountryTextField.TabIndex = 17
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(411, 438)
+        Me.Label5.Location = New System.Drawing.Point(411, 498)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(125, 25)
         Me.Label5.TabIndex = 18
@@ -213,14 +213,14 @@ Partial Class createOrder
         '
         'CPostalTextField
         '
-        Me.CPostalTextField.Location = New System.Drawing.Point(549, 438)
+        Me.CPostalTextField.Location = New System.Drawing.Point(549, 498)
         Me.CPostalTextField.Name = "CPostalTextField"
-        Me.CPostalTextField.Size = New System.Drawing.Size(129, 29)
+        Me.CPostalTextField.Size = New System.Drawing.Size(219, 29)
         Me.CPostalTextField.TabIndex = 19
         '
         'backButton
         '
-        Me.backButton.Location = New System.Drawing.Point(49, 655)
+        Me.backButton.Location = New System.Drawing.Point(49, 705)
         Me.backButton.Name = "backButton"
         Me.backButton.Size = New System.Drawing.Size(129, 41)
         Me.backButton.TabIndex = 20
@@ -231,7 +231,7 @@ Partial Class createOrder
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(47, 484)
+        Me.Label6.Location = New System.Drawing.Point(47, 548)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(162, 25)
         Me.Label6.TabIndex = 21
@@ -240,7 +240,7 @@ Partial Class createOrder
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(74, 522)
+        Me.Label7.Location = New System.Drawing.Point(74, 585)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(135, 25)
         Me.Label7.TabIndex = 22
@@ -249,7 +249,7 @@ Partial Class createOrder
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(74, 557)
+        Me.Label8.Location = New System.Drawing.Point(74, 635)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(61, 25)
         Me.Label8.TabIndex = 23
@@ -257,14 +257,14 @@ Partial Class createOrder
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(215, 522)
+        Me.TextBox1.Location = New System.Drawing.Point(215, 585)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(180, 29)
         Me.TextBox1.TabIndex = 24
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(215, 557)
+        Me.TextBox2.Location = New System.Drawing.Point(215, 635)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(100, 29)
         Me.TextBox2.TabIndex = 25
@@ -290,23 +290,23 @@ Partial Class createOrder
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(225, 81)
+        Me.TextBox3.Location = New System.Drawing.Point(215, 81)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(180, 29)
+        Me.TextBox3.Size = New System.Drawing.Size(161, 29)
         Me.TextBox3.TabIndex = 28
         '
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 24
-        Me.ListBox1.Location = New System.Drawing.Point(433, 81)
+        Me.ListBox1.Location = New System.Drawing.Point(416, 81)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(335, 148)
+        Me.ListBox1.Size = New System.Drawing.Size(352, 148)
         Me.ListBox1.TabIndex = 29
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(199, 655)
+        Me.Button1.Location = New System.Drawing.Point(215, 705)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(129, 41)
         Me.Button1.TabIndex = 30
@@ -317,7 +317,7 @@ Partial Class createOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(927, 732)
+        Me.ClientSize = New System.Drawing.Size(927, 826)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.TextBox3)
