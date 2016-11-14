@@ -51,7 +51,7 @@ Partial Class ChooseLocation
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(235, 47)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(179, 32)
+        Me.ComboBox1.Size = New System.Drawing.Size(255, 32)
         Me.ComboBox1.TabIndex = 1
         '
         'Label2
