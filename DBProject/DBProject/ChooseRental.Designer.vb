@@ -23,6 +23,18 @@ Partial Class ChooseRental
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.typeCombo = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.makeCombo = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.seatsCombo = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.BothRadio = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.backButton = New System.Windows.Forms.Button()
+        Me.nextButton = New System.Windows.Forms.Button()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -33,18 +45,6 @@ Partial Class ChooseRental
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.typeCombo = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.makeCombo = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.seatsCombo = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.backButton = New System.Windows.Forms.Button()
-        Me.nextButton = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -53,60 +53,11 @@ Partial Class ChooseRental
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column10, Me.Column8, Me.Column9})
         Me.DataGridView1.Location = New System.Drawing.Point(51, 195)
+        Me.DataGridView1.MinimumSize = New System.Drawing.Size(1047, 532)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 31
-        Me.DataGridView1.Size = New System.Drawing.Size(1043, 532)
+        Me.DataGridView1.Size = New System.Drawing.Size(1183, 532)
         Me.DataGridView1.TabIndex = 0
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Make"
-        Me.Column1.Name = "Column1"
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Model"
-        Me.Column2.Name = "Column2"
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Class"
-        Me.Column3.Name = "Column3"
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Year"
-        Me.Column4.Name = "Column4"
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Seats"
-        Me.Column5.Name = "Column5"
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Transmisson"
-        Me.Column6.Name = "Column6"
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "GVWR"
-        Me.Column7.Name = "Column7"
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "Daily Rate"
-        Me.Column10.Name = "Column10"
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Weekly Rate"
-        Me.Column8.Name = "Column8"
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Monthly Rate"
-        Me.Column9.Name = "Column9"
         '
         'Label1
         '
@@ -168,16 +119,16 @@ Partial Class ChooseRental
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Transmission:"
         '
-        'RadioButton1
+        'BothRadio
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(463, 82)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(77, 29)
-        Me.RadioButton1.TabIndex = 8
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Both"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.BothRadio.AutoSize = True
+        Me.BothRadio.Location = New System.Drawing.Point(463, 82)
+        Me.BothRadio.Name = "BothRadio"
+        Me.BothRadio.Size = New System.Drawing.Size(77, 29)
+        Me.BothRadio.TabIndex = 8
+        Me.BothRadio.TabStop = True
+        Me.BothRadio.Text = "Both"
+        Me.BothRadio.UseVisualStyleBackColor = True
         '
         'RadioButton2
         '
@@ -212,23 +163,83 @@ Partial Class ChooseRental
         '
         'nextButton
         '
-        Me.nextButton.Location = New System.Drawing.Point(1001, 761)
+        Me.nextButton.Location = New System.Drawing.Point(1141, 761)
         Me.nextButton.Name = "nextButton"
         Me.nextButton.Size = New System.Drawing.Size(93, 41)
         Me.nextButton.TabIndex = 12
         Me.nextButton.Text = "Next"
         Me.nextButton.UseVisualStyleBackColor = True
         '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Make"
+        Me.Column1.Name = "Column1"
+        Me.Column1.Width = 75
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Model"
+        Me.Column2.Name = "Column2"
+        Me.Column2.Width = 75
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Class"
+        Me.Column3.Name = "Column3"
+        Me.Column3.Width = 75
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Year"
+        Me.Column4.Name = "Column4"
+        Me.Column4.Width = 50
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Seats"
+        Me.Column5.Name = "Column5"
+        Me.Column5.Width = 50
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Transmisson"
+        Me.Column6.Name = "Column6"
+        Me.Column6.Width = 75
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "GVWR"
+        Me.Column7.Name = "Column7"
+        Me.Column7.Width = 50
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "Daily Rate"
+        Me.Column10.Name = "Column10"
+        Me.Column10.Width = 50
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Weekly Rate"
+        Me.Column8.Name = "Column8"
+        Me.Column8.Width = 50
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Monthly Rate"
+        Me.Column9.Name = "Column9"
+        Me.Column9.Width = 50
+        '
         'ChooseRental
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1144, 814)
+        Me.ClientSize = New System.Drawing.Size(1294, 899)
         Me.Controls.Add(Me.nextButton)
         Me.Controls.Add(Me.backButton)
         Me.Controls.Add(Me.RadioButton3)
         Me.Controls.Add(Me.RadioButton2)
-        Me.Controls.Add(Me.RadioButton1)
+        Me.Controls.Add(Me.BothRadio)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.seatsCombo)
         Me.Controls.Add(Me.Label3)
@@ -246,6 +257,18 @@ Partial Class ChooseRental
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Label1 As Label
+    Friend WithEvents typeCombo As ComboBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents makeCombo As ComboBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents seatsCombo As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents BothRadio As RadioButton
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RadioButton3 As RadioButton
+    Friend WithEvents backButton As Button
+    Friend WithEvents nextButton As Button
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
@@ -256,16 +279,4 @@ Partial Class ChooseRental
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Label1 As Label
-    Friend WithEvents typeCombo As ComboBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents makeCombo As ComboBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents seatsCombo As ComboBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton3 As RadioButton
-    Friend WithEvents backButton As Button
-    Friend WithEvents nextButton As Button
 End Class
