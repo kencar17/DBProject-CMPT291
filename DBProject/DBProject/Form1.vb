@@ -57,6 +57,7 @@ Public Class Form1
         ' Launch the view inventory form
         Dim viewInventory As New ViewInventory
         viewInventory.MdiParent = Me.MdiParent
+        viewInventory.CallingFormProperty = Me
         viewInventory.Show()
     End Sub
 
