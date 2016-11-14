@@ -1,8 +1,8 @@
 Public Class Type
     Private tid As String
-    Private dailyRate As String
-    Private weeklyRate As String
-    Private monthlyRate As String
+    Private dailyRate As Decimal
+    Private weeklyRate As Decimal
+    Private monthlyRate As Decimal
     Private vehicleType As String
 
     Public Property TidProperty As String
@@ -14,29 +14,29 @@ Public Class Type
         End Set
     End Property
 
-    Public Property DailyRateProperty As String
+    Public Property DailyRateProperty As Decimal
         Get
             Return dailyRate
         End Get
-        Set(value As String)
+        Set(value As Decimal)
             dailyRate = value
         End Set
     End Property
 
-    Public Property WeeklyRateProperty As String
+    Public Property WeeklyRateProperty As Decimal
         Get
             Return weeklyRate
         End Get
-        Set(value As String)
+        Set(value As Decimal)
             weeklyRate = value
         End Set
     End Property
 
-    Public Property MonthlyRateProperty As String
+    Public Property MonthlyRateProperty As Decimal
         Get
             Return monthlyRate
         End Get
-        Set(value As String)
+        Set(value As Decimal)
             monthlyRate = value
         End Set
     End Property
