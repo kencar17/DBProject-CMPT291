@@ -31,7 +31,7 @@ Partial Class Parent
         Me.ClientSize = New System.Drawing.Size(624, 441)
         Me.IsMdiContainer = True
         Me.Name = "Parent"
-        Me.Text = "Parent"
+        Me.Text = "Car Rental"
         Me.ResumeLayout(False)
 
     End Sub
