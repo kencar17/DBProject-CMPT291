@@ -66,7 +66,7 @@ Partial Class ChooseLocation
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(479, 102)
+        Me.Label3.Location = New System.Drawing.Point(523, 102)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(91, 25)
         Me.Label3.TabIndex = 4
@@ -92,7 +92,7 @@ Partial Class ChooseLocation
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(479, 444)
+        Me.Label5.Location = New System.Drawing.Point(523, 444)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(62, 25)
         Me.Label5.TabIndex = 8
@@ -101,14 +101,14 @@ Partial Class ChooseLocation
         'timeComboTwo
         '
         Me.timeComboTwo.FormattingEnabled = True
-        Me.timeComboTwo.Location = New System.Drawing.Point(484, 478)
+        Me.timeComboTwo.Location = New System.Drawing.Point(528, 478)
         Me.timeComboTwo.Name = "timeComboTwo"
         Me.timeComboTwo.Size = New System.Drawing.Size(195, 32)
         Me.timeComboTwo.TabIndex = 9
         '
         'nextButton
         '
-        Me.nextButton.Location = New System.Drawing.Point(709, 575)
+        Me.nextButton.Location = New System.Drawing.Point(753, 575)
         Me.nextButton.Name = "nextButton"
         Me.nextButton.Size = New System.Drawing.Size(128, 39)
         Me.nextButton.TabIndex = 10
@@ -132,7 +132,7 @@ Partial Class ChooseLocation
         '
         'MonthCalendar2
         '
-        Me.MonthCalendar2.Location = New System.Drawing.Point(484, 138)
+        Me.MonthCalendar2.Location = New System.Drawing.Point(528, 138)
         Me.MonthCalendar2.Name = "MonthCalendar2"
         Me.MonthCalendar2.TabIndex = 13
         '
@@ -140,7 +140,7 @@ Partial Class ChooseLocation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(923, 709)
+        Me.ClientSize = New System.Drawing.Size(934, 709)
         Me.Controls.Add(Me.MonthCalendar2)
         Me.Controls.Add(Me.MonthCalendar1)
         Me.Controls.Add(Me.backButton)

@@ -14,4 +14,8 @@
     Public Sub doAThing()
         Hide()
     End Sub
+
+    Private Sub locationCombBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles locationCombBox.SelectedIndexChanged
+
+    End Sub
 End Class
