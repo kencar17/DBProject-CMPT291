@@ -22,7 +22,7 @@ Partial Class createOrder
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.nextButton = New System.Windows.Forms.Button()
         Me.CFnameLabel = New System.Windows.Forms.Label()
         Me.CFnameTextField = New System.Windows.Forms.TextBox()
         Me.CLnameLabel = New System.Windows.Forms.Label()
@@ -42,7 +42,7 @@ Partial Class createOrder
         Me.CCountryTextField = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.CPostalTextField = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.backButton = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -54,14 +54,14 @@ Partial Class createOrder
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
-        'Button1
+        'nextButton
         '
-        Me.Button1.Location = New System.Drawing.Point(517, 515)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(129, 41)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Next"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.nextButton.Location = New System.Drawing.Point(517, 515)
+        Me.nextButton.Name = "nextButton"
+        Me.nextButton.Size = New System.Drawing.Size(129, 41)
+        Me.nextButton.TabIndex = 0
+        Me.nextButton.Text = "Next"
+        Me.nextButton.UseVisualStyleBackColor = True
         '
         'CFnameLabel
         '
@@ -217,14 +217,14 @@ Partial Class createOrder
         Me.CPostalTextField.Size = New System.Drawing.Size(129, 29)
         Me.CPostalTextField.TabIndex = 19
         '
-        'Button2
+        'backButton
         '
-        Me.Button2.Location = New System.Drawing.Point(52, 515)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(129, 41)
-        Me.Button2.TabIndex = 20
-        Me.Button2.Text = "Back"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.backButton.Location = New System.Drawing.Point(52, 515)
+        Me.backButton.Name = "backButton"
+        Me.backButton.Size = New System.Drawing.Size(129, 41)
+        Me.backButton.TabIndex = 20
+        Me.backButton.Text = "Back"
+        Me.backButton.UseVisualStyleBackColor = True
         '
         'Label6
         '
@@ -314,7 +314,7 @@ Partial Class createOrder
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.backButton)
         Me.Controls.Add(Me.CPostalTextField)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.CCountryTextField)
@@ -334,7 +334,7 @@ Partial Class createOrder
         Me.Controls.Add(Me.CLnameLabel)
         Me.Controls.Add(Me.CFnameTextField)
         Me.Controls.Add(Me.CFnameLabel)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.nextButton)
         Me.Name = "createOrder"
         Me.Text = "createOrder"
         Me.ResumeLayout(False)
@@ -342,7 +342,7 @@ Partial Class createOrder
 
     End Sub
 
-    Friend WithEvents Button1 As Button
+    Friend WithEvents nextButton As Button
     Friend WithEvents CFnameLabel As Label
     Friend WithEvents CFnameTextField As TextBox
     Friend WithEvents CLnameLabel As Label
@@ -362,7 +362,7 @@ Partial Class createOrder
     Friend WithEvents CCountryTextField As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents CPostalTextField As TextBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents backButton As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
