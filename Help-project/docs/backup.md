@@ -1,4 +1,4 @@
-Backing up the database system is easy with our backup system. Once you have logged on to the system, select Back Up System. This will present you with options to back up the system, see this help, or to return to the Home screen:
+Backing up the database system is easy with our backup system. Once you have [logged on](gs.md) to the system, select Back Up System. This will present you with options to back up the system, see this help, or to return to the Home screen:
 
 ![System backup](Backup.png)
 

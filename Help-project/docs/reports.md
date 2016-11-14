@@ -1,6 +1,6 @@
 Several reports can be generated using our system, like seeing all the users registered on the system.
 
-To generate a report, first ensure that you are logged in. From the home screen, select the Reports option. This will present a screen with a variety of reports that can be generated:
+To generate a report, first ensure that you are [logged in](gs.md). From the home screen, select the Reports option. This will present a screen with a variety of reports that can be generated:
 
 ![Reports](Reports.png)
 
