@@ -113,6 +113,18 @@
     <Compile Include="Backup.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ChooseLocation.Designer.vb">
+      <DependentUpon>ChooseLocation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseLocation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseRental.Designer.vb">
+      <DependentUpon>ChooseRental.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseRental.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="createOrder.Designer.vb">
       <DependentUpon>createOrder.vb</DependentUpon>
     </Compile>
@@ -189,6 +201,12 @@
       <DependentUpon>NewType.vb</DependentUpon>
     </Compile>
     <Compile Include="NewType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderSummary.Designer.vb">
+      <DependentUpon>OrderSummary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OrderSummary.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Parent.Designer.vb">
@@ -280,6 +298,12 @@
     <EmbeddedResource Include="Backup.resx">
       <DependentUpon>Backup.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChooseLocation.resx">
+      <DependentUpon>ChooseLocation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseRental.resx">
+      <DependentUpon>ChooseRental.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="createOrder.resx">
       <DependentUpon>createOrder.vb</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +339,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewType.resx">
       <DependentUpon>NewType.vb</DependentUpon>
+    <EmbeddedResource Include="OrderSummary.resx">
+      <DependentUpon>OrderSummary.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parent.resx">
       <DependentUpon>Parent.vb</DependentUpon>
