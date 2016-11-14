@@ -37,56 +37,60 @@ Partial Class Home
         '
         'UserAdminButton
         '
-        Me.UserAdminButton.Location = New System.Drawing.Point(12, 11)
+        Me.UserAdminButton.Location = New System.Drawing.Point(22, 20)
+        Me.UserAdminButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.UserAdminButton.Name = "UserAdminButton"
-        Me.UserAdminButton.Size = New System.Drawing.Size(116, 23)
+        Me.UserAdminButton.Size = New System.Drawing.Size(213, 42)
         Me.UserAdminButton.TabIndex = 0
         Me.UserAdminButton.Text = "User Administration"
         Me.UserAdminButton.UseVisualStyleBackColor = True
         '
         'CarAdminButton
         '
-        Me.CarAdminButton.Location = New System.Drawing.Point(12, 41)
+        Me.CarAdminButton.Location = New System.Drawing.Point(22, 76)
+        Me.CarAdminButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.CarAdminButton.Name = "CarAdminButton"
-        Me.CarAdminButton.Size = New System.Drawing.Size(116, 23)
+        Me.CarAdminButton.Size = New System.Drawing.Size(213, 42)
         Me.CarAdminButton.TabIndex = 1
         Me.CarAdminButton.Text = "Car Administration"
         Me.CarAdminButton.UseVisualStyleBackColor = True
         '
         'RentalButton
         '
-        Me.RentalButton.Enabled = False
-        Me.RentalButton.Location = New System.Drawing.Point(12, 70)
+        Me.RentalButton.Location = New System.Drawing.Point(22, 129)
+        Me.RentalButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.RentalButton.Name = "RentalButton"
-        Me.RentalButton.Size = New System.Drawing.Size(116, 23)
+        Me.RentalButton.Size = New System.Drawing.Size(213, 42)
         Me.RentalButton.TabIndex = 2
         Me.RentalButton.Text = "Rentals"
         Me.RentalButton.UseVisualStyleBackColor = True
         '
         'BackupButton
         '
-        Me.BackupButton.Location = New System.Drawing.Point(11, 157)
-        Me.BackupButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.BackupButton.Location = New System.Drawing.Point(20, 290)
+        Me.BackupButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BackupButton.Name = "BackupButton"
-        Me.BackupButton.Size = New System.Drawing.Size(117, 23)
+        Me.BackupButton.Size = New System.Drawing.Size(215, 42)
         Me.BackupButton.TabIndex = 3
         Me.BackupButton.Text = "Back Up System"
         Me.BackupButton.UseVisualStyleBackColor = True
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(10, 217)
+        Me.HelpButton.Location = New System.Drawing.Point(18, 401)
+        Me.HelpButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.HelpButton.Name = "HelpButton"
-        Me.HelpButton.Size = New System.Drawing.Size(118, 23)
+        Me.HelpButton.Size = New System.Drawing.Size(216, 42)
         Me.HelpButton.TabIndex = 4
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = True
         '
         'LogOutButton
         '
-        Me.LogOutButton.Location = New System.Drawing.Point(133, 217)
+        Me.LogOutButton.Location = New System.Drawing.Point(244, 401)
+        Me.LogOutButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.LogOutButton.Name = "LogOutButton"
-        Me.LogOutButton.Size = New System.Drawing.Size(116, 23)
+        Me.LogOutButton.Size = New System.Drawing.Size(213, 42)
         Me.LogOutButton.TabIndex = 5
         Me.LogOutButton.Text = "Log Out"
         Me.LogOutButton.UseVisualStyleBackColor = True
@@ -94,53 +98,58 @@ Partial Class Home
         'NameLabel
         '
         Me.NameLabel.AutoSize = True
-        Me.NameLabel.Location = New System.Drawing.Point(134, 46)
+        Me.NameLabel.Location = New System.Drawing.Point(246, 85)
+        Me.NameLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.NameLabel.Name = "NameLabel"
-        Me.NameLabel.Size = New System.Drawing.Size(35, 13)
+        Me.NameLabel.Size = New System.Drawing.Size(64, 25)
         Me.NameLabel.TabIndex = 7
         Me.NameLabel.Text = "Name"
         '
         'UnusedLabel1
         '
         Me.UnusedLabel1.AutoSize = True
-        Me.UnusedLabel1.Location = New System.Drawing.Point(135, 21)
+        Me.UnusedLabel1.Location = New System.Drawing.Point(248, 39)
+        Me.UnusedLabel1.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.UnusedLabel1.Name = "UnusedLabel1"
-        Me.UnusedLabel1.Size = New System.Drawing.Size(71, 13)
+        Me.UnusedLabel1.Size = New System.Drawing.Size(130, 25)
         Me.UnusedLabel1.TabIndex = 8
         Me.UnusedLabel1.Text = "Logged in as:"
         '
         'ReportsButton
         '
-        Me.ReportsButton.Location = New System.Drawing.Point(11, 188)
+        Me.ReportsButton.Location = New System.Drawing.Point(20, 347)
+        Me.ReportsButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.ReportsButton.Name = "ReportsButton"
-        Me.ReportsButton.Size = New System.Drawing.Size(117, 23)
+        Me.ReportsButton.Size = New System.Drawing.Size(215, 42)
         Me.ReportsButton.TabIndex = 9
         Me.ReportsButton.Text = "Reports"
         Me.ReportsButton.UseVisualStyleBackColor = True
         '
         'BranchButton
         '
-        Me.BranchButton.Location = New System.Drawing.Point(12, 129)
+        Me.BranchButton.Location = New System.Drawing.Point(22, 238)
+        Me.BranchButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.BranchButton.Name = "BranchButton"
-        Me.BranchButton.Size = New System.Drawing.Size(116, 23)
+        Me.BranchButton.Size = New System.Drawing.Size(213, 42)
         Me.BranchButton.TabIndex = 10
         Me.BranchButton.Text = "Branches"
         Me.BranchButton.UseVisualStyleBackColor = True
         '
         'TypeButton
         '
-        Me.TypeButton.Location = New System.Drawing.Point(12, 100)
+        Me.TypeButton.Location = New System.Drawing.Point(22, 185)
+        Me.TypeButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.TypeButton.Name = "TypeButton"
-        Me.TypeButton.Size = New System.Drawing.Size(116, 23)
+        Me.TypeButton.Size = New System.Drawing.Size(213, 42)
         Me.TypeButton.TabIndex = 11
         Me.TypeButton.Text = "Car Types"
         Me.TypeButton.UseVisualStyleBackColor = True
         '
         'Home
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(263, 253)
+        Me.ClientSize = New System.Drawing.Size(482, 467)
         Me.Controls.Add(Me.TypeButton)
         Me.Controls.Add(Me.BranchButton)
         Me.Controls.Add(Me.ReportsButton)
@@ -152,6 +161,7 @@ Partial Class Home
         Me.Controls.Add(Me.RentalButton)
         Me.Controls.Add(Me.CarAdminButton)
         Me.Controls.Add(Me.UserAdminButton)
+        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Name = "Home"
         Me.Text = "Home"
         Me.ResumeLayout(False)

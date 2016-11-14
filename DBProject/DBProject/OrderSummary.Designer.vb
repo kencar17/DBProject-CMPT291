@@ -54,8 +54,8 @@ Partial Class OrderSummary
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Label31 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.backButton = New System.Windows.Forms.Button()
+        Me.finishButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -348,31 +348,31 @@ Partial Class OrderSummary
         Me.Label31.TabIndex = 31
         Me.Label31.Text = "Label31"
         '
-        'Button1
+        'backButton
         '
-        Me.Button1.Location = New System.Drawing.Point(56, 553)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(93, 40)
-        Me.Button1.TabIndex = 32
-        Me.Button1.Text = "Back"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.backButton.Location = New System.Drawing.Point(56, 553)
+        Me.backButton.Name = "backButton"
+        Me.backButton.Size = New System.Drawing.Size(93, 40)
+        Me.backButton.TabIndex = 32
+        Me.backButton.Text = "Back"
+        Me.backButton.UseVisualStyleBackColor = True
         '
-        'Button2
+        'finishButton
         '
-        Me.Button2.Location = New System.Drawing.Point(692, 553)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(93, 40)
-        Me.Button2.TabIndex = 33
-        Me.Button2.Text = "Finish"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.finishButton.Location = New System.Drawing.Point(692, 553)
+        Me.finishButton.Name = "finishButton"
+        Me.finishButton.Size = New System.Drawing.Size(93, 40)
+        Me.finishButton.TabIndex = 33
+        Me.finishButton.Text = "Finish"
+        Me.finishButton.UseVisualStyleBackColor = True
         '
         'OrderSummary
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(940, 627)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.finishButton)
+        Me.Controls.Add(Me.backButton)
         Me.Controls.Add(Me.Label31)
         Me.Controls.Add(Me.Label30)
         Me.Controls.Add(Me.Label29)
@@ -444,6 +444,6 @@ Partial Class OrderSummary
     Friend WithEvents Label29 As Label
     Friend WithEvents Label30 As Label
     Friend WithEvents Label31 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents backButton As Button
+    Friend WithEvents finishButton As Button
 End Class
