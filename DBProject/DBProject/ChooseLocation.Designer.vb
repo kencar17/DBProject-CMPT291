@@ -23,15 +23,15 @@ Partial Class ChooseLocation
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.locationCombBox = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.timeComboOne = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.timeComboTwo = New System.Windows.Forms.ComboBox()
+        Me.nextButton = New System.Windows.Forms.Button()
+        Me.backButton = New System.Windows.Forms.Button()
         Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.MonthCalendar2 = New System.Windows.Forms.MonthCalendar()
         Me.SuspendLayout()
@@ -45,14 +45,14 @@ Partial Class ChooseLocation
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Choose Location"
         '
-        'ComboBox1
+        'locationCombBox
         '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(235, 47)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(179, 32)
-        Me.ComboBox1.TabIndex = 1
+        Me.locationCombBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.locationCombBox.FormattingEnabled = True
+        Me.locationCombBox.Location = New System.Drawing.Point(235, 47)
+        Me.locationCombBox.Name = "locationCombBox"
+        Me.locationCombBox.Size = New System.Drawing.Size(255, 32)
+        Me.locationCombBox.TabIndex = 1
         '
         'Label2
         '
@@ -81,13 +81,13 @@ Partial Class ChooseLocation
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Time:"
         '
-        'ComboBox2
+        'timeComboOne
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(74, 478)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(190, 32)
-        Me.ComboBox2.TabIndex = 7
+        Me.timeComboOne.FormattingEnabled = True
+        Me.timeComboOne.Location = New System.Drawing.Point(74, 478)
+        Me.timeComboOne.Name = "timeComboOne"
+        Me.timeComboOne.Size = New System.Drawing.Size(190, 32)
+        Me.timeComboOne.TabIndex = 7
         '
         'Label5
         '
@@ -98,31 +98,31 @@ Partial Class ChooseLocation
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Time:"
         '
-        'ComboBox3
+        'timeComboTwo
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(484, 478)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(195, 32)
-        Me.ComboBox3.TabIndex = 9
+        Me.timeComboTwo.FormattingEnabled = True
+        Me.timeComboTwo.Location = New System.Drawing.Point(484, 478)
+        Me.timeComboTwo.Name = "timeComboTwo"
+        Me.timeComboTwo.Size = New System.Drawing.Size(195, 32)
+        Me.timeComboTwo.TabIndex = 9
         '
-        'Button1
+        'nextButton
         '
-        Me.Button1.Location = New System.Drawing.Point(709, 575)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(128, 39)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Next"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.nextButton.Location = New System.Drawing.Point(709, 575)
+        Me.nextButton.Name = "nextButton"
+        Me.nextButton.Size = New System.Drawing.Size(128, 39)
+        Me.nextButton.TabIndex = 10
+        Me.nextButton.Text = "Next"
+        Me.nextButton.UseVisualStyleBackColor = True
         '
-        'Button2
+        'backButton
         '
-        Me.Button2.Location = New System.Drawing.Point(74, 575)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(96, 39)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "Back"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.backButton.Location = New System.Drawing.Point(74, 575)
+        Me.backButton.Name = "backButton"
+        Me.backButton.Size = New System.Drawing.Size(96, 39)
+        Me.backButton.TabIndex = 11
+        Me.backButton.Text = "Back"
+        Me.backButton.UseVisualStyleBackColor = True
         '
         'MonthCalendar1
         '
@@ -143,15 +143,15 @@ Partial Class ChooseLocation
         Me.ClientSize = New System.Drawing.Size(923, 709)
         Me.Controls.Add(Me.MonthCalendar2)
         Me.Controls.Add(Me.MonthCalendar1)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ComboBox3)
+        Me.Controls.Add(Me.backButton)
+        Me.Controls.Add(Me.nextButton)
+        Me.Controls.Add(Me.timeComboTwo)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.timeComboOne)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.locationCombBox)
         Me.Controls.Add(Me.Label1)
         Me.Name = "ChooseLocation"
         Me.Text = "ChooseLocation"
@@ -161,15 +161,15 @@ Partial Class ChooseLocation
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents locationCombBox As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents timeComboOne As ComboBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents timeComboTwo As ComboBox
+    Friend WithEvents nextButton As Button
+    Friend WithEvents backButton As Button
     Friend WithEvents MonthCalendar1 As MonthCalendar
     Friend WithEvents MonthCalendar2 As MonthCalendar
 End Class

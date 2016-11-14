@@ -72,4 +72,10 @@ Public Class Home
         types.MdiParent = Me.MdiParent
         types.Show()
     End Sub
+
+    Private Sub RentalButton_Click(sender As Object, e As EventArgs) Handles RentalButton.Click
+        Dim locationWindow As New ChooseLocation
+        locationWindow.MdiParent = Me.MdiParent
+        locationWindow.Show()
+    End Sub
 End Class
