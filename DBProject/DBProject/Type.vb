@@ -1,5 +1,3 @@
-﻿Imports MySql.Data.MySqlClient
-
 Public Class Type
     Private tid As String
     Private dailyRate As String

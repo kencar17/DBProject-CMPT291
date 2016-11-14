@@ -43,6 +43,14 @@
 
     
     <url>
+     <loc>/types/</loc>
+     <lastmod>2016-11-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/ua/</loc>
      <lastmod>2016-11-13</lastmod>
      <changefreq>daily</changefreq>

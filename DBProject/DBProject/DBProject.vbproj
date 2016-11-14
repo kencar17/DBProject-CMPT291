@@ -158,6 +158,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventory.vb" />
+    <Compile Include="ModifyType.Designer.vb">
+      <DependentUpon>ModifyType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyType.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -177,6 +183,12 @@
       <DependentUpon>NewBranch.vb</DependentUpon>
     </Compile>
     <Compile Include="NewBranch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewType.Designer.vb">
+      <DependentUpon>NewType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NewType.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Parent.Designer.vb">
@@ -211,6 +223,12 @@
     </Compile>
     <Compile Include="SQLConnection.vb" />
     <Compile Include="Type.vb" />
+    <Compile Include="TypesAdministration.Designer.vb">
+      <DependentUpon>TypesAdministration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TypesAdministration.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UpdateBranch.Designer.vb">
       <DependentUpon>UpdateBranch.vb</DependentUpon>
     </Compile>
@@ -283,6 +301,9 @@
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModifyType.resx">
+      <DependentUpon>ModifyType.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -291,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewBranch.resx">
       <DependentUpon>NewBranch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewType.resx">
+      <DependentUpon>NewType.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parent.resx">
       <DependentUpon>Parent.vb</DependentUpon>
@@ -306,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchVehicles.resx">
       <DependentUpon>SearchVehicles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TypesAdministration.resx">
+      <DependentUpon>TypesAdministration.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateBranch.resx">
       <DependentUpon>UpdateBranch.vb</DependentUpon>

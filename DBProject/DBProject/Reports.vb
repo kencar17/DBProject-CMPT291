@@ -372,4 +372,111 @@ Public Class Reports
             End If
         End If
     End Sub
+
+    Private Sub TypeButton_Click(sender As Object, e As EventArgs) Handles TypeButton.Click
+        If PDFOption.Checked Or BothOption.Checked Then
+            Dim branchReport As New Document(PageSize.LETTER, 10, 10, 30, 30)
+            Dim fname As String = "Types " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".pdf"
+            Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
+            Dim stream As New FileStream(fpath, FileMode.Create)
+            Dim pdfWriter As PdfWriter = PdfWriter.GetInstance(branchReport, stream)
+
+            With branchReport
+                .AddAuthor("Group 10")
+                .AddSubject("Summary of vehicle types being offered.")
+                .AddTitle("Type Report")
+                .AddCreationDate()
+                .Open()
+            End With
+
+            Dim table As New PdfPTable(4)
+            table.WidthPercentage = 90
+            Dim widths = New Integer() {1, 1, 1, 1}
+            table.SetWidths(widths)
+            Dim cell As New PdfPCell(New Phrase("Types"))
+            cell.Colspan = 4
+            cell.HorizontalAlignment = 1
+            table.AddCell(cell)
+
+            table.AddCell("Type")
+            table.AddCell("Daily Rate")
+            table.AddCell("Weekly Rate")
+            table.AddCell("Monthly Rate")
+
+            Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
+            Using sqlComm As New MySqlCommand()
+                With sqlComm
+                    .Connection = dbconn
+                    .CommandText = "SELECT Type, DailyRate, WeeklyRate, MonthlyRate FROM Types"
+                    .CommandType = CommandType.Text
+                End With
+                Try
+                    Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+                    While sqlReader.Read()
+                        table.AddCell(sqlReader("Type").ToString())
+                        table.AddCell(sqlReader("DailyRate").ToString())
+                        table.AddCell(sqlReader("WeeklyRate").ToString())
+                        table.AddCell(sqlReader("MonthlyRate").ToString())
+                    End While
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+            End Using
+            SQLConnection.Instance.CloseConnection()
+
+            branchReport.Add(table)
+            branchReport.Close()
+            pdfWriter.Close()
+            stream.Close()
+
+            MsgBox("Report saved to " & fpath)
+
+            If PDFOption.Checked Then
+                Process.Start(fpath)
+            End If
+        End If
+
+        If ExcelOption.Checked Or BothOption.Checked Then
+            Dim report As String = ""
+            Dim fname As String = "Types " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
+            Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
+            Dim writer As New StreamWriter(fpath, True)
+            writer.Write("Type, Daily Rate, Weekly Rate, Monthly Rate")
+
+
+            Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
+            Using sqlComm As New MySqlCommand()
+                With sqlComm
+                    .Connection = dbconn
+                    .CommandText = "SELECT Type, DailyRate, WeeklyRate, MonthlyRate FROM Types"
+                    .CommandType = CommandType.Text
+                End With
+                Try
+                    Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+                    While sqlReader.Read()
+                        Dim type As String = sqlReader("Type").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+                        Dim drate As String = sqlReader("DailyRate").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+                        Dim wrate As String = sqlReader("WeeklyRate").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+                        Dim mrate As String = sqlReader("MonthlyRate").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+
+
+                        Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}" & delim & "{3}",
+                                                         type, drate, wrate, mrate)
+
+                        writer.Write(vbCrLf & row)
+                    End While
+                    writer.Close()
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+            End Using
+            SQLConnection.Instance.CloseConnection()
+
+            MsgBox("Report saved to " & fpath)
+
+            If ExcelOption.Checked Then
+                Process.Start(fpath)
+            End If
+        End If
+    End Sub
 End Class

@@ -5,6 +5,7 @@ pages:
     - Giving Feedback: feedback.md
     - The Home Screen: home.md
     - Branch Administration: branches.md
+    - Type Administration: types.md
     - User Administration: ua.md
     - Reports: reports.md
     - System Backup: backup.md

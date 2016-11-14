@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>User Administration - Car Rental documentation</title>
+  <title>Type Administration - Car Rental documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "User Administration";
-    var mkdocs_page_input_path = "ua.md";
-    var mkdocs_page_url = "/ua/";
+    var mkdocs_page_name = "Type Administration";
+    var mkdocs_page_input_path = "types.md";
+    var mkdocs_page_url = "/types/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -82,30 +82,25 @@
 <li>
           
             <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../types/">Type Administration</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Type Administration</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#creating-a-vehicle-type">Creating a Vehicle Type</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#updating-a-vehicle-type">Updating a Vehicle Type</a></li>
+                
+            
+            </ul>
         
     </li>
 <li>
           
             <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">User Administration</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#adding-a-user">Adding a User</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#deleting-a-user">Deleting a User</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#updating-a-user">Updating a User</a></li>
-                
-                    <li><a class="toctree-l4" href="#passwords">Passwords</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../ua/">User Administration</a>
         
     </li>
 <li>
@@ -146,7 +141,7 @@
     
       
     
-    <li>User Administration</li>
+    <li>Type Administration</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -156,33 +151,23 @@
           <div role="main">
             <div class="section">
               
-                <p>Our car rental system allows employees to perform user administration easily and quickly. The operations supported include user creation, deletion, and modification. To begin user administration, log in to open the employee home screen. From the home screen, select User Administration:</p>
-<p><img alt="Home" src="../UserAdministration.png" /></p>
-<p>The following screen will appear:</p>
-<p><img alt="User Administration" src="../AddUser.png" /></p>
-<h1 id="adding-a-user">Adding a User</h1>
-<p>To add a user to the system, first <a href="#User-Administration">open the user administration</a> screen, and select the Add New User option. This will open the new user screen:</p>
-<p><img alt="Add a User" src="../NewUser.png" /></p>
-<p>You will need to know the following information:</p>
+                <p>Vehicles come in many different types, and each type needs to have a different daily, weekly, and monthly rates. To accommodate this, logged-in employees can  create new vehicle types or update existing vehicle types. To begin using the vehicle type system, select Car Types from the employee home screen. You will be presented with the following screen:</p>
+<p><img alt="Type Administration" src="../TypeAdministration.png" /></p>
+<h1 id="creating-a-vehicle-type">Creating a Vehicle Type</h1>
+<p>To create a new vehicle type, select Create a Type from the Car Types screen. You will see the following window:</p>
+<p><img alt="New Car Type" src="../NewType.png" /></p>
+<p>Here, you will need to enter:</p>
 <ul>
-<li>A unique username</li>
-<li>Strong, private password</li>
-<li>First name</li>
-<li>Last name</li>
-<li>Full Address</li>
-<li>Email</li>
+<li>A short description of the type, such as Small Car or SUV</li>
+<li>A daily rate</li>
+<li>A weekly rate</li>
+<li>A monthly rate</li>
 </ul>
-<p>Enter the information, then click on Submit. The system will notify you that the user has been registered. If the system requires you to change the information you entered, you will be informed when you click on Submit.</p>
-<h1 id="deleting-a-user">Deleting a User</h1>
-<p>To delete a user from the system, first <a href="#User-Administration">open the user administration</a> screen, and select the Delete a User option. This will open the user deletion screen:</p>
-<p><img alt="Delete a User" src="../DeleteUser.png" /></p>
-<p>When you have made your selection and are ready to delete the user, press the Delete button. Once you are done deleting users, press the Done button. The system will notify you that the deletion has been completed.</p>
-<h1 id="updating-a-user">Updating a User</h1>
-<p>To update a user in the system, first <a href="#User-Administration">open the user administration</a> screen, and select the Update a User option. This will open the user modification screen:</p>
-<p><img alt="Update a User" src="../UpdateUser.png" /></p>
-<p>Select the username of the user you wish to update from the drop-down box at the top of the screen. This will update the screen with the current information of the user. <em>Please refer to the section on <a href="#Passwords">passwords</a> for more information on the password modification box.</em> The username of the user cannot be changed. Once you are satisfied with the information you have modified, press the Submit button. The system will notify you that the update has been completed.</p>
-<h2 id="passwords">Passwords</h2>
-<p>When you select a user from the drop-down menu, you will notice that the user's password is not shown. This is to protect the privacy of users in the system. <strong>By default, if you do not enter a password, the password will not be changed. If you enter a password, the user's password will be changed. Do not enter text into the password box unless you want to change the user's password.</strong></p>
+<p>Once the information is entered, press submit. If there are any issues with the information you entered, the system will let you know; otherwise, the system will create the type and let you know that it was successful.</p>
+<h1 id="updating-a-vehicle-type">Updating a Vehicle Type</h1>
+<p>To update a vehicle type, select Modify a Type from the Car Types screen. You will see the following window:</p>
+<p><img alt="Updating a Type" src="../ModifyType.png" /></p>
+<p>First, you must select the vehicle type that you want to change from the drop-down list at the top of the screen. You can then change the description of the type, and any of the rates associated with it. Once you are satisfied with your changes, press the Submit button. The system will validate the information you entered, and will let you know if there were any errors. It will then update the vehicle type stored in the system, and let you know when the operation is completed.</p>
               
             </div>
           </div>
@@ -190,10 +175,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../reports/" class="btn btn-neutral float-right" title="Reports">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../ua/" class="btn btn-neutral float-right" title="User Administration">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../types/" class="btn btn-neutral" title="Type Administration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../branches/" class="btn btn-neutral" title="Branch Administration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -219,10 +204,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../types/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../branches/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../reports/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../ua/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
