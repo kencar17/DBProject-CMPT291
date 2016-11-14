@@ -55,6 +55,9 @@ Public Class Form1
 
     Private Sub CheckButton_Click(sender As Object, e As EventArgs) Handles CheckButton.Click
         ' Launch the view inventory form
+        Dim viewInventory As New ViewInventory
+        viewInventory.MdiParent = Me.MdiParent
+        viewInventory.Show()
     End Sub
 
     Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click

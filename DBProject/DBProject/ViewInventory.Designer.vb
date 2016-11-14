@@ -22,17 +22,19 @@ Partial Class ViewInventory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.TypeCB = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.HelpButton = New System.Windows.Forms.Button()
+        Me.BackButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'ComboBox1
+        'TypeCB
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(60, 110)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(404, 33)
-        Me.ComboBox1.TabIndex = 3
+        Me.TypeCB.FormattingEnabled = True
+        Me.TypeCB.Location = New System.Drawing.Point(60, 110)
+        Me.TypeCB.Name = "TypeCB"
+        Me.TypeCB.Size = New System.Drawing.Size(404, 33)
+        Me.TypeCB.TabIndex = 3
         '
         'Label1
         '
@@ -44,20 +46,42 @@ Partial Class ViewInventory
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Click the drop down bar to see all" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "the types of vehicles we have to offer"
         '
+        'HelpButton
+        '
+        Me.HelpButton.Location = New System.Drawing.Point(45, 367)
+        Me.HelpButton.Name = "HelpButton"
+        Me.HelpButton.Size = New System.Drawing.Size(104, 45)
+        Me.HelpButton.TabIndex = 5
+        Me.HelpButton.Text = "Help"
+        Me.HelpButton.UseVisualStyleBackColor = True
+        '
+        'BackButton
+        '
+        Me.BackButton.Location = New System.Drawing.Point(155, 367)
+        Me.BackButton.Name = "BackButton"
+        Me.BackButton.Size = New System.Drawing.Size(104, 45)
+        Me.BackButton.TabIndex = 6
+        Me.BackButton.Text = "Back"
+        Me.BackButton.UseVisualStyleBackColor = True
+        '
         'ViewInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(568, 502)
+        Me.ClientSize = New System.Drawing.Size(515, 436)
+        Me.Controls.Add(Me.BackButton)
+        Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Controls.Add(Me.TypeCB)
+        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "ViewInventory"
         Me.Text = "View Inventory"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents TypeCB As ComboBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents HelpButton As Button
+    Friend WithEvents BackButton As Button
 End Class
