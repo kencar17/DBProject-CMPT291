@@ -125,7 +125,7 @@ Public Class Feedback
     End Sub
 
     Private Sub TIDBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles TIDBox.KeyPress
-        If Not Char.IsDigit(e.KeyChar) Then
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
             e.Handled = True
         End If
     End Sub
