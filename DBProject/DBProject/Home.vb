@@ -19,6 +19,7 @@ Public Class Home
     Private Sub Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.NameLabel.Text = loggedInUser.NameProperty
         Me.WindowState = FormWindowState.Maximized
+        FaceBox.Load(loggedInUser.ImgProperty)
     End Sub
 
     Private Sub Home_Unload(sender As Object, e As EventArgs) Handles MyBase.Closing

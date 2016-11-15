@@ -37,13 +37,15 @@ Partial Class UpdateUser
         Me.UserSelection = New System.Windows.Forms.ComboBox()
         Me.CloseButton = New System.Windows.Forms.Button()
         Me.HelpButton = New System.Windows.Forms.Button()
+        Me.ImgButton = New System.Windows.Forms.Button()
+        Me.PicturePath = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'ErrorLabel
         '
         Me.ErrorLabel.AutoSize = True
         Me.ErrorLabel.ForeColor = System.Drawing.Color.Red
-        Me.ErrorLabel.Location = New System.Drawing.Point(19, 196)
+        Me.ErrorLabel.Location = New System.Drawing.Point(158, 222)
         Me.ErrorLabel.Name = "ErrorLabel"
         Me.ErrorLabel.Size = New System.Drawing.Size(95, 13)
         Me.ErrorLabel.TabIndex = 23
@@ -53,7 +55,7 @@ Partial Class UpdateUser
         'SubmitButton
         '
         Me.SubmitButton.Enabled = False
-        Me.SubmitButton.Location = New System.Drawing.Point(161, 171)
+        Me.SubmitButton.Location = New System.Drawing.Point(22, 217)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(100, 23)
         Me.SubmitButton.TabIndex = 22
@@ -151,7 +153,7 @@ Partial Class UpdateUser
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(22, 215)
+        Me.CloseButton.Location = New System.Drawing.Point(22, 246)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(99, 23)
         Me.CloseButton.TabIndex = 25
@@ -160,18 +162,37 @@ Partial Class UpdateUser
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(161, 215)
+        Me.HelpButton.Location = New System.Drawing.Point(161, 246)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(100, 23)
         Me.HelpButton.TabIndex = 26
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = True
         '
+        'ImgButton
+        '
+        Me.ImgButton.Location = New System.Drawing.Point(161, 171)
+        Me.ImgButton.Name = "ImgButton"
+        Me.ImgButton.Size = New System.Drawing.Size(100, 23)
+        Me.ImgButton.TabIndex = 27
+        Me.ImgButton.Text = "Change Image"
+        Me.ImgButton.UseVisualStyleBackColor = True
+        '
+        'PicturePath
+        '
+        Me.PicturePath.AutoSize = True
+        Me.PicturePath.Location = New System.Drawing.Point(22, 198)
+        Me.PicturePath.Name = "PicturePath"
+        Me.PicturePath.Size = New System.Drawing.Size(0, 13)
+        Me.PicturePath.TabIndex = 28
+        '
         'UpdateUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 250)
+        Me.ClientSize = New System.Drawing.Size(284, 286)
+        Me.Controls.Add(Me.PicturePath)
+        Me.Controls.Add(Me.ImgButton)
         Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.UserSelection)
@@ -209,4 +230,6 @@ Partial Class UpdateUser
     Friend WithEvents UserSelection As ComboBox
     Friend WithEvents CloseButton As Button
     Friend WithEvents HelpButton As Button
+    Friend WithEvents ImgButton As Button
+    Friend WithEvents PicturePath As Label
 End Class

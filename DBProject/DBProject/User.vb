@@ -13,6 +13,16 @@ Public Class User
     Private id As Integer
     Private firstName As String
     Private lastName As String
+    Private img As String
+
+    Public Property ImgProperty As String
+        Get
+            Return img
+        End Get
+        Set
+            img = Value
+        End Set
+    End Property
 
     Public Property FirstNameProperty As String
         Get
@@ -139,7 +149,7 @@ Public Class User
     End Function
 
     Public Shared Function FindUser(username As String) As User
-        Dim checkSQL As String = "SELECT Result.Username, Password, Employee.FirstName, Employee.LastName, Employee.PostalCode, Employee.StreetAddress, Employee.Email, Employee.City, Employee.State, Employee.Country FROM (SELECT Username, Password, PersonID FROM User WHERE Username = @username) Result LEFT JOIN Employee ON Result.PersonID = Employee.EID"
+        Dim checkSQL As String = "SELECT Result.Username, Password, Employee.FirstName, Employee.LastName, Employee.PostalCode, Employee.StreetAddress, Employee.Email, Employee.City, Employee.State, Employee.Country, ImgUrl FROM (SELECT Username, Password, PersonID, ImgUrl FROM User WHERE Username = @username) Result LEFT JOIN Employee ON Result.PersonID = Employee.EID"
         Dim returnedUsername As String = ""
         Dim returnedPass As String = ""
         Dim returnedEmail As String
@@ -149,6 +159,7 @@ Public Class User
         Dim returnedState As String
         Dim returnedCountry As String
         Dim employeeName As String
+        Dim image As String
 
         Dim dbConnection = SQLConnection.Instance.GetConnection()
         Using sqlComm As New MySqlCommand()
@@ -170,6 +181,7 @@ Public Class User
                     returnedState = sqlReader("State").ToString()
                     returnedCountry = sqlReader("Country").ToString()
                     employeeName = sqlReader("FirstName").ToString() & " " & sqlReader("LastName").ToString()
+                    image = sqlReader("ImgUrl").ToString()
                 End While
             Catch ex As Exception
                 Return Nothing
@@ -191,6 +203,7 @@ Public Class User
             .StateProperty = returnedState
             .StreetAddressProperty = address
             .NameProperty = employeeName
+            .ImgProperty = image
         End With
 
         Return newUser

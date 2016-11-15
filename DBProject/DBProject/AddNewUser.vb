@@ -1,8 +1,10 @@
 ﻿Imports System.Runtime.InteropServices
+Imports Microsoft.VisualBasic.FileIO
 Imports MySql.Data.MySqlClient
 
 Public Class AddNewUser
     Private callingForm As UserAdmin
+    Private chosenFile As String = ""
 
     Public WriteOnly Property CallingFormProperty As UserAdmin
         Set(value As UserAdmin)
@@ -125,16 +127,22 @@ Public Class AddNewUser
         ' Finally close the connection
         SQLConnection.Instance.CloseConnection()
 
+        Dim uploadUrl As String = "http://res.cloudinary.com/dmhf7fjrc/image/upload/c_scale,h_141,w_100/v1479153691/sample.jpg"
+        If Not chosenFile.Equals("") Then
+            uploadUrl = Faces.upload(chosenFile)
+        End If
+
         ' Get another connection and do another insert similar to the first one, this time using the eid I got above
         dbconn = SQLConnection.Instance.GetConnection()
         Using sqlCommb As New MySqlCommand()
             With sqlCommb
                 .Connection = dbconn
-                .CommandText = "INSERT INTO User (Username, Password, PersonID) VALUES (@username, @pass, @eid)"
+                .CommandText = "INSERT INTO User (Username, Password, PersonID, ImgUrl) VALUES (@username, @pass, @eid, @url)"
                 .CommandType = CommandType.Text
                 .Parameters.AddWithValue("@username", UsernameBox.Text)
                 .Parameters.AddWithValue("@pass", hashedPass)
                 .Parameters.AddWithValue("@eid", eid)
+                .Parameters.AddWithValue("@url", uploadUrl)
             End With
             Try
                 sqlCommb.ExecuteNonQuery()
@@ -153,5 +161,20 @@ Public Class AddNewUser
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
         Help.GetHelp("ua")
+    End Sub
+
+    Private Sub ImgButton_Click(sender As Object, e As EventArgs) Handles ImgButton.Click
+        Dim fd As New OpenFileDialog
+
+        With fd
+            .Title = "Choose an image"
+            .InitialDirectory = SpecialDirectories.MyPictures
+            .Filter = "BMP (*.bmp)|*.bmp|GIF (*.gif)|*.gif|JPEG (*.jpg, *.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png|All Images (*.bmp, *.gif, *.jpg, *.jpeg, *.png)|*.bmp;*.gif;*.jpg;*.jpeg;*.png"
+
+            If .ShowDialog() = DialogResult.OK Then
+                chosenFile = .FileName
+                PicturePath.Text = chosenFile
+            End If
+        End With
     End Sub
 End Class

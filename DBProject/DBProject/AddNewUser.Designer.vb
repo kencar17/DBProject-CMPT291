@@ -36,94 +36,85 @@ Partial Class AddNewUser
         Me.ErrorLabel = New System.Windows.Forms.Label()
         Me.CloseButton = New System.Windows.Forms.Button()
         Me.HelpButton = New System.Windows.Forms.Button()
+        Me.ImgButton = New System.Windows.Forms.Button()
+        Me.PicturePath = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'UsernameBox
         '
-        Me.UsernameBox.Location = New System.Drawing.Point(24, 23)
-        Me.UsernameBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.UsernameBox.Location = New System.Drawing.Point(12, 12)
         Me.UsernameBox.Name = "UsernameBox"
-        Me.UsernameBox.Size = New System.Drawing.Size(196, 31)
+        Me.UsernameBox.Size = New System.Drawing.Size(100, 20)
         Me.UsernameBox.TabIndex = 0
         '
         'PassBox
         '
-        Me.PassBox.Location = New System.Drawing.Point(302, 23)
-        Me.PassBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.PassBox.Location = New System.Drawing.Point(151, 12)
         Me.PassBox.Name = "PassBox"
-        Me.PassBox.Size = New System.Drawing.Size(196, 31)
+        Me.PassBox.Size = New System.Drawing.Size(100, 20)
         Me.PassBox.TabIndex = 1
         '
         'FirstnameBox
         '
-        Me.FirstnameBox.Location = New System.Drawing.Point(24, 73)
-        Me.FirstnameBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.FirstnameBox.Location = New System.Drawing.Point(12, 38)
         Me.FirstnameBox.Name = "FirstnameBox"
-        Me.FirstnameBox.Size = New System.Drawing.Size(196, 31)
+        Me.FirstnameBox.Size = New System.Drawing.Size(100, 20)
         Me.FirstnameBox.TabIndex = 2
         '
         'LastnameBox
         '
-        Me.LastnameBox.Location = New System.Drawing.Point(302, 73)
-        Me.LastnameBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.LastnameBox.Location = New System.Drawing.Point(151, 38)
         Me.LastnameBox.Name = "LastnameBox"
-        Me.LastnameBox.Size = New System.Drawing.Size(196, 31)
+        Me.LastnameBox.Size = New System.Drawing.Size(100, 20)
         Me.LastnameBox.TabIndex = 3
         '
         'PostcodeBox
         '
-        Me.PostcodeBox.Location = New System.Drawing.Point(24, 173)
-        Me.PostcodeBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.PostcodeBox.Location = New System.Drawing.Point(12, 90)
         Me.PostcodeBox.Name = "PostcodeBox"
-        Me.PostcodeBox.Size = New System.Drawing.Size(196, 31)
+        Me.PostcodeBox.Size = New System.Drawing.Size(100, 20)
         Me.PostcodeBox.TabIndex = 5
         '
         'AddressBox
         '
-        Me.AddressBox.Location = New System.Drawing.Point(24, 123)
-        Me.AddressBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.AddressBox.Location = New System.Drawing.Point(12, 64)
         Me.AddressBox.Name = "AddressBox"
-        Me.AddressBox.Size = New System.Drawing.Size(474, 31)
+        Me.AddressBox.Size = New System.Drawing.Size(239, 20)
         Me.AddressBox.TabIndex = 4
         '
         'CityBox
         '
-        Me.CityBox.Location = New System.Drawing.Point(302, 175)
-        Me.CityBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.CityBox.Location = New System.Drawing.Point(151, 91)
         Me.CityBox.Name = "CityBox"
-        Me.CityBox.Size = New System.Drawing.Size(196, 31)
+        Me.CityBox.Size = New System.Drawing.Size(100, 20)
         Me.CityBox.TabIndex = 6
         '
         'StateBox
         '
-        Me.StateBox.Location = New System.Drawing.Point(24, 225)
-        Me.StateBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.StateBox.Location = New System.Drawing.Point(12, 117)
         Me.StateBox.Name = "StateBox"
-        Me.StateBox.Size = New System.Drawing.Size(196, 31)
+        Me.StateBox.Size = New System.Drawing.Size(100, 20)
         Me.StateBox.TabIndex = 7
         '
         'CountryBox
         '
-        Me.CountryBox.Location = New System.Drawing.Point(302, 225)
-        Me.CountryBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.CountryBox.Location = New System.Drawing.Point(151, 117)
         Me.CountryBox.Name = "CountryBox"
-        Me.CountryBox.Size = New System.Drawing.Size(196, 31)
+        Me.CountryBox.Size = New System.Drawing.Size(100, 20)
         Me.CountryBox.TabIndex = 8
         '
         'EmailBox
         '
-        Me.EmailBox.Location = New System.Drawing.Point(24, 277)
-        Me.EmailBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.EmailBox.Location = New System.Drawing.Point(12, 144)
         Me.EmailBox.Name = "EmailBox"
-        Me.EmailBox.Size = New System.Drawing.Size(196, 31)
+        Me.EmailBox.Size = New System.Drawing.Size(100, 20)
         Me.EmailBox.TabIndex = 9
         '
         'SubmitButton
         '
-        Me.SubmitButton.Location = New System.Drawing.Point(302, 277)
-        Me.SubmitButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.SubmitButton.Location = New System.Drawing.Point(12, 187)
         Me.SubmitButton.Name = "SubmitButton"
-        Me.SubmitButton.Size = New System.Drawing.Size(200, 44)
+        Me.SubmitButton.Size = New System.Drawing.Size(100, 23)
         Me.SubmitButton.TabIndex = 10
         Me.SubmitButton.Text = "Submit"
         Me.SubmitButton.UseVisualStyleBackColor = True
@@ -132,39 +123,55 @@ Partial Class AddNewUser
         '
         Me.ErrorLabel.AutoSize = True
         Me.ErrorLabel.ForeColor = System.Drawing.Color.Red
-        Me.ErrorLabel.Location = New System.Drawing.Point(18, 325)
-        Me.ErrorLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
+        Me.ErrorLabel.Location = New System.Drawing.Point(148, 192)
         Me.ErrorLabel.Name = "ErrorLabel"
-        Me.ErrorLabel.Size = New System.Drawing.Size(196, 25)
+        Me.ErrorLabel.Size = New System.Drawing.Size(95, 13)
         Me.ErrorLabel.TabIndex = 11
         Me.ErrorLabel.Text = "User already exists"
         Me.ErrorLabel.Visible = False
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(26, 358)
-        Me.CloseButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.CloseButton.Location = New System.Drawing.Point(12, 216)
         Me.CloseButton.Name = "CloseButton"
-        Me.CloseButton.Size = New System.Drawing.Size(198, 44)
+        Me.CloseButton.Size = New System.Drawing.Size(100, 23)
         Me.CloseButton.TabIndex = 12
         Me.CloseButton.Text = "Close"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(302, 356)
-        Me.HelpButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.HelpButton.Location = New System.Drawing.Point(151, 216)
         Me.HelpButton.Name = "HelpButton"
-        Me.HelpButton.Size = New System.Drawing.Size(200, 44)
+        Me.HelpButton.Size = New System.Drawing.Size(100, 23)
         Me.HelpButton.TabIndex = 13
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = True
         '
+        'ImgButton
+        '
+        Me.ImgButton.Location = New System.Drawing.Point(151, 144)
+        Me.ImgButton.Name = "ImgButton"
+        Me.ImgButton.Size = New System.Drawing.Size(100, 23)
+        Me.ImgButton.TabIndex = 14
+        Me.ImgButton.Text = "Select Image"
+        Me.ImgButton.UseVisualStyleBackColor = True
+        '
+        'PicturePath
+        '
+        Me.PicturePath.AutoSize = True
+        Me.PicturePath.Location = New System.Drawing.Point(12, 167)
+        Me.PicturePath.Name = "PicturePath"
+        Me.PicturePath.Size = New System.Drawing.Size(0, 13)
+        Me.PicturePath.TabIndex = 15
+        '
         'AddNewUser
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(526, 433)
+        Me.ClientSize = New System.Drawing.Size(263, 259)
+        Me.Controls.Add(Me.PicturePath)
+        Me.Controls.Add(Me.ImgButton)
         Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.ErrorLabel)
@@ -179,7 +186,6 @@ Partial Class AddNewUser
         Me.Controls.Add(Me.FirstnameBox)
         Me.Controls.Add(Me.PassBox)
         Me.Controls.Add(Me.UsernameBox)
-        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Name = "AddNewUser"
         Me.Text = "Add New User"
         Me.ResumeLayout(False)
@@ -201,4 +207,6 @@ Partial Class AddNewUser
     Friend WithEvents ErrorLabel As Label
     Friend WithEvents CloseButton As Button
     Friend WithEvents HelpButton As Button
+    Friend WithEvents ImgButton As Button
+    Friend WithEvents PicturePath As Label
 End Class
