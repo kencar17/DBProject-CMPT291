@@ -1,8 +1,10 @@
 ﻿Imports System.Runtime.InteropServices
+Imports Microsoft.VisualBasic.FileIO
 Imports MySql.Data.MySqlClient
 
 Public Class UpdateUser
     Private callingForm As UserAdmin
+    Private chosenFile As String = ""
 
     Public WriteOnly Property CallingFormProperty As UserAdmin
         Set(value As UserAdmin)
@@ -81,6 +83,22 @@ Public Class UpdateUser
         End Using
         SQLConnection.Instance.CloseConnection()
 
+        If Not chosenFile.Equals("") Then
+            Dim uploadUrl As String = Faces.upload(chosenFile)
+            dbconn = SQLConnection.Instance.GetConnection()
+            Using sqlComm As New MySqlCommand()
+                With sqlComm
+                    .Connection = dbconn
+                    .CommandText = "UPDATE User SET ImgUrl=@url WHERE Username=@username"
+                    .CommandType = CommandType.Text
+                    .Parameters.AddWithValue("@url", uploadUrl)
+                    .Parameters.AddWithValue("@username", UsernameBox.Text)
+                End With
+                sqlComm.ExecuteNonQuery()
+            End Using
+            SQLConnection.Instance.CloseConnection()
+        End If
+
         If (Not PassBox.Text.Equals("")) Then
             Dim newPassword As String = BCrypt.Net.BCrypt.HashPassword(PassBox.Text)
 
@@ -136,5 +154,20 @@ Public Class UpdateUser
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
         Help.GetHelp("ua")
+    End Sub
+
+    Private Sub ImgButton_Click(sender As Object, e As EventArgs) Handles ImgButton.Click
+        Dim fd As New OpenFileDialog
+
+        With fd
+            .Title = "Choose an image"
+            .InitialDirectory = SpecialDirectories.MyPictures
+            .Filter = "BMP (*.bmp)|*.bmp|GIF (*.gif)|*.gif|JPEG (*.jpg, *.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png|All Images (*.bmp, *.gif, *.jpg, *.jpeg, *.png)|*.bmp;*.gif;*.jpg;*.jpeg;*.png"
+
+            If .ShowDialog() = DialogResult.OK Then
+                chosenFile = .FileName
+                PicturePath.Text = chosenFile
+            End If
+        End With
     End Sub
 End Class
