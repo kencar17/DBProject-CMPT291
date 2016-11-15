@@ -23,18 +23,6 @@ Partial Class ChooseRental
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.vehicleTable = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.typeCombo = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.makeCombo = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.seatsCombo = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.BothRadio = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.backButton = New System.Windows.Forms.Button()
-        Me.nextButton = New System.Windows.Forms.Button()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,6 +33,18 @@ Partial Class ChooseRental
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.typeCombo = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.makeCombo = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.seatsCombo = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.BothRadio = New System.Windows.Forms.RadioButton()
+        Me.autoRadio = New System.Windows.Forms.RadioButton()
+        Me.stanRadio = New System.Windows.Forms.RadioButton()
+        Me.backButton = New System.Windows.Forms.Button()
+        Me.nextButton = New System.Windows.Forms.Button()
         CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -58,117 +58,6 @@ Partial Class ChooseRental
         Me.vehicleTable.RowTemplate.Height = 31
         Me.vehicleTable.Size = New System.Drawing.Size(1183, 532)
         Me.vehicleTable.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(46, 36)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(137, 25)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Choose Type:"
-        '
-        'typeCombo
-        '
-        Me.typeCombo.FormattingEnabled = True
-        Me.typeCombo.Location = New System.Drawing.Point(203, 36)
-        Me.typeCombo.Name = "typeCombo"
-        Me.typeCombo.Size = New System.Drawing.Size(177, 32)
-        Me.typeCombo.TabIndex = 2
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(46, 86)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(141, 25)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Choose Make:"
-        '
-        'makeCombo
-        '
-        Me.makeCombo.FormattingEnabled = True
-        Me.makeCombo.Location = New System.Drawing.Point(203, 86)
-        Me.makeCombo.Name = "makeCombo"
-        Me.makeCombo.Size = New System.Drawing.Size(177, 32)
-        Me.makeCombo.TabIndex = 4
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(46, 136)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(69, 25)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Seats:"
-        '
-        'seatsCombo
-        '
-        Me.seatsCombo.FormattingEnabled = True
-        Me.seatsCombo.Location = New System.Drawing.Point(203, 136)
-        Me.seatsCombo.Name = "seatsCombo"
-        Me.seatsCombo.Size = New System.Drawing.Size(177, 32)
-        Me.seatsCombo.TabIndex = 6
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(438, 36)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(135, 25)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Transmission:"
-        '
-        'BothRadio
-        '
-        Me.BothRadio.AutoSize = True
-        Me.BothRadio.Location = New System.Drawing.Point(463, 82)
-        Me.BothRadio.Name = "BothRadio"
-        Me.BothRadio.Size = New System.Drawing.Size(77, 29)
-        Me.BothRadio.TabIndex = 8
-        Me.BothRadio.TabStop = True
-        Me.BothRadio.Text = "Both"
-        Me.BothRadio.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(576, 81)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(124, 29)
-        Me.RadioButton2.TabIndex = 9
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Automatic"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton3
-        '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(723, 81)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(117, 29)
-        Me.RadioButton3.TabIndex = 10
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "Standard"
-        Me.RadioButton3.UseVisualStyleBackColor = True
-        '
-        'backButton
-        '
-        Me.backButton.Location = New System.Drawing.Point(51, 761)
-        Me.backButton.Name = "backButton"
-        Me.backButton.Size = New System.Drawing.Size(93, 41)
-        Me.backButton.TabIndex = 11
-        Me.backButton.Text = "Back"
-        Me.backButton.UseVisualStyleBackColor = True
-        '
-        'nextButton
-        '
-        Me.nextButton.Location = New System.Drawing.Point(1141, 761)
-        Me.nextButton.Name = "nextButton"
-        Me.nextButton.Size = New System.Drawing.Size(93, 41)
-        Me.nextButton.TabIndex = 12
-        Me.nextButton.Text = "Next"
-        Me.nextButton.UseVisualStyleBackColor = True
         '
         'Column1
         '
@@ -230,6 +119,120 @@ Partial Class ChooseRental
         Me.Column9.Name = "Column9"
         Me.Column9.Width = 50
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(46, 36)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(137, 25)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Choose Type:"
+        '
+        'typeCombo
+        '
+        Me.typeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.typeCombo.FormattingEnabled = True
+        Me.typeCombo.Location = New System.Drawing.Point(203, 36)
+        Me.typeCombo.Name = "typeCombo"
+        Me.typeCombo.Size = New System.Drawing.Size(177, 32)
+        Me.typeCombo.TabIndex = 2
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(46, 86)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(141, 25)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Choose Make:"
+        '
+        'makeCombo
+        '
+        Me.makeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.makeCombo.FormattingEnabled = True
+        Me.makeCombo.Location = New System.Drawing.Point(203, 86)
+        Me.makeCombo.Name = "makeCombo"
+        Me.makeCombo.Size = New System.Drawing.Size(177, 32)
+        Me.makeCombo.TabIndex = 4
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(46, 136)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(69, 25)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Seats:"
+        '
+        'seatsCombo
+        '
+        Me.seatsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.seatsCombo.FormattingEnabled = True
+        Me.seatsCombo.Location = New System.Drawing.Point(203, 136)
+        Me.seatsCombo.Name = "seatsCombo"
+        Me.seatsCombo.Size = New System.Drawing.Size(177, 32)
+        Me.seatsCombo.TabIndex = 6
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(438, 36)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(135, 25)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Transmission:"
+        '
+        'BothRadio
+        '
+        Me.BothRadio.AutoSize = True
+        Me.BothRadio.Location = New System.Drawing.Point(463, 82)
+        Me.BothRadio.Name = "BothRadio"
+        Me.BothRadio.Size = New System.Drawing.Size(77, 29)
+        Me.BothRadio.TabIndex = 8
+        Me.BothRadio.TabStop = True
+        Me.BothRadio.Text = "Both"
+        Me.BothRadio.UseVisualStyleBackColor = True
+        '
+        'autoRadio
+        '
+        Me.autoRadio.AutoSize = True
+        Me.autoRadio.Location = New System.Drawing.Point(576, 81)
+        Me.autoRadio.Name = "autoRadio"
+        Me.autoRadio.Size = New System.Drawing.Size(124, 29)
+        Me.autoRadio.TabIndex = 9
+        Me.autoRadio.TabStop = True
+        Me.autoRadio.Text = "Automatic"
+        Me.autoRadio.UseVisualStyleBackColor = True
+        '
+        'stanRadio
+        '
+        Me.stanRadio.AutoSize = True
+        Me.stanRadio.Location = New System.Drawing.Point(723, 81)
+        Me.stanRadio.Name = "stanRadio"
+        Me.stanRadio.Size = New System.Drawing.Size(117, 29)
+        Me.stanRadio.TabIndex = 10
+        Me.stanRadio.TabStop = True
+        Me.stanRadio.Text = "Standard"
+        Me.stanRadio.UseVisualStyleBackColor = True
+        '
+        'backButton
+        '
+        Me.backButton.Location = New System.Drawing.Point(51, 761)
+        Me.backButton.Name = "backButton"
+        Me.backButton.Size = New System.Drawing.Size(93, 41)
+        Me.backButton.TabIndex = 11
+        Me.backButton.Text = "Back"
+        Me.backButton.UseVisualStyleBackColor = True
+        '
+        'nextButton
+        '
+        Me.nextButton.Location = New System.Drawing.Point(1141, 761)
+        Me.nextButton.Name = "nextButton"
+        Me.nextButton.Size = New System.Drawing.Size(93, 41)
+        Me.nextButton.TabIndex = 12
+        Me.nextButton.Text = "Next"
+        Me.nextButton.UseVisualStyleBackColor = True
+        '
         'ChooseRental
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
@@ -237,8 +240,8 @@ Partial Class ChooseRental
         Me.ClientSize = New System.Drawing.Size(1294, 899)
         Me.Controls.Add(Me.nextButton)
         Me.Controls.Add(Me.backButton)
-        Me.Controls.Add(Me.RadioButton3)
-        Me.Controls.Add(Me.RadioButton2)
+        Me.Controls.Add(Me.stanRadio)
+        Me.Controls.Add(Me.autoRadio)
         Me.Controls.Add(Me.BothRadio)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.seatsCombo)
@@ -265,8 +268,8 @@ Partial Class ChooseRental
     Friend WithEvents seatsCombo As ComboBox
     Friend WithEvents Label4 As Label
     Friend WithEvents BothRadio As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton3 As RadioButton
+    Friend WithEvents autoRadio As RadioButton
+    Friend WithEvents stanRadio As RadioButton
     Friend WithEvents backButton As Button
     Friend WithEvents nextButton As Button
     Friend WithEvents Column1 As DataGridViewTextBoxColumn

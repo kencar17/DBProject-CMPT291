@@ -26,26 +26,8 @@ Public Class ChooseRental
 
     Private Sub seatsCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles seatsCombo.SelectedIndexChanged
         vehicleTable.Rows.Clear()
-
-        If seatsCombo.SelectedItem.Equals(1) = True Then
-            populateVehiclesTable("SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
-                                   FROM Vehicle, Types where Vehicle.Class = Types.Type
-                                   and Vehicle.Available = 1 and Vehicle.Seats = 1")
-        End If
-        If seatsCombo.SelectedItem.Equals(2) = True Then
-            populateVehiclesTable("SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
-                                   FROM Vehicle, Types where Vehicle.Class = Types.Type
-                                   and Vehicle.Available = 1 and Vehicle.Seats = 2")
-        End If
-        If seatsCombo.SelectedItem.Equals(3) = True Then
-            populateVehiclesTable("SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
-                                   FROM Vehicle, Types where Vehicle.Class = Types.Type
-                                   and Vehicle.Available = 1 and Vehicle.Seats = 3")
-        End If
-        If seatsCombo.SelectedItem.Equals(4) = True Then
-            populateVehiclesTable("SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
-                                   FROM Vehicle, Types where Vehicle.Class = Types.Type
-                                   and Vehicle.Available = 1 and Vehicle.Seats = 4")
+        If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
+            populateVehiclesTable(buildQueryString())
         End If
     End Sub
 
@@ -67,8 +49,8 @@ Public Class ChooseRental
             Try
                 Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
                 While sqlReader.Read()
-                    Dim Type As String = sqlReader("Type").ToString()
-                    typeCombo.Items.Add(Type)
+                    Dim a As String = sqlReader("Type").ToString()
+                    typeCombo.Items.Add(a)
                 End While
             Catch ex As Exception
                 MsgBox(ex.Message)
@@ -107,6 +89,7 @@ Public Class ChooseRental
     End Sub
 
     Sub populateVehiclesTable(sqlText As String)
+        vehicleTable.Rows.Clear()
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
         dbconn = SQLConnection.Instance.GetConnection()
         Using sqlComm As New MySqlCommand()
@@ -142,6 +125,60 @@ Public Class ChooseRental
             End Try
         End Using
         SQLConnection.Instance.CloseConnection()
+    End Sub
+
+    Public Function buildQueryString()
+        Dim original As String = "SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
+                                FROM Vehicle, Types where Vehicle.Class = Types.Type
+                                and Vehicle.Available = 1"
+        Dim newQuery As String = ""
+
+        newQuery = original
+        ' Vehicle seats
+        If seatsCombo.SelectedItem.Equals("All") = True Then
+            ' Do nothing
+        Else
+            newQuery = newQuery & " and Vehicle.Seats = " & seatsCombo.SelectedItem
+        End If
+
+        ' Vehicle class
+        If typeCombo.SelectedItem.Equals("All") = True Then
+            ' Do nothing
+        Else
+            newQuery = newQuery & " and Vehicle.Class = '" & typeCombo.SelectedItem & "'"
+        End If
+
+        ' Make of vehicles
+        If makeCombo.SelectedItem.Equals("All") = True Then
+            ' Do nothing
+        Else
+            newQuery = newQuery & " and Vehicle.Make = '" & makeCombo.SelectedItem & "'"
+        End If
+
+        ' Make of Transmission
+        If BothRadio.Checked = True Then
+            ' Do nothing
+        ElseIf autoRadio.Checked = True Then
+            newQuery = newQuery & " and Vehicle.Transmission = 'Automatic'"
+        ElseIf stanRadio.Checked = True Then
+            newQuery = newQuery & " and Vehicle.Transmission = 'Standard'"
+        End If
+
+        Return newQuery
+    End Function
+
+    Private Sub makeCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles makeCombo.SelectedIndexChanged
+        vehicleTable.Rows.Clear()
+        If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
+            populateVehiclesTable(buildQueryString())
+        End If
+    End Sub
+
+    Private Sub typeCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles typeCombo.SelectedIndexChanged
+        vehicleTable.Rows.Clear()
+        If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
+            populateVehiclesTable(buildQueryString())
+        End If
     End Sub
 
 End Class
