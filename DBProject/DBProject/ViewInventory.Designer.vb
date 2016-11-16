@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ViewInventory
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,68 +20,254 @@ Partial Class ViewInventory
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.TypeCB = New System.Windows.Forms.ComboBox()
+        Me.backButton = New System.Windows.Forms.Button()
+        Me.stanRadio = New System.Windows.Forms.RadioButton()
+        Me.autoRadio = New System.Windows.Forms.RadioButton()
+        Me.BothRadio = New System.Windows.Forms.RadioButton()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.seatsCombo = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.makeCombo = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.typeCombo = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.HelpButton = New System.Windows.Forms.Button()
-        Me.BackButton = New System.Windows.Forms.Button()
+        Me.vehicleTable = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'TypeCB
+        'backButton
         '
-        Me.TypeCB.FormattingEnabled = True
-        Me.TypeCB.Location = New System.Drawing.Point(60, 110)
-        Me.TypeCB.Name = "TypeCB"
-        Me.TypeCB.Size = New System.Drawing.Size(404, 33)
-        Me.TypeCB.TabIndex = 3
+        Me.backButton.Location = New System.Drawing.Point(64, 825)
+        Me.backButton.Name = "backButton"
+        Me.backButton.Size = New System.Drawing.Size(101, 43)
+        Me.backButton.TabIndex = 24
+        Me.backButton.Text = "Back"
+        Me.backButton.UseVisualStyleBackColor = True
+        '
+        'stanRadio
+        '
+        Me.stanRadio.AutoSize = True
+        Me.stanRadio.Location = New System.Drawing.Point(797, 116)
+        Me.stanRadio.Name = "stanRadio"
+        Me.stanRadio.Size = New System.Drawing.Size(130, 29)
+        Me.stanRadio.TabIndex = 23
+        Me.stanRadio.TabStop = True
+        Me.stanRadio.Text = "Standard"
+        Me.stanRadio.UseVisualStyleBackColor = True
+        '
+        'autoRadio
+        '
+        Me.autoRadio.AutoSize = True
+        Me.autoRadio.Location = New System.Drawing.Point(636, 116)
+        Me.autoRadio.Name = "autoRadio"
+        Me.autoRadio.Size = New System.Drawing.Size(138, 29)
+        Me.autoRadio.TabIndex = 22
+        Me.autoRadio.TabStop = True
+        Me.autoRadio.Text = "Automatic"
+        Me.autoRadio.UseVisualStyleBackColor = True
+        '
+        'BothRadio
+        '
+        Me.BothRadio.AutoSize = True
+        Me.BothRadio.Location = New System.Drawing.Point(513, 117)
+        Me.BothRadio.Name = "BothRadio"
+        Me.BothRadio.Size = New System.Drawing.Size(87, 29)
+        Me.BothRadio.TabIndex = 21
+        Me.BothRadio.TabStop = True
+        Me.BothRadio.Text = "Both"
+        Me.BothRadio.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(486, 69)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(146, 25)
+        Me.Label4.TabIndex = 20
+        Me.Label4.Text = "Transmission:"
+        '
+        'seatsCombo
+        '
+        Me.seatsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.seatsCombo.FormattingEnabled = True
+        Me.seatsCombo.Location = New System.Drawing.Point(229, 174)
+        Me.seatsCombo.Name = "seatsCombo"
+        Me.seatsCombo.Size = New System.Drawing.Size(193, 33)
+        Me.seatsCombo.TabIndex = 19
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(58, 174)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(73, 25)
+        Me.Label3.TabIndex = 18
+        Me.Label3.Text = "Seats:"
+        '
+        'makeCombo
+        '
+        Me.makeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.makeCombo.FormattingEnabled = True
+        Me.makeCombo.Location = New System.Drawing.Point(229, 122)
+        Me.makeCombo.Name = "makeCombo"
+        Me.makeCombo.Size = New System.Drawing.Size(193, 33)
+        Me.makeCombo.TabIndex = 17
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(58, 122)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(151, 25)
+        Me.Label2.TabIndex = 16
+        Me.Label2.Text = "Choose Make:"
+        '
+        'typeCombo
+        '
+        Me.typeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.typeCombo.FormattingEnabled = True
+        Me.typeCombo.Location = New System.Drawing.Point(229, 69)
+        Me.typeCombo.Name = "typeCombo"
+        Me.typeCombo.Size = New System.Drawing.Size(193, 33)
+        Me.typeCombo.TabIndex = 15
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(39, 21)
+        Me.Label1.Location = New System.Drawing.Point(58, 69)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(461, 62)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Click the drop down bar to see all" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "the types of vehicles we have to offer"
+        Me.Label1.Size = New System.Drawing.Size(146, 25)
+        Me.Label1.TabIndex = 14
+        Me.Label1.Text = "Choose Type:"
         '
-        'HelpButton
+        'vehicleTable
         '
-        Me.HelpButton.Location = New System.Drawing.Point(45, 367)
-        Me.HelpButton.Name = "HelpButton"
-        Me.HelpButton.Size = New System.Drawing.Size(104, 45)
-        Me.HelpButton.TabIndex = 5
-        Me.HelpButton.Text = "Help"
-        Me.HelpButton.UseVisualStyleBackColor = True
+        Me.vehicleTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.vehicleTable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column10, Me.Column8, Me.Column9})
+        Me.vehicleTable.Location = New System.Drawing.Point(64, 235)
+        Me.vehicleTable.MinimumSize = New System.Drawing.Size(1142, 554)
+        Me.vehicleTable.Name = "vehicleTable"
+        Me.vehicleTable.RowTemplate.Height = 31
+        Me.vehicleTable.Size = New System.Drawing.Size(1291, 554)
+        Me.vehicleTable.TabIndex = 13
         '
-        'BackButton
+        'Column1
         '
-        Me.BackButton.Location = New System.Drawing.Point(155, 367)
-        Me.BackButton.Name = "BackButton"
-        Me.BackButton.Size = New System.Drawing.Size(104, 45)
-        Me.BackButton.TabIndex = 6
-        Me.BackButton.Text = "Back"
-        Me.BackButton.UseVisualStyleBackColor = True
+        Me.Column1.HeaderText = "Make"
+        Me.Column1.Name = "Column1"
+        Me.Column1.Width = 75
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Model"
+        Me.Column2.Name = "Column2"
+        Me.Column2.Width = 75
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Class"
+        Me.Column3.Name = "Column3"
+        Me.Column3.Width = 75
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Year"
+        Me.Column4.Name = "Column4"
+        Me.Column4.Width = 50
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Seats"
+        Me.Column5.Name = "Column5"
+        Me.Column5.Width = 50
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Transmisson"
+        Me.Column6.Name = "Column6"
+        Me.Column6.Width = 75
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "GVWR"
+        Me.Column7.Name = "Column7"
+        Me.Column7.Width = 50
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "Daily Rate"
+        Me.Column10.Name = "Column10"
+        Me.Column10.Width = 50
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Weekly Rate"
+        Me.Column8.Name = "Column8"
+        Me.Column8.Width = 50
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Monthly Rate"
+        Me.Column9.Name = "Column9"
+        Me.Column9.Width = 50
         '
         'ViewInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(515, 436)
-        Me.Controls.Add(Me.BackButton)
-        Me.Controls.Add(Me.HelpButton)
+        Me.ClientSize = New System.Drawing.Size(1412, 936)
+        Me.Controls.Add(Me.backButton)
+        Me.Controls.Add(Me.stanRadio)
+        Me.Controls.Add(Me.autoRadio)
+        Me.Controls.Add(Me.BothRadio)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.seatsCombo)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.makeCombo)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.typeCombo)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TypeCB)
+        Me.Controls.Add(Me.vehicleTable)
         Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "ViewInventory"
         Me.Text = "View Inventory"
+        CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents TypeCB As ComboBox
+    Friend WithEvents backButton As Button
+    Friend WithEvents stanRadio As RadioButton
+    Friend WithEvents autoRadio As RadioButton
+    Friend WithEvents BothRadio As RadioButton
+    Friend WithEvents Label4 As Label
+    Friend WithEvents seatsCombo As ComboBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents makeCombo As ComboBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents typeCombo As ComboBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents HelpButton As Button
-    Friend WithEvents BackButton As Button
+    Friend WithEvents vehicleTable As DataGridView
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
 End Class
