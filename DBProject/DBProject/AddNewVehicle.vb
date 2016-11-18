@@ -125,29 +125,24 @@ Public Class AddNewVehicle
 
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
 
-        Dim selectedBranch As Branch = BranchCB.SelectedItem
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "INSERT INTO Vehicle (VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage, BID) VALUES (@vin, @make, @model, @class, @km, @year, @seats, @gvwr, @trans, @license, @avail, @coverage, @bid)"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@vin", VINbox.Text)
-                .Parameters.AddWithValue("@make", MakeBox.Text)
-                .Parameters.AddWithValue("@model", ModelBox.Text)
-                .Parameters.AddWithValue("@class", ClassCB.SelectedItem)
-                .Parameters.AddWithValue("@km", KMBox.Text)
-                .Parameters.AddWithValue("@year", YearBox.Text)
-                .Parameters.AddWithValue("@seats", SeatsBox.Text)
-                .Parameters.AddWithValue("@gvwr", GVWRBox.Text)
-                .Parameters.AddWithValue("@trans", trans)
-                .Parameters.AddWithValue("@license", PlateBox.Text)
-                .Parameters.AddWithValue("@avail", avail)
-                .Parameters.AddWithValue("@coverage", CoverageBox.Text)
-                .Parameters.AddWithValue("@bid", selectedBranch.BidProperty)
-            End With
-            sqlComm.ExecuteNonQuery()
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim selectedBranch As Branch = BranchCB.SelectedItem        Dim vehicleInsertSql As String = "INSERT INTO Vehicle (VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage, BID) VALUES (@vin, @make, @model, @class, @km, @year, @seats, @gvwr, @trans, @license, @avail, @coverage, @bid)"
+        Dim vehicleInsertParams As New Dictionary(Of String, String)
+        With vehicleInsertParams
+            .Add("@vin", VINbox.Text)
+            .Add("@make", MakeBox.Text)
+            .Add("@model", ModelBox.Text)
+            .Add("@class", ClassBox.Text)
+            .Add("@km", KMBox.Text)
+            .Add("@year", YearBox.Text)
+            .Add("@seats", SeatsBox.Text)
+            .Add("@gvwr", GVWRBox.Text)
+            .Add("@trans", TransBox.Text)
+            .Add("@license", PlateBox.Text)
+            .Add("@avail", AvailBox.Text)
+            .Add("@coverage", CoverageBox.Text)
+	    .Add("@bid", selectedBranch.BidProperty)
+        End With
+        SQLConnection.DoNonQuery(vehicleInsertSql, vehicleInsertParams)
         MsgBox("Vehicle Added")
         Me.Close()
     End Sub

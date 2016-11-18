@@ -171,6 +171,7 @@ Partial Class UpdateUser
         '
         'ImgButton
         '
+        Me.ImgButton.Enabled = False
         Me.ImgButton.Location = New System.Drawing.Point(161, 171)
         Me.ImgButton.Name = "ImgButton"
         Me.ImgButton.Size = New System.Drawing.Size(100, 23)

@@ -28,7 +28,7 @@ Partial Class Parent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(624, 441)
+        Me.ClientSize = New System.Drawing.Size(693, 496)
         Me.IsMdiContainer = True
         Me.Name = "Parent"
         Me.Text = "Car Rental"

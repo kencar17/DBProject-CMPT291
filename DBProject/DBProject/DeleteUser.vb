@@ -19,26 +19,18 @@ Public Class DeleteUser
         Me.AcceptButton = Me.DeleteButton
         Me.UserSelection.Items.Clear()
 
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "SELECT Username, PersonID FROM User"
-                .CommandType = CommandType.Text
-            End With
-            Try
-                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                While sqlReader.Read()
-                    Dim username As String = sqlReader("Username").ToString()
-                    Dim newUser As New User(username, "")
-                    newUser.IdProperty = CInt(sqlReader("PersonID").ToString())
-                    UserSelection.Items.Add(newUser)
-                End While
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim selectSql As String = "SELECT Username, PersonID FROM User"
+        Dim selectParams As New Dictionary(Of String, String)
+        Dim selectColumns As New List(Of String)
+        selectColumns.Add("Username")
+        selectColumns.Add("PersonID")
+        Dim selectResults As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(selectSql, selectParams, selectColumns)
+
+        For Each result As Dictionary(Of String, String) In selectResults
+            Dim newuser As New User(result("Username"), "")
+            newuser.IdProperty = CInt(result("PersonID"))
+            UserSelection.Items.Add(newuser)
+        Next
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
@@ -48,29 +40,15 @@ Public Class DeleteUser
             Return
         End If
 
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "DELETE FROM User WHERE Username = @username"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@username", selectedUser.UsernameProperty)
-            End With
-            sqlComm.ExecuteNonQuery()
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim userdelSql As String = "DELETE FROM User WHERE Username = @username"
+        Dim userdelParams As New Dictionary(Of String, String)
+        userdelParams.Add("@username", selectedUser.UsernameProperty)
+        SQLConnection.DoNonQuery(userdelSql, userdelParams)
 
-        dbconn = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "DELETE FROM Employee WHERE EID = @id"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@id", selectedUser.IdProperty)
-            End With
-            sqlComm.ExecuteNonQuery()
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim empdelSql As String = "DELETE FROM Employee WHERE EID = @id"
+        Dim empdelParams As New Dictionary(Of String, String)
+        empdelParams.Add("@id", selectedUser.IdProperty)
+        SQLConnection.DoNonQuery(empdelSql, empdelParams)
 
         MsgBox(selectedUser.UsernameProperty & " has been deleted.")
         Init()
