@@ -39,45 +39,22 @@ Public Class ChooseRental
         seatsCombo.SelectedItem = "All"
 
         typeCombo.Items.Add("All")
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "SELECT Type FROM Types"
-                .CommandType = CommandType.Text
-            End With
-            Try
-                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                While sqlReader.Read()
-                    Dim a As String = sqlReader("Type").ToString()
-                    typeCombo.Items.Add(a)
-                End While
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim typeSql As String = "SELECT Type FROM Types"
+        Dim typeParams As New Dictionary(Of String, String)
+        Dim typeColumns As New List(Of String)
+        typeColumns.Add("Type")
+        For Each result In SQLConnection.DoQuery(typeSql, typeParams, typeColumns)
+            typeCombo.Items.Add(result("Type"))
+        Next
         typeCombo.SelectedItem = "All"
 
         makeCombo.Items.Add("All")
-        dbconn = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "SELECT DISTINCT Make FROM Vehicle"
-                .CommandType = CommandType.Text
-            End With
-            Try
-                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                While sqlReader.Read()
-                    Dim Inventory As String = sqlReader("Make").ToString()
-                    makeCombo.Items.Add(Inventory)
-                End While
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim makeSql As String = "SELECT DISTINCT Make FROM Vehicle"
+        Dim makeParams As New Dictionary(Of String, String)
+        Dim makeColumns As List(Of String)
+        For Each result In SQLConnection.DoQuery(makeSql, makeParams, makeColumns)
+            makeCombo.Items.Add(result("Make"))
+        Next
         makeCombo.SelectedItem = "All"
 
         BothRadio.Checked = True
