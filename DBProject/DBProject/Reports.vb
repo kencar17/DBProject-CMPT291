@@ -69,6 +69,7 @@ Public Class Reports
                     .AddCell(result("StreetAddress"))
                     .AddCell(result("PostalCode"))
                     .AddCell(result("City"))
+
                     .AddCell(result("State"))
                     .AddCell(result("Country"))
                     .AddCell(result("Email"))
