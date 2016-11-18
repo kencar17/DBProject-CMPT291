@@ -107,19 +107,15 @@ Public Class Feedback
             Return
         End If
 
-        Dim dbConn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbConn
-                .CommandText = "UPDATE Transaction SET ExperienceRating=@stars,ReviewComments=@comments WHERE TID=@identifier"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@stars", starCount)
-                .Parameters.AddWithValue("@comments", ReviewBox.Text)
-                .Parameters.AddWithValue("@identifier", CInt(TIDBox.Text))
-            End With
-            sqlComm.ExecuteNonQuery()
-        End Using
-        dbConn.Close()
+        Dim updateSql As String = "UPDATE Transaction SET ExperienceRating=@stars,ReviewComments=@comments WHERE TID=@identifier"
+        Dim updateParams As New Dictionary(Of String, String)
+        With updateParams
+            .Add("@stars", starCount)
+            .Add("@comments", ReviewBox.Text)
+            .Add("@identifier", CInt(TIDBox.Text))
+        End With
+        SQLConnection.DoNonQuery(updateSql, updateParams)
+
         MsgBox("Your feedback has been recorded. Thank you!")
         Me.Close()
     End Sub

@@ -34,20 +34,15 @@ Public Class NewType
             Return
         End If
 
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "INSERT INTO Types (DailyRate, WeeklyRate, MonthlyRate, Type) VALUES (@dr, @wr, @mr, @type)"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@dr", DailyRate.Value)
-                .Parameters.AddWithValue("@wr", WeeklyRate.Value)
-                .Parameters.AddWithValue("@mr", MonthlyRate.Value)
-                .Parameters.AddWithValue("@type", TypeBox.Text)
-            End With
-            sqlComm.ExecuteNonQuery()
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim insertSql As String = "INSERT INTO Types (DailyRate, WeeklyRate, MonthlyRate, Type) VALUES (@dr, @wr, @mr, @type)"
+        Dim insertParams As New Dictionary(Of String, String)
+        With insertParams
+            .Add("@dr", DailyRate.Value)
+            .Add("@wr", WeeklyRate.Value)
+            .Add("@mr", MonthlyRate.Value)
+            .Add("@type", TypeBox.Text)
+        End With
+        SQLConnection.DoNonQuery(insertSql, insertParams)
 
         MsgBox(TypeBox.Text & " has been created.")
         Close()

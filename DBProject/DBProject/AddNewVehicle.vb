@@ -70,35 +70,30 @@ Public Class AddNewVehicle
         End If
 
         Dim vehicle = Inventory.FindVehicle(Me.VINbox.Text)
-        If vehicle Is Nothing Then
+        If vehicle IsNot Nothing Then
             wrongInfo.Text = "VIN already in database"
             wrongInfo.Visible = True
             Return
         End If
 
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
+        Dim vehicleInsertSql As String = "INSERT INTO Vehicle (VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage) VALUES (@vin, @make, @model, @class, @km, @year, @seats, @gvwr, @trans, @license, @avail, @coverage)"
+        Dim vehicleInsertParams As New Dictionary(Of String, String)
+        With vehicleInsertParams
+            .Add("@vin", VINbox.Text)
+            .Add("@make", MakeBox.Text)
+            .Add("@model", ModelBox.Text)
+            .Add("@class", ClassBox.Text)
+            .Add("@km", KMBox.Text)
+            .Add("@year", YearBox.Text)
+            .Add("@seats", SeatsBox.Text)
+            .Add("@gvwr", GVWRBox.Text)
+            .Add("@trans", TransBox.Text)
+            .Add("@license", PlateBox.Text)
+            .Add("@avail", AvailBox.Text)
+            .Add("@coverage", CoverageBox.Text)
+        End With
+        SQLConnection.DoNonQuery(vehicleInsertSql, vehicleInsertParams)
 
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "INSERT INTO Vehicle (VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage) VALUES (@vin, @make, @model, @class, @km, @year, @seats, @gvwr, @trans, @license, @avail, @coverage)"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@vin", VINbox.Text)
-                .Parameters.AddWithValue("@make", MakeBox.Text)
-                .Parameters.AddWithValue("@model", ModelBox.Text)
-                .Parameters.AddWithValue("@class", ClassBox.Text)
-                .Parameters.AddWithValue("@km", KMBox.Text)
-                .Parameters.AddWithValue("@year", YearBox.Text)
-                .Parameters.AddWithValue("@seats", SeatsBox.Text)
-                .Parameters.AddWithValue("@gvwr", GVWRBox.Text)
-                .Parameters.AddWithValue("@trans", TransBox.Text)
-                .Parameters.AddWithValue("@license", PlateBox.Text)
-                .Parameters.AddWithValue("@avail", AvailBox.Text)
-                .Parameters.AddWithValue("@coverage", CoverageBox.Text)
-            End With
-            sqlComm.ExecuteNonQuery()
-        End Using
-        SQLConnection.Instance.CloseConnection()
         MsgBox("Vehicle Added")
         Me.Close()
     End Sub

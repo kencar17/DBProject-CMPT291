@@ -85,29 +85,24 @@ Public Class UpdateVehicle
             Return
         End If
 
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
+        Dim sql As String = "UPDATE Vehicle SET Make=@make, Model=@model, Class=@class, Km=@km, Year=@year, Seats=@seats, GVWR=@gvwr, Transmission=@trans, License=@license, Available=@avail, Coverage=@coverage WHERE Vehicle.VIN = @vin"
+        Dim params As New Dictionary(Of String, String)
+        With params
+            .Add("@vin", VINUpdate.Text)
+            .Add("@make", MakeBox.Text)
+            .Add("@model", ModelBox.Text)
+            .Add("@class", ClassBox.Text)
+            .Add("@km", KmBox.Text)
+            .Add("@year", YearBox.Text)
+            .Add("@seats", SeatBox.Text)
+            .Add("@gvwr", GVWRBox.Text)
+            .Add("@trans", TransBox.Text)
+            .Add("@license", PlateBox.Text)
+            .Add("@avail", If(AvailBox.Text.Equals("True"), 1, 0))
+            .Add("@coverage", CoverageBox.Text)
+        End With
+        SQLConnection.DoNonQuery(sql, params)
 
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "UPDATE Vehicle SET Make=@make, Model=@model, Class=@class, Km=@km, Year=@year, Seats=@seats, GVWR=@gvwr, Transmission=@trans, License=@license, Available=@avail, Coverage=@coverage WHERE Vehicle.VIN = @vin"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@vin", VINUpdate.Text)
-                .Parameters.AddWithValue("@make", MakeBox.Text)
-                .Parameters.AddWithValue("@model", ModelBox.Text)
-                .Parameters.AddWithValue("@class", ClassBox.Text)
-                .Parameters.AddWithValue("@km", KmBox.Text)
-                .Parameters.AddWithValue("@year", YearBox.Text)
-                .Parameters.AddWithValue("@seats", SeatBox.Text)
-                .Parameters.AddWithValue("@gvwr", GVWRBox.Text)
-                .Parameters.AddWithValue("@trans", TransBox.Text)
-                .Parameters.AddWithValue("@license", PlateBox.Text)
-                .Parameters.AddWithValue("@avail", AvailBox.Text)
-                .Parameters.AddWithValue("@coverage", CoverageBox.Text)
-            End With
-            sqlComm.ExecuteNonQuery()
-        End Using
-        SQLConnection.Instance.CloseConnection()
         MsgBox("Vehicle Updated")
         Me.Close()
     End Sub

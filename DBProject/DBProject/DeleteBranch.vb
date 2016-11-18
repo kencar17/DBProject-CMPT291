@@ -14,17 +14,10 @@ Public Class DeleteBranch
             Return
         End If
 
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "DELETE FROM Branch WHERE Bid=@bid"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@bid", selectedBranch.BidProperty)
-            End With
-            sqlComm.ExecuteNonQuery()
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim deleteSql As String = "DELETE FROM Branch WHERE Bid=@bid"
+        Dim deleteparams As New Dictionary(Of String, String)
+        deleteparams.Add("@bid", selectedBranch.BidProperty)
+        SQLConnection.DoNonQuery(deleteSql, deleteparams)
 
         MsgBox("The branch has been deleted.")
         Init()
@@ -41,26 +34,24 @@ Public Class DeleteBranch
 
     Private Sub Init()
         BranchSelection.Items.Clear()
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "SELECT StreetAddress, City, BID FROM Branch"
-                .CommandType = CommandType.Text
-            End With
-            Try
-                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                While sqlReader.Read()
-                    Dim thebranch As New Branch
-                    thebranch.BidProperty = CInt(sqlReader("BID").ToString())
-                    thebranch.AddressProperty = sqlReader("StreetAddress").ToString()
-                    thebranch.CityProperty = sqlReader("City").ToString()
-                    BranchSelection.Items.Add(thebranch)
-                End While
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        End Using
-        SQLConnection.Instance.CloseConnection()
+
+        Dim selectSql As String = "SELECT StreetAddress, City, BID FROM Branch"
+        Dim selectParams As New Dictionary(Of String, String)
+        Dim selectColumns As New List(Of String)
+        With selectColumns
+            .Add("BID")
+            .Add("StreetAddress")
+            .Add("City")
+        End With
+        Dim results As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(selectSql, selectParams, selectColumns)
+
+        For Each result As Dictionary(Of String, String) In results
+            Dim newBranch As New Branch
+            newBranch.BidProperty = CInt(result("BID"))
+            newBranch.AddressProperty = result("StreetAddress")
+            newBranch.CityProperty = result("City")
+            BranchSelection.Items.Add(newBranch)
+        Next
+
     End Sub
 End Class
