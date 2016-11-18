@@ -160,34 +160,35 @@ Public Class User
         Dim returnedCountry As String
         Dim employeeName As String
         Dim image As String
-
-        Dim dbConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbConnection
-                .CommandText = checkSQL
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@username", username)
-            End With
-            Try
-                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                While sqlReader.Read()
-                    returnedUsername = sqlReader("Username").ToString()
-                    returnedPass = sqlReader("Password").ToString()
-                    returnedEmail = sqlReader("Email").ToString()
-                    address = sqlReader("StreetAddress").ToString()
-                    pcode = sqlReader("PostalCode").ToString()
-                    returnedCity = sqlReader("City").ToString()
-                    returnedState = sqlReader("State").ToString()
-                    returnedCountry = sqlReader("Country").ToString()
-                    employeeName = sqlReader("FirstName").ToString() & " " & sqlReader("LastName").ToString()
-                    image = sqlReader("ImgUrl").ToString()
-                End While
-            Catch ex As Exception
-                Return Nothing
-            End Try
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim params As New Dictionary(Of String, String)
+        params.Add("@username", username)
+        Dim columns As New List(Of String)
+        With columns
+            .Add("Username")
+            .Add("Password")
+            .Add("Email")
+            .Add("StreetAddress")
+            .Add("PostalCode")
+            .Add("City")
+            .Add("State")
+            .Add("Country")
+            .Add("FirstName")
+            .Add("LastName")
+            .Add("ImgUrl")
+        End With
+        Dim results As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(checkSQL, params, columns)
+        For Each result As Dictionary(Of String, String) In results
+            returnedUsername = result("Username")
+            returnedPass = result("Password")
+            returnedEmail = result("Email")
+            address = result("StreetAddress")
+            pcode = result("PostalCode")
+            returnedCity = result("City")
+            returnedState = result("State")
+            returnedCountry = result("Country")
+            employeeName = result("FirstName") & " " & result("LastName")
+            image = result("ImgUrl")
+        Next
 
         If Not returnedUsername.Equals(username) Then
             Return Nothing

@@ -51,25 +51,20 @@ Public Class NewBranch
 
         Dim selectedUser As User = ManagerBox.SelectedItem
 
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "INSERT INTO Branch (PostalCode, StreetAddress, City, State, Country, Email, Phone, Fax, ManagerID) VALUES (@pcode, @addr, @city, @state, @country, @email, @phone, @fax, @mid)"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@pcode", PostcodeBox.Text)
-                .Parameters.AddWithValue("@addr", AddressBox.Text)
-                .Parameters.AddWithValue("@city", CityBox.Text)
-                .Parameters.AddWithValue("@state", StateBox.Text)
-                .Parameters.AddWithValue("@country", CountryBox.Text)
-                .Parameters.AddWithValue("@email", EmailBox.Text)
-                .Parameters.AddWithValue("@phone", PhoneBox.Text)
-                .Parameters.AddWithValue("@fax", FaxBox.Text)
-                .Parameters.AddWithValue("@mid", selectedUser.IdProperty)
-            End With
-            sqlComm.ExecuteNonQuery()
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim insertSql As String = "INSERT INTO Branch (PostalCode, StreetAddress, City, State, Country, Email, Phone, Fax, ManagerID) VALUES (@pcode, @addr, @city, @state, @country, @email, @phone, @fax, @mid)"
+        Dim insertParams As New Dictionary(Of String, String)
+        With insertParams
+            .Add("@pcode", PostcodeBox.Text)
+            .Add("@addr", AddressBox.Text)
+            .Add("@city", CityBox.Text)
+            .Add("@state", StateBox.Text)
+            .Add("@country", CountryBox.Text)
+            .Add("@email", EmailBox.Text)
+            .Add("@phone", PhoneBox.Text)
+            .Add("@fax", FaxBox.Text)
+            .Add("@mid", selectedUser.IdProperty)
+        End With
+        SQLConnection.DoNonQuery(insertSql, insertParams)
 
         MsgBox("Branch has been created.")
         Close()
@@ -86,26 +81,20 @@ Public Class NewBranch
         SendMessage(Me.FaxBox.Handle, &H1501, 0, "Fax")
 
         Me.AcceptButton = SubmitButton
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "SELECT EID, FirstName, LastName FROM Employee"
-                .CommandType = CommandType.Text
-            End With
-            Try
-                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                While sqlReader.Read()
-                    Dim name As String = sqlReader("FirstName").ToString() & " " & sqlReader("LastName").ToString()
-                    Dim newUser As New User(name, "")
-                    newUser.IdProperty = CInt(sqlReader("EID").ToString())
-                    ManagerBox.Items.Add(newUser)
-                End While
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        End Using
-        SQLConnection.Instance.CloseConnection()
+
+        Dim selectSql As String = "SELECT EID, FirstName, LastName FROM Employee"
+        Dim selectParams As Dictionary(Of String, String)
+        Dim selectColumns As New List(Of String)
+        selectColumns.Add("FirstName")
+        selectColumns.Add("LastName")
+        selectColumns.Add("EID")
+        Dim results As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(selectSql, selectParams, selectColumns)
+
+        For Each result As Dictionary(Of String, String) In results
+            Dim newUser As New User(result("FirstName") & " " & result("LastName"), "")
+            newUser.IdProperty = CInt(result("EID"))
+            ManagerBox.Items.Add(newUser)
+        Next
 
         ManagerBox.SelectedIndex = 0
     End Sub

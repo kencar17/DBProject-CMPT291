@@ -66,7 +66,7 @@ Public Class AddNewUser
             Return
         End If
         ' Check if the user already exists using the check implemented in my User class
-        If Not User.FindUser(Me.UsernameBox.Text) Is Nothing Then
+        If User.FindUser(Me.UsernameBox.Text) IsNot Nothing Then
             ErrorLabel.Text = String.Format("{0} already exists", UsernameBox.Text)
             ErrorLabel.Visible = True
             Return
@@ -75,81 +75,47 @@ Public Class AddNewUser
         ' Hash the password
         Dim hashedPass As String = BCrypt.Net.BCrypt.HashPassword(PassBox.Text)
 
-        ' Get a connection to the database
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        ' Set up a command to run some SQL with
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn ' Tell the sql command to use the connection we got just above
-                ' Give the command some sql to run
-                .CommandText = "INSERT INTO Employee (FirstName, LastName, PostalCode, StreetAddress, City, State, Country, Email) VALUES (@firstname, @lastname, @pcode, @addr, @city, @state, @country, @email)"
-                .CommandType = CommandType.Text
-                ' Add the values. The sql above has keys such as @firstname which will now be replaced:
-                .Parameters.AddWithValue("@firstname", FirstnameBox.Text)
-                .Parameters.AddWithValue("@lastname", LastnameBox.Text)
-                .Parameters.AddWithValue("@pcode", PostcodeBox.Text)
-                .Parameters.AddWithValue("@addr", AddressBox.Text)
-                .Parameters.AddWithValue("@city", CityBox.Text)
-                .Parameters.AddWithValue("@state", StateBox.Text)
-                .Parameters.AddWithValue("@country", CountryBox.Text)
-                .Parameters.AddWithValue("@email", EmailBox.Text)
-            End With
-            ' Run the command. This command doesn't give back any results, so can just use ExecuteNonQuery
-            sqlComm.ExecuteNonQuery()
-        End Using
-        ' Finally close the connection
-        SQLConnection.Instance.CloseConnection()
+        Dim insertEmployeeSql As String = "INSERT INTO Employee (FirstName, LastName, PostalCode, StreetAddress, City, State, Country, Email) VALUES (@firstname, @lastname, @pcode, @addr, @city, @state, @country, @email)"
+        Dim insertEmployeeParams As New Dictionary(Of String, String)
+        With insertEmployeeParams
+            .Add("@firstname", FirstnameBox.Text)
+            .Add("@lastname", LastnameBox.Text)
+            .Add("@pcode", PostcodeBox.Text)
+            .Add("@addr", AddressBox.Text)
+            .Add("@city", CityBox.Text)
+            .Add("@state", StateBox.Text)
+            .Add("@country", CountryBox.Text)
+            .Add("@email", EmailBox.Text)
+        End With
+        SQLConnection.DoNonQuery(insertEmployeeSql, insertEmployeeParams)
 
-        ' Get another connection and command
-        dbconn = SQLConnection.Instance.GetConnection()
-        Dim eid As String
-        Using sqlComma As New MySqlCommand()
-            ' Give the command the sql stuff to get the EID of the Employee just inserted above
-            With sqlComma
-                .Connection = dbconn
-                .CommandText = "SELECT EID FROM Employee WHERE FirstName = @firstname AND LastName = @lastname AND Email = @email"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@firstname", FirstnameBox.Text)
-                .Parameters.AddWithValue("@lastname", LastnameBox.Text)
-                .Parameters.AddWithValue("@email", EmailBox.Text)
-            End With
-            Try
-                ' This time I need data returned so I get a data reader
-                Dim sqlReader As MySqlDataReader = sqlComma.ExecuteReader()
-                While sqlReader.Read()
-                    ' While I'm reading the results of the query, I look for the column EID and store the contents into my variable eid
-                    eid = sqlReader("EID").ToString()
-                End While
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        End Using
-        ' Finally close the connection
-        SQLConnection.Instance.CloseConnection()
+        Dim selectEidSql As String = "SELECT EID FROM Employee WHERE FirstName = @firstname AND LastName = @lastname AND Email = @email"
+        Dim selectEidParams As New Dictionary(Of String, String)
+        With selectEidParams
+            .Add("@firstname", FirstnameBox.Text)
+            .Add("@lastname", LastnameBox.Text)
+            .Add("@email", EmailBox.Text)
+        End With
+        Dim selectEidColumns As New List(Of String)
+        selectEidColumns.Add("EID")
+        Dim selectEidResults As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(selectEidSql, selectEidParams, selectEidColumns)
+        Dim eid As Integer = selectEidResults(0)("EID")
+
 
         Dim uploadUrl As String = "http://res.cloudinary.com/dmhf7fjrc/image/upload/c_scale,h_141,w_100/v1479153691/sample.jpg"
         If Not chosenFile.Equals("") Then
             uploadUrl = Faces.upload(chosenFile)
         End If
 
-        ' Get another connection and do another insert similar to the first one, this time using the eid I got above
-        dbconn = SQLConnection.Instance.GetConnection()
-        Using sqlCommb As New MySqlCommand()
-            With sqlCommb
-                .Connection = dbconn
-                .CommandText = "INSERT INTO User (Username, Password, PersonID, ImgUrl) VALUES (@username, @pass, @eid, @url)"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@username", UsernameBox.Text)
-                .Parameters.AddWithValue("@pass", hashedPass)
-                .Parameters.AddWithValue("@eid", eid)
-                .Parameters.AddWithValue("@url", uploadUrl)
-            End With
-            Try
-                sqlCommb.ExecuteNonQuery()
-            Catch ex As Exception
-            End Try
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim userInsertSql As String = "INSERT INTO User (Username, Password, PersonID, ImgUrl) VALUES (@username, @pass, @eid, @url)"
+        Dim userInsertParams As New Dictionary(Of String, String)
+        With userInsertParams
+            .Add("@username", UsernameBox.Text)
+            .Add("@pass", hashedPass)
+            .Add("@eid", eid)
+            .Add("@url", uploadUrl)
+        End With
+        SQLConnection.DoNonQuery(userInsertSql, userInsertParams)
 
         MsgBox("User added!")
         Me.Close()
@@ -169,7 +135,7 @@ Public Class AddNewUser
         With fd
             .Title = "Choose an image"
             .InitialDirectory = SpecialDirectories.MyPictures
-            .Filter = "BMP (*.bmp)|*.bmp|GIF (*.gif)|*.gif|JPEG (*.jpg, *.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png|All Images (*.bmp, *.gif, *.jpg, *.jpeg, *.png)|*.bmp;*.gif;*.jpg;*.jpeg;*.png"
+            .Filter = "All Images (*.bmp, *.gif, *.jpg, *.jpeg, *.png)|*.bmp;*.gif;*.jpg;*.jpeg;*.png|BMP (*.bmp)|*.bmp|GIF (*.gif)|*.gif|JPEG (*.jpg, *.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png"
 
             If .ShowDialog() = DialogResult.OK Then
                 chosenFile = .FileName

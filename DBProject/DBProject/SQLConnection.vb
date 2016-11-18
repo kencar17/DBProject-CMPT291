@@ -31,4 +31,60 @@ Public NotInheritable Class SQLConnection
     Public Sub CloseConnection()
         If Not conn Is Nothing Then conn.Close()
     End Sub
+
+    Public Shared Sub DoNonQuery(sqlText As String, parameters As Dictionary(Of String, String))
+        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
+        Using sqlComm As New MySqlCommand()
+            With sqlComm
+                .Connection = dbconn
+                .CommandText = sqlText
+                .CommandType = CommandType.Text
+
+                For Each parameterPair As KeyValuePair(Of String, String) In parameters
+                    Dim parameter As String = parameterPair.Key
+                    Dim value As String = parameterPair.Value
+                    .Parameters.AddWithValue(parameter, value)
+                Next
+
+            End With
+            sqlComm.ExecuteNonQuery()
+        End Using
+        SQLConnection.Instance.CloseConnection()
+    End Sub
+
+    Public Shared Function DoQuery(sqlText As String, parameters As Dictionary(Of String, String), columns As List(Of String)) As List(Of Dictionary(Of String, String))
+        Dim resultList As New List(Of Dictionary(Of String, String))
+
+
+        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
+        Using sqlComm As New MySqlCommand()
+            With sqlComm
+                .Connection = dbconn
+                .CommandText = sqlText
+                .CommandType = CommandType.Text
+
+                For Each parameterPair As KeyValuePair(Of String, String) In parameters
+                    Dim parameter As String = parameterPair.Key
+                    Dim value As String = parameterPair.Value
+                    .Parameters.AddWithValue(parameter, value)
+                Next
+            End With
+            Try
+                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+                While sqlReader.Read()
+                    Dim currentResult As New Dictionary(Of String, String)
+                    With currentResult
+                        For Each column In columns
+                            .Add(column, sqlReader(column).ToString())
+                        Next
+                    End With
+
+                    resultList.Add(currentResult)
+                End While
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End Using
+        Return resultList
+    End Function
 End Class
