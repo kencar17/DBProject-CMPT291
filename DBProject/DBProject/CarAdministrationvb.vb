@@ -11,12 +11,6 @@
         RemoveVehicle.Show()
     End Sub
 
-    Private Sub SearchB_Click(sender As Object, e As EventArgs) Handles SearchB.Click
-        Dim SearchVehicles As New SearchVehicles
-        SearchVehicles.MdiParent = Me.MdiParent
-        SearchVehicles.Show()
-    End Sub
-
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
         Me.Close()
     End Sub

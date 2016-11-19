@@ -28,12 +28,9 @@ Partial Class AddNewVehicle
         Me.GVWRBox = New System.Windows.Forms.TextBox()
         Me.PlateBox = New System.Windows.Forms.TextBox()
         Me.CoverageBox = New System.Windows.Forms.TextBox()
-        Me.TransBox = New System.Windows.Forms.TextBox()
-        Me.AvailBox = New System.Windows.Forms.TextBox()
         Me.SeatsBox = New System.Windows.Forms.TextBox()
         Me.YearBox = New System.Windows.Forms.TextBox()
         Me.KMBox = New System.Windows.Forms.TextBox()
-        Me.ClassBox = New System.Windows.Forms.TextBox()
         Me.ModelBox = New System.Windows.Forms.TextBox()
         Me.MakeBox = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -51,6 +48,9 @@ Partial Class AddNewVehicle
         Me.wrongInfo = New System.Windows.Forms.Label()
         Me.GoBack = New System.Windows.Forms.Button()
         Me.HelpButton = New System.Windows.Forms.Button()
+        Me.ClassCB = New System.Windows.Forms.ComboBox()
+        Me.TransCB = New System.Windows.Forms.ComboBox()
+        Me.AvailCB = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -65,7 +65,7 @@ Partial Class AddNewVehicle
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(179, 62)
+        Me.Label2.Location = New System.Drawing.Point(175, 60)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(46, 25)
         Me.Label2.TabIndex = 1
@@ -76,84 +76,63 @@ Partial Class AddNewVehicle
         Me.VINbox.Location = New System.Drawing.Point(253, 62)
         Me.VINbox.Name = "VINbox"
         Me.VINbox.Size = New System.Drawing.Size(289, 31)
-        Me.VINbox.TabIndex = 2
+        Me.VINbox.TabIndex = 1
         '
         'GVWRBox
         '
         Me.GVWRBox.Location = New System.Drawing.Point(253, 321)
         Me.GVWRBox.Name = "GVWRBox"
         Me.GVWRBox.Size = New System.Drawing.Size(289, 31)
-        Me.GVWRBox.TabIndex = 3
+        Me.GVWRBox.TabIndex = 8
         '
         'PlateBox
         '
         Me.PlateBox.Location = New System.Drawing.Point(253, 395)
         Me.PlateBox.Name = "PlateBox"
         Me.PlateBox.Size = New System.Drawing.Size(289, 31)
-        Me.PlateBox.TabIndex = 4
+        Me.PlateBox.TabIndex = 10
         '
         'CoverageBox
         '
         Me.CoverageBox.Location = New System.Drawing.Point(253, 469)
         Me.CoverageBox.Name = "CoverageBox"
         Me.CoverageBox.Size = New System.Drawing.Size(289, 31)
-        Me.CoverageBox.TabIndex = 6
-        '
-        'TransBox
-        '
-        Me.TransBox.Location = New System.Drawing.Point(253, 358)
-        Me.TransBox.Name = "TransBox"
-        Me.TransBox.Size = New System.Drawing.Size(289, 31)
-        Me.TransBox.TabIndex = 7
-        '
-        'AvailBox
-        '
-        Me.AvailBox.Location = New System.Drawing.Point(253, 432)
-        Me.AvailBox.Name = "AvailBox"
-        Me.AvailBox.Size = New System.Drawing.Size(289, 31)
-        Me.AvailBox.TabIndex = 8
+        Me.CoverageBox.TabIndex = 12
         '
         'SeatsBox
         '
         Me.SeatsBox.Location = New System.Drawing.Point(253, 284)
         Me.SeatsBox.Name = "SeatsBox"
         Me.SeatsBox.Size = New System.Drawing.Size(289, 31)
-        Me.SeatsBox.TabIndex = 10
+        Me.SeatsBox.TabIndex = 7
         '
         'YearBox
         '
         Me.YearBox.Location = New System.Drawing.Point(253, 247)
         Me.YearBox.Name = "YearBox"
         Me.YearBox.Size = New System.Drawing.Size(289, 31)
-        Me.YearBox.TabIndex = 11
+        Me.YearBox.TabIndex = 6
         '
         'KMBox
         '
         Me.KMBox.Location = New System.Drawing.Point(253, 210)
         Me.KMBox.Name = "KMBox"
         Me.KMBox.Size = New System.Drawing.Size(289, 31)
-        Me.KMBox.TabIndex = 12
-        '
-        'ClassBox
-        '
-        Me.ClassBox.Location = New System.Drawing.Point(253, 173)
-        Me.ClassBox.Name = "ClassBox"
-        Me.ClassBox.Size = New System.Drawing.Size(289, 31)
-        Me.ClassBox.TabIndex = 13
+        Me.KMBox.TabIndex = 5
         '
         'ModelBox
         '
         Me.ModelBox.Location = New System.Drawing.Point(253, 136)
         Me.ModelBox.Name = "ModelBox"
         Me.ModelBox.Size = New System.Drawing.Size(289, 31)
-        Me.ModelBox.TabIndex = 14
+        Me.ModelBox.TabIndex = 3
         '
         'MakeBox
         '
         Me.MakeBox.Location = New System.Drawing.Point(253, 99)
         Me.MakeBox.Name = "MakeBox"
         Me.MakeBox.Size = New System.Drawing.Size(289, 31)
-        Me.MakeBox.TabIndex = 15
+        Me.MakeBox.TabIndex = 2
         '
         'Label3
         '
@@ -169,9 +148,9 @@ Partial Class AddNewVehicle
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(116, 438)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(115, 25)
+        Me.Label4.Size = New System.Drawing.Size(100, 25)
         Me.Label4.TabIndex = 17
-        Me.Label4.Text = "Availability"
+        Me.Label4.Text = "Available"
         '
         'Label5
         '
@@ -259,7 +238,7 @@ Partial Class AddNewVehicle
         Me.addVehicle.Location = New System.Drawing.Point(356, 577)
         Me.addVehicle.Name = "addVehicle"
         Me.addVehicle.Size = New System.Drawing.Size(186, 50)
-        Me.addVehicle.TabIndex = 27
+        Me.addVehicle.TabIndex = 13
         Me.addVehicle.Text = "Add Vehicle"
         Me.addVehicle.UseVisualStyleBackColor = True
         '
@@ -293,11 +272,38 @@ Partial Class AddNewVehicle
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = True
         '
+        'ClassCB
+        '
+        Me.ClassCB.FormattingEnabled = True
+        Me.ClassCB.Location = New System.Drawing.Point(253, 174)
+        Me.ClassCB.Name = "ClassCB"
+        Me.ClassCB.Size = New System.Drawing.Size(289, 33)
+        Me.ClassCB.TabIndex = 4
+        '
+        'TransCB
+        '
+        Me.TransCB.FormattingEnabled = True
+        Me.TransCB.Location = New System.Drawing.Point(253, 359)
+        Me.TransCB.Name = "TransCB"
+        Me.TransCB.Size = New System.Drawing.Size(289, 33)
+        Me.TransCB.TabIndex = 9
+        '
+        'AvailCB
+        '
+        Me.AvailCB.FormattingEnabled = True
+        Me.AvailCB.Location = New System.Drawing.Point(253, 433)
+        Me.AvailCB.Name = "AvailCB"
+        Me.AvailCB.Size = New System.Drawing.Size(289, 33)
+        Me.AvailCB.TabIndex = 11
+        '
         'AddNewVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(794, 659)
+        Me.Controls.Add(Me.AvailCB)
+        Me.Controls.Add(Me.TransCB)
+        Me.Controls.Add(Me.ClassCB)
         Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.GoBack)
         Me.Controls.Add(Me.wrongInfo)
@@ -315,12 +321,9 @@ Partial Class AddNewVehicle
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.MakeBox)
         Me.Controls.Add(Me.ModelBox)
-        Me.Controls.Add(Me.ClassBox)
         Me.Controls.Add(Me.KMBox)
         Me.Controls.Add(Me.YearBox)
         Me.Controls.Add(Me.SeatsBox)
-        Me.Controls.Add(Me.AvailBox)
-        Me.Controls.Add(Me.TransBox)
         Me.Controls.Add(Me.CoverageBox)
         Me.Controls.Add(Me.PlateBox)
         Me.Controls.Add(Me.GVWRBox)
@@ -340,12 +343,9 @@ Partial Class AddNewVehicle
     Friend WithEvents GVWRBox As TextBox
     Friend WithEvents PlateBox As TextBox
     Friend WithEvents CoverageBox As TextBox
-    Friend WithEvents TransBox As TextBox
-    Friend WithEvents AvailBox As TextBox
     Friend WithEvents SeatsBox As TextBox
     Friend WithEvents YearBox As TextBox
     Friend WithEvents KMBox As TextBox
-    Friend WithEvents ClassBox As TextBox
     Friend WithEvents ModelBox As TextBox
     Friend WithEvents MakeBox As TextBox
     Friend WithEvents Label3 As Label
@@ -363,4 +363,7 @@ Partial Class AddNewVehicle
     Friend WithEvents wrongInfo As Label
     Friend WithEvents GoBack As Button
     Friend WithEvents HelpButton As Button
+    Friend WithEvents ClassCB As ComboBox
+    Friend WithEvents TransCB As ComboBox
+    Friend WithEvents AvailCB As ComboBox
 End Class
