@@ -22,40 +22,19 @@ Public Class UpdateBranch
 
         Me.AcceptButton = SubmitButton
 
-        Dim selectSql As String = "SELECT BID, Branch.PostalCode, Branch.StreetAddress, Branch.City, Branch.State, Branch.Country, Branch.Email, Phone, Fax, FirstName, LastName, ManagerID FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID"
-        Dim selectParams As New Dictionary(Of String, String)
-        Dim selectColumns As New List(Of String)
-        With selectColumns
-            .Add("BID")
-            .Add("PostalCode")
-            .Add("StreetAddress")
-            .Add("City")
-            .Add("State")
-            .Add("Country")
-            .Add("Email")
-            .Add("Phone")
-            .Add("Fax")
-            .Add("FirstName")
-            .Add("LastName")
-            .Add("ManagerID")
-        End With
-        Dim results As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(selectSql, selectParams, selectColumns)
-        For Each result As Dictionary(Of String, String) In results
-            Dim b As New Branch
-            With b
-                .BidProperty = CInt(result("BID"))
-                .PostcodeProperty = result("PostalCode")
-                .AddressProperty = result("StreetAddress")
-                .CityProperty = result("City")
-                .StateProperty = result("State")
-                .CountryProperty = result("Country")
-                .EmailProperty = result("Email")
-                .PhoneProperty = result("Phone")
-                .FaxProperty = result("Fax")
-                .MannameProperty = result("FirstName") & " " & result("LastName")
-                .ManidProperty = result("ManagerID")
-            End With
-            BranchSelection.Items.Add(b)
+        Dim sql As String = "SELECT FirstName, LastName, EID FROM Employee"
+        Dim params As New Dictionary(Of String, String)
+        Dim columns As New List(Of String)
+        columns.Add("FirstName")
+        columns.Add("LastName")
+        columns.Add("EID")
+        Dim moreresults As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(sql, params, columns)
+        For Each result As Dictionary(Of String, String) In moreresults
+            Dim aUser As New User("", "")
+            aUser.IdProperty = CInt(result("EID"))
+            aUser.NameProperty = result("FirstName") & " " & result("LastName")
+            aUser.UsernameProperty = aUser.NameProperty
+            MBox.Items.Add(aUser)
         Next
 
         Init()
