@@ -149,6 +149,7 @@ Public Class UpdateUser
         If selectedUser Is Nothing Then
             Return
         End If
+
         Me.ImgButton.Enabled = True
         Me.SubmitButton.Enabled = True
         Me.AddressBox.Enabled = True
