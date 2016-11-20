@@ -22,42 +22,6 @@ Public Class UpdateBranch
 
         Me.AcceptButton = SubmitButton
 
-        Dim selectSql As String = "SELECT BID, Branch.PostalCode, Branch.StreetAddress, Branch.City, Branch.State, Branch.Country, Branch.Email, Phone, Fax, FirstName, LastName, ManagerID FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID"
-        Dim selectParams As New Dictionary(Of String, String)
-        Dim selectColumns As New List(Of String)
-        With selectColumns
-            .Add("BID")
-            .Add("PostalCode")
-            .Add("StreetAddress")
-            .Add("City")
-            .Add("State")
-            .Add("Country")
-            .Add("Email")
-            .Add("Phone")
-            .Add("Fax")
-            .Add("FirstName")
-            .Add("LastName")
-            .Add("ManagerID")
-        End With
-        Dim results As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(selectSql, selectParams, selectColumns)
-        For Each result As Dictionary(Of String, String) In results
-            Dim b As New Branch
-            With b
-                .BidProperty = CInt(result("BID"))
-                .PostcodeProperty = result("PostalCode")
-                .AddressProperty = result("StreetAddress")
-                .CityProperty = result("City")
-                .StateProperty = result("State")
-                .CountryProperty = result("Country")
-                .EmailProperty = result("Email")
-                .PhoneProperty = result("Phone")
-                .FaxProperty = result("Fax")
-                .MannameProperty = result("FirstName") & " " & result("LastName")
-                .ManidProperty = result("ManagerID")
-            End With
-            BranchSelection.Items.Add(b)
-        Next
-
         Dim sql As String = "SELECT FirstName, LastName, EID FROM Employee"
         Dim params As New Dictionary(Of String, String)
         Dim columns As New List(Of String)
@@ -73,6 +37,7 @@ Public Class UpdateBranch
             MBox.Items.Add(aUser)
         Next
 
+        Init()
     End Sub
 
 
@@ -108,8 +73,6 @@ Public Class UpdateBranch
         ErrLabel.Visible = False
 
         If BranchSelection.SelectedItem Is Nothing Then
-            ErrLabel.Text = "A branch must be selected"
-            ErrLabel.Visible = True
             Return
         End If
         If EmailBox.Text.Equals("") Then
@@ -130,7 +93,7 @@ Public Class UpdateBranch
 
         Dim manager As User = MBox.SelectedItem
         Dim sql As String = "UPDATE Branch SET Email=@email, Phone=@phone, Fax=@fax, ManagerID=@manid WHERE BID = @bid"
-        Dim params As Dictionary(Of String, String)
+        Dim params As New Dictionary(Of String, String)
         With params
             .Add("@email", EmailBox.Text)
             .Add("@fax", FaxBox.Text)
@@ -140,6 +103,52 @@ Public Class UpdateBranch
         End With
         SQLConnection.DoNonQuery(sql, params)
 
+        Init()
+
         MsgBox("The branch has been updated.")
+    End Sub
+
+    Private Sub Init()
+        BranchSelection.Items.Clear()
+        EmailBox.Enabled = False
+        PhoneBox.Enabled = False
+        FaxBox.Enabled = False
+        MBox.Enabled = False
+
+        Dim selectSql As String = "SELECT BID, Branch.PostalCode, Branch.StreetAddress, Branch.City, Branch.State, Branch.Country, Branch.Email, Phone, Fax, FirstName, LastName, ManagerID FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID"
+        Dim selectParams As New Dictionary(Of String, String)
+        Dim selectColumns As New List(Of String)
+        With selectColumns
+            .Add("BID")
+            .Add("PostalCode")
+            .Add("StreetAddress")
+            .Add("City")
+            .Add("State")
+            .Add("Country")
+            .Add("Email")
+            .Add("Phone")
+            .Add("Fax")
+            .Add("FirstName")
+            .Add("LastName")
+            .Add("ManagerID")
+        End With
+        Dim results As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(selectSql, selectParams, selectColumns)
+        For Each result As Dictionary(Of String, String) In results
+            Dim b As New Branch
+            With b
+                .BidProperty = CInt(result("BID"))
+                .PostcodeProperty = result("PostalCode")
+                .AddressProperty = result("StreetAddress")
+                .CityProperty = result("City")
+                .StateProperty = result("State")
+                .CountryProperty = result("Country")
+                .EmailProperty = result("Email")
+                .PhoneProperty = result("Phone")
+                .FaxProperty = result("Fax")
+                .MannameProperty = result("FirstName") & " " & result("LastName")
+                .ManidProperty = result("ManagerID")
+            End With
+            BranchSelection.Items.Add(b)
+        Next
     End Sub
 End Class
