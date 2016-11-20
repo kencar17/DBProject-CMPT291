@@ -19,7 +19,7 @@ Public Class ViewInventory
         End If
     End Sub
 
-    Private Sub ChooseRental_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub ViewInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         seatsCombo.Items.Add("All")
         For seat As Integer = 1 To 4
             seatsCombo.Items.Add(seat)
@@ -40,8 +40,9 @@ Public Class ViewInventory
         Dim makeSql As String = "SELECT DISTINCT Make FROM Vehicle"
         Dim makeParams As New Dictionary(Of String, String)
         Dim makeColumns As New List(Of String)
+        makeColumns.Add("Make")
         For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(makeSql, makeParams, makeColumns)
-            makeCombo.Items.Add(result("make"))
+            makeCombo.Items.Add(result("Make"))
         Next
         makeCombo.SelectedItem = "All"
 
@@ -53,10 +54,26 @@ Public Class ViewInventory
 
     End Sub
 
+    Private Sub ChooseRental_Unload(sender As Object, e As EventArgs) Handles MyBase.Closing
+        callingForm.WindowState = FormWindowState.Maximized
+    End Sub
+
     Sub populateVehiclesTable(sqlText As String)
         vehicleTable.Rows.Clear()
         Dim params As New Dictionary(Of String, String)
         Dim columns As New List(Of String)
+        With columns
+            .Add("Make")
+            .Add("Model")
+            .Add("Class")
+            .Add("Year")
+            .Add("Seats")
+            .Add("GVWR")
+            .Add("Transmission")
+            .Add("DailyRate")
+            .Add("WeeklyRate")
+            .Add("MonthlyRate")
+        End With
         For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(sqlText, params, columns)
             Dim vehicleInfo As New VehicleInfo
             vehicleInfo.MakeProperty = result("Make")

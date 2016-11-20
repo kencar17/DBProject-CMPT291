@@ -57,6 +57,7 @@ Public Class Reports
                 .Add("City")
                 .Add("State")
                 .Add("Email")
+                .Add("Country")
             End With
             results = SQLConnection.DoQuery(sql, params, columns)
 
@@ -91,7 +92,7 @@ Public Class Reports
             Dim report As String = ""
             Dim fname As String = "Users " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
             Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
-            Dim writer As New StreamWriter(fpath, True)
+            Dim writer As New StreamWriter(fpath, False)
             writer.Write("EID,Username,Name,Address,PostalCode,City,State,Country,Email")
 
             sql = "SELECT Username, FirstName, LastName, StreetAddress, PostalCode, City, State, Country, Email, EID FROM User JOIN Employee ON User.PersonID = Employee.EID"
@@ -104,6 +105,7 @@ Public Class Reports
                 .Add("StreetAddress")
                 .Add("PostalCode")
                 .Add("City")
+                .Add("Country")
                 .Add("State")
                 .Add("Email")
             End With
@@ -111,10 +113,11 @@ Public Class Reports
 
             For Each result As Dictionary(Of String, String) In results
                 Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}" & delim & "{3}" & delim & "{4}" & delim & "{5}" & delim & "{6}" & delim & "{7}" & delim & "{8}",
-                                                          results("EID"), results("username"), result("FirstName") & " " & result("LastName"),
+                                                          result("EID"), result("Username"), result("FirstName") & " " & result("LastName"),
                                                   result("StreetAddress"), result("PostalCode"), result("City"), result("State"), result("Country"), result("Email"))
                 writer.Write(vbCrLf & row)
             Next
+            writer.Close()
 
             MsgBox("Report saved to " & fpath)
 
@@ -194,7 +197,7 @@ Public Class Reports
             Dim report As String = ""
             Dim fname As String = "Feedback " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
             Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
-            Dim writer As New StreamWriter(fpath, True)
+            Dim writer As New StreamWriter(fpath, False)
             writer.Write("TID,Rating,Comments")
 
             sql = "SELECT TID, ExperienceRating, ReviewComments FROM Transaction"
@@ -210,6 +213,7 @@ Public Class Reports
                                                          result("TID"), result("ExperienceRating"), result("ReviewComments"))
                 writer.Write(vbCrLf & row)
             Next
+            writer.Close()
 
             MsgBox("Report saved to " & fpath)
 
@@ -300,7 +304,7 @@ Public Class Reports
             Dim report As String = ""
             Dim fname As String = "Branches " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
             Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
-            Dim writer As New StreamWriter(fpath, True)
+            Dim writer As New StreamWriter(fpath, False)
             writer.Write("Branch ID, Address, Email, Phone, Fax, Manager")
 
             sql = "SELECT BID, Branch.StreetAddress, Branch.PostalCode, Branch.City, Branch.State, Branch.Country, Branch.Email, Branch.Phone, Fax, FirstName, LastName FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID"
@@ -329,6 +333,7 @@ Public Class Reports
                                                          result("BID"), address, result("Email"), result("Phone") & vbTab, result("Fax") & vbTab, result("FirstName") & " " & result("LastName"))
                 writer.Write(vbCrLf & row)
             Next
+            writer.Close()
 
             MsgBox("Report saved to " & fpath)
 
@@ -402,7 +407,7 @@ Public Class Reports
             Dim report As String = ""
             Dim fname As String = "Types " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
             Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
-            Dim writer As New StreamWriter(fpath, True)
+            Dim writer As New StreamWriter(fpath, False)
             writer.Write("Type, Daily Rate, Weekly Rate, Monthly Rate")
 
             sql = "SELECT Type, DailyRate, WeeklyRate, MonthlyRate FROM Types"
@@ -447,6 +452,7 @@ Public Class Reports
 
                 writer.Write(vbCrLf & row)
             Next
+            writer.Close()
 
             MsgBox("Report saved to " & fpath)
 

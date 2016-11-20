@@ -83,7 +83,7 @@ Public Class NewBranch
         Me.AcceptButton = SubmitButton
 
         Dim selectSql As String = "SELECT EID, FirstName, LastName FROM Employee"
-        Dim selectParams As Dictionary(Of String, String)
+        Dim selectParams As New Dictionary(Of String, String)
         Dim selectColumns As New List(Of String)
         selectColumns.Add("FirstName")
         selectColumns.Add("LastName")

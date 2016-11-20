@@ -51,7 +51,8 @@ Public Class ChooseRental
         makeCombo.Items.Add("All")
         Dim makeSql As String = "SELECT DISTINCT Make FROM Vehicle"
         Dim makeParams As New Dictionary(Of String, String)
-        Dim makeColumns As List(Of String)
+        Dim makeColumns As New List(Of String)
+        makeColumns.Add("Make")
         For Each result In SQLConnection.DoQuery(makeSql, makeParams, makeColumns)
             makeCombo.Items.Add(result("Make"))
         Next
