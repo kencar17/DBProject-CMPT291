@@ -26,6 +26,12 @@ Public Class UpdateUser
         SendMessage(Me.CountryBox.Handle, &H1501, 0, "Country")
         SendMessage(Me.EmailBox.Handle, &H1501, 0, "Email")
 
+        Init()
+    End Sub
+
+    Private Sub Init()
+        UserSelection.Items.Clear()
+
         Dim sql As String = "SELECT Username, FirstName, LastName, StreetAddress, PostalCode, City, State, Country, Email, EID FROM User JOIN Employee ON User.PersonID = Employee.EID"
         Dim params As New Dictionary(Of String, String)
         Dim columns As New List(Of String)
@@ -55,6 +61,30 @@ Public Class UpdateUser
             newUser.StateProperty = result("State")
             UserSelection.Items.Add(newUser)
         Next
+
+        UserSelection.SelectedItem = Nothing
+
+
+        Me.ImgButton.Enabled = False
+        Me.SubmitButton.Enabled = False
+        Me.AddressBox.Enabled = False
+        Me.AddressBox.Text = ""
+        Me.CityBox.Enabled = False
+        Me.CityBox.Text = ""
+        Me.CountryBox.Enabled = False
+        Me.CountryBox.Text = ""
+        Me.EmailBox.Enabled = False
+        Me.EmailBox.Text = ""
+        Me.FirstnameBox.Enabled = False
+        Me.FirstnameBox.Text = ""
+        Me.LastnameBox.Enabled = False
+        Me.LastnameBox.Text = ""
+        Me.PassBox.Enabled = False
+        Me.PostcodeBox.Enabled = False
+        Me.PostcodeBox.Text = ""
+        Me.StateBox.Enabled = False
+        Me.StateBox.Text = ""
+        Me.UsernameBox.Text = ""
     End Sub
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
@@ -103,6 +133,7 @@ Public Class UpdateUser
 
             PassBox.Text = ""
         End If
+        Init()
 
         MsgBox(selectedUser.UsernameProperty & " has been updated.")
     End Sub
@@ -114,6 +145,11 @@ Public Class UpdateUser
 
     Private Sub UserSelection_SelectedIndexChanged(sender As Object, e As EventArgs) Handles UserSelection.SelectedIndexChanged
         Dim selectedUser As User = UserSelection.SelectedItem
+
+        If selectedUser Is Nothing Then
+            Return
+        End If
+
         Me.ImgButton.Enabled = True
         Me.SubmitButton.Enabled = True
         Me.AddressBox.Enabled = True
