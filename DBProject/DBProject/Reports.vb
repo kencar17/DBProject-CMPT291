@@ -239,12 +239,12 @@ Public Class Reports
                 .Open()
             End With
 
-            Dim table As New PdfPTable(6)
+            Dim table As New PdfPTable(7)
             table.WidthPercentage = 90
-            Dim widths = New Integer() {1, 1, 1, 1, 1, 1}
+            Dim widths = New Integer() {1, 4, 3, 2, 2, 2, 1}
             table.SetWidths(widths)
             Dim cell As New PdfPCell(New Phrase("Branches"))
-            cell.Colspan = 6
+            cell.Colspan = 7
             cell.HorizontalAlignment = 1
             table.AddCell(cell)
 
@@ -254,8 +254,9 @@ Public Class Reports
             table.AddCell("Phone")
             table.AddCell("Fax")
             table.AddCell("Manager")
+            table.AddCell("Vehicles")
 
-            sql = "SELECT BID, Branch.StreetAddress, Branch.PostalCode, Branch.City, Branch.State, Branch.Country, Branch.Email, Branch.Phone, Fax, FirstName, LastName FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID"
+            sql = "SELECT Branch.BID, Branch.StreetAddress, Branch.PostalCode, Branch.City, Branch.State, Branch.Country, Branch.Email, Branch.Phone, Fax, FirstName, LastName, Count(*) AS counter FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID JOIN Vehicle ON Vehicle.BID = Branch.BID GROUP BY Branch.BID"
             columns = New List(Of String)
             With columns
                 .Add("BID")
@@ -269,6 +270,7 @@ Public Class Reports
                 .Add("Fax")
                 .Add("FirstName")
                 .Add("LastName")
+                .Add("counter")
             End With
             results = SQLConnection.DoQuery(sql, params, columns)
             For Each result As Dictionary(Of String, String) In results
@@ -284,6 +286,7 @@ Public Class Reports
                     .AddCell(result("Phone"))
                     .AddCell(result("Fax"))
                     .AddCell(result("FirstName") & " " & result("LastName"))
+                    .AddCell(result("counter"))
                 End With
             Next
 
@@ -305,9 +308,9 @@ Public Class Reports
             Dim fname As String = "Branches " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
             Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
             Dim writer As New StreamWriter(fpath, False)
-            writer.Write("Branch ID, Address, Email, Phone, Fax, Manager")
+            writer.Write("Branch ID, Address, Email, Phone, Fax, Manager, Vehicles")
 
-            sql = "SELECT BID, Branch.StreetAddress, Branch.PostalCode, Branch.City, Branch.State, Branch.Country, Branch.Email, Branch.Phone, Fax, FirstName, LastName FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID"
+            sql = "SELECT Branch.BID, Branch.StreetAddress, Branch.PostalCode, Branch.City, Branch.State, Branch.Country, Branch.Email, Branch.Phone, Fax, FirstName, LastName, Count(*) AS counter FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID JOIN Vehicle ON Vehicle.BID = Branch.BID GROUP BY Branch.BID"
             columns = New List(Of String)
             With columns
                 .Add("BID")
@@ -321,6 +324,7 @@ Public Class Reports
                 .Add("Fax")
                 .Add("FirstName")
                 .Add("LastName")
+                .Add("counter")
             End With
             results = SQLConnection.DoQuery(sql, params, columns)
             For Each result As Dictionary(Of String, String) In results
@@ -329,8 +333,8 @@ Public Class Reports
                 address &= result("State") & " "
                 address &= result("Country") & " "
                 address &= result("PostalCode") & " "
-                Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}" & delim & "{3}" & delim & "{4}" & delim & "{5}",
-                                                         result("BID"), address, result("Email"), result("Phone") & vbTab, result("Fax") & vbTab, result("FirstName") & " " & result("LastName"))
+                Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}" & delim & "{3}" & delim & "{4}" & delim & "{5}" & delim & "{6}",
+                                                         result("BID"), address, result("Email"), result("Phone") & vbTab, result("Fax") & vbTab, result("FirstName") & " " & result("LastName"), result("counter"))
                 writer.Write(vbCrLf & row)
             Next
             writer.Close()
