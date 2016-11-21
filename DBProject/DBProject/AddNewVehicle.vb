@@ -121,10 +121,10 @@ Public Class AddNewVehicle
             trans = "1"
         Else
             trans = "0"
-        End If        
-	Dim selectedBranch As Branch = BranchCB.SelectedItem
+
+        Dim selectedBranch As Branch = BranchCB.SelectedItem
 	Dim vehicleInsertSql As String = "INSERT INTO Vehicle (VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage, BID) VALUES (@vin, @make, @model, @class, @km, @year, @seats, @gvwr, @trans, @license, @avail, @coverage, @bid)"
-	Dim vehicleInsertParams As New Dictionary(Of String, String)
+        Dim vehicleInsertParams As New Dictionary(Of String, String)
         With vehicleInsertParams
             .Add("@vin", VINbox.Text)
             .Add("@make", MakeBox.Text)
@@ -141,8 +141,9 @@ Public Class AddNewVehicle
 	    .Add("@bid", selectedBranch.BidProperty)
         End With
         SQLConnection.DoNonQuery(vehicleInsertSql, vehicleInsertParams)
+
 	MsgBox("Vehicle Added")
-	Me.Close()
+        Me.Close()
     End Sub
 
 
