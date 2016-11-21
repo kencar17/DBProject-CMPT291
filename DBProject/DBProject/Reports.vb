@@ -415,27 +415,6 @@ Public Class Reports
             writer.Write("Type, Daily Rate, Weekly Rate, Monthly Rate")
 
             sql = "SELECT Type, DailyRate, WeeklyRate, MonthlyRate FROM Types"
-            params = New Dictionary(Of String, String)
-            columns = New List(Of String)
-            With columns
-                .Add("Type")
-                .Add("DailyRate")
-                .Add("WeeklyRate")
-                .Add("MonthlyRate")
-            End With
-            For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(sql, params, columns)
-                Dim type As String = result("Type").Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
-                Dim drate As String = result("DailyRate").Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
-                Dim wrate As String = result("WeeklyRate").Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
-                Dim mrate As String = result("MonthlyRate").Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
-
-
-                Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}" & delim & "{3}",
-                                                 type, drate, wrate, mrate)
-                writer.Write(vbCrLf & row)
-            Next
-
-            sql = "SELECT Type, DailyRate, WeeklyRate, MonthlyRate FROM Types"
             columns = New List(Of String)
             With columns
                 .Add("Type")

@@ -124,13 +124,14 @@ Public Class AddNewVehicle
         End If
 
         Dim selectedBranch As Branch = BranchCB.SelectedItem
-	Dim vehicleInsertSql As String = "INSERT INTO Vehicle (VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage, BID) VALUES (@vin, @make, @model, @class, @km, @year, @seats, @gvwr, @trans, @license, @avail, @coverage, @bid)"
+        Dim selectedClass As VehicleInfo = ClassCB.SelectedItem
+        Dim vehicleInsertSql As String = "INSERT INTO Vehicle (VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage, BID) VALUES (@vin, @make, @model, @class, @km, @year, @seats, @gvwr, @trans, @license, @avail, @coverage, @bid)"
         Dim vehicleInsertParams As New Dictionary(Of String, String)
         With vehicleInsertParams
             .Add("@vin", VINbox.Text)
             .Add("@make", MakeBox.Text)
             .Add("@model", ModelBox.Text)
-            .Add("@class", ClassCB.SelectedItem)
+            .Add("@class", selectedClass.VClassProperty)
             .Add("@km", KMBox.Text)
             .Add("@year", YearBox.Text)
             .Add("@seats", SeatsBox.Text)
