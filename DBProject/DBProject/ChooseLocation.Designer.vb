@@ -34,6 +34,7 @@ Partial Class ChooseLocation
         Me.backButton = New System.Windows.Forms.Button()
         Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.MonthCalendar2 = New System.Windows.Forms.MonthCalendar()
+        Me.helpButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -51,7 +52,7 @@ Partial Class ChooseLocation
         Me.locationCombBox.FormattingEnabled = True
         Me.locationCombBox.Location = New System.Drawing.Point(235, 47)
         Me.locationCombBox.Name = "locationCombBox"
-        Me.locationCombBox.Size = New System.Drawing.Size(255, 32)
+        Me.locationCombBox.Size = New System.Drawing.Size(379, 32)
         Me.locationCombBox.TabIndex = 1
         '
         'Label2
@@ -136,11 +137,21 @@ Partial Class ChooseLocation
         Me.MonthCalendar2.Name = "MonthCalendar2"
         Me.MonthCalendar2.TabIndex = 13
         '
+        'helpButton
+        '
+        Me.helpButton.Location = New System.Drawing.Point(197, 575)
+        Me.helpButton.Name = "helpButton"
+        Me.helpButton.Size = New System.Drawing.Size(96, 39)
+        Me.helpButton.TabIndex = 14
+        Me.helpButton.Text = "Help"
+        Me.helpButton.UseVisualStyleBackColor = True
+        '
         'ChooseLocation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(934, 709)
+        Me.Controls.Add(Me.helpButton)
         Me.Controls.Add(Me.MonthCalendar2)
         Me.Controls.Add(Me.MonthCalendar1)
         Me.Controls.Add(Me.backButton)
@@ -172,4 +183,5 @@ Partial Class ChooseLocation
     Friend WithEvents backButton As Button
     Friend WithEvents MonthCalendar1 As MonthCalendar
     Friend WithEvents MonthCalendar2 As MonthCalendar
+    Friend WithEvents helpButton As Button
 End Class

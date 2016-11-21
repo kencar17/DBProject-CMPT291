@@ -224,6 +224,7 @@
     <Compile Include="Parent.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Person.vb" />
     <Compile Include="Register.Designer.vb">
       <DependentUpon>Register.vb</DependentUpon>
     </Compile>
