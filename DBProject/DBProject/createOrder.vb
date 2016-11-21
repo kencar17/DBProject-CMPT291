@@ -56,8 +56,9 @@ Public Class createOrder
                     person.EmailProperty = sqlReader("Email").ToString()
                     person.PostcodeProperty = sqlReader("PostalCode").ToString()
                     person.AddressProperty = sqlReader("StreetAddress").ToString()
-                    person.CityProperty = sqlReader("State").ToString()
-                    person.StateProperty = sqlReader("Country").ToString()
+                    person.CityProperty = sqlReader("City").ToString()
+                    person.StateProperty = sqlReader("State").ToString()
+                    person.CountryProperty = sqlReader("Country").ToString()
                     person.ageProperty = sqlReader("age").ToString()
                     'person.PhoneProperty = sqlReader("Phone").ToString()
 
