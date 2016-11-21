@@ -23,7 +23,6 @@ Partial Class CarAdministrationvb
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.AddVehicleB = New System.Windows.Forms.Button()
-        Me.SearchB = New System.Windows.Forms.Button()
         Me.RemoveVehicleB = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
         Me.UpdateButton = New System.Windows.Forms.Button()
@@ -37,15 +36,6 @@ Partial Class CarAdministrationvb
         Me.AddVehicleB.TabIndex = 0
         Me.AddVehicleB.Text = "Add Vehicle"
         Me.AddVehicleB.UseVisualStyleBackColor = True
-        '
-        'SearchB
-        '
-        Me.SearchB.Location = New System.Drawing.Point(12, 190)
-        Me.SearchB.Name = "SearchB"
-        Me.SearchB.Size = New System.Drawing.Size(204, 48)
-        Me.SearchB.TabIndex = 1
-        Me.SearchB.Text = "Search Inventory"
-        Me.SearchB.UseVisualStyleBackColor = True
         '
         'RemoveVehicleB
         '
@@ -83,7 +73,6 @@ Partial Class CarAdministrationvb
         Me.Controls.Add(Me.UpdateButton)
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.RemoveVehicleB)
-        Me.Controls.Add(Me.SearchB)
         Me.Controls.Add(Me.AddVehicleB)
         Me.Name = "CarAdministrationvb"
         Me.Text = "CarAdministrationvb"
@@ -92,7 +81,6 @@ Partial Class CarAdministrationvb
     End Sub
 
     Friend WithEvents AddVehicleB As Button
-    Friend WithEvents SearchB As Button
     Friend WithEvents RemoveVehicleB As Button
     Friend WithEvents BackButton As Button
     Friend WithEvents UpdateButton As Button

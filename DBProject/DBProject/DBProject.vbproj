@@ -242,12 +242,6 @@
     <Compile Include="Reports.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchVehicles.Designer.vb">
-      <DependentUpon>SearchVehicles.vb</DependentUpon>
-    </Compile>
-    <Compile Include="SearchVehicles.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="SQLConnection.vb" />
     <Compile Include="Type.vb" />
     <Compile Include="TypesAdministration.Designer.vb">
@@ -364,9 +358,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SearchVehicles.resx">
-      <DependentUpon>SearchVehicles.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TypesAdministration.resx">
       <DependentUpon>TypesAdministration.vb</DependentUpon>
