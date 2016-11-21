@@ -309,7 +309,7 @@ Public Class Reports
             Dim fname As String = "Branches " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
             Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
             Dim writer As New StreamWriter(fpath, False)
-            writer.Write("Branch ID, Address, Email, Phone, Fax, Manager")
+            writer.Write("Branch ID, Address, Email, Phone, Fax, Manager, Vehicles")
 
             sql = "SELECT Branch.BID, Branch.StreetAddress, Branch.PostalCode, Branch.City, Branch.State, Branch.Country, Branch.Email, Branch.Phone, Fax, FirstName, LastName, Count(*) AS counter FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID JOIN Vehicle ON Vehicle.BID = Branch.BID GROUP BY Branch.BID"
             columns = New List(Of String)
