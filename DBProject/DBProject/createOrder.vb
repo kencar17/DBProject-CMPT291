@@ -1,4 +1,5 @@
-﻿Public Class createOrder
+﻿Imports MySql.Data.MySqlClient
+Public Class createOrder
     Private callingForm As ChooseRental
 
     Public WriteOnly Property CallingFormProperty As ChooseRental
@@ -31,4 +32,55 @@
         callingForm.doAThing()
     End Sub
 
+    Private Sub createOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub existingTextfield_TextChanged(sender As Object, e As EventArgs) Handles existingTextfield.TextChanged
+        Dim text As String = "SELECT DISTINCT * FROM Customer where Customer.LastName like '" & existingTextfield.Text & "%'"
+        Console.WriteLine(text)
+        existingCustomers.Items.Clear()
+        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
+        Using sqlComm As New MySqlCommand()
+            With sqlComm
+                .Connection = dbconn
+                .CommandText = text
+                .CommandType = CommandType.Text
+            End With
+            Try
+                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+                While sqlReader.Read()
+                    Dim person = New Person()
+                    person.FnameProperty = sqlReader("FirstName").ToString()
+                    person.LnameProperty = sqlReader("LastName").ToString()
+                    person.EmailProperty = sqlReader("Email").ToString()
+                    person.PostcodeProperty = sqlReader("PostalCode").ToString()
+                    person.AddressProperty = sqlReader("StreetAddress").ToString()
+                    person.CityProperty = sqlReader("State").ToString()
+                    person.StateProperty = sqlReader("Country").ToString()
+                    person.ageProperty = sqlReader("age").ToString()
+                    'person.PhoneProperty = sqlReader("Phone").ToString()
+
+                    existingCustomers.Items.Add(person)
+                End While
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End Using
+        SQLConnection.Instance.CloseConnection()
+    End Sub
+
+    Private Sub existingCustomers_SelectedIndexChanged(sender As Object, e As EventArgs) Handles existingCustomers.SelectedIndexChanged
+        Dim person As Person = existingCustomers.SelectedItem
+
+        CFnameTextField.Text = person.FnameProperty
+        CLnameTextField.Text = person.LnameProperty
+        CEmailTextBox.Text = person.EmailProperty
+        CAgeTextBox.Text = person.ageProperty
+        CAddressTextField.Text = person.AddressProperty
+        CCityTextField.Text = person.CityProperty
+        CProvinceTextField.Text = person.StateProperty
+        CCountryTextField.Text = person.CountryProperty
+        CPostalTextField.Text = person.PostcodeProperty
+    End Sub
 End Class
