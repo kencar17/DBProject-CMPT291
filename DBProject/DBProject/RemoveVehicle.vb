@@ -16,17 +16,10 @@ Public Class RemoveVehicle
             Return
         End If
 
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "DELETE FROM Vehicle WHERE VIN = @vin"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@vin", VINRemoveBox.Text)
-            End With
-            sqlComm.ExecuteNonQuery()
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim deleteSql As String = "DELETE FROM Vehicle WHERE VIN=@vin"
+        Dim deleteParams As New Dictionary(Of String, String)
+        deleteParams.Add("@vin", VINRemoveBox.Text)
+        SQLConnection.DoNonQuery(deleteSql, deleteParams)
 
         MsgBox(VINRemoveBox.Text & " has been deleted.")
     End Sub

@@ -111,6 +111,6 @@
     End Property
 
     Public Overrides Function ToString() As String
-        Return address & city
+        Return address & ", " & city
     End Function
 End Class

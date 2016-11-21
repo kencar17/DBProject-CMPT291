@@ -5,28 +5,7 @@ Public Class ModifyType
     Private Sub ModifyType_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SendMessage(Me.Type.Handle, &H1501, 0, "Description")
 
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "SELECT * FROM Types"
-                .CommandType = CommandType.Text
-            End With
-            Try
-                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                While sqlReader.Read()
-                    Dim atype As New Type(sqlReader("Type").ToString())
-                    atype.TidProperty = CInt(sqlReader("TID").ToString())
-                    atype.DailyRateProperty = CDec(sqlReader("DailyRate").ToString())
-                    atype.WeeklyRateProperty = CDec(sqlReader("WeeklyRate").ToString())
-                    atype.MonthlyRateProperty = CDec(sqlReader("MonthlyRate").ToString())
-                    TypeSelection.Items.Add(atype)
-                End While
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Init()
     End Sub
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
@@ -46,8 +25,6 @@ Public Class ModifyType
         ErrLabel.Visible = False
 
         If TypeSelection.SelectedItem Is Nothing Then
-            ErrLabel.Text = "A type must be selected."
-            ErrLabel.Visible = True
             Return
         End If
         If Type.Text.Equals("") Then
@@ -73,21 +50,17 @@ Public Class ModifyType
 
         Dim selectedType As Type = TypeSelection.SelectedItem
 
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "UPDATE Types SET DailyRate=@dr, WeeklyRate=@wr, MonthlyRate=@mr, Type=@type WHERE TID=@tid"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@dr", DailyRate.Text)
-                .Parameters.AddWithValue("@wr", WeeklyRate.Text)
-                .Parameters.AddWithValue("@mr", MonthlyRate.Text)
-                .Parameters.AddWithValue("@type", Type.Text)
-                .Parameters.AddWithValue("@tid", selectedType.TidProperty)
-            End With
-            sqlComm.ExecuteNonQuery()
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim updateSql As String = "UPDATE Types SET DailyRate=@dr, WeeklyRate=@wr, MonthlyRate=@mr, Type=@type WHERE TID=@tid"
+        Dim updateParams As New Dictionary(Of String, String)
+        With updateParams
+            .Add("@dr", DailyRate.Text)
+            .Add("@wr", WeeklyRate.Text)
+            .Add("@mr", MonthlyRate.Text)
+            .Add("@type", Type.Text)
+            .Add("@tid", selectedType.TidProperty)
+        End With
+        SQLConnection.DoNonQuery(updateSql, updateParams)
+        Init()
 
         MsgBox(Type.Text & " has been updated.")
     End Sub
@@ -103,5 +76,38 @@ Public Class ModifyType
         DailyRate.Enabled = True
         WeeklyRate.Enabled = True
         MonthlyRate.Enabled = True
+    End Sub
+
+    Private Sub Init()
+        TypeSelection.Items.Clear()
+
+        Dim selectSql As String = "SELECT * FROM Types"
+        Dim selectParams As New Dictionary(Of String, String)
+        Dim selectColumns As New List(Of String)
+        With selectColumns
+            .Add("Type")
+            .Add("TID")
+            .Add("DailyRate")
+            .Add("WeeklyRate")
+            .Add("MonthlyRate")
+        End With
+        Dim results As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(selectSql, selectParams, selectColumns)
+
+        For Each result As Dictionary(Of String, String) In results
+            Dim atype As New Type(result("Type"))
+            With atype
+                .TidProperty = CInt(result("TID"))
+                .DailyRateProperty = CDec(result("DailyRate"))
+                .WeeklyRateProperty = CDec(result("WeeklyRate"))
+                .MonthlyRateProperty = CDec(result("MonthlyRate"))
+                TypeSelection.Items.Add(atype)
+            End With
+        Next
+
+        TypeSelection.SelectedItem = Nothing
+        Type.Enabled = False
+        DailyRate.Enabled = False
+        WeeklyRate.Enabled = False
+        MonthlyRate.Enabled = False
     End Sub
 End Class

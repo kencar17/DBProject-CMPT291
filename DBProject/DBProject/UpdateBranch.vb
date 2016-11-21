@@ -22,56 +22,22 @@ Public Class UpdateBranch
 
         Me.AcceptButton = SubmitButton
 
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "SELECT BID, Branch.PostalCode, Branch.StreetAddress, Branch.City, Branch.State, Branch.Country, Branch.Email, Phone, Fax, FirstName, LastName, ManagerID FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID"
-                .CommandType = CommandType.Text
-            End With
-            Try
-                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                While sqlReader.Read()
-                    Dim b As New Branch
-                    b.BidProperty = CInt(sqlReader("BID").ToString())
-                    b.PostcodeProperty = sqlReader("PostalCode").ToString()
-                    b.AddressProperty = sqlReader("StreetAddress").ToString()
-                    b.CityProperty = sqlReader("City").ToString()
-                    b.StateProperty = sqlReader("State").ToString()
-                    b.CountryProperty = sqlReader("Country").ToString()
-                    b.EmailProperty = sqlReader("Email").ToString()
-                    b.PhoneProperty = sqlReader("Phone").ToString()
-                    b.FaxProperty = sqlReader("Fax").ToString()
-                    b.MannameProperty = sqlReader("FirstName").ToString() & " " & sqlReader("LastName").ToString()
-                    b.ManidProperty = sqlReader("ManagerID").ToString()
-                    BranchSelection.Items.Add(b)
-                End While
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim sql As String = "SELECT FirstName, LastName, EID FROM Employee"
+        Dim params As New Dictionary(Of String, String)
+        Dim columns As New List(Of String)
+        columns.Add("FirstName")
+        columns.Add("LastName")
+        columns.Add("EID")
+        Dim moreresults As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(sql, params, columns)
+        For Each result As Dictionary(Of String, String) In moreresults
+            Dim aUser As New User("", "")
+            aUser.IdProperty = CInt(result("EID"))
+            aUser.NameProperty = result("FirstName") & " " & result("LastName")
+            aUser.UsernameProperty = aUser.NameProperty
+            MBox.Items.Add(aUser)
+        Next
 
-        dbconn = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "SELECT FirstName, LastName, EID FROM Employee"
-                .CommandType = CommandType.Text
-            End With
-            Try
-                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                While sqlReader.Read()
-                    Dim aUser As New User("", "")
-                    aUser.IdProperty = CInt(sqlReader("EID").ToString())
-                    aUser.NameProperty = sqlReader("FirstName").ToString() & " " & sqlReader("LastName").ToString()
-                    aUser.UsernameProperty = aUser.NameProperty
-                    MBox.Items.Add(aUser)
-                End While
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        End Using
+        Init()
     End Sub
 
 
@@ -107,8 +73,6 @@ Public Class UpdateBranch
         ErrLabel.Visible = False
 
         If BranchSelection.SelectedItem Is Nothing Then
-            ErrLabel.Text = "A branch must be selected"
-            ErrLabel.Visible = True
             Return
         End If
         If EmailBox.Text.Equals("") Then
@@ -128,23 +92,63 @@ Public Class UpdateBranch
         End If
 
         Dim manager As User = MBox.SelectedItem
+        Dim sql As String = "UPDATE Branch SET Email=@email, Phone=@phone, Fax=@fax, ManagerID=@manid WHERE BID = @bid"
+        Dim params As New Dictionary(Of String, String)
+        With params
+            .Add("@email", EmailBox.Text)
+            .Add("@fax", FaxBox.Text)
+            .Add("@phone", PhoneBox.Text)
+            .Add("@manid", manager.IdProperty)
+            .Add("@bid", BranchSelection.SelectedItem.BidProperty)
+        End With
+        SQLConnection.DoNonQuery(sql, params)
 
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "UPDATE Branch SET Email=@email, Phone=@phone, Fax=@fax, ManagerID=@manid WHERE BID = @bid"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@email", EmailBox.Text)
-                .Parameters.AddWithValue("@fax", FaxBox.Text)
-                .Parameters.AddWithValue("@phone", PhoneBox.Text)
-                .Parameters.AddWithValue("@manid", manager.IdProperty)
-                .Parameters.AddWithValue("@bid", BranchSelection.SelectedItem.BidProperty)
-            End With
-            sqlComm.ExecuteNonQuery()
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Init()
 
         MsgBox("The branch has been updated.")
+    End Sub
+
+    Private Sub Init()
+        BranchSelection.Items.Clear()
+        EmailBox.Enabled = False
+        PhoneBox.Enabled = False
+        FaxBox.Enabled = False
+        MBox.Enabled = False
+
+        Dim selectSql As String = "SELECT BID, Branch.PostalCode, Branch.StreetAddress, Branch.City, Branch.State, Branch.Country, Branch.Email, Phone, Fax, FirstName, LastName, ManagerID FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID"
+        Dim selectParams As New Dictionary(Of String, String)
+        Dim selectColumns As New List(Of String)
+        With selectColumns
+            .Add("BID")
+            .Add("PostalCode")
+            .Add("StreetAddress")
+            .Add("City")
+            .Add("State")
+            .Add("Country")
+            .Add("Email")
+            .Add("Phone")
+            .Add("Fax")
+            .Add("FirstName")
+            .Add("LastName")
+            .Add("ManagerID")
+        End With
+        Dim results As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(selectSql, selectParams, selectColumns)
+        For Each result As Dictionary(Of String, String) In results
+            Dim b As New Branch
+            With b
+                .BidProperty = CInt(result("BID"))
+                .PostcodeProperty = result("PostalCode")
+                .AddressProperty = result("StreetAddress")
+                .CityProperty = result("City")
+                .StateProperty = result("State")
+                .CountryProperty = result("Country")
+                .EmailProperty = result("Email")
+                .PhoneProperty = result("Phone")
+                .FaxProperty = result("Fax")
+                .MannameProperty = result("FirstName") & " " & result("LastName")
+                .ManidProperty = result("ManagerID")
+            End With
+            BranchSelection.Items.Add(b)
+        Next
     End Sub
 End Class

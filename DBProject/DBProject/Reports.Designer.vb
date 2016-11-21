@@ -41,7 +41,7 @@ Partial Class Reports
         Me.ViewUsersButton.Name = "ViewUsersButton"
         Me.ViewUsersButton.Size = New System.Drawing.Size(75, 23)
         Me.ViewUsersButton.TabIndex = 0
-        Me.ViewUsersButton.Text = "View Users"
+        Me.ViewUsersButton.Text = "Users"
         Me.ViewUsersButton.UseVisualStyleBackColor = True
         '
         'HelpButton

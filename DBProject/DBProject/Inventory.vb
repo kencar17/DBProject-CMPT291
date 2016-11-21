@@ -141,35 +141,37 @@ Public Class Inventory
         Dim returnedAvail As String
         Dim returnedCoverage As String
 
-        Dim dbConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbConnection
-                .CommandText = checkSQL
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@vin", vin)
-            End With
-            Try
-                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                While sqlReader.Read()
-                    returnedVin = sqlReader("VIN").ToString()
-                    returnedMake = sqlReader("Make").ToString()
-                    returnedModel = sqlReader("Model").ToString()
-                    returnedClass = sqlReader("Class").ToString()
-                    returnedKm = sqlReader("Km").ToString()
-                    returnedYear = sqlReader("Year").ToString()
-                    returnedSeats = sqlReader("Seats").ToString()
-                    returnedGVWR = sqlReader("GVWR").ToString()
-                    returnedTrans = sqlReader("Transmission").ToString()
-                    returnedPlate = sqlReader("License").ToString()
-                    returnedAvail = sqlReader("Available").ToString()
-                    returnedCoverage = sqlReader("Coverage").ToString()
-                End While
-            Catch ex As Exception
-                Return Nothing
-            End Try
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Dim checkParams As New Dictionary(Of String, String)
+        checkParams.Add("@vin", vin)
+        Dim checkColumns As New List(Of String)
+        With checkColumns
+            .Add("VIN")
+            .Add("Make")
+            .Add("Model")
+            .Add("Class")
+            .Add("Km")
+            .Add("Year")
+            .Add("Seats")
+            .Add("GVWR")
+            .Add("Transmission")
+            .Add("License")
+            .Add("Available")
+            .Add("Coverage")
+        End With
+        For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(checkSQL, checkParams, checkColumns)
+            returnedVin = result("VIN")
+            returnedMake = result("Make")
+            returnedModel = result("Model")
+            returnedClass = result("Class")
+            returnedKm = result("Km")
+            returnedYear = result("Year")
+            returnedSeats = result("Seats")
+            returnedGVWR = result("GVWR")
+            returnedTrans = result("Transmission")
+            returnedPlate = result("License")
+            returnedAvail = result("Available")
+            returnedCoverage = result("Coverage")
+        Next
 
         If Not returnedVin.Equals(vin) Then
             Return Nothing

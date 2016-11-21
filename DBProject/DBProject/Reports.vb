@@ -5,6 +5,10 @@ Imports MySql.Data.MySqlClient
 
 Public Class Reports
     Private delim As String = ","
+    Dim sql As String
+    Dim params As New Dictionary(Of String, String)
+    Dim columns As List(Of String)
+    Dim results As List(Of Dictionary(Of String, String))
 
     Private Sub ViewUsersButton_Click(sender As Object, e As EventArgs) Handles ViewUsersButton.Click
         If PDFOption.Checked Or BothOption.Checked Then
@@ -41,31 +45,35 @@ Public Class Reports
             table.AddCell("Country")
             table.AddCell("Email")
 
-            Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-            Using sqlComm As New MySqlCommand()
-                With sqlComm
-                    .Connection = dbconn
-                    .CommandText = "SELECT Username, FirstName, LastName, StreetAddress, PostalCode, City, State, Country, Email, EID FROM User JOIN Employee ON User.PersonID = Employee.EID"
-                    .CommandType = CommandType.Text
+            sql = "SELECT Username, FirstName, LastName, StreetAddress, PostalCode, City, State, Country, Email, EID FROM User JOIN Employee ON User.PersonID = Employee.EID"
+            columns = New List(Of String)
+            With columns
+                .Add("EID")
+                .Add("Username")
+                .Add("FirstName")
+                .Add("LastName")
+                .Add("StreetAddress")
+                .Add("PostalCode")
+                .Add("City")
+                .Add("State")
+                .Add("Email")
+                .Add("Country")
+            End With
+            results = SQLConnection.DoQuery(sql, params, columns)
+
+            For Each result As Dictionary(Of String, String) In results
+                With table
+                    .AddCell(result("EID"))
+                    .AddCell(result("Username"))
+                    .AddCell(result("FirstName") & " " & result("LastName"))
+                    .AddCell(result("StreetAddress"))
+                    .AddCell(result("PostalCode"))
+                    .AddCell(result("City"))
+                    .AddCell(result("State"))
+                    .AddCell(result("Country"))
+                    .AddCell(result("Email"))
                 End With
-                Try
-                    Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                    While sqlReader.Read()
-                        table.AddCell(sqlReader("EID").ToString())
-                        table.AddCell(sqlReader("Username").ToString())
-                        table.AddCell(sqlReader("FirstName").ToString() & " " & sqlReader("LastName").ToString())
-                        table.AddCell(sqlReader("StreetAddress").ToString())
-                        table.AddCell(sqlReader("PostalCode").ToString())
-                        table.AddCell(sqlReader("City").ToString())
-                        table.AddCell(sqlReader("State"))
-                        table.AddCell(sqlReader("Country").ToString())
-                        table.AddCell(sqlReader("Email").ToString())
-                    End While
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
-            End Using
-            SQLConnection.Instance.CloseConnection()
+            Next
 
             userReport.Add(table)
             userReport.Close()
@@ -84,41 +92,32 @@ Public Class Reports
             Dim report As String = ""
             Dim fname As String = "Users " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
             Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
-            Dim writer As New StreamWriter(fpath, True)
+            Dim writer As New StreamWriter(fpath, False)
             writer.Write("EID,Username,Name,Address,PostalCode,City,State,Country,Email")
 
+            sql = "SELECT Username, FirstName, LastName, StreetAddress, PostalCode, City, State, Country, Email, EID FROM User JOIN Employee ON User.PersonID = Employee.EID"
+            columns = New List(Of String)
+            With columns
+                .Add("EID")
+                .Add("Username")
+                .Add("FirstName")
+                .Add("LastName")
+                .Add("StreetAddress")
+                .Add("PostalCode")
+                .Add("City")
+                .Add("Country")
+                .Add("State")
+                .Add("Email")
+            End With
+            results = SQLConnection.DoQuery(sql, params, columns)
 
-            Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-            Using sqlComm As New MySqlCommand()
-                With sqlComm
-                    .Connection = dbconn
-                    .CommandText = "SELECT Username, FirstName, LastName, StreetAddress, PostalCode, City, State, Country, Email, EID FROM User JOIN Employee ON User.PersonID = Employee.EID"
-                    .CommandType = CommandType.Text
-                End With
-                Try
-                    Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                    While sqlReader.Read()
-                        Dim eid As Integer = CInt(sqlReader("EID").ToString())
-                        Dim username As String = sqlReader("Username").ToString()
-                        Dim name As String = sqlReader("FirstName").ToString() & " " & sqlReader("LastName").ToString()
-                        Dim address As String = sqlReader("StreetAddress").ToString()
-                        Dim postcode As String = sqlReader("PostalCode").ToString()
-                        Dim city As String = sqlReader("City").ToString()
-                        Dim state As String = sqlReader("State")
-                        Dim country As String = sqlReader("Country").ToString()
-                        Dim email As String = sqlReader("Email").ToString()
-
-                        Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}" & delim & "{3}" & delim & "{4}" & delim & "{5}" & delim & "{6}" & delim & "{7}" & delim & "{8}",
-                                                          eid, username, name, address, postcode, city, state, country, email)
-
-                        writer.Write(vbCrLf & row)
-                    End While
-                    writer.Close()
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
-            End Using
-            SQLConnection.Instance.CloseConnection()
+            For Each result As Dictionary(Of String, String) In results
+                Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}" & delim & "{3}" & delim & "{4}" & delim & "{5}" & delim & "{6}" & delim & "{7}" & delim & "{8}",
+                                                          result("EID"), result("Username"), result("FirstName") & " " & result("LastName"),
+                                                  result("StreetAddress"), result("PostalCode"), result("City"), result("State"), result("Country"), result("Email"))
+                writer.Write(vbCrLf & row)
+            Next
+            writer.Close()
 
             MsgBox("Report saved to " & fpath)
 
@@ -165,25 +164,22 @@ Public Class Reports
             table.AddCell("Rating")
             table.AddCell("Comments")
 
-            Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-            Using sqlComm As New MySqlCommand()
-                With sqlComm
-                    .Connection = dbconn
-                    .CommandText = "SELECT TID, ExperienceRating, ReviewComments FROM Transaction"
-                    .CommandType = CommandType.Text
+            sql = "SELECT TID, ExperienceRating, ReviewComments FROM Transaction"
+            columns = New List(Of String)
+            With columns
+                .Add("TID")
+                .Add("ExperienceRating")
+                .Add("ReviewComments")
+            End With
+            results = SQLConnection.DoQuery(sql, params, columns)
+            For Each result As Dictionary(Of String, String) In results
+                With table
+                    .AddCell(result("TID"))
+                    .AddCell(result("ExperienceRating"))
+                    .AddCell(result("ReviewComments"))
                 End With
-                Try
-                    Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                    While sqlReader.Read()
-                        table.AddCell(sqlReader("TID").ToString())
-                        table.AddCell(sqlReader("ExperienceRating").ToString())
-                        table.AddCell(sqlReader("ReviewComments").ToString())
-                    End While
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
-            End Using
-            SQLConnection.Instance.CloseConnection()
+            Next
+
 
             feedbackReport.Add(table)
             feedbackReport.Close()
@@ -201,35 +197,23 @@ Public Class Reports
             Dim report As String = ""
             Dim fname As String = "Feedback " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
             Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
-            Dim writer As New StreamWriter(fpath, True)
+            Dim writer As New StreamWriter(fpath, False)
             writer.Write("TID,Rating,Comments")
 
-
-            Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-            Using sqlComm As New MySqlCommand()
-                With sqlComm
-                    .Connection = dbconn
-                    .CommandText = "SELECT TID, ExperienceRating, ReviewComments FROM Transaction"
-                    .CommandType = CommandType.Text
-                End With
-                Try
-                    Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                    While sqlReader.Read()
-                        Dim tid As Integer = CInt(sqlReader("TID").ToString())
-                        Dim rating As Integer = CInt(sqlReader("ExperienceRating").ToString())
-                        Dim comments As String = sqlReader("ReviewComments").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
-
-                        Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}",
-                                                         tid, rating, comments)
-
-                        writer.Write(vbCrLf & row)
-                    End While
-                    writer.Close()
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
-            End Using
-            SQLConnection.Instance.CloseConnection()
+            sql = "SELECT TID, ExperienceRating, ReviewComments FROM Transaction"
+            columns = New List(Of String)
+            With columns
+                .Add("TID")
+                .Add("ExperienceRating")
+                .Add("ReviewComments")
+            End With
+            results = SQLConnection.DoQuery(sql, params, columns)
+            For Each result As Dictionary(Of String, String) In results
+                Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}",
+                                                         result("TID"), result("ExperienceRating"), result("ReviewComments"))
+                writer.Write(vbCrLf & row)
+            Next
+            writer.Close()
 
             MsgBox("Report saved to " & fpath)
 
@@ -255,12 +239,12 @@ Public Class Reports
                 .Open()
             End With
 
-            Dim table As New PdfPTable(6)
+            Dim table As New PdfPTable(7)
             table.WidthPercentage = 90
-            Dim widths = New Integer() {1, 1, 1, 1, 1, 1}
+            Dim widths = New Integer() {1, 4, 3, 2, 2, 2, 1}
             table.SetWidths(widths)
             Dim cell As New PdfPCell(New Phrase("Branches"))
-            cell.Colspan = 6
+            cell.Colspan = 7
             cell.HorizontalAlignment = 1
             table.AddCell(cell)
 
@@ -270,39 +254,42 @@ Public Class Reports
             table.AddCell("Phone")
             table.AddCell("Fax")
             table.AddCell("Manager")
+            table.AddCell("Vehicles")
 
-            Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-            Using sqlComm As New MySqlCommand()
-                With sqlComm
-                    .Connection = dbconn
-                    .CommandText = "SELECT BID, Branch.StreetAddress, Branch.PostalCode, Branch.City, Branch.State, Branch.Country, Branch.Email, Branch.Phone, Fax, FirstName, LastName FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID"
-                    .CommandType = CommandType.Text
+            sql = "SELECT Branch.BID, Branch.StreetAddress, Branch.PostalCode, Branch.City, Branch.State, Branch.Country, Branch.Email, Branch.Phone, Fax, FirstName, LastName, Count(*) AS counter FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID JOIN Vehicle ON Vehicle.BID = Branch.BID GROUP BY Branch.BID"
+            columns = New List(Of String)
+            With columns
+                .Add("BID")
+                .Add("StreetAddress")
+                .Add("PostalCode")
+                .Add("City")
+                .Add("State")
+                .Add("Country")
+                .Add("Email")
+                .Add("Phone")
+                .Add("Fax")
+                .Add("FirstName")
+                .Add("LastName")
+                .Add("counter")
+            End With
+            results = SQLConnection.DoQuery(sql, params, columns)
+            For Each result As Dictionary(Of String, String) In results
+                With table
+                    .AddCell(result("BID"))
+                    Dim address As String = result("StreetAddress") & " "
+                    address &= result("City") & " "
+                    address &= result("State") & " "
+                    address &= result("Country") & " "
+                    address &= result("PostalCode") & " "
+                    .AddCell(address)
+                    .AddCell(result("Email"))
+                    .AddCell(result("Phone"))
+                    .AddCell(result("Fax"))
+                    .AddCell(result("FirstName") & " " & result("LastName"))
+                    .AddCell(result("counter"))
                 End With
-                Try
-                    Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                    While sqlReader.Read()
-                        table.AddCell(sqlReader("BID").ToString())
+            Next
 
-                        Dim address As String = sqlReader("StreetAddress").ToString() & " "
-                        address &= sqlReader("PostalCode").ToString() & " "
-                        address &= sqlReader("City").ToString() & " "
-                        address &= sqlReader("State").ToString() & " "
-                        address &= sqlReader("PostalCode").ToString() & " "
-                        address &= sqlReader("Country").ToString()
-                        table.AddCell(address)
-
-                        table.AddCell(sqlReader("Email").ToString())
-                        table.AddCell(sqlReader("Phone").ToString())
-                        table.AddCell(sqlReader("Fax").ToString())
-
-                        Dim name As String = sqlReader("FirstName").ToString() & " " & sqlReader("LastName").ToString()
-                        table.AddCell(name)
-                    End While
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
-            End Using
-            SQLConnection.Instance.CloseConnection()
 
             branchReport.Add(table)
             branchReport.Close()
@@ -320,50 +307,37 @@ Public Class Reports
             Dim report As String = ""
             Dim fname As String = "Branches " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
             Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
-            Dim writer As New StreamWriter(fpath, True)
-            writer.Write("Branch ID, Address, Email, Phone, Fax, Manager")
+            Dim writer As New StreamWriter(fpath, False)
+            writer.Write("Branch ID, Address, Email, Phone, Fax, Manager, Vehicles")
 
-
-            Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-            Using sqlComm As New MySqlCommand()
-                With sqlComm
-                    .Connection = dbconn
-                    .CommandText = "SELECT BID, Branch.StreetAddress, Branch.PostalCode, Branch.City, Branch.State, Branch.Country, Branch.Email, Branch.Phone, Fax, FirstName, LastName FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID"
-                    .CommandType = CommandType.Text
-                End With
-                Try
-                    Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                    While sqlReader.Read()
-                        Dim bid As Integer = CInt(sqlReader("BID").ToString())
-
-                        Dim address As String = sqlReader("StreetAddress").ToString() & " "
-                        address &= sqlReader("PostalCode").ToString() & " "
-                        address &= sqlReader("City").ToString() & " "
-                        address &= sqlReader("State").ToString() & " "
-                        address &= sqlReader("PostalCode").ToString() & " "
-                        address &= sqlReader("Country").ToString()
-                        address = address.Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
-
-                        Dim email As String = sqlReader("Email").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
-                        Dim phone As String = sqlReader("Phone").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
-                        Dim fax As String = sqlReader("Fax").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
-                        Dim manager As String = (sqlReader("FirstName").ToString() & " " & sqlReader("LastName").ToString()).Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
-
-                        ' Little trick to ensure the phone and fax are recognized as strings
-                        phone &= vbTab
-                        fax &= vbTab
-
-                        Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}" & delim & "{3}" & delim & "{4}" & delim & "{5}",
-                                                         bid, address, email, phone, fax, manager)
-
-                        writer.Write(vbCrLf & row)
-                    End While
-                    writer.Close()
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
-            End Using
-            SQLConnection.Instance.CloseConnection()
+            sql = "SELECT Branch.BID, Branch.StreetAddress, Branch.PostalCode, Branch.City, Branch.State, Branch.Country, Branch.Email, Branch.Phone, Fax, FirstName, LastName, Count(*) AS counter FROM Branch JOIN Employee ON Branch.ManagerID = Employee.EID JOIN Vehicle ON Vehicle.BID = Branch.BID GROUP BY Branch.BID"
+            columns = New List(Of String)
+            With columns
+                .Add("BID")
+                .Add("StreetAddress")
+                .Add("PostalCode")
+                .Add("City")
+                .Add("State")
+                .Add("Country")
+                .Add("Email")
+                .Add("Phone")
+                .Add("Fax")
+                .Add("FirstName")
+                .Add("LastName")
+                .Add("counter")
+            End With
+            results = SQLConnection.DoQuery(sql, params, columns)
+            For Each result As Dictionary(Of String, String) In results
+                Dim address As String = result("StreetAddress") & " "
+                address &= result("City") & " "
+                address &= result("State") & " "
+                address &= result("Country") & " "
+                address &= result("PostalCode") & " "
+                Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}" & delim & "{3}" & delim & "{4}" & delim & "{5}" & delim & "{6}",
+                                                         result("BID"), address, result("Email"), result("Phone") & vbTab, result("Fax") & vbTab, result("FirstName") & " " & result("LastName"), result("counter"))
+                writer.Write(vbCrLf & row)
+            Next
+            writer.Close()
 
             MsgBox("Report saved to " & fpath)
 
@@ -403,26 +377,23 @@ Public Class Reports
             table.AddCell("Weekly Rate")
             table.AddCell("Monthly Rate")
 
-            Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-            Using sqlComm As New MySqlCommand()
-                With sqlComm
-                    .Connection = dbconn
-                    .CommandText = "SELECT Type, DailyRate, WeeklyRate, MonthlyRate FROM Types"
-                    .CommandType = CommandType.Text
+            sql = "SELECT Type, DailyRate, WeeklyRate, MonthlyRate FROM Types"
+            columns = New List(Of String)
+            With columns
+                .Add("Type")
+                .Add("DailyRate")
+                .Add("WeeklyRate")
+                .Add("MonthlyRate")
+            End With
+            results = SQLConnection.DoQuery(sql, params, columns)
+            For Each result As Dictionary(Of String, String) In results
+                With table
+                    .AddCell(result("Type"))
+                    .AddCell(result("DailyRate"))
+                    .AddCell(result("WeeklyRate"))
+                    .AddCell(result("MonthlyRate"))
                 End With
-                Try
-                    Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                    While sqlReader.Read()
-                        table.AddCell(sqlReader("Type").ToString())
-                        table.AddCell(sqlReader("DailyRate").ToString())
-                        table.AddCell(sqlReader("WeeklyRate").ToString())
-                        table.AddCell(sqlReader("MonthlyRate").ToString())
-                    End While
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
-            End Using
-            SQLConnection.Instance.CloseConnection()
+            Next
 
             branchReport.Add(table)
             branchReport.Close()
@@ -440,37 +411,52 @@ Public Class Reports
             Dim report As String = ""
             Dim fname As String = "Types " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
             Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
-            Dim writer As New StreamWriter(fpath, True)
+            Dim writer As New StreamWriter(fpath, False)
             writer.Write("Type, Daily Rate, Weekly Rate, Monthly Rate")
 
+            sql = "SELECT Type, DailyRate, WeeklyRate, MonthlyRate FROM Types"
+            params = New Dictionary(Of String, String)
+            columns = New List(Of String)
+            With columns
+                .Add("Type")
+                .Add("DailyRate")
+                .Add("WeeklyRate")
+                .Add("MonthlyRate")
+            End With
+            For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(sql, params, columns)
+                Dim type As String = result("Type").Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+                Dim drate As String = result("DailyRate").Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+                Dim wrate As String = result("WeeklyRate").Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+                Dim mrate As String = result("MonthlyRate").Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
 
-            Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-            Using sqlComm As New MySqlCommand()
-                With sqlComm
-                    .Connection = dbconn
-                    .CommandText = "SELECT Type, DailyRate, WeeklyRate, MonthlyRate FROM Types"
-                    .CommandType = CommandType.Text
-                End With
-                Try
-                    Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                    While sqlReader.Read()
-                        Dim type As String = sqlReader("Type").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
-                        Dim drate As String = sqlReader("DailyRate").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
-                        Dim wrate As String = sqlReader("WeeklyRate").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
-                        Dim mrate As String = sqlReader("MonthlyRate").ToString().Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+
+                Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}" & delim & "{3}",
+                                                 type, drate, wrate, mrate)
+                writer.Write(vbCrLf & row)
+            Next
+
+            sql = "SELECT Type, DailyRate, WeeklyRate, MonthlyRate FROM Types"
+            columns = New List(Of String)
+            With columns
+                .Add("Type")
+                .Add("DailyRate")
+                .Add("WeeklyRate")
+                .Add("MonthlyRate")
+            End With
+            results = SQLConnection.DoQuery(sql, params, columns)
+            For Each result As Dictionary(Of String, String) In results
+                Dim type As String = result("Type").Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+                Dim drate As String = result("DailyRate").Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+                Dim wrate As String = result("WeeklyRate").Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
+                Dim mrate As String = result("MonthlyRate").Replace(",", ";").Replace(vbCr, " ").Replace(vbLf, " ").Replace(vbCrLf, " ")
 
 
-                        Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}" & delim & "{3}",
-                                                         type, drate, wrate, mrate)
+                Dim row As String = String.Format("{0}" & delim & "{1}" & delim & "{2}" & delim & "{3}",
+                                                 type, drate, wrate, mrate)
 
-                        writer.Write(vbCrLf & row)
-                    End While
-                    writer.Close()
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
-            End Using
-            SQLConnection.Instance.CloseConnection()
+                writer.Write(vbCrLf & row)
+            Next
+            writer.Close()
 
             MsgBox("Report saved to " & fpath)
 

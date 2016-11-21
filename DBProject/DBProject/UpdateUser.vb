@@ -26,96 +26,114 @@ Public Class UpdateUser
         SendMessage(Me.CountryBox.Handle, &H1501, 0, "Country")
         SendMessage(Me.EmailBox.Handle, &H1501, 0, "Email")
 
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "SELECT Username, FirstName, LastName, StreetAddress, PostalCode, City, State, Country, Email, EID FROM User JOIN Employee ON User.PersonID = Employee.EID"
-                .CommandType = CommandType.Text
-            End With
-            Try
-                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                While sqlReader.Read()
-                    Dim newUser As New User(sqlReader("Username").ToString(), "")
-                    newUser.IdProperty = CInt(sqlReader("EID").ToString())
-                    newUser.CityProperty = sqlReader("City").ToString()
-                    newUser.CountryProperty = sqlReader("Country").ToString()
-                    newUser.EmailProperty = sqlReader("Email").ToString()
-                    newUser.FirstNameProperty = sqlReader("FirstName").ToString()
-                    newUser.LastNameProperty = sqlReader("LastName").ToString()
-                    newUser.StreetAddressProperty = sqlReader("StreetAddress").ToString()
-                    newUser.PostCodeProperty = sqlReader("PostalCode").ToString()
-                    newUser.StateProperty = sqlReader("State").ToString()
-                    UserSelection.Items.Add(newUser)
-                End While
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        End Using
-        SQLConnection.Instance.CloseConnection()
+        Init()
+    End Sub
+
+    Private Sub Init()
+        UserSelection.Items.Clear()
+
+        Dim sql As String = "SELECT Username, FirstName, LastName, StreetAddress, PostalCode, City, State, Country, Email, EID FROM User JOIN Employee ON User.PersonID = Employee.EID"
+        Dim params As New Dictionary(Of String, String)
+        Dim columns As New List(Of String)
+        With columns
+            .Add("Username")
+            .Add("EID")
+            .Add("City")
+            .Add("Country")
+            .Add("Email")
+            .Add("FirstName")
+            .Add("LastName")
+            .Add("StreetAddress")
+            .Add("PostalCode")
+            .Add("State")
+        End With
+        Dim results As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(sql, params, columns)
+        For Each result As Dictionary(Of String, String) In results
+            Dim newUser As New User(result("Username"), "")
+            newUser.IdProperty = CInt(result("EID"))
+            newUser.CityProperty = result("City")
+            newUser.CountryProperty = result("Country")
+            newUser.EmailProperty = result("Email")
+            newUser.FirstNameProperty = result("FirstName")
+            newUser.LastNameProperty = result("LastName")
+            newUser.StreetAddressProperty = result("StreetAddress")
+            newUser.PostCodeProperty = result("PostalCode")
+            newUser.StateProperty = result("State")
+            UserSelection.Items.Add(newUser)
+        Next
+
+        UserSelection.SelectedItem = Nothing
+
+
+        Me.ImgButton.Enabled = False
+        Me.SubmitButton.Enabled = False
+        Me.AddressBox.Enabled = False
+        Me.AddressBox.Text = ""
+        Me.CityBox.Enabled = False
+        Me.CityBox.Text = ""
+        Me.CountryBox.Enabled = False
+        Me.CountryBox.Text = ""
+        Me.EmailBox.Enabled = False
+        Me.EmailBox.Text = ""
+        Me.FirstnameBox.Enabled = False
+        Me.FirstnameBox.Text = ""
+        Me.LastnameBox.Enabled = False
+        Me.LastnameBox.Text = ""
+        Me.PassBox.Enabled = False
+        Me.PostcodeBox.Enabled = False
+        Me.PostcodeBox.Text = ""
+        Me.StateBox.Enabled = False
+        Me.StateBox.Text = ""
+        Me.UsernameBox.Text = ""
     End Sub
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
+        Dim selectedUser As User = UserSelection.SelectedItem
+
         ' If a user hasn't been selected, don't continue
         If Not Me.SubmitButton.Enabled Then
             Return
         End If
-        Dim selectedUser As User = UserSelection.SelectedItem
+        Dim updateEmployeeSql As String = "UPDATE Employee SET FirstName=@firstname, LastName=@lastname, StreetAddress=@address, PostalCode=@postcode, City=@city, State=@state, Country=@country, Email=@email WHERE Employee.EID = @eid"
+        Dim updateEmployeeParams As New Dictionary(Of String, String)
+        With updateEmployeeParams
+            .Add("@firstname", FirstnameBox.Text)
+            .Add("@lastname", LastnameBox.Text)
+            .Add("@address", AddressBox.Text)
+            .Add("@postcode", PostcodeBox.Text)
+            .Add("@city", CityBox.Text)
+            .Add("@state", StateBox.Text)
+            .Add("@country", CountryBox.Text)
+            .Add("@email", EmailBox.Text)
+            .Add("@eid", selectedUser.IdProperty)
+        End With
+        SQLConnection.DoNonQuery(updateEmployeeSql, updateEmployeeParams)
 
-        ' Update the Employee entry
-        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
-        Using sqlComm As New MySqlCommand()
-            With sqlComm
-                .Connection = dbconn
-                .CommandText = "UPDATE Employee SET FirstName=@firstname, LastName=@lastname, StreetAddress=@address, PostalCode=@postcode, City=@city, State=@state, Country=@country, Email=@email WHERE Employee.EID = @eid"
-                .CommandType = CommandType.Text
-                .Parameters.AddWithValue("@firstname", FirstnameBox.Text)
-                .Parameters.AddWithValue("@lastname", LastnameBox.Text)
-                .Parameters.AddWithValue("@address", AddressBox.Text)
-                .Parameters.AddWithValue("@postcode", PostcodeBox.Text)
-                .Parameters.AddWithValue("@city", CityBox.Text)
-                .Parameters.AddWithValue("@state", StateBox.Text)
-                .Parameters.AddWithValue("@country", CountryBox.Text)
-                .Parameters.AddWithValue("@email", EmailBox.Text)
-                .Parameters.AddWithValue("@eid", selectedUser.IdProperty)
-            End With
-            sqlComm.ExecuteNonQuery()
-        End Using
-        SQLConnection.Instance.CloseConnection()
 
         If Not chosenFile.Equals("") Then
             Dim uploadUrl As String = Faces.upload(chosenFile)
-            dbconn = SQLConnection.Instance.GetConnection()
-            Using sqlComm As New MySqlCommand()
-                With sqlComm
-                    .Connection = dbconn
-                    .CommandText = "UPDATE User SET ImgUrl=@url WHERE Username=@username"
-                    .CommandType = CommandType.Text
-                    .Parameters.AddWithValue("@url", uploadUrl)
-                    .Parameters.AddWithValue("@username", UsernameBox.Text)
-                End With
-                sqlComm.ExecuteNonQuery()
-            End Using
-            SQLConnection.Instance.CloseConnection()
+            Dim uploadSql As String = "UPDATE User SET ImgUrl=@url WHERE Username=@username"
+            Dim uploadParams As New Dictionary(Of String, String)
+            With uploadParams
+                .Add("@url", uploadUrl)
+                .Add("@username", UsernameBox.Text)
+            End With
+            SQLConnection.DoNonQuery(uploadSql, uploadParams)
         End If
 
         If (Not PassBox.Text.Equals("")) Then
             Dim newPassword As String = BCrypt.Net.BCrypt.HashPassword(PassBox.Text)
+            Dim passSql As String = "UPDATE User SET Password=@password WHERE Username=@username"
+            Dim passParams As New Dictionary(Of String, String)
+            With passParams
+                .Add("@password", newPassword)
+                .Add("@username", UsernameBox.Text)
+            End With
+            SQLConnection.DoNonQuery(passSql, passParams)
 
-            dbconn = SQLConnection.Instance.GetConnection()
-            Using sqlComm As New MySqlCommand()
-                With sqlComm
-                    .Connection = dbconn
-                    .CommandText = "UPDATE User SET Password=@password WHERE Username=@username"
-                    .CommandType = CommandType.Text
-                    .Parameters.AddWithValue("@password", newPassword)
-                    .Parameters.AddWithValue("@username", UsernameBox.Text)
-                End With
-                sqlComm.ExecuteNonQuery()
-            End Using
-            SQLConnection.Instance.CloseConnection()
             PassBox.Text = ""
         End If
+        Init()
 
         MsgBox(selectedUser.UsernameProperty & " has been updated.")
     End Sub
@@ -127,6 +145,12 @@ Public Class UpdateUser
 
     Private Sub UserSelection_SelectedIndexChanged(sender As Object, e As EventArgs) Handles UserSelection.SelectedIndexChanged
         Dim selectedUser As User = UserSelection.SelectedItem
+
+        If selectedUser Is Nothing Then
+            Return
+        End If
+
+        Me.ImgButton.Enabled = True
         Me.SubmitButton.Enabled = True
         Me.AddressBox.Enabled = True
         Me.AddressBox.Text = selectedUser.StreetAddressProperty
@@ -162,7 +186,7 @@ Public Class UpdateUser
         With fd
             .Title = "Choose an image"
             .InitialDirectory = SpecialDirectories.MyPictures
-            .Filter = "BMP (*.bmp)|*.bmp|GIF (*.gif)|*.gif|JPEG (*.jpg, *.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png|All Images (*.bmp, *.gif, *.jpg, *.jpeg, *.png)|*.bmp;*.gif;*.jpg;*.jpeg;*.png"
+            .Filter = "All Images (*.bmp, *.gif, *.jpg, *.jpeg, *.png)|*.bmp;*.gif;*.jpg;*.jpeg;*.png|BMP (*.bmp)|*.bmp|GIF (*.gif)|*.gif|JPEG (*.jpg, *.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png"
 
             If .ShowDialog() = DialogResult.OK Then
                 chosenFile = .FileName
