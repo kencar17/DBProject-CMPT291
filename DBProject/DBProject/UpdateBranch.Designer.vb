@@ -42,9 +42,9 @@ Partial Class UpdateBranch
         '
         Me.BranchSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.BranchSelection.FormattingEnabled = True
-        Me.BranchSelection.Location = New System.Drawing.Point(79, 12)
+        Me.BranchSelection.Location = New System.Drawing.Point(12, 12)
         Me.BranchSelection.Name = "BranchSelection"
-        Me.BranchSelection.Size = New System.Drawing.Size(121, 21)
+        Me.BranchSelection.Size = New System.Drawing.Size(260, 21)
         Me.BranchSelection.TabIndex = 0
         '
         'AddressBox
