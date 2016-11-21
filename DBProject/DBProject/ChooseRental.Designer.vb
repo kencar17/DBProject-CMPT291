@@ -45,6 +45,7 @@ Partial Class ChooseRental
         Me.stanRadio = New System.Windows.Forms.RadioButton()
         Me.backButton = New System.Windows.Forms.Button()
         Me.nextButton = New System.Windows.Forms.Button()
+        Me.helpButton = New System.Windows.Forms.Button()
         CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -56,7 +57,7 @@ Partial Class ChooseRental
         Me.vehicleTable.MinimumSize = New System.Drawing.Size(1047, 532)
         Me.vehicleTable.Name = "vehicleTable"
         Me.vehicleTable.RowTemplate.Height = 31
-        Me.vehicleTable.Size = New System.Drawing.Size(1183, 532)
+        Me.vehicleTable.Size = New System.Drawing.Size(1209, 532)
         Me.vehicleTable.TabIndex = 0
         '
         'Column1
@@ -226,18 +227,28 @@ Partial Class ChooseRental
         '
         'nextButton
         '
-        Me.nextButton.Location = New System.Drawing.Point(1141, 761)
+        Me.nextButton.Location = New System.Drawing.Point(1167, 761)
         Me.nextButton.Name = "nextButton"
         Me.nextButton.Size = New System.Drawing.Size(93, 41)
         Me.nextButton.TabIndex = 12
         Me.nextButton.Text = "Next"
         Me.nextButton.UseVisualStyleBackColor = True
         '
+        'helpButton
+        '
+        Me.helpButton.Location = New System.Drawing.Point(179, 761)
+        Me.helpButton.Name = "helpButton"
+        Me.helpButton.Size = New System.Drawing.Size(93, 41)
+        Me.helpButton.TabIndex = 13
+        Me.helpButton.Text = "Help"
+        Me.helpButton.UseVisualStyleBackColor = True
+        '
         'ChooseRental
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1294, 899)
+        Me.Controls.Add(Me.helpButton)
         Me.Controls.Add(Me.nextButton)
         Me.Controls.Add(Me.backButton)
         Me.Controls.Add(Me.stanRadio)
@@ -282,4 +293,5 @@ Partial Class ChooseRental
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents helpButton As Button
 End Class

@@ -33,13 +33,13 @@ Partial Class createOrder
         Me.AgeLabel = New System.Windows.Forms.Label()
         Me.CAgeTextBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.CaddressTextField = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.CcityTextField = New System.Windows.Forms.TextBox()
-        Me.provinceLabel = New System.Windows.Forms.Label()
-        Me.CProvinceTextField = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.CCountryTextField = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.CAddressTextField = New System.Windows.Forms.TextBox()
+        Me.provinceLabel = New System.Windows.Forms.Label()
+        Me.CCityTextField = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.CProvinceTextField = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.CPostalTextField = New System.Windows.Forms.TextBox()
         Me.backButton = New System.Windows.Forms.Button()
@@ -50,8 +50,8 @@ Partial Class createOrder
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.existingTextfield = New System.Windows.Forms.TextBox()
+        Me.existingCustomers = New System.Windows.Forms.ListBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
@@ -147,12 +147,12 @@ Partial Class createOrder
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Address:"
         '
-        'CaddressTextField
+        'CCountryTextField
         '
-        Me.CaddressTextField.Location = New System.Drawing.Point(549, 448)
-        Me.CaddressTextField.Name = "CaddressTextField"
-        Me.CaddressTextField.Size = New System.Drawing.Size(219, 29)
-        Me.CaddressTextField.TabIndex = 11
+        Me.CCountryTextField.Location = New System.Drawing.Point(549, 448)
+        Me.CCountryTextField.Name = "CCountryTextField"
+        Me.CCountryTextField.Size = New System.Drawing.Size(219, 29)
+        Me.CCountryTextField.TabIndex = 11
         '
         'Label3
         '
@@ -163,12 +163,12 @@ Partial Class createOrder
         Me.Label3.TabIndex = 12
         Me.Label3.Text = "City:"
         '
-        'CcityTextField
+        'CAddressTextField
         '
-        Me.CcityTextField.Location = New System.Drawing.Point(549, 298)
-        Me.CcityTextField.Name = "CcityTextField"
-        Me.CcityTextField.Size = New System.Drawing.Size(219, 29)
-        Me.CcityTextField.TabIndex = 13
+        Me.CAddressTextField.Location = New System.Drawing.Point(549, 298)
+        Me.CAddressTextField.Name = "CAddressTextField"
+        Me.CAddressTextField.Size = New System.Drawing.Size(219, 29)
+        Me.CAddressTextField.TabIndex = 13
         '
         'provinceLabel
         '
@@ -179,12 +179,12 @@ Partial Class createOrder
         Me.provinceLabel.TabIndex = 14
         Me.provinceLabel.Text = "Province:"
         '
-        'CProvinceTextField
+        'CCityTextField
         '
-        Me.CProvinceTextField.Location = New System.Drawing.Point(549, 348)
-        Me.CProvinceTextField.Name = "CProvinceTextField"
-        Me.CProvinceTextField.Size = New System.Drawing.Size(219, 29)
-        Me.CProvinceTextField.TabIndex = 15
+        Me.CCityTextField.Location = New System.Drawing.Point(549, 348)
+        Me.CCityTextField.Name = "CCityTextField"
+        Me.CCityTextField.Size = New System.Drawing.Size(219, 29)
+        Me.CCityTextField.TabIndex = 15
         '
         'Label4
         '
@@ -195,12 +195,12 @@ Partial Class createOrder
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "Country"
         '
-        'CCountryTextField
+        'CProvinceTextField
         '
-        Me.CCountryTextField.Location = New System.Drawing.Point(549, 398)
-        Me.CCountryTextField.Name = "CCountryTextField"
-        Me.CCountryTextField.Size = New System.Drawing.Size(219, 29)
-        Me.CCountryTextField.TabIndex = 17
+        Me.CProvinceTextField.Location = New System.Drawing.Point(549, 398)
+        Me.CProvinceTextField.Name = "CProvinceTextField"
+        Me.CProvinceTextField.Size = New System.Drawing.Size(219, 29)
+        Me.CProvinceTextField.TabIndex = 17
         '
         'Label5
         '
@@ -288,21 +288,21 @@ Partial Class createOrder
         Me.Label10.TabIndex = 27
         Me.Label10.Text = "Lastname:"
         '
-        'TextBox3
+        'existingTextfield
         '
-        Me.TextBox3.Location = New System.Drawing.Point(215, 81)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(161, 29)
-        Me.TextBox3.TabIndex = 28
+        Me.existingTextfield.Location = New System.Drawing.Point(215, 81)
+        Me.existingTextfield.Name = "existingTextfield"
+        Me.existingTextfield.Size = New System.Drawing.Size(161, 29)
+        Me.existingTextfield.TabIndex = 28
         '
-        'ListBox1
+        'existingCustomers
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 24
-        Me.ListBox1.Location = New System.Drawing.Point(416, 81)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(352, 148)
-        Me.ListBox1.TabIndex = 29
+        Me.existingCustomers.FormattingEnabled = True
+        Me.existingCustomers.ItemHeight = 24
+        Me.existingCustomers.Location = New System.Drawing.Point(416, 81)
+        Me.existingCustomers.Name = "existingCustomers"
+        Me.existingCustomers.Size = New System.Drawing.Size(352, 148)
+        Me.existingCustomers.TabIndex = 29
         '
         'Button1
         '
@@ -319,8 +319,8 @@ Partial Class createOrder
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(927, 826)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.existingCustomers)
+        Me.Controls.Add(Me.existingTextfield)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.TextBox2)
@@ -331,13 +331,13 @@ Partial Class createOrder
         Me.Controls.Add(Me.backButton)
         Me.Controls.Add(Me.CPostalTextField)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.CCountryTextField)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.CProvinceTextField)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.CCityTextField)
         Me.Controls.Add(Me.provinceLabel)
-        Me.Controls.Add(Me.CcityTextField)
+        Me.Controls.Add(Me.CAddressTextField)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.CaddressTextField)
+        Me.Controls.Add(Me.CCountryTextField)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.CAgeTextBox)
         Me.Controls.Add(Me.AgeLabel)
@@ -367,13 +367,13 @@ Partial Class createOrder
     Friend WithEvents AgeLabel As Label
     Friend WithEvents CAgeTextBox As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents CaddressTextField As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents CcityTextField As TextBox
-    Friend WithEvents provinceLabel As Label
-    Friend WithEvents CProvinceTextField As TextBox
-    Friend WithEvents Label4 As Label
     Friend WithEvents CCountryTextField As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents CAddressTextField As TextBox
+    Friend WithEvents provinceLabel As Label
+    Friend WithEvents CCityTextField As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents CProvinceTextField As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents CPostalTextField As TextBox
     Friend WithEvents backButton As Button
@@ -384,7 +384,7 @@ Partial Class createOrder
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents existingTextfield As TextBox
+    Friend WithEvents existingCustomers As ListBox
     Friend WithEvents Button1 As Button
 End Class
