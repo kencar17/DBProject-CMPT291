@@ -23,6 +23,27 @@ Public Class AddNewVehicle
         End Using
         SQLConnection.Instance.CloseConnection()
 
+        dbconn = SQLConnection.Instance.GetConnection()
+        Using sqlComm As New MySqlCommand()
+            With sqlComm
+                .Connection = dbconn
+                .CommandText = "SELECT BID, StreetAddress FROM Branch"
+                .CommandType = CommandType.Text
+            End With
+            Try
+                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+                While sqlReader.Read()
+                    Dim branchName As New Branch()
+                    branchName.BidProperty = CInt(sqlReader("BID").ToString())
+                    branchName.AddressProperty = sqlReader("StreetAddress").ToString()
+                    BranchCB.Items.Add(branchName)
+                End While
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End Using
+        SQLConnection.Instance.CloseConnection()
+
         TransCB.Items.Add("Automatic")
         TransCB.Items.Add("Manual")
 
@@ -33,6 +54,7 @@ Public Class AddNewVehicle
     Private Sub addVehicle_Click(sender As Object, e As EventArgs) Handles addVehicle.Click
         Me.wrongInfo.Visible = False
         Dim avail As String
+        Dim trans As String
 
         If VINbox.Text.Equals("") Then
             wrongInfo.Text = "A VIN number must be given"
@@ -95,12 +117,19 @@ Public Class AddNewVehicle
             avail = "0"
         End If
 
+        If TransCB.SelectedItem.Equals("Automatic") Then
+            trans = "1"
+        Else
+            trans = "0"
+        End If
+
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
 
+        Dim selectedBranch As Branch = BranchCB.SelectedItem
         Using sqlComm As New MySqlCommand()
             With sqlComm
                 .Connection = dbconn
-                .CommandText = "INSERT INTO Vehicle (VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage) VALUES (@vin, @make, @model, @class, @km, @year, @seats, @gvwr, @trans, @license, @avail, @coverage)"
+                .CommandText = "INSERT INTO Vehicle (VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage, BID) VALUES (@vin, @make, @model, @class, @km, @year, @seats, @gvwr, @trans, @license, @avail, @coverage, @bid)"
                 .CommandType = CommandType.Text
                 .Parameters.AddWithValue("@vin", VINbox.Text)
                 .Parameters.AddWithValue("@make", MakeBox.Text)
@@ -110,10 +139,11 @@ Public Class AddNewVehicle
                 .Parameters.AddWithValue("@year", YearBox.Text)
                 .Parameters.AddWithValue("@seats", SeatsBox.Text)
                 .Parameters.AddWithValue("@gvwr", GVWRBox.Text)
-                .Parameters.AddWithValue("@trans", TransCB.SelectedItem)
+                .Parameters.AddWithValue("@trans", trans)
                 .Parameters.AddWithValue("@license", PlateBox.Text)
                 .Parameters.AddWithValue("@avail", avail)
                 .Parameters.AddWithValue("@coverage", CoverageBox.Text)
+                .Parameters.AddWithValue("@bid", selectedBranch.BidProperty)
             End With
             sqlComm.ExecuteNonQuery()
         End Using

@@ -160,7 +160,7 @@ Partial Class ViewInventory
         Me.vehicleTable.MinimumSize = New System.Drawing.Size(1142, 554)
         Me.vehicleTable.Name = "vehicleTable"
         Me.vehicleTable.RowTemplate.Height = 31
-        Me.vehicleTable.Size = New System.Drawing.Size(1291, 554)
+        Me.vehicleTable.Size = New System.Drawing.Size(1318, 554)
         Me.vehicleTable.TabIndex = 13
         '
         'Column1

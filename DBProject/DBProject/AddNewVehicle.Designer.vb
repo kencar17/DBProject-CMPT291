@@ -51,6 +51,8 @@ Partial Class AddNewVehicle
         Me.ClassCB = New System.Windows.Forms.ComboBox()
         Me.TransCB = New System.Windows.Forms.ComboBox()
         Me.AvailCB = New System.Windows.Forms.ComboBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.BranchCB = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -73,7 +75,7 @@ Partial Class AddNewVehicle
         '
         'VINbox
         '
-        Me.VINbox.Location = New System.Drawing.Point(253, 62)
+        Me.VINbox.Location = New System.Drawing.Point(253, 55)
         Me.VINbox.Name = "VINbox"
         Me.VINbox.Size = New System.Drawing.Size(289, 31)
         Me.VINbox.TabIndex = 1
@@ -108,28 +110,28 @@ Partial Class AddNewVehicle
         '
         'YearBox
         '
-        Me.YearBox.Location = New System.Drawing.Point(253, 247)
+        Me.YearBox.Location = New System.Drawing.Point(253, 250)
         Me.YearBox.Name = "YearBox"
         Me.YearBox.Size = New System.Drawing.Size(289, 31)
         Me.YearBox.TabIndex = 6
         '
         'KMBox
         '
-        Me.KMBox.Location = New System.Drawing.Point(253, 210)
+        Me.KMBox.Location = New System.Drawing.Point(253, 215)
         Me.KMBox.Name = "KMBox"
         Me.KMBox.Size = New System.Drawing.Size(289, 31)
         Me.KMBox.TabIndex = 5
         '
         'ModelBox
         '
-        Me.ModelBox.Location = New System.Drawing.Point(253, 136)
+        Me.ModelBox.Location = New System.Drawing.Point(253, 135)
         Me.ModelBox.Name = "ModelBox"
         Me.ModelBox.Size = New System.Drawing.Size(289, 31)
         Me.ModelBox.TabIndex = 3
         '
         'MakeBox
         '
-        Me.MakeBox.Location = New System.Drawing.Point(253, 99)
+        Me.MakeBox.Location = New System.Drawing.Point(253, 95)
         Me.MakeBox.Name = "MakeBox"
         Me.MakeBox.Size = New System.Drawing.Size(289, 31)
         Me.MakeBox.TabIndex = 2
@@ -235,7 +237,7 @@ Partial Class AddNewVehicle
         '
         'addVehicle
         '
-        Me.addVehicle.Location = New System.Drawing.Point(356, 577)
+        Me.addVehicle.Location = New System.Drawing.Point(356, 597)
         Me.addVehicle.Name = "addVehicle"
         Me.addVehicle.Size = New System.Drawing.Size(186, 50)
         Me.addVehicle.TabIndex = 13
@@ -247,7 +249,7 @@ Partial Class AddNewVehicle
         Me.wrongInfo.AutoSize = True
         Me.wrongInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.wrongInfo.ForeColor = System.Drawing.Color.Red
-        Me.wrongInfo.Location = New System.Drawing.Point(278, 521)
+        Me.wrongInfo.Location = New System.Drawing.Point(55, 597)
         Me.wrongInfo.Name = "wrongInfo"
         Me.wrongInfo.Size = New System.Drawing.Size(264, 31)
         Me.wrongInfo.TabIndex = 28
@@ -275,7 +277,7 @@ Partial Class AddNewVehicle
         'ClassCB
         '
         Me.ClassCB.FormattingEnabled = True
-        Me.ClassCB.Location = New System.Drawing.Point(253, 174)
+        Me.ClassCB.Location = New System.Drawing.Point(253, 175)
         Me.ClassCB.Name = "ClassCB"
         Me.ClassCB.Size = New System.Drawing.Size(289, 33)
         Me.ClassCB.TabIndex = 4
@@ -296,11 +298,30 @@ Partial Class AddNewVehicle
         Me.AvailCB.Size = New System.Drawing.Size(289, 33)
         Me.AvailCB.TabIndex = 11
         '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(66, 520)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(165, 25)
+        Me.Label14.TabIndex = 31
+        Me.Label14.Text = "Branch Address"
+        '
+        'BranchCB
+        '
+        Me.BranchCB.FormattingEnabled = True
+        Me.BranchCB.Location = New System.Drawing.Point(253, 512)
+        Me.BranchCB.Name = "BranchCB"
+        Me.BranchCB.Size = New System.Drawing.Size(289, 33)
+        Me.BranchCB.TabIndex = 13
+        '
         'AddNewVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(794, 659)
+        Me.ClientSize = New System.Drawing.Size(919, 818)
+        Me.Controls.Add(Me.BranchCB)
+        Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.AvailCB)
         Me.Controls.Add(Me.TransCB)
         Me.Controls.Add(Me.ClassCB)
@@ -366,4 +387,6 @@ Partial Class AddNewVehicle
     Friend WithEvents ClassCB As ComboBox
     Friend WithEvents TransCB As ComboBox
     Friend WithEvents AvailCB As ComboBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents BranchCB As ComboBox
 End Class
