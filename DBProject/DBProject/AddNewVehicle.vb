@@ -121,6 +121,7 @@ Public Class AddNewVehicle
             trans = "1"
         Else
             trans = "0"
+        End If
 
         Dim selectedBranch As Branch = BranchCB.SelectedItem
 	Dim vehicleInsertSql As String = "INSERT INTO Vehicle (VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage, BID) VALUES (@vin, @make, @model, @class, @km, @year, @seats, @gvwr, @trans, @license, @avail, @coverage, @bid)"
@@ -129,14 +130,14 @@ Public Class AddNewVehicle
             .Add("@vin", VINbox.Text)
             .Add("@make", MakeBox.Text)
             .Add("@model", ModelBox.Text)
-            .Add("@class", ClassBox.Text)
+            .Add("@class", ClassCB.SelectedItem)
             .Add("@km", KMBox.Text)
             .Add("@year", YearBox.Text)
             .Add("@seats", SeatsBox.Text)
             .Add("@gvwr", GVWRBox.Text)
-            .Add("@trans", TransBox.Text)
+            .Add("@trans", trans)
             .Add("@license", PlateBox.Text)
-            .Add("@avail", AvailBox.Text)
+            .Add("@avail", avail)
             .Add("@coverage", CoverageBox.Text)
 	    .Add("@bid", selectedBranch.BidProperty)
         End With
