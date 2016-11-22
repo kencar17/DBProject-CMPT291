@@ -41,24 +41,24 @@ Public Class ChooseLocation
         SQLConnection.Instance.CloseConnection()
         locationCombBox.SelectedItem = "Location"
 
-        timeComboOne.Items.Add("00:00:00")
-        timeComboTwo.Items.Add("00:00:00")
+        timeComboOne.Items.Add("00:00")
+        timeComboTwo.Items.Add("00:00")
         For time As Integer = 8 To 19
             Dim num As String = CStr(time)
             If time.Equals(8) OrElse time.Equals(9) Then
                 num = "0" + CStr(time)
             End If
 
-            Dim number As String = CStr(num) + ":00:00"
+            Dim number As String = CStr(num) + ":00"
             timeComboOne.Items.Add(number)
             timeComboTwo.Items.Add(number)
 
-            Dim number2 As String = CStr(num) + ":30:00"
+            Dim number2 As String = CStr(num) + ":30"
             timeComboOne.Items.Add(number2)
             timeComboTwo.Items.Add(number2)
         Next
-        timeComboOne.SelectedItem = "00:00:00"
-        timeComboTwo.SelectedItem = "00:00:00"
+        timeComboOne.SelectedItem = "00:00"
+        timeComboTwo.SelectedItem = "00:00"
 
 
     End Sub

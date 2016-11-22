@@ -53,6 +53,7 @@ Partial Class createOrder
         Me.existingTextfield = New System.Windows.Forms.TextBox()
         Me.existingCustomers = New System.Windows.Forms.ListBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.searchButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'nextButton
@@ -313,11 +314,21 @@ Partial Class createOrder
         Me.Button1.Text = "Help"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'searchButton
+        '
+        Me.searchButton.Location = New System.Drawing.Point(215, 188)
+        Me.searchButton.Name = "searchButton"
+        Me.searchButton.Size = New System.Drawing.Size(161, 41)
+        Me.searchButton.TabIndex = 31
+        Me.searchButton.Text = "Search"
+        Me.searchButton.UseVisualStyleBackColor = True
+        '
         'createOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(927, 826)
+        Me.Controls.Add(Me.searchButton)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.existingCustomers)
         Me.Controls.Add(Me.existingTextfield)
@@ -387,4 +398,5 @@ Partial Class createOrder
     Friend WithEvents existingTextfield As TextBox
     Friend WithEvents existingCustomers As ListBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents searchButton As Button
 End Class

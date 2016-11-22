@@ -57,7 +57,7 @@ Partial Class ChooseRental
         Me.vehicleTable.MinimumSize = New System.Drawing.Size(1047, 532)
         Me.vehicleTable.Name = "vehicleTable"
         Me.vehicleTable.RowTemplate.Height = 31
-        Me.vehicleTable.Size = New System.Drawing.Size(1209, 532)
+        Me.vehicleTable.Size = New System.Drawing.Size(1219, 532)
         Me.vehicleTable.TabIndex = 0
         '
         'Column1
@@ -227,7 +227,7 @@ Partial Class ChooseRental
         '
         'nextButton
         '
-        Me.nextButton.Location = New System.Drawing.Point(1167, 761)
+        Me.nextButton.Location = New System.Drawing.Point(1177, 761)
         Me.nextButton.Name = "nextButton"
         Me.nextButton.Size = New System.Drawing.Size(93, 41)
         Me.nextButton.TabIndex = 12
