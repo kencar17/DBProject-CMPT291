@@ -107,7 +107,13 @@ Public Class ChooseRental
             vehicleInfo.YearProperty = result("Year")
             vehicleInfo.SeatsProperty = result("Seats")
             vehicleInfo.GvwrProperty = result("GVWR")
-            vehicleInfo.TransmissionProperty = result("Transmission")
+            Dim transmission As String = ""
+            If result("Transmission").Equals(0) Then
+                transmission = "Manual"
+            Else
+                transmission = "Automatic"
+            End If
+            vehicleInfo.TransmissionProperty = transmission
             vehicleInfo.DailyRateProperty = result("DailyRate")
             vehicleInfo.WeeklyRateProperty = result("WeeklyRate")
             vehicleInfo.MonthlyRateProperty = result("MonthlyRate")
