@@ -1,6 +1,43 @@
 ﻿Imports DBProject
 
 Public Class Home
+    Private Class Delivery
+        Dim transactionID As Integer
+        Dim make As String
+        Dim model As String
+
+        Public Overrides Function ToString() As String
+            Return "Transaction " & CStr(transactionID) & ": " & make & " " & model
+        End Function
+
+        Public Property TransactionIdProperty As Integer
+            Get
+                Return transactionID
+            End Get
+            Set
+                transactionID = Value
+            End Set
+        End Property
+
+        Public Property MakeProperty As String
+            Get
+                Return make
+            End Get
+            Set
+                make = Value
+            End Set
+        End Property
+
+        Public Property ModelProperty As String
+            Get
+                Return model
+            End Get
+            Set
+                model = Value
+            End Set
+        End Property
+    End Class
+
     Private loggedInUser As User
     Private callingForm As Form1
 
@@ -20,6 +57,42 @@ Public Class Home
         Me.NameLabel.Text = loggedInUser.NameProperty
         Me.WindowState = FormWindowState.Maximized
         FaceBox.Load(loggedInUser.ImgProperty)
+
+        Init()
+    End Sub
+
+    Private Sub Init()
+        DeliveryBox.Items.Clear()
+        Dim deliveriesSql As String = "SELECT TID, Make, Model FROM Transaction JOIN Vehicle ON Transaction.VIN = Vehicle.VIN WHERE ToDate = CURDATE() AND ToBID = @branch AND Complete=0 AND PickedUp=1"
+        Dim params As New Dictionary(Of String, String)
+        params.Add("@branch", loggedInUser.BranchProperty)
+        Dim columns As New List(Of String)
+        columns.Add("TID")
+        columns.Add("Make")
+        columns.Add("Model")
+        For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(deliveriesSql, params, columns)
+            Dim aDelivery As New Delivery
+            aDelivery.MakeProperty = result("Make").ToString()
+            aDelivery.ModelProperty = result("Model").ToString()
+            aDelivery.TransactionIdProperty = CInt(result("TID").ToString())
+            DeliveryBox.Items.Add(aDelivery)
+        Next
+
+        PickupBox.Items.Clear()
+        Dim pickupsSql As String = "SELECT TID, Make, Model FROM Transaction JOIN Vehicle ON Transaction.VIN = Vehicle.VIN WHERE FromDate = CURDATE() AND FromBID = @branch AND Complete=0 AND PickedUp=0"
+        params = New Dictionary(Of String, String)
+        params.Add("@branch", loggedInUser.BranchProperty)
+        columns = New List(Of String)
+        columns.Add("TID")
+        columns.Add("Make")
+        columns.Add("Model")
+        For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(pickupsSql, params, columns)
+            Dim aDelivery As New Delivery
+            aDelivery.MakeProperty = result("Make").ToString()
+            aDelivery.ModelProperty = result("Model").ToString()
+            aDelivery.TransactionIdProperty = CInt(result("TID").ToString())
+            PickupBox.Items.Add(aDelivery)
+        Next
     End Sub
 
     Private Sub Home_Unload(sender As Object, e As EventArgs) Handles MyBase.Closing
@@ -78,5 +151,33 @@ Public Class Home
         Dim locationWindow As New ChooseLocation
         locationWindow.MdiParent = Me.MdiParent
         locationWindow.Show()
+    End Sub
+
+    Private Sub CheckInButton_Click(sender As Object, e As EventArgs) Handles CheckInButton.Click
+        Dim selectedDelivery As Delivery = DeliveryBox.SelectedItem
+        If selectedDelivery Is Nothing Then
+            Return
+        End If
+
+        Dim sql As String = "UPDATE Transaction SET Complete=1 WHERE TID=@tid"
+        Dim params As New Dictionary(Of String, String)
+        params.Add("@tid", selectedDelivery.TransactionIdProperty)
+        SQLConnection.DoNonQuery(sql, params)
+
+        Init()
+    End Sub
+
+    Private Sub CheckOutButton_Click(sender As Object, e As EventArgs) Handles CheckOutButton.Click
+        Dim selectedDelivery As Delivery = PickupBox.SelectedItem
+        If selectedDelivery Is Nothing Then
+            Return
+        End If
+
+        Dim sql As String = "UPDATE Transaction SET PickedUp=1 WHERE TID=@tid"
+        Dim params As New Dictionary(Of String, String)
+        params.Add("@tid", selectedDelivery.TransactionIdProperty)
+        SQLConnection.DoNonQuery(sql, params)
+
+        Init()
     End Sub
 End Class

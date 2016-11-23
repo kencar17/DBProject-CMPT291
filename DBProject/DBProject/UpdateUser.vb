@@ -26,13 +26,43 @@ Public Class UpdateUser
         SendMessage(Me.CountryBox.Handle, &H1501, 0, "Country")
         SendMessage(Me.EmailBox.Handle, &H1501, 0, "Email")
 
+        Dim branchSql As String = "SELECT * FROM Branch"
+        Dim params As New Dictionary(Of String, String)
+        Dim columns As New List(Of String)
+        With columns
+            .Add("BID")
+            .Add("PostalCode")
+            .Add("StreetAddress")
+            .Add("City")
+            .Add("State")
+            .Add("Country")
+            .Add("Email")
+            .Add("Phone")
+            .Add("Fax")
+            .Add("ManagerID")
+        End With
+        For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(branchSql, params, columns)
+            Dim aBranch As New Branch
+            aBranch.BidProperty = result("BID")
+            aBranch.PostcodeProperty = result("PostalCode")
+            aBranch.AddressProperty = result("StreetAddress")
+            aBranch.CityProperty = result("City")
+            aBranch.StateProperty = result("State")
+            aBranch.CountryProperty = result("Country")
+            aBranch.EmailProperty = result("Email")
+            aBranch.PhoneProperty = result("Phone")
+            aBranch.FaxProperty = result("Fax")
+            aBranch.ManidProperty = result("ManagerID")
+            BranchSelection.Items.Add(aBranch)
+        Next
+
         Init()
     End Sub
 
     Private Sub Init()
         UserSelection.Items.Clear()
 
-        Dim sql As String = "SELECT Username, FirstName, LastName, StreetAddress, PostalCode, City, State, Country, Email, EID FROM User JOIN Employee ON User.PersonID = Employee.EID"
+        Dim sql As String = "SELECT Username, Branch, FirstName, LastName, StreetAddress, PostalCode, City, State, Country, Email, EID FROM User JOIN Employee ON User.PersonID = Employee.EID"
         Dim params As New Dictionary(Of String, String)
         Dim columns As New List(Of String)
         With columns
@@ -46,6 +76,7 @@ Public Class UpdateUser
             .Add("StreetAddress")
             .Add("PostalCode")
             .Add("State")
+            .Add("Branch")
         End With
         Dim results As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(sql, params, columns)
         For Each result As Dictionary(Of String, String) In results
@@ -59,11 +90,12 @@ Public Class UpdateUser
             newUser.StreetAddressProperty = result("StreetAddress")
             newUser.PostCodeProperty = result("PostalCode")
             newUser.StateProperty = result("State")
+            newUser.BranchProperty = result("Branch")
             UserSelection.Items.Add(newUser)
         Next
 
         UserSelection.SelectedItem = Nothing
-
+        BranchSelection.SelectedItem = Nothing
 
         Me.ImgButton.Enabled = False
         Me.SubmitButton.Enabled = False
@@ -89,12 +121,13 @@ Public Class UpdateUser
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         Dim selectedUser As User = UserSelection.SelectedItem
+        Dim selectedBranch As Branch = BranchSelection.SelectedItem
 
         ' If a user hasn't been selected, don't continue
         If Not Me.SubmitButton.Enabled Then
             Return
         End If
-        Dim updateEmployeeSql As String = "UPDATE Employee SET FirstName=@firstname, LastName=@lastname, StreetAddress=@address, PostalCode=@postcode, City=@city, State=@state, Country=@country, Email=@email WHERE Employee.EID = @eid"
+        Dim updateEmployeeSql As String = "UPDATE Employee SET FirstName=@firstname, LastName=@lastname, StreetAddress=@address, PostalCode=@postcode, City=@city, State=@state, Country=@country, Email=@email, Branch=@bid WHERE Employee.EID = @eid"
         Dim updateEmployeeParams As New Dictionary(Of String, String)
         With updateEmployeeParams
             .Add("@firstname", FirstnameBox.Text)
@@ -106,6 +139,7 @@ Public Class UpdateUser
             .Add("@country", CountryBox.Text)
             .Add("@email", EmailBox.Text)
             .Add("@eid", selectedUser.IdProperty)
+            .Add("@bid", selectedBranch.BidProperty)
         End With
         SQLConnection.DoNonQuery(updateEmployeeSql, updateEmployeeParams)
 
@@ -170,6 +204,14 @@ Public Class UpdateUser
         Me.StateBox.Enabled = True
         Me.StateBox.Text = selectedUser.StateProperty
         Me.UsernameBox.Text = selectedUser.UsernameProperty
+
+        Me.BranchSelection.Enabled = True
+        For Each b As Branch In BranchSelection.Items
+            If b.BidProperty = selectedUser.BranchProperty Then
+                BranchSelection.SelectedItem = b
+                Exit For
+            End If
+        Next
     End Sub
 
     Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
