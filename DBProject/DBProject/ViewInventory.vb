@@ -55,7 +55,7 @@ Public Class ViewInventory
     End Sub
 
     Private Sub ChooseRental_Unload(sender As Object, e As EventArgs) Handles MyBase.Closing
-        callingForm.WindowState = FormWindowState.Maximized
+        'callingForm.WindowState = FormWindowState.Maximized
     End Sub
 
     Sub populateVehiclesTable(sqlText As String)

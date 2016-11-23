@@ -36,11 +36,12 @@ Partial Class Home
         Me.FaceBox = New System.Windows.Forms.PictureBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.DeliveryTab = New System.Windows.Forms.TabPage()
-        Me.PickupTab = New System.Windows.Forms.TabPage()
-        Me.DeliveryBox = New System.Windows.Forms.ListBox()
         Me.CheckInButton = New System.Windows.Forms.Button()
-        Me.PickupBox = New System.Windows.Forms.ListBox()
+        Me.DeliveryBox = New System.Windows.Forms.ListBox()
+        Me.PickupTab = New System.Windows.Forms.TabPage()
         Me.CheckOutButton = New System.Windows.Forms.Button()
+        Me.PickupBox = New System.Windows.Forms.ListBox()
+        Me.BrowseButton = New System.Windows.Forms.Button()
         CType(Me.FaceBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.DeliveryTab.SuspendLayout()
@@ -67,7 +68,7 @@ Partial Class Home
         '
         'RentalButton
         '
-        Me.RentalButton.Location = New System.Drawing.Point(12, 217)
+        Me.RentalButton.Location = New System.Drawing.Point(12, 246)
         Me.RentalButton.Name = "RentalButton"
         Me.RentalButton.Size = New System.Drawing.Size(116, 23)
         Me.RentalButton.TabIndex = 2
@@ -76,7 +77,7 @@ Partial Class Home
         '
         'BackupButton
         '
-        Me.BackupButton.Location = New System.Drawing.Point(12, 303)
+        Me.BackupButton.Location = New System.Drawing.Point(12, 332)
         Me.BackupButton.Margin = New System.Windows.Forms.Padding(2)
         Me.BackupButton.Name = "BackupButton"
         Me.BackupButton.Size = New System.Drawing.Size(116, 23)
@@ -86,7 +87,7 @@ Partial Class Home
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(12, 360)
+        Me.HelpButton.Location = New System.Drawing.Point(12, 389)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(116, 23)
         Me.HelpButton.TabIndex = 4
@@ -95,7 +96,7 @@ Partial Class Home
         '
         'LogOutButton
         '
-        Me.LogOutButton.Location = New System.Drawing.Point(12, 389)
+        Me.LogOutButton.Location = New System.Drawing.Point(12, 418)
         Me.LogOutButton.Name = "LogOutButton"
         Me.LogOutButton.Size = New System.Drawing.Size(116, 23)
         Me.LogOutButton.TabIndex = 5
@@ -122,7 +123,7 @@ Partial Class Home
         '
         'ReportsButton
         '
-        Me.ReportsButton.Location = New System.Drawing.Point(12, 331)
+        Me.ReportsButton.Location = New System.Drawing.Point(12, 360)
         Me.ReportsButton.Name = "ReportsButton"
         Me.ReportsButton.Size = New System.Drawing.Size(116, 23)
         Me.ReportsButton.TabIndex = 9
@@ -131,7 +132,7 @@ Partial Class Home
         '
         'BranchButton
         '
-        Me.BranchButton.Location = New System.Drawing.Point(12, 275)
+        Me.BranchButton.Location = New System.Drawing.Point(12, 304)
         Me.BranchButton.Name = "BranchButton"
         Me.BranchButton.Size = New System.Drawing.Size(116, 23)
         Me.BranchButton.TabIndex = 10
@@ -140,7 +141,7 @@ Partial Class Home
         '
         'TypeButton
         '
-        Me.TypeButton.Location = New System.Drawing.Point(12, 246)
+        Me.TypeButton.Location = New System.Drawing.Point(12, 275)
         Me.TypeButton.Name = "TypeButton"
         Me.TypeButton.Size = New System.Drawing.Size(116, 23)
         Me.TypeButton.TabIndex = 11
@@ -177,6 +178,23 @@ Partial Class Home
         Me.DeliveryTab.Text = "Today's Deliveries"
         Me.DeliveryTab.UseVisualStyleBackColor = True
         '
+        'CheckInButton
+        '
+        Me.CheckInButton.Location = New System.Drawing.Point(412, 285)
+        Me.CheckInButton.Name = "CheckInButton"
+        Me.CheckInButton.Size = New System.Drawing.Size(75, 23)
+        Me.CheckInButton.TabIndex = 1
+        Me.CheckInButton.Text = "Check In"
+        Me.CheckInButton.UseVisualStyleBackColor = True
+        '
+        'DeliveryBox
+        '
+        Me.DeliveryBox.FormattingEnabled = True
+        Me.DeliveryBox.Location = New System.Drawing.Point(6, 6)
+        Me.DeliveryBox.Name = "DeliveryBox"
+        Me.DeliveryBox.Size = New System.Drawing.Size(481, 277)
+        Me.DeliveryBox.TabIndex = 0
+        '
         'PickupTab
         '
         Me.PickupTab.Controls.Add(Me.CheckOutButton)
@@ -189,31 +207,6 @@ Partial Class Home
         Me.PickupTab.Text = "Today's Pickups"
         Me.PickupTab.UseVisualStyleBackColor = True
         '
-        'DeliveryBox
-        '
-        Me.DeliveryBox.FormattingEnabled = True
-        Me.DeliveryBox.Location = New System.Drawing.Point(6, 6)
-        Me.DeliveryBox.Name = "DeliveryBox"
-        Me.DeliveryBox.Size = New System.Drawing.Size(481, 277)
-        Me.DeliveryBox.TabIndex = 0
-        '
-        'CheckInButton
-        '
-        Me.CheckInButton.Location = New System.Drawing.Point(412, 285)
-        Me.CheckInButton.Name = "CheckInButton"
-        Me.CheckInButton.Size = New System.Drawing.Size(75, 23)
-        Me.CheckInButton.TabIndex = 1
-        Me.CheckInButton.Text = "Check In"
-        Me.CheckInButton.UseVisualStyleBackColor = True
-        '
-        'PickupBox
-        '
-        Me.PickupBox.FormattingEnabled = True
-        Me.PickupBox.Location = New System.Drawing.Point(6, 6)
-        Me.PickupBox.Name = "PickupBox"
-        Me.PickupBox.Size = New System.Drawing.Size(481, 277)
-        Me.PickupBox.TabIndex = 0
-        '
         'CheckOutButton
         '
         Me.CheckOutButton.Location = New System.Drawing.Point(412, 285)
@@ -223,11 +216,29 @@ Partial Class Home
         Me.CheckOutButton.Text = "Check Out"
         Me.CheckOutButton.UseVisualStyleBackColor = True
         '
+        'PickupBox
+        '
+        Me.PickupBox.FormattingEnabled = True
+        Me.PickupBox.Location = New System.Drawing.Point(6, 6)
+        Me.PickupBox.Name = "PickupBox"
+        Me.PickupBox.Size = New System.Drawing.Size(481, 277)
+        Me.PickupBox.TabIndex = 0
+        '
+        'BrowseButton
+        '
+        Me.BrowseButton.Location = New System.Drawing.Point(12, 217)
+        Me.BrowseButton.Name = "BrowseButton"
+        Me.BrowseButton.Size = New System.Drawing.Size(116, 23)
+        Me.BrowseButton.TabIndex = 14
+        Me.BrowseButton.Text = "Browse Inventory"
+        Me.BrowseButton.UseVisualStyleBackColor = True
+        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(910, 546)
+        Me.Controls.Add(Me.BrowseButton)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.FaceBox)
         Me.Controls.Add(Me.TypeButton)
@@ -271,4 +282,5 @@ Partial Class Home
     Friend WithEvents DeliveryBox As ListBox
     Friend WithEvents CheckOutButton As Button
     Friend WithEvents PickupBox As ListBox
+    Friend WithEvents BrowseButton As Button
 End Class
