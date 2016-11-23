@@ -26,6 +26,36 @@ Public Class AddNewUser
         SendMessage(Me.StateBox.Handle, &H1501, 0, "State")
         SendMessage(Me.CountryBox.Handle, &H1501, 0, "Country")
         SendMessage(Me.EmailBox.Handle, &H1501, 0, "Email")
+
+        Dim branchSql As String = "SELECT * FROM Branch"
+        Dim params As New Dictionary(Of String, String)
+        Dim columns As New List(Of String)
+        With columns
+            .Add("BID")
+            .Add("PostalCode")
+            .Add("StreetAddress")
+            .Add("City")
+            .Add("State")
+            .Add("Country")
+            .Add("Email")
+            .Add("Phone")
+            .Add("Fax")
+            .Add("ManagerID")
+        End With
+        For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(branchSql, params, columns)
+            Dim aBranch As New Branch
+            aBranch.BidProperty = result("BID")
+            aBranch.PostcodeProperty = result("PostalCode")
+            aBranch.AddressProperty = result("StreetAddress")
+            aBranch.CityProperty = result("City")
+            aBranch.StateProperty = result("State")
+            aBranch.CountryProperty = result("Country")
+            aBranch.EmailProperty = result("Email")
+            aBranch.PhoneProperty = result("Phone")
+            aBranch.FaxProperty = result("Fax")
+            aBranch.ManidProperty = result("ManagerID")
+            BranchSelection.Items.Add(aBranch)
+        Next
     End Sub
 
     Private Sub AddNewUser_Unload(sender As Object, e As EventArgs) Handles MyBase.Closing
@@ -65,6 +95,11 @@ Public Class AddNewUser
             Me.ErrorLabel.Visible = True
             Return
         End If
+        If BranchSelection.SelectedItem Is Nothing Then
+            ErrorLabel.Text = "A branch must me selected."
+            ErrorLabel.Visible = True
+            Return
+        End If
         ' Check if the user already exists using the check implemented in my User class
         If User.FindUser(Me.UsernameBox.Text) IsNot Nothing Then
             ErrorLabel.Text = String.Format("{0} already exists", UsernameBox.Text)
@@ -74,8 +109,9 @@ Public Class AddNewUser
 
         ' Hash the password
         Dim hashedPass As String = BCrypt.Net.BCrypt.HashPassword(PassBox.Text)
+        Dim selectedBranch As Branch = BranchSelection.SelectedItem
 
-        Dim insertEmployeeSql As String = "INSERT INTO Employee (FirstName, LastName, PostalCode, StreetAddress, City, State, Country, Email) VALUES (@firstname, @lastname, @pcode, @addr, @city, @state, @country, @email)"
+        Dim insertEmployeeSql As String = "INSERT INTO Employee (FirstName, LastName, PostalCode, StreetAddress, City, State, Country, Email, Branch) VALUES (@firstname, @lastname, @pcode, @addr, @city, @state, @country, @email, @branch)"
         Dim insertEmployeeParams As New Dictionary(Of String, String)
         With insertEmployeeParams
             .Add("@firstname", FirstnameBox.Text)
@@ -86,6 +122,7 @@ Public Class AddNewUser
             .Add("@state", StateBox.Text)
             .Add("@country", CountryBox.Text)
             .Add("@email", EmailBox.Text)
+            .Add("@branch", selectedBranch.BidProperty)
         End With
         SQLConnection.DoNonQuery(insertEmployeeSql, insertEmployeeParams)
 

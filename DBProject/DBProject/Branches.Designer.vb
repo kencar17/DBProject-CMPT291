@@ -55,6 +55,7 @@ Partial Class Branches
         Me.DeleteButton.TabIndex = 2
         Me.DeleteButton.Text = "Close a Branch"
         Me.DeleteButton.UseVisualStyleBackColor = True
+        Me.DeleteButton.Visible = False
         '
         'HelpButton
         '

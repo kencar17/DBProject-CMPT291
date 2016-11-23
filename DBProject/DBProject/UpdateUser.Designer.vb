@@ -39,13 +39,14 @@ Partial Class UpdateUser
         Me.HelpButton = New System.Windows.Forms.Button()
         Me.ImgButton = New System.Windows.Forms.Button()
         Me.PicturePath = New System.Windows.Forms.Label()
+        Me.BranchSelection = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'ErrorLabel
         '
         Me.ErrorLabel.AutoSize = True
         Me.ErrorLabel.ForeColor = System.Drawing.Color.Red
-        Me.ErrorLabel.Location = New System.Drawing.Point(158, 222)
+        Me.ErrorLabel.Location = New System.Drawing.Point(158, 255)
         Me.ErrorLabel.Name = "ErrorLabel"
         Me.ErrorLabel.Size = New System.Drawing.Size(95, 13)
         Me.ErrorLabel.TabIndex = 23
@@ -55,7 +56,7 @@ Partial Class UpdateUser
         'SubmitButton
         '
         Me.SubmitButton.Enabled = False
-        Me.SubmitButton.Location = New System.Drawing.Point(22, 217)
+        Me.SubmitButton.Location = New System.Drawing.Point(22, 250)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(100, 23)
         Me.SubmitButton.TabIndex = 22
@@ -153,7 +154,7 @@ Partial Class UpdateUser
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(22, 246)
+        Me.CloseButton.Location = New System.Drawing.Point(22, 279)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(99, 23)
         Me.CloseButton.TabIndex = 25
@@ -162,7 +163,7 @@ Partial Class UpdateUser
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(161, 246)
+        Me.HelpButton.Location = New System.Drawing.Point(161, 279)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(100, 23)
         Me.HelpButton.TabIndex = 26
@@ -187,11 +188,22 @@ Partial Class UpdateUser
         Me.PicturePath.Size = New System.Drawing.Size(0, 13)
         Me.PicturePath.TabIndex = 28
         '
+        'BranchSelection
+        '
+        Me.BranchSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.BranchSelection.Enabled = False
+        Me.BranchSelection.FormattingEnabled = True
+        Me.BranchSelection.Location = New System.Drawing.Point(22, 223)
+        Me.BranchSelection.Name = "BranchSelection"
+        Me.BranchSelection.Size = New System.Drawing.Size(239, 21)
+        Me.BranchSelection.TabIndex = 29
+        '
         'UpdateUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 286)
+        Me.ClientSize = New System.Drawing.Size(284, 332)
+        Me.Controls.Add(Me.BranchSelection)
         Me.Controls.Add(Me.PicturePath)
         Me.Controls.Add(Me.ImgButton)
         Me.Controls.Add(Me.HelpButton)
@@ -233,4 +245,5 @@ Partial Class UpdateUser
     Friend WithEvents HelpButton As Button
     Friend WithEvents ImgButton As Button
     Friend WithEvents PicturePath As Label
+    Friend WithEvents BranchSelection As ComboBox
 End Class

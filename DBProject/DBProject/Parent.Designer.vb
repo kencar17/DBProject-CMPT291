@@ -32,7 +32,6 @@ Partial Class Parent
         Me.IsMdiContainer = True
         Me.Name = "Parent"
         Me.Text = "Car Rental"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub
