@@ -14,6 +14,16 @@ Public Class User
     Private firstName As String
     Private lastName As String
     Private img As String
+    Private branch As Integer
+
+    Public Property BranchProperty As Integer
+        Get
+            Return branch
+        End Get
+        Set
+            branch = Value
+        End Set
+    End Property
 
     Public Property ImgProperty As String
         Get
@@ -149,7 +159,7 @@ Public Class User
     End Function
 
     Public Shared Function FindUser(username As String) As User
-        Dim checkSQL As String = "SELECT Result.Username, Password, Employee.FirstName, Employee.LastName, Employee.PostalCode, Employee.StreetAddress, Employee.Email, Employee.City, Employee.State, Employee.Country, ImgUrl FROM (SELECT Username, Password, PersonID, ImgUrl FROM User WHERE Username = @username) Result LEFT JOIN Employee ON Result.PersonID = Employee.EID"
+        Dim checkSQL As String = "SELECT Result.Username, Branch, Password, Employee.FirstName, Employee.LastName, Employee.PostalCode, Employee.StreetAddress, Employee.Email, Employee.City, Employee.State, Employee.Country, ImgUrl FROM (SELECT Username, Password, PersonID, ImgUrl FROM User WHERE Username = @username) Result LEFT JOIN Employee ON Result.PersonID = Employee.EID"
         Dim returnedUsername As String = ""
         Dim returnedPass As String = ""
         Dim returnedEmail As String
@@ -160,6 +170,7 @@ Public Class User
         Dim returnedCountry As String
         Dim employeeName As String
         Dim image As String
+        Dim branch As Integer
         Dim params As New Dictionary(Of String, String)
         params.Add("@username", username)
         Dim columns As New List(Of String)
@@ -175,6 +186,7 @@ Public Class User
             .Add("FirstName")
             .Add("LastName")
             .Add("ImgUrl")
+            .Add("Branch")
         End With
         Dim results As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(checkSQL, params, columns)
         For Each result As Dictionary(Of String, String) In results
@@ -188,6 +200,7 @@ Public Class User
             returnedCountry = result("Country")
             employeeName = result("FirstName") & " " & result("LastName")
             image = result("ImgUrl")
+            branch = CInt(result("Branch"))
         Next
 
         If Not returnedUsername.Equals(username) Then
@@ -205,6 +218,7 @@ Public Class User
             .StreetAddressProperty = address
             .NameProperty = employeeName
             .ImgProperty = image
+            .BranchProperty = branch
         End With
 
         Return newUser

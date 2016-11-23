@@ -38,6 +38,7 @@ Partial Class AddNewUser
         Me.HelpButton = New System.Windows.Forms.Button()
         Me.ImgButton = New System.Windows.Forms.Button()
         Me.PicturePath = New System.Windows.Forms.Label()
+        Me.BranchSelection = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'UsernameBox
@@ -112,7 +113,7 @@ Partial Class AddNewUser
         '
         'SubmitButton
         '
-        Me.SubmitButton.Location = New System.Drawing.Point(12, 187)
+        Me.SubmitButton.Location = New System.Drawing.Point(12, 220)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(100, 23)
         Me.SubmitButton.TabIndex = 10
@@ -123,7 +124,7 @@ Partial Class AddNewUser
         '
         Me.ErrorLabel.AutoSize = True
         Me.ErrorLabel.ForeColor = System.Drawing.Color.Red
-        Me.ErrorLabel.Location = New System.Drawing.Point(148, 192)
+        Me.ErrorLabel.Location = New System.Drawing.Point(148, 225)
         Me.ErrorLabel.Name = "ErrorLabel"
         Me.ErrorLabel.Size = New System.Drawing.Size(95, 13)
         Me.ErrorLabel.TabIndex = 11
@@ -132,7 +133,7 @@ Partial Class AddNewUser
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(12, 216)
+        Me.CloseButton.Location = New System.Drawing.Point(12, 249)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(100, 23)
         Me.CloseButton.TabIndex = 12
@@ -141,7 +142,7 @@ Partial Class AddNewUser
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(151, 216)
+        Me.HelpButton.Location = New System.Drawing.Point(151, 249)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(100, 23)
         Me.HelpButton.TabIndex = 13
@@ -165,11 +166,21 @@ Partial Class AddNewUser
         Me.PicturePath.Size = New System.Drawing.Size(0, 13)
         Me.PicturePath.TabIndex = 15
         '
+        'BranchSelection
+        '
+        Me.BranchSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.BranchSelection.FormattingEnabled = True
+        Me.BranchSelection.Location = New System.Drawing.Point(12, 193)
+        Me.BranchSelection.Name = "BranchSelection"
+        Me.BranchSelection.Size = New System.Drawing.Size(239, 21)
+        Me.BranchSelection.TabIndex = 16
+        '
         'AddNewUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(263, 259)
+        Me.ClientSize = New System.Drawing.Size(263, 284)
+        Me.Controls.Add(Me.BranchSelection)
         Me.Controls.Add(Me.PicturePath)
         Me.Controls.Add(Me.ImgButton)
         Me.Controls.Add(Me.HelpButton)
@@ -209,4 +220,5 @@ Partial Class AddNewUser
     Friend WithEvents HelpButton As Button
     Friend WithEvents ImgButton As Button
     Friend WithEvents PicturePath As Label
+    Friend WithEvents BranchSelection As ComboBox
 End Class
