@@ -5,9 +5,19 @@ Public Class Home
         Dim transactionID As Integer
         Dim make As String
         Dim model As String
+        Dim name As String
+
+        Public Property NameProperty As String
+            Get
+                Return name
+            End Get
+            Set
+                name = Value
+            End Set
+        End Property
 
         Public Overrides Function ToString() As String
-            Return "Transaction " & CStr(transactionID) & ": " & make & " " & model
+            Return "Transaction " & CStr(transactionID) & ": " & make & " " & model & ", " & name
         End Function
 
         Public Property TransactionIdProperty As Integer
@@ -63,34 +73,40 @@ Public Class Home
 
     Private Sub Init()
         DeliveryBox.Items.Clear()
-        Dim deliveriesSql As String = "SELECT TID, Make, Model FROM Transaction JOIN Vehicle ON Transaction.VIN = Vehicle.VIN WHERE ToDate = CURDATE() AND ToBID = @branch AND Complete=0 AND PickedUp=1"
+        Dim deliveriesSql As String = "SELECT FirstName, LastName, TID, Make, Model FROM Transaction JOIN Vehicle ON Transaction.VIN = Vehicle.VIN JOIN Customer ON Transaction.CID = Customer.CID WHERE ToDate = CURDATE() AND ToBID = @branch AND Complete=0 AND PickedUp=1"
         Dim params As New Dictionary(Of String, String)
         params.Add("@branch", loggedInUser.BranchProperty)
         Dim columns As New List(Of String)
         columns.Add("TID")
         columns.Add("Make")
         columns.Add("Model")
+        columns.Add("FirstName")
+        columns.Add("LastName")
         For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(deliveriesSql, params, columns)
             Dim aDelivery As New Delivery
             aDelivery.MakeProperty = result("Make").ToString()
             aDelivery.ModelProperty = result("Model").ToString()
             aDelivery.TransactionIdProperty = CInt(result("TID").ToString())
+            aDelivery.NameProperty = result("FirstName") & " " & result("LastName")
             DeliveryBox.Items.Add(aDelivery)
         Next
 
         PickupBox.Items.Clear()
-        Dim pickupsSql As String = "SELECT TID, Make, Model FROM Transaction JOIN Vehicle ON Transaction.VIN = Vehicle.VIN WHERE FromDate = CURDATE() AND FromBID = @branch AND Complete=0 AND PickedUp=0"
+        Dim pickupsSql As String = "SELECT FirstName, LastName, TID, Make, Model FROM Transaction JOIN Vehicle ON Transaction.VIN = Vehicle.VIN JOIN Customer ON Transaction.CID = Customer.CID WHERE FromDate = CURDATE() AND FromBID = @branch AND Complete=0 AND PickedUp=0"
         params = New Dictionary(Of String, String)
         params.Add("@branch", loggedInUser.BranchProperty)
         columns = New List(Of String)
         columns.Add("TID")
         columns.Add("Make")
         columns.Add("Model")
+        columns.Add("FirstName")
+        columns.Add("LastName")
         For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(pickupsSql, params, columns)
             Dim aDelivery As New Delivery
             aDelivery.MakeProperty = result("Make").ToString()
             aDelivery.ModelProperty = result("Model").ToString()
             aDelivery.TransactionIdProperty = CInt(result("TID").ToString())
+            aDelivery.NameProperty = result("FirstName") & " " & result("LastName")
             PickupBox.Items.Add(aDelivery)
         Next
     End Sub
@@ -179,5 +195,11 @@ Public Class Home
         SQLConnection.DoNonQuery(sql, params)
 
         Init()
+    End Sub
+
+    Private Sub BrowseButton_Click(sender As Object, e As EventArgs) Handles BrowseButton.Click
+        Dim viewInventory As New ViewInventory
+        viewInventory.MdiParent = Me.MdiParent
+        viewInventory.Show()
     End Sub
 End Class
