@@ -1,6 +1,35 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class UpdateVehicle
+    Private Sub UpdateVehicle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim vsql As String = "SELECT Type FROM Types"
+        Dim vparams As New Dictionary(Of String, String)
+        Dim vcolumns As New List(Of String)
+        vcolumns.Add("Type")
+        For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(vsql, vparams, vcolumns)
+            Dim avehicle As New VehicleInfo
+            avehicle.VClassProperty = result("Type")
+            ClassCB.Items.Add(avehicle)
+        Next
 
+        Dim bselectSql As String = "SELECT BID, StreetAddress FROM Branch"
+        Dim params As New Dictionary(Of String, String)
+        Dim columns As New List(Of String)
+        columns.Add("BID")
+        columns.Add("StreetAddress")
+        For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(bselectSql, params, columns)
+            Dim abranch As New Branch
+            abranch.BidProperty = CInt(result("BID"))
+            abranch.AddressProperty = result("StreetAddress")
+            BranchCB.Items.Add(abranch)
+        Next
+
+
+        TransCB.Items.Add("Automatic")
+        TransCB.Items.Add("Manual")
+
+        AvailCB.Items.Add("Yes")
+        AvailCB.Items.Add("No")
+    End Sub
     Private Sub FindButton_Click(sender As Object, e As EventArgs) Handles FindButton.Click
         Dim vehicle = Inventory.FindVehicle(Me.VINUpdate.Text)
         If vehicle Is Nothing Then
@@ -9,21 +38,48 @@ Public Class UpdateVehicle
             Return
         End If
 
+
         MakeBox.Text = vehicle.MakeProperty
         ModelBox.Text = vehicle.ModelProperty
-        ClassBox.Text = vehicle.VClassProperty
+        For Each v As VehicleInfo In ClassCB.Items
+            If v.VClassProperty = vehicle.VClassProperty Then
+                ClassCB.SelectedItem = v
+            End If
+        Next
         KmBox.Text = vehicle.KmProperty
         YearBox.Text = vehicle.YearProperty
         SeatBox.Text = vehicle.SeatsProperty
         GVWRBox.Text = vehicle.GvwrProperty
-        TransBox.Text = vehicle.TransmissionProperty
+
+        If vehicle.TransmissionProperty.Equals("1") Then
+            TransCB.SelectedIndex = 0
+        Else
+            TransCB.SelectedIndex = 1
+        End If
         PlateBox.Text = vehicle.LPlateNumProperty
-        AvailBox.Text = vehicle.AvailableProperty
+        If vehicle.AvailableProperty.Equals("True") Then
+            AvailCB.SelectedIndex = 0
+        Else
+            AvailCB.SelectedIndex = 1
+        End If
+        AvailCB.SelectedItem = vehicle.AvailableProperty
         CoverageBox.Text = vehicle.CoverageProperty
+
+        Dim i As Integer = 0
+        While i < BranchCB.Items.Count
+            Dim branch As New Branch
+            branch = BranchCB.Items.Item(i)
+            If branch.BidProperty.ToString().Equals(vehicle.BidProperty) Then
+                BranchCB.SelectedItem = branch
+            End If
+            i += 1
+        End While
 
     End Sub
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         Me.ErrorLabel.Visible = False
+        Dim avail As String
+        Dim trans As String
 
         If MakeBox.Text.Equals("") Then
             ErrorLabel.Text = "A vehicle make must be given"
@@ -37,11 +93,6 @@ Public Class UpdateVehicle
             Return
         End If
 
-        If ClassBox.Text.Equals("") Then
-            ErrorLabel.Text = "A vehicle class must be given"
-            Me.ErrorLabel.Visible = True
-            Return
-        End If
 
         If KmBox.Text.Equals("") Then
             ErrorLabel.Text = "The Kilometers of the vehicle must be given"
@@ -67,39 +118,43 @@ Public Class UpdateVehicle
             Return
         End If
 
-        If TransBox.Text.Equals("") Then
-            ErrorLabel.Text = "The type of transmission must be given"
-            Me.ErrorLabel.Visible = True
-            Return
-        End If
-
-        If AvailBox.Text.Equals("") Then
-            ErrorLabel.Text = "Must have availability"
-            Me.ErrorLabel.Visible = True
-            Return
-        End If
-
         If CoverageBox.Text.Equals("") Then
             ErrorLabel.Text = "The coverage of the vehicle must be given"
             Me.ErrorLabel.Visible = True
             Return
         End If
 
-        Dim sql As String = "UPDATE Vehicle SET Make=@make, Model=@model, Class=@class, Km=@km, Year=@year, Seats=@seats, GVWR=@gvwr, Transmission=@trans, License=@license, Available=@avail, Coverage=@coverage WHERE Vehicle.VIN = @vin"
+        If AvailCB.SelectedItem.Equals("Yes") Then
+            avail = "1"
+        Else
+            avail = "0"
+        End If
+
+        If TransCB.SelectedItem.Equals("Automatic") Then
+            trans = "1"
+        Else
+            trans = "0"
+        End If
+
+        Dim abranch As Branch = BranchCB.SelectedItem
+        Console.WriteLine("~~~~~~~~~~~~" & abranch.BidProperty & "~~~~~~~~~~~~")
+        Dim vehicle As VehicleInfo = ClassCB.SelectedItem
+        Dim sql As String = "UPDATE Vehicle SET Make=@make, Model=@model, Class=@class, Km=@km, Year=@year, Seats=@seats, GVWR=@gvwr, Transmission=@trans, License=@license, Available=@avail, Coverage=@coverage, BID=@bid WHERE Vehicle.VIN = @vin"
         Dim params As New Dictionary(Of String, String)
         With params
             .Add("@vin", VINUpdate.Text)
             .Add("@make", MakeBox.Text)
             .Add("@model", ModelBox.Text)
-            .Add("@class", ClassBox.Text)
+            .Add("@class", vehicle.VClassProperty)
             .Add("@km", KmBox.Text)
             .Add("@year", YearBox.Text)
             .Add("@seats", SeatBox.Text)
             .Add("@gvwr", GVWRBox.Text)
-            .Add("@trans", TransBox.Text)
+            .Add("@trans", trans)
             .Add("@license", PlateBox.Text)
-            .Add("@avail", If(AvailBox.Text.Equals("True"), 1, 0))
+            .Add("@avail", avail)
             .Add("@coverage", CoverageBox.Text)
+            .Add("@bid", abranch.BidProperty)
         End With
         SQLConnection.DoNonQuery(sql, params)
 
