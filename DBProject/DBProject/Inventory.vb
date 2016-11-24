@@ -12,6 +12,7 @@ Public Class Inventory
     Private lPlateNum As String
     Private available As String
     Private coverage As String
+    Private bid As String
 
     Public Property VinProperty As String
         Get
@@ -121,13 +122,22 @@ Public Class Inventory
         End Set
     End Property
 
+    Public Property BidProperty As String
+        Get
+            Return bid
+        End Get
+        Set(value As String)
+            bid = value
+        End Set
+    End Property
+
     Public Sub New(vin As String)
         Me.VinProperty = vin
     End Sub
 
 
     Public Shared Function FindVehicle(vin As String) As Inventory
-        Dim checkSQL As String = "SELECT VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage FROM Vehicle WHERE VIN = @vin"
+        Dim checkSQL As String = "SELECT VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage, BID FROM Vehicle WHERE VIN = @vin"
         Dim returnedVin As String = ""
         Dim returnedMake As String
         Dim returnedModel As String
@@ -140,6 +150,7 @@ Public Class Inventory
         Dim returnedPlate As String
         Dim returnedAvail As String
         Dim returnedCoverage As String
+        Dim returnedBid As String
 
         Dim checkParams As New Dictionary(Of String, String)
         checkParams.Add("@vin", vin)
@@ -157,6 +168,7 @@ Public Class Inventory
             .Add("License")
             .Add("Available")
             .Add("Coverage")
+            .Add("BID")
         End With
         For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(checkSQL, checkParams, checkColumns)
             returnedVin = result("VIN")
@@ -171,6 +183,7 @@ Public Class Inventory
             returnedPlate = result("License")
             returnedAvail = result("Available")
             returnedCoverage = result("Coverage")
+            returnedBid = result("BID")
         Next
 
         If Not returnedVin.Equals(vin) Then
@@ -191,6 +204,7 @@ Public Class Inventory
             .LPlateNumProperty = returnedPlate
             .AvailableProperty = returnedAvail
             .CoverageProperty = returnedCoverage
+            .BidProperty = returnedBid
         End With
 
         Return newVehicle

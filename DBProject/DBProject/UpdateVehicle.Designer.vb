@@ -27,14 +27,11 @@ Partial Class UpdateVehicle
         Me.Label2 = New System.Windows.Forms.Label()
         Me.MakeBox = New System.Windows.Forms.TextBox()
         Me.ModelBox = New System.Windows.Forms.TextBox()
-        Me.ClassBox = New System.Windows.Forms.TextBox()
         Me.KmBox = New System.Windows.Forms.TextBox()
         Me.YearBox = New System.Windows.Forms.TextBox()
         Me.SeatBox = New System.Windows.Forms.TextBox()
         Me.GVWRBox = New System.Windows.Forms.TextBox()
-        Me.TransBox = New System.Windows.Forms.TextBox()
         Me.PlateBox = New System.Windows.Forms.TextBox()
-        Me.AvailBox = New System.Windows.Forms.TextBox()
         Me.CoverageBox = New System.Windows.Forms.TextBox()
         Me.SubmitButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
@@ -52,6 +49,11 @@ Partial Class UpdateVehicle
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.BranchCB = New System.Windows.Forms.ComboBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.TransCB = New System.Windows.Forms.ComboBox()
+        Me.ClassCB = New System.Windows.Forms.ComboBox()
+        Me.AvailCB = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -93,13 +95,6 @@ Partial Class UpdateVehicle
         Me.ModelBox.Size = New System.Drawing.Size(198, 31)
         Me.ModelBox.TabIndex = 4
         '
-        'ClassBox
-        '
-        Me.ClassBox.Location = New System.Drawing.Point(171, 219)
-        Me.ClassBox.Name = "ClassBox"
-        Me.ClassBox.Size = New System.Drawing.Size(198, 31)
-        Me.ClassBox.TabIndex = 5
-        '
         'KmBox
         '
         Me.KmBox.Location = New System.Drawing.Point(553, 219)
@@ -128,26 +123,12 @@ Partial Class UpdateVehicle
         Me.GVWRBox.Size = New System.Drawing.Size(198, 31)
         Me.GVWRBox.TabIndex = 9
         '
-        'TransBox
-        '
-        Me.TransBox.Location = New System.Drawing.Point(553, 293)
-        Me.TransBox.Name = "TransBox"
-        Me.TransBox.Size = New System.Drawing.Size(198, 31)
-        Me.TransBox.TabIndex = 10
-        '
         'PlateBox
         '
         Me.PlateBox.Location = New System.Drawing.Point(171, 330)
         Me.PlateBox.Name = "PlateBox"
         Me.PlateBox.Size = New System.Drawing.Size(198, 31)
         Me.PlateBox.TabIndex = 11
-        '
-        'AvailBox
-        '
-        Me.AvailBox.Location = New System.Drawing.Point(553, 330)
-        Me.AvailBox.Name = "AvailBox"
-        Me.AvailBox.Size = New System.Drawing.Size(198, 31)
-        Me.AvailBox.TabIndex = 12
         '
         'CoverageBox
         '
@@ -158,7 +139,7 @@ Partial Class UpdateVehicle
         '
         'SubmitButton
         '
-        Me.SubmitButton.Location = New System.Drawing.Point(553, 378)
+        Me.SubmitButton.Location = New System.Drawing.Point(553, 433)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(198, 58)
         Me.SubmitButton.TabIndex = 16
@@ -302,11 +283,57 @@ Partial Class UpdateVehicle
         Me.Label13.TabIndex = 31
         Me.Label13.Text = "KM"
         '
+        'BranchCB
+        '
+        Me.BranchCB.FormattingEnabled = True
+        Me.BranchCB.Location = New System.Drawing.Point(553, 368)
+        Me.BranchCB.Name = "BranchCB"
+        Me.BranchCB.Size = New System.Drawing.Size(198, 33)
+        Me.BranchCB.TabIndex = 14
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(382, 371)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(165, 25)
+        Me.Label14.TabIndex = 33
+        Me.Label14.Text = "Branch Address"
+        '
+        'TransCB
+        '
+        Me.TransCB.FormattingEnabled = True
+        Me.TransCB.Location = New System.Drawing.Point(553, 291)
+        Me.TransCB.Name = "TransCB"
+        Me.TransCB.Size = New System.Drawing.Size(198, 33)
+        Me.TransCB.TabIndex = 10
+        '
+        'ClassCB
+        '
+        Me.ClassCB.FormattingEnabled = True
+        Me.ClassCB.Location = New System.Drawing.Point(171, 220)
+        Me.ClassCB.Name = "ClassCB"
+        Me.ClassCB.Size = New System.Drawing.Size(198, 33)
+        Me.ClassCB.TabIndex = 5
+        '
+        'AvailCB
+        '
+        Me.AvailCB.FormattingEnabled = True
+        Me.AvailCB.Location = New System.Drawing.Point(553, 331)
+        Me.AvailCB.Name = "AvailCB"
+        Me.AvailCB.Size = New System.Drawing.Size(198, 33)
+        Me.AvailCB.TabIndex = 12
+        '
         'UpdateVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(763, 628)
+        Me.Controls.Add(Me.AvailCB)
+        Me.Controls.Add(Me.ClassCB)
+        Me.Controls.Add(Me.TransCB)
+        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.BranchCB)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label11)
@@ -324,14 +351,11 @@ Partial Class UpdateVehicle
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.SubmitButton)
         Me.Controls.Add(Me.CoverageBox)
-        Me.Controls.Add(Me.AvailBox)
         Me.Controls.Add(Me.PlateBox)
-        Me.Controls.Add(Me.TransBox)
         Me.Controls.Add(Me.GVWRBox)
         Me.Controls.Add(Me.SeatBox)
         Me.Controls.Add(Me.YearBox)
         Me.Controls.Add(Me.KmBox)
-        Me.Controls.Add(Me.ClassBox)
         Me.Controls.Add(Me.ModelBox)
         Me.Controls.Add(Me.MakeBox)
         Me.Controls.Add(Me.Label2)
@@ -349,14 +373,11 @@ Partial Class UpdateVehicle
     Friend WithEvents Label2 As Label
     Friend WithEvents MakeBox As TextBox
     Friend WithEvents ModelBox As TextBox
-    Friend WithEvents ClassBox As TextBox
     Friend WithEvents KmBox As TextBox
     Friend WithEvents YearBox As TextBox
     Friend WithEvents SeatBox As TextBox
     Friend WithEvents GVWRBox As TextBox
-    Friend WithEvents TransBox As TextBox
     Friend WithEvents PlateBox As TextBox
-    Friend WithEvents AvailBox As TextBox
     Friend WithEvents CoverageBox As TextBox
     Friend WithEvents SubmitButton As Button
     Friend WithEvents BackButton As Button
@@ -374,4 +395,9 @@ Partial Class UpdateVehicle
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
+    Friend WithEvents BranchCB As ComboBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents TransCB As ComboBox
+    Friend WithEvents ClassCB As ComboBox
+    Friend WithEvents AvailCB As ComboBox
 End Class
