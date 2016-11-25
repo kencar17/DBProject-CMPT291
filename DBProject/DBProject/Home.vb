@@ -121,7 +121,16 @@ Public Class Home
             aDelivery.TransactionIdProperty = CInt(result("TID").ToString())
             aDelivery.NameProperty = result("FirstName") & " " & result("LastName")
             aDelivery.DateProperty = Date.ParseExact(Replace(result("FromDate"), " AM", ""), "yyyy-MM-dd HH:mm:ss", System.Globalization.DateTimeFormatInfo.InvariantInfo, Globalization.DateTimeStyles.None)
-            PickupBox.Items.Add(aDelivery)
+            Dim diff As Long = DateDiff(DateInterval.Day, aDelivery.DateProperty, Date.Today) + 1
+            If diff < 3 Then
+                PickupBox.Items.Add(aDelivery)
+            Else
+                Dim setCompleteSql As String = "UPDATE Transaction SET Complete=1 WHERE TID=@tid"
+                Dim uparams As New Dictionary(Of String, String)
+                uparams.Add("@tid", aDelivery.TransactionIdProperty)
+                SQLConnection.DoNonQuery(setCompleteSql, uparams)
+                Continue For
+            End If
         Next
     End Sub
 
