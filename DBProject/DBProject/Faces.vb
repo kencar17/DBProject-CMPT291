@@ -12,8 +12,8 @@ Public Class Faces
         Dim uploadParams As New ImageUploadParams
         Dim transform As New Transformation()
         With transform
-            .Width(100)
-            .Height(141)
+            .Width(116)
+            .Height(164)
             .Crop("scale")
         End With
 
