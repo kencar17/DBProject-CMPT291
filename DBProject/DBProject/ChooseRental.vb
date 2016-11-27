@@ -126,7 +126,7 @@ Public Class ChooseRental
             vehicleInfo.Seats = result("Seats")
             vehicleInfo.Gvwr = result("GVWR")
             Dim transmission As String = ""
-            If result("Transmission").Equals(0) Then
+            If result("Transmission").Equals("0") Then
                 transmission = "Manual"
             Else
                 transmission = "Automatic"
