@@ -182,6 +182,7 @@ Partial Class AddNewUser
         Me.FaceBox.Location = New System.Drawing.Point(502, 112)
         Me.FaceBox.Name = "FaceBox"
         Me.FaceBox.Size = New System.Drawing.Size(173, 202)
+        Me.FaceBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.FaceBox.TabIndex = 16
         Me.FaceBox.TabStop = False
         '

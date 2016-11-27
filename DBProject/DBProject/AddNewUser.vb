@@ -178,9 +178,9 @@ Public Class AddNewUser
             If .ShowDialog() = DialogResult.OK Then
                 chosenFile = .FileName
                 PicturePath.Text = chosenFile
+
+                FaceBox.Load(chosenFile)
             End If
         End With
-
-        FaceBox.Load(chosenFile)
     End Sub
 End Class
