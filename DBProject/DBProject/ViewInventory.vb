@@ -76,22 +76,22 @@ Public Class ViewInventory
         End With
         For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(sqlText, params, columns)
             Dim vehicleInfo As New VehicleInfo
-            vehicleInfo.MakeProperty = result("Make")
-            vehicleInfo.ModelProperty = result("Model")
-            vehicleInfo.VClassProperty = result("Class")
-            vehicleInfo.YearProperty = result("Year")
-            vehicleInfo.SeatsProperty = result("Seats")
-            vehicleInfo.GvwrProperty = result("GVWR")
-            vehicleInfo.TransmissionProperty = result("Transmission")
-            vehicleInfo.DailyRateProperty = result("DailyRate")
-            vehicleInfo.WeeklyRateProperty = result("WeeklyRate")
-            vehicleInfo.MonthlyRateProperty = result("MonthlyRate")
+            vehicleInfo.Make = result("Make")
+            vehicleInfo.Model = result("Model")
+            vehicleInfo.VClass = result("Class")
+            vehicleInfo.Year = result("Year")
+            vehicleInfo.Seats = result("Seats")
+            vehicleInfo.Gvwr = result("GVWR")
+            vehicleInfo.Transmission = result("Transmission")
+            vehicleInfo.DailyRate = result("DailyRate")
+            vehicleInfo.WeeklyRate = result("WeeklyRate")
+            vehicleInfo.MonthlyRate = result("MonthlyRate")
 
-            Dim row = New String() {vehicleInfo.MakeProperty, vehicleInfo.ModelProperty,
-                                  vehicleInfo.VClassProperty, vehicleInfo.YearProperty,
-                                  vehicleInfo.SeatsProperty, vehicleInfo.TransmissionProperty,
-                                  vehicleInfo.GvwrProperty, vehicleInfo.DailyRateProperty,
-                                  vehicleInfo.WeeklyRateProperty, vehicleInfo.MonthlyRateProperty}
+            Dim row = New String() {vehicleInfo.Make, vehicleInfo.Model,
+                                  vehicleInfo.VClass, vehicleInfo.Year,
+                                  vehicleInfo.Seats, vehicleInfo.Transmission,
+                                  vehicleInfo.Gvwr, vehicleInfo.DailyRate,
+                                  vehicleInfo.WeeklyRate, vehicleInfo.MonthlyRate}
             vehicleTable.Rows.Add(row)
         Next
     End Sub

@@ -1,6 +1,16 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class ChooseRental
     Private callingForm As ChooseLocation
+    Private rental As RentalInfo
+
+    Public Property RentalProperty As RentalInfo
+        Get
+            Return rental
+        End Get
+        Set
+            rental = Value
+        End Set
+    End Property
 
     Public WriteOnly Property CallingFormProperty As ChooseLocation
         Set
@@ -32,6 +42,13 @@ Public Class ChooseRental
     End Sub
 
     Private Sub ChooseRental_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Console.WriteLine(rental.PickUpProperty)
+        Console.WriteLine(rental.PickUpTimeProperty)
+        Console.WriteLine(rental.DropOffProperty)
+        Console.WriteLine(rental.DropOffTimeProperty)
+        Console.WriteLine(rental.LocationProperty)
+        Console.WriteLine()
+
         seatsCombo.Items.Add("All")
         For seat As Integer = 1 To 4
             seatsCombo.Items.Add(seat)
@@ -67,7 +84,8 @@ Public Class ChooseRental
     End Sub
 
     Sub populateVehiclesTable(sqlText As String)
-        vehicleTable.Rows.Clear()
+        'vehicleTable.Rows.Clear()
+        Dim vehiclesList = New List(Of VehicleInfo)
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
         dbconn = SQLConnection.Instance.GetConnection()
         Using sqlComm As New MySqlCommand()
@@ -101,24 +119,27 @@ Public Class ChooseRental
         End With
         For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(sqlText, params, columns)
             Dim vehicleInfo As New VehicleInfo
-            vehicleInfo.MakeProperty = result("Make")
-            vehicleInfo.ModelProperty = result("Model")
-            vehicleInfo.VClassProperty = result("Class")
-            vehicleInfo.YearProperty = result("Year")
-            vehicleInfo.SeatsProperty = result("Seats")
-            vehicleInfo.GvwrProperty = result("GVWR")
-            vehicleInfo.TransmissionProperty = result("Transmission")
-            vehicleInfo.DailyRateProperty = result("DailyRate")
-            vehicleInfo.WeeklyRateProperty = result("WeeklyRate")
-            vehicleInfo.MonthlyRateProperty = result("MonthlyRate")
+            vehicleInfo.Make = result("Make")
+            vehicleInfo.Model = result("Model")
+            vehicleInfo.VClass = result("Class")
+            vehicleInfo.Year = result("Year")
+            vehicleInfo.Seats = result("Seats")
+            vehicleInfo.Gvwr = result("GVWR")
+            Dim transmission As String = ""
+            If result("Transmission").Equals(0) Then
+                transmission = "Manual"
+            Else
+                transmission = "Automatic"
+            End If
+            vehicleInfo.Transmission = transmission
+            vehicleInfo.DailyRate = result("DailyRate")
+            vehicleInfo.WeeklyRate = result("WeeklyRate")
+            vehicleInfo.MonthlyRate = result("MonthlyRate")
 
-            Dim row = New String() {vehicleInfo.MakeProperty, vehicleInfo.ModelProperty,
-                                  vehicleInfo.VClassProperty, vehicleInfo.YearProperty,
-                                  vehicleInfo.SeatsProperty, vehicleInfo.TransmissionProperty,
-                                  vehicleInfo.GvwrProperty, vehicleInfo.DailyRateProperty,
-                                  vehicleInfo.WeeklyRateProperty, vehicleInfo.MonthlyRateProperty}
-            vehicleTable.Rows.Add(row)
+            vehiclesList.Add(vehicleInfo)
         Next
+        vehicleTable.DataSource = vehiclesList
+
     End Sub
 
     Public Function buildQueryString()
@@ -162,14 +183,14 @@ Public Class ChooseRental
     End Function
 
     Private Sub makeCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles makeCombo.SelectedIndexChanged
-        vehicleTable.Rows.Clear()
+
         If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
             populateVehiclesTable(buildQueryString())
         End If
     End Sub
 
     Private Sub typeCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles typeCombo.SelectedIndexChanged
-        vehicleTable.Rows.Clear()
+
         If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
             populateVehiclesTable(buildQueryString())
         End If

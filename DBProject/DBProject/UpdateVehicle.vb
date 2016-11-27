@@ -7,7 +7,7 @@ Public Class UpdateVehicle
         vcolumns.Add("Type")
         For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(vsql, vparams, vcolumns)
             Dim avehicle As New VehicleInfo
-            avehicle.VClassProperty = result("Type")
+            avehicle.VClass = result("Type")
             ClassCB.Items.Add(avehicle)
         Next
 
@@ -42,7 +42,7 @@ Public Class UpdateVehicle
         MakeBox.Text = vehicle.MakeProperty
         ModelBox.Text = vehicle.ModelProperty
         For Each v As VehicleInfo In ClassCB.Items
-            If v.VClassProperty = vehicle.VClassProperty Then
+            If v.VClass = vehicle.VClassProperty Then
                 ClassCB.SelectedItem = v
             End If
         Next
@@ -145,7 +145,7 @@ Public Class UpdateVehicle
             .Add("@vin", VINUpdate.Text)
             .Add("@make", MakeBox.Text)
             .Add("@model", ModelBox.Text)
-            .Add("@class", vehicle.VClassProperty)
+            .Add("@class", vehicle.VClass)
             .Add("@km", KmBox.Text)
             .Add("@year", YearBox.Text)
             .Add("@seats", SeatBox.Text)

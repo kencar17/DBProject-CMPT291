@@ -1,118 +1,118 @@
 ﻿Public Class VehicleInfo
-    Private make As String
-    Private model As String
-    Private vClass As String
-    Private year As String
-    Private seats As String
-    Private gvwr As String
-    Private transmission As String
-    Private coverage As String
-    Private dailyRate As String
-    Private weeklyRate As String
-    Private monthlyRate As String
+    Private _make As String
+    Private _model As String
+    Private _vClass As String
+    Private _year As String
+    Private _seats As String
+    Private _gvwr As String
+    Private _transmission As String
+    Private _coverage As String
+    Private _dailyRate As String
+    Private _weeklyRate As String
+    Private _monthlyRate As String
 
 
-    Public Property MakeProperty As String
+    Public Property Make As String
         Get
-            Return make
+            Return _make
         End Get
         Set
-            make = Value
+            _make = Value
         End Set
     End Property
 
-    Public Property ModelProperty As String
+    Public Property Model As String
         Get
-            Return model
+            Return _model
         End Get
         Set
-            model = Value
+            _model = Value
         End Set
     End Property
 
-    Public Property VClassProperty As String
+    Public Property VClass As String
         Get
-            Return vClass
+            Return _vClass
         End Get
         Set
-            vClass = Value
+            _vClass = Value
         End Set
     End Property
 
-    Public Property YearProperty As String
+    Public Property Year As String
         Get
-            Return year
+            Return _year
         End Get
         Set(value As String)
-            year = value
+            _year = value
         End Set
     End Property
 
-    Public Property SeatsProperty As String
+    Public Property Seats As String
         Get
-            Return seats
+            Return _seats
         End Get
         Set(value As String)
-            seats = value
+            _seats = value
         End Set
     End Property
 
-    Public Property GvwrProperty As String
+    Public Property Gvwr As String
         Get
-            Return gvwr
+            Return _gvwr
         End Get
         Set(value As String)
-            gvwr = value
+            _gvwr = value
         End Set
     End Property
 
-    Public Property TransmissionProperty As String
+    Public Property Transmission As String
         Get
-            Return transmission
+            Return _transmission
         End Get
         Set
-            transmission = Value
+            _transmission = Value
         End Set
     End Property
 
-    Public Property CoverageProperty As String
+    Public Property Coverage As String
         Get
-            Return coverage
+            Return _coverage
         End Get
         Set(value As String)
-            coverage = value
+            _coverage = value
         End Set
     End Property
 
-    Public Property DailyRateProperty As String
+    Public Property DailyRate As String
         Get
-            Return dailyRate
+            Return _dailyRate
         End Get
         Set(value As String)
-            dailyRate = value
+            _dailyRate = value
         End Set
     End Property
 
-    Public Property WeeklyRateProperty As String
+    Public Property WeeklyRate As String
         Get
-            Return weeklyRate
+            Return _weeklyRate
         End Get
         Set(value As String)
-            weeklyRate = value
+            _weeklyRate = value
         End Set
     End Property
 
-    Public Property MonthlyRateProperty As String
+    Public Property MonthlyRate As String
         Get
-            Return monthlyRate
+            Return _monthlyRate
         End Get
         Set(value As String)
-            monthlyRate = value
+            _monthlyRate = value
         End Set
     End Property
 
     Public Overrides Function ToString() As String
-        Return vClass
+        Return _vClass
     End Function
 
 End Class

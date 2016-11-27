@@ -1,5 +1,15 @@
 ﻿Public Class OrderSummary
     Private callingform As createOrder
+    Private rental As RentalInfo
+
+    Public Property RentalProperty As RentalInfo
+        Get
+            Return rental
+        End Get
+        Set
+            rental = Value
+        End Set
+    End Property
 
     Public WriteOnly Property CallingformProperty As createOrder
         Set
