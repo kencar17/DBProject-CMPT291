@@ -178,7 +178,7 @@ Partial Class ViewInventory
         Me.vehicleTable.Name = "vehicleTable"
         Me.vehicleTable.ReadOnly = True
         Me.vehicleTable.RowTemplate.Height = 31
-        Me.vehicleTable.Size = New System.Drawing.Size(659, 288)
+        Me.vehicleTable.Size = New System.Drawing.Size(669, 288)
         Me.vehicleTable.TabIndex = 13
         '
         'Column1
@@ -253,7 +253,7 @@ Partial Class ViewInventory
         '
         'VehiclePicture
         '
-        Me.VehiclePicture.Location = New System.Drawing.Point(578, 36)
+        Me.VehiclePicture.Location = New System.Drawing.Point(588, 36)
         Me.VehiclePicture.Name = "VehiclePicture"
         Me.VehiclePicture.Size = New System.Drawing.Size(113, 75)
         Me.VehiclePicture.TabIndex = 25
@@ -263,7 +263,7 @@ Partial Class ViewInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(706, 487)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.VehiclePicture)
         Me.Controls.Add(Me.backButton)
         Me.Controls.Add(Me.stanRadio)
