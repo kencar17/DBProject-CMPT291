@@ -25,4 +25,22 @@ Public Class Faces
 
         Return cloudinary.Upload(uploadParams).JsonObj.Item("secure_url")
     End Function
+
+    Public Shared Function uploadVehicle(filepath As String) As String
+        Dim uploadParams As New ImageUploadParams
+        Dim transform As New Transformation()
+        With transform
+            .Width(113)
+            .Height(75)
+            .Crop("scale")
+        End With
+
+        With uploadParams
+            .File = New FileDescription(filepath)
+            .Transformation = transform
+            .Format = "png"
+        End With
+
+        Return cloudinary.Upload(uploadParams).JsonObj.Item("secure_url")
+    End Function
 End Class

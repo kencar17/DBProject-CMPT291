@@ -54,112 +54,129 @@ Partial Class UpdateVehicle
         Me.TransCB = New System.Windows.Forms.ComboBox()
         Me.ClassCB = New System.Windows.Forms.ComboBox()
         Me.AvailCB = New System.Windows.Forms.ComboBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.ImageButton = New System.Windows.Forms.Button()
+        Me.PicturePath = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 13)
+        Me.Label1.Location = New System.Drawing.Point(6, 7)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(461, 25)
+        Me.Label1.Size = New System.Drawing.Size(232, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Enter the VIN of the vehicle you want to update"
         '
         'VINUpdate
         '
-        Me.VINUpdate.Location = New System.Drawing.Point(18, 56)
+        Me.VINUpdate.Location = New System.Drawing.Point(9, 29)
+        Me.VINUpdate.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.VINUpdate.Name = "VINUpdate"
-        Me.VINUpdate.Size = New System.Drawing.Size(295, 31)
+        Me.VINUpdate.Size = New System.Drawing.Size(150, 20)
         Me.VINUpdate.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(357, 138)
+        Me.Label2.Location = New System.Drawing.Point(178, 72)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(195, 25)
+        Me.Label2.Size = New System.Drawing.Size(97, 13)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Vehicle Information"
         '
         'MakeBox
         '
-        Me.MakeBox.Location = New System.Drawing.Point(171, 182)
+        Me.MakeBox.Location = New System.Drawing.Point(86, 95)
+        Me.MakeBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MakeBox.Name = "MakeBox"
-        Me.MakeBox.Size = New System.Drawing.Size(198, 31)
+        Me.MakeBox.Size = New System.Drawing.Size(101, 20)
         Me.MakeBox.TabIndex = 3
         '
         'ModelBox
         '
-        Me.ModelBox.Location = New System.Drawing.Point(553, 182)
+        Me.ModelBox.Location = New System.Drawing.Point(276, 95)
+        Me.ModelBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ModelBox.Name = "ModelBox"
-        Me.ModelBox.Size = New System.Drawing.Size(198, 31)
+        Me.ModelBox.Size = New System.Drawing.Size(101, 20)
         Me.ModelBox.TabIndex = 4
         '
         'KmBox
         '
-        Me.KmBox.Location = New System.Drawing.Point(553, 219)
+        Me.KmBox.Location = New System.Drawing.Point(276, 114)
+        Me.KmBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.KmBox.Name = "KmBox"
-        Me.KmBox.Size = New System.Drawing.Size(198, 31)
+        Me.KmBox.Size = New System.Drawing.Size(101, 20)
         Me.KmBox.TabIndex = 6
         '
         'YearBox
         '
-        Me.YearBox.Location = New System.Drawing.Point(171, 256)
+        Me.YearBox.Location = New System.Drawing.Point(86, 133)
+        Me.YearBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.YearBox.Name = "YearBox"
-        Me.YearBox.Size = New System.Drawing.Size(198, 31)
+        Me.YearBox.Size = New System.Drawing.Size(101, 20)
         Me.YearBox.TabIndex = 7
         '
         'SeatBox
         '
-        Me.SeatBox.Location = New System.Drawing.Point(553, 256)
+        Me.SeatBox.Location = New System.Drawing.Point(276, 133)
+        Me.SeatBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.SeatBox.Name = "SeatBox"
-        Me.SeatBox.Size = New System.Drawing.Size(198, 31)
+        Me.SeatBox.Size = New System.Drawing.Size(101, 20)
         Me.SeatBox.TabIndex = 8
         '
         'GVWRBox
         '
-        Me.GVWRBox.Location = New System.Drawing.Point(171, 293)
+        Me.GVWRBox.Location = New System.Drawing.Point(86, 152)
+        Me.GVWRBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GVWRBox.Name = "GVWRBox"
-        Me.GVWRBox.Size = New System.Drawing.Size(198, 31)
+        Me.GVWRBox.Size = New System.Drawing.Size(101, 20)
         Me.GVWRBox.TabIndex = 9
         '
         'PlateBox
         '
-        Me.PlateBox.Location = New System.Drawing.Point(171, 330)
+        Me.PlateBox.Location = New System.Drawing.Point(86, 172)
+        Me.PlateBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PlateBox.Name = "PlateBox"
-        Me.PlateBox.Size = New System.Drawing.Size(198, 31)
+        Me.PlateBox.Size = New System.Drawing.Size(101, 20)
         Me.PlateBox.TabIndex = 11
         '
         'CoverageBox
         '
-        Me.CoverageBox.Location = New System.Drawing.Point(171, 367)
+        Me.CoverageBox.Location = New System.Drawing.Point(86, 191)
+        Me.CoverageBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CoverageBox.Name = "CoverageBox"
-        Me.CoverageBox.Size = New System.Drawing.Size(198, 31)
+        Me.CoverageBox.Size = New System.Drawing.Size(101, 20)
         Me.CoverageBox.TabIndex = 13
         '
         'SubmitButton
         '
-        Me.SubmitButton.Location = New System.Drawing.Point(553, 433)
+        Me.SubmitButton.Location = New System.Drawing.Point(276, 249)
+        Me.SubmitButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.SubmitButton.Name = "SubmitButton"
-        Me.SubmitButton.Size = New System.Drawing.Size(198, 58)
+        Me.SubmitButton.Size = New System.Drawing.Size(99, 30)
         Me.SubmitButton.TabIndex = 16
         Me.SubmitButton.Text = "Submit"
         Me.SubmitButton.UseVisualStyleBackColor = True
         '
         'BackButton
         '
-        Me.BackButton.Location = New System.Drawing.Point(147, 443)
+        Me.BackButton.Location = New System.Drawing.Point(75, 252)
+        Me.BackButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BackButton.Name = "BackButton"
-        Me.BackButton.Size = New System.Drawing.Size(108, 48)
+        Me.BackButton.Size = New System.Drawing.Size(54, 25)
         Me.BackButton.TabIndex = 17
         Me.BackButton.Text = "Back"
         Me.BackButton.UseVisualStyleBackColor = True
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(261, 443)
+        Me.HelpButton.Location = New System.Drawing.Point(133, 252)
+        Me.HelpButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.HelpButton.Name = "HelpButton"
-        Me.HelpButton.Size = New System.Drawing.Size(108, 48)
+        Me.HelpButton.Size = New System.Drawing.Size(54, 25)
         Me.HelpButton.TabIndex = 18
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = True
@@ -168,18 +185,20 @@ Partial Class UpdateVehicle
         '
         Me.ErrorLabel.AutoSize = True
         Me.ErrorLabel.ForeColor = System.Drawing.Color.Red
-        Me.ErrorLabel.Location = New System.Drawing.Point(276, 511)
+        Me.ErrorLabel.Location = New System.Drawing.Point(138, 290)
+        Me.ErrorLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.ErrorLabel.Name = "ErrorLabel"
-        Me.ErrorLabel.Size = New System.Drawing.Size(204, 25)
+        Me.ErrorLabel.Size = New System.Drawing.Size(102, 13)
         Me.ErrorLabel.TabIndex = 19
         Me.ErrorLabel.Text = "Incorrect Arguments"
         Me.ErrorLabel.Visible = False
         '
         'FindButton
         '
-        Me.FindButton.Location = New System.Drawing.Point(319, 48)
+        Me.FindButton.Location = New System.Drawing.Point(160, 25)
+        Me.FindButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.FindButton.Name = "FindButton"
-        Me.FindButton.Size = New System.Drawing.Size(161, 47)
+        Me.FindButton.Size = New System.Drawing.Size(80, 24)
         Me.FindButton.TabIndex = 20
         Me.FindButton.Text = "Find Vehicle"
         Me.FindButton.UseVisualStyleBackColor = True
@@ -187,148 +206,193 @@ Partial Class UpdateVehicle
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(13, 182)
+        Me.Label3.Location = New System.Drawing.Point(6, 95)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(65, 25)
+        Me.Label3.Size = New System.Drawing.Size(34, 13)
         Me.Label3.TabIndex = 21
         Me.Label3.Text = "Make"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(460, 182)
+        Me.Label4.Location = New System.Drawing.Point(230, 95)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(71, 25)
+        Me.Label4.Size = New System.Drawing.Size(36, 13)
         Me.Label4.TabIndex = 22
         Me.Label4.Text = "Model"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(13, 367)
+        Me.Label5.Location = New System.Drawing.Point(6, 191)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(105, 25)
+        Me.Label5.Size = New System.Drawing.Size(53, 13)
         Me.Label5.TabIndex = 23
         Me.Label5.Text = "Coverage"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(13, 330)
+        Me.Label6.Location = New System.Drawing.Point(6, 172)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(105, 25)
+        Me.Label6.Size = New System.Drawing.Size(53, 13)
         Me.Label6.TabIndex = 24
         Me.Label6.Text = "PlateNum"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(13, 293)
+        Me.Label7.Location = New System.Drawing.Point(6, 152)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(77, 25)
+        Me.Label7.Size = New System.Drawing.Size(41, 13)
         Me.Label7.TabIndex = 25
         Me.Label7.Text = "GVWR"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(13, 256)
+        Me.Label8.Location = New System.Drawing.Point(6, 133)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(58, 25)
+        Me.Label8.Size = New System.Drawing.Size(29, 13)
         Me.Label8.TabIndex = 26
         Me.Label8.Text = "Year"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(12, 219)
+        Me.Label9.Location = New System.Drawing.Point(6, 114)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(66, 25)
+        Me.Label9.Size = New System.Drawing.Size(32, 13)
         Me.Label9.TabIndex = 27
         Me.Label9.Text = "Class"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(421, 333)
+        Me.Label10.Location = New System.Drawing.Point(210, 173)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(110, 25)
+        Me.Label10.Size = New System.Drawing.Size(54, 13)
         Me.Label10.TabIndex = 28
         Me.Label10.Text = "Availablity"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(391, 296)
+        Me.Label11.Location = New System.Drawing.Point(196, 154)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(140, 25)
+        Me.Label11.Size = New System.Drawing.Size(68, 13)
         Me.Label11.TabIndex = 29
         Me.Label11.Text = "Transmission"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(460, 262)
+        Me.Label12.Location = New System.Drawing.Point(230, 136)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(67, 25)
+        Me.Label12.Size = New System.Drawing.Size(34, 13)
         Me.Label12.TabIndex = 30
         Me.Label12.Text = "Seats"
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(460, 222)
+        Me.Label13.Location = New System.Drawing.Point(230, 115)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(44, 25)
+        Me.Label13.Size = New System.Drawing.Size(23, 13)
         Me.Label13.TabIndex = 31
         Me.Label13.Text = "KM"
         '
         'BranchCB
         '
         Me.BranchCB.FormattingEnabled = True
-        Me.BranchCB.Location = New System.Drawing.Point(553, 368)
+        Me.BranchCB.Location = New System.Drawing.Point(276, 191)
+        Me.BranchCB.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BranchCB.Name = "BranchCB"
-        Me.BranchCB.Size = New System.Drawing.Size(198, 33)
+        Me.BranchCB.Size = New System.Drawing.Size(101, 21)
         Me.BranchCB.TabIndex = 14
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(382, 371)
+        Me.Label14.Location = New System.Drawing.Point(191, 193)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(165, 25)
+        Me.Label14.Size = New System.Drawing.Size(82, 13)
         Me.Label14.TabIndex = 33
         Me.Label14.Text = "Branch Address"
         '
         'TransCB
         '
         Me.TransCB.FormattingEnabled = True
-        Me.TransCB.Location = New System.Drawing.Point(553, 291)
+        Me.TransCB.Location = New System.Drawing.Point(276, 151)
+        Me.TransCB.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TransCB.Name = "TransCB"
-        Me.TransCB.Size = New System.Drawing.Size(198, 33)
+        Me.TransCB.Size = New System.Drawing.Size(101, 21)
         Me.TransCB.TabIndex = 10
         '
         'ClassCB
         '
         Me.ClassCB.FormattingEnabled = True
-        Me.ClassCB.Location = New System.Drawing.Point(171, 220)
+        Me.ClassCB.Location = New System.Drawing.Point(86, 114)
+        Me.ClassCB.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ClassCB.Name = "ClassCB"
-        Me.ClassCB.Size = New System.Drawing.Size(198, 33)
+        Me.ClassCB.Size = New System.Drawing.Size(101, 21)
         Me.ClassCB.TabIndex = 5
         '
         'AvailCB
         '
         Me.AvailCB.FormattingEnabled = True
-        Me.AvailCB.Location = New System.Drawing.Point(553, 331)
+        Me.AvailCB.Location = New System.Drawing.Point(276, 172)
+        Me.AvailCB.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.AvailCB.Name = "AvailCB"
-        Me.AvailCB.Size = New System.Drawing.Size(198, 33)
+        Me.AvailCB.Size = New System.Drawing.Size(101, 21)
         Me.AvailCB.TabIndex = 12
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(6, 222)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(40, 13)
+        Me.Label15.TabIndex = 34
+        Me.Label15.Text = "Picture"
+        '
+        'ImageButton
+        '
+        Me.ImageButton.Location = New System.Drawing.Point(86, 217)
+        Me.ImageButton.Name = "ImageButton"
+        Me.ImageButton.Size = New System.Drawing.Size(75, 23)
+        Me.ImageButton.TabIndex = 35
+        Me.ImageButton.Text = "Select"
+        Me.ImageButton.UseVisualStyleBackColor = True
+        '
+        'PicturePath
+        '
+        Me.PicturePath.AutoSize = True
+        Me.PicturePath.Location = New System.Drawing.Point(191, 222)
+        Me.PicturePath.Name = "PicturePath"
+        Me.PicturePath.Size = New System.Drawing.Size(0, 13)
+        Me.PicturePath.TabIndex = 36
         '
         'UpdateVehicle
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(763, 628)
+        Me.ClientSize = New System.Drawing.Size(382, 327)
+        Me.Controls.Add(Me.PicturePath)
+        Me.Controls.Add(Me.ImageButton)
+        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.AvailCB)
         Me.Controls.Add(Me.ClassCB)
         Me.Controls.Add(Me.TransCB)
@@ -361,6 +425,7 @@ Partial Class UpdateVehicle
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.VINUpdate)
         Me.Controls.Add(Me.Label1)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "UpdateVehicle"
         Me.Text = "UpdateVehicle"
         Me.ResumeLayout(False)
@@ -400,4 +465,7 @@ Partial Class UpdateVehicle
     Friend WithEvents TransCB As ComboBox
     Friend WithEvents ClassCB As ComboBox
     Friend WithEvents AvailCB As ComboBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents ImageButton As Button
+    Friend WithEvents PicturePath As Label
 End Class
