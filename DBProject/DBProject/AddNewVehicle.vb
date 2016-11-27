@@ -14,7 +14,7 @@ Public Class AddNewVehicle
                 Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
                 While sqlReader.Read()
                     Dim vehicleTypes As New VehicleInfo()
-                    vehicleTypes.VClassProperty = sqlReader("Type").ToString()
+                    vehicleTypes.VClass = sqlReader("Type").ToString()
                     ClassCB.Items.Add(vehicleTypes)
                 End While
             Catch ex As Exception
@@ -131,7 +131,7 @@ Public Class AddNewVehicle
             .Add("@vin", VINbox.Text)
             .Add("@make", MakeBox.Text)
             .Add("@model", ModelBox.Text)
-            .Add("@class", selectedClass.VClassProperty)
+            .Add("@class", selectedClass.VClass)
             .Add("@km", KMBox.Text)
             .Add("@year", YearBox.Text)
             .Add("@seats", SeatsBox.Text)
