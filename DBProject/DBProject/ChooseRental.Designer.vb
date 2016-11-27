@@ -46,7 +46,7 @@ Partial Class ChooseRental
         Me.vehicleTable.MinimumSize = New System.Drawing.Size(1047, 532)
         Me.vehicleTable.Name = "vehicleTable"
         Me.vehicleTable.RowTemplate.Height = 31
-        Me.vehicleTable.Size = New System.Drawing.Size(1219, 532)
+        Me.vehicleTable.Size = New System.Drawing.Size(1492, 618)
         Me.vehicleTable.TabIndex = 0
         '
         'Label1
@@ -147,7 +147,7 @@ Partial Class ChooseRental
         '
         'backButton
         '
-        Me.backButton.Location = New System.Drawing.Point(51, 761)
+        Me.backButton.Location = New System.Drawing.Point(51, 837)
         Me.backButton.Name = "backButton"
         Me.backButton.Size = New System.Drawing.Size(93, 41)
         Me.backButton.TabIndex = 11
@@ -156,7 +156,7 @@ Partial Class ChooseRental
         '
         'nextButton
         '
-        Me.nextButton.Location = New System.Drawing.Point(1177, 761)
+        Me.nextButton.Location = New System.Drawing.Point(1450, 837)
         Me.nextButton.Name = "nextButton"
         Me.nextButton.Size = New System.Drawing.Size(93, 41)
         Me.nextButton.TabIndex = 12
@@ -165,7 +165,7 @@ Partial Class ChooseRental
         '
         'helpButton
         '
-        Me.helpButton.Location = New System.Drawing.Point(179, 761)
+        Me.helpButton.Location = New System.Drawing.Point(179, 837)
         Me.helpButton.Name = "helpButton"
         Me.helpButton.Size = New System.Drawing.Size(93, 41)
         Me.helpButton.TabIndex = 13
@@ -176,7 +176,7 @@ Partial Class ChooseRental
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1294, 899)
+        Me.ClientSize = New System.Drawing.Size(1593, 899)
         Me.Controls.Add(Me.helpButton)
         Me.Controls.Add(Me.nextButton)
         Me.Controls.Add(Me.backButton)

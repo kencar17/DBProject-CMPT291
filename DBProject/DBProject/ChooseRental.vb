@@ -23,11 +23,21 @@ Public Class ChooseRental
     End Sub
 
     Private Sub nextButton_Click(sender As Object, e As EventArgs) Handles nextButton.Click
+        prepareInfo()
         Dim createOrderWindow As New createOrder
+        createOrderWindow.RentalProperty = Me.RentalProperty
         createOrderWindow.MdiParent = Me.MdiParent
         createOrderWindow.CallingFormProperty = Me
         createOrderWindow.Show()
     End Sub
+
+    Private Sub prepareInfo()
+        For Each row As DataGridViewRow In vehicleTable.SelectedRows
+            Dim vehicle As VehicleInfo = TryCast(row.DataBoundItem, VehicleInfo)
+            rental.VehicleProperty = vehicle
+        Next
+    End Sub
+
 
     Public Sub doAThing()
         Hide()
@@ -77,14 +87,14 @@ Public Class ChooseRental
 
         BothRadio.Checked = True
 
-        populateVehiclesTable("SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
+        populateVehiclesTable("SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, Coverage, DailyRate, WeeklyRate, MonthlyRate
                                 FROM Vehicle, Types where Vehicle.Class = Types.Type
                                 and Vehicle.Available = 1")
 
     End Sub
 
     Sub populateVehiclesTable(sqlText As String)
-        'vehicleTable.Rows.Clear()
+
         Dim vehiclesList = New List(Of VehicleInfo)
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
         dbconn = SQLConnection.Instance.GetConnection()
@@ -113,6 +123,7 @@ Public Class ChooseRental
             .Add("Seats")
             .Add("GVWR")
             .Add("Transmission")
+            .Add("Coverage")
             .Add("DailyRate")
             .Add("WeeklyRate")
             .Add("MonthlyRate")
@@ -132,18 +143,20 @@ Public Class ChooseRental
                 transmission = "Automatic"
             End If
             vehicleInfo.Transmission = transmission
+            vehicleInfo.Coverage = result("Coverage")
             vehicleInfo.DailyRate = result("DailyRate")
             vehicleInfo.WeeklyRate = result("WeeklyRate")
             vehicleInfo.MonthlyRate = result("MonthlyRate")
 
             vehiclesList.Add(vehicleInfo)
         Next
+        vehicleTable.MultiSelect = False
         vehicleTable.DataSource = vehiclesList
 
     End Sub
 
     Public Function buildQueryString()
-        Dim original As String = "SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, DailyRate, WeeklyRate, MonthlyRate
+        Dim original As String = "SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, Coverage, DailyRate, WeeklyRate, MonthlyRate
                                 FROM Vehicle, Types where Vehicle.Class = Types.Type
                                 and Vehicle.Available = 1"
         Dim newQuery As String = ""
