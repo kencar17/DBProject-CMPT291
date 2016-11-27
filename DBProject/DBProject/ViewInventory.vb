@@ -1,14 +1,15 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class ViewInventory
-    Private callingForm As Form1
+    Private callingForm As Form
 
-    Public WriteOnly Property CallingFormProperty As Form1
+    Public WriteOnly Property CallingFormProperty As Form
         Set
             callingForm = Value
         End Set
     End Property
 
     Private Sub backButton_Click(sender As Object, e As EventArgs) Handles backButton.Click
+        callingForm.WindowState = FormWindowState.Maximized
         Close()
     End Sub
 

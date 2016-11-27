@@ -174,9 +174,9 @@ Public Class ChooseRental
         If BothRadio.Checked = True Then
             ' Do nothing
         ElseIf autoRadio.Checked = True Then
-            newQuery = newQuery & " and Vehicle.Transmission = 'Automatic'"
+            newQuery = newQuery & " and Vehicle.Transmission = '1'"
         ElseIf stanRadio.Checked = True Then
-            newQuery = newQuery & " and Vehicle.Transmission = 'Standard'"
+            newQuery = newQuery & " and Vehicle.Transmission = '0'"
         End If
 
         Return newQuery

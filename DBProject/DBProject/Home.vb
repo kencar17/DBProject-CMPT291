@@ -230,6 +230,7 @@ Public Class Home
     Private Sub BrowseButton_Click(sender As Object, e As EventArgs) Handles BrowseButton.Click
         Dim viewInventory As New ViewInventory
         viewInventory.MdiParent = Me.MdiParent
+        viewInventory.CallingFormProperty = Me
         viewInventory.Show()
     End Sub
 End Class

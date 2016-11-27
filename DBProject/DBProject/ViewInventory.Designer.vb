@@ -50,7 +50,7 @@ Partial Class ViewInventory
         'backButton
         '
         Me.backButton.Location = New System.Drawing.Point(32, 429)
-        Me.backButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.backButton.Margin = New System.Windows.Forms.Padding(2)
         Me.backButton.Name = "backButton"
         Me.backButton.Size = New System.Drawing.Size(50, 22)
         Me.backButton.TabIndex = 24
@@ -61,7 +61,7 @@ Partial Class ViewInventory
         '
         Me.stanRadio.AutoSize = True
         Me.stanRadio.Location = New System.Drawing.Point(398, 60)
-        Me.stanRadio.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.stanRadio.Margin = New System.Windows.Forms.Padding(2)
         Me.stanRadio.Name = "stanRadio"
         Me.stanRadio.Size = New System.Drawing.Size(68, 17)
         Me.stanRadio.TabIndex = 23
@@ -73,7 +73,7 @@ Partial Class ViewInventory
         '
         Me.autoRadio.AutoSize = True
         Me.autoRadio.Location = New System.Drawing.Point(318, 60)
-        Me.autoRadio.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.autoRadio.Margin = New System.Windows.Forms.Padding(2)
         Me.autoRadio.Name = "autoRadio"
         Me.autoRadio.Size = New System.Drawing.Size(72, 17)
         Me.autoRadio.TabIndex = 22
@@ -85,7 +85,7 @@ Partial Class ViewInventory
         '
         Me.BothRadio.AutoSize = True
         Me.BothRadio.Location = New System.Drawing.Point(256, 61)
-        Me.BothRadio.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.BothRadio.Margin = New System.Windows.Forms.Padding(2)
         Me.BothRadio.Name = "BothRadio"
         Me.BothRadio.Size = New System.Drawing.Size(47, 17)
         Me.BothRadio.TabIndex = 21
@@ -108,7 +108,7 @@ Partial Class ViewInventory
         Me.seatsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.seatsCombo.FormattingEnabled = True
         Me.seatsCombo.Location = New System.Drawing.Point(114, 90)
-        Me.seatsCombo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.seatsCombo.Margin = New System.Windows.Forms.Padding(2)
         Me.seatsCombo.Name = "seatsCombo"
         Me.seatsCombo.Size = New System.Drawing.Size(98, 21)
         Me.seatsCombo.TabIndex = 19
@@ -128,7 +128,7 @@ Partial Class ViewInventory
         Me.makeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.makeCombo.FormattingEnabled = True
         Me.makeCombo.Location = New System.Drawing.Point(114, 63)
-        Me.makeCombo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.makeCombo.Margin = New System.Windows.Forms.Padding(2)
         Me.makeCombo.Name = "makeCombo"
         Me.makeCombo.Size = New System.Drawing.Size(98, 21)
         Me.makeCombo.TabIndex = 17
@@ -148,7 +148,7 @@ Partial Class ViewInventory
         Me.typeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.typeCombo.FormattingEnabled = True
         Me.typeCombo.Location = New System.Drawing.Point(114, 36)
-        Me.typeCombo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.typeCombo.Margin = New System.Windows.Forms.Padding(2)
         Me.typeCombo.Name = "typeCombo"
         Me.typeCombo.Size = New System.Drawing.Size(98, 21)
         Me.typeCombo.TabIndex = 15
@@ -165,12 +165,16 @@ Partial Class ViewInventory
         '
         'vehicleTable
         '
+        Me.vehicleTable.AllowUserToAddRows = False
+        Me.vehicleTable.AllowUserToDeleteRows = False
         Me.vehicleTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.vehicleTable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column10, Me.Column8, Me.Column9})
         Me.vehicleTable.Location = New System.Drawing.Point(32, 122)
-        Me.vehicleTable.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.vehicleTable.Margin = New System.Windows.Forms.Padding(2)
         Me.vehicleTable.MinimumSize = New System.Drawing.Size(571, 288)
+        Me.vehicleTable.MultiSelect = False
         Me.vehicleTable.Name = "vehicleTable"
+        Me.vehicleTable.ReadOnly = True
         Me.vehicleTable.RowTemplate.Height = 31
         Me.vehicleTable.Size = New System.Drawing.Size(659, 288)
         Me.vehicleTable.TabIndex = 13
@@ -179,60 +183,70 @@ Partial Class ViewInventory
         '
         Me.Column1.HeaderText = "Make"
         Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
         Me.Column1.Width = 75
         '
         'Column2
         '
         Me.Column2.HeaderText = "Model"
         Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
         Me.Column2.Width = 75
         '
         'Column3
         '
         Me.Column3.HeaderText = "Class"
         Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
         Me.Column3.Width = 75
         '
         'Column4
         '
         Me.Column4.HeaderText = "Year"
         Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
         Me.Column4.Width = 50
         '
         'Column5
         '
         Me.Column5.HeaderText = "Seats"
         Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
         Me.Column5.Width = 50
         '
         'Column6
         '
         Me.Column6.HeaderText = "Transmisson"
         Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
         Me.Column6.Width = 75
         '
         'Column7
         '
         Me.Column7.HeaderText = "GVWR"
         Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
         Me.Column7.Width = 50
         '
         'Column10
         '
         Me.Column10.HeaderText = "Daily Rate"
         Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
         Me.Column10.Width = 50
         '
         'Column8
         '
         Me.Column8.HeaderText = "Weekly Rate"
         Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
         Me.Column8.Width = 50
         '
         'Column9
         '
         Me.Column9.HeaderText = "Monthly Rate"
         Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
         Me.Column9.Width = 50
         '
         'ViewInventory
