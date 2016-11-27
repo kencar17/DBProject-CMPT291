@@ -50,7 +50,7 @@ Partial Class Home
         '
         'UserAdminButton
         '
-        Me.UserAdminButton.Location = New System.Drawing.Point(12, 159)
+        Me.UserAdminButton.Location = New System.Drawing.Point(12, 182)
         Me.UserAdminButton.Name = "UserAdminButton"
         Me.UserAdminButton.Size = New System.Drawing.Size(116, 23)
         Me.UserAdminButton.TabIndex = 0
@@ -59,7 +59,7 @@ Partial Class Home
         '
         'CarAdminButton
         '
-        Me.CarAdminButton.Location = New System.Drawing.Point(12, 188)
+        Me.CarAdminButton.Location = New System.Drawing.Point(12, 211)
         Me.CarAdminButton.Name = "CarAdminButton"
         Me.CarAdminButton.Size = New System.Drawing.Size(116, 23)
         Me.CarAdminButton.TabIndex = 1
@@ -68,7 +68,7 @@ Partial Class Home
         '
         'RentalButton
         '
-        Me.RentalButton.Location = New System.Drawing.Point(12, 246)
+        Me.RentalButton.Location = New System.Drawing.Point(12, 269)
         Me.RentalButton.Name = "RentalButton"
         Me.RentalButton.Size = New System.Drawing.Size(116, 23)
         Me.RentalButton.TabIndex = 2
@@ -77,7 +77,7 @@ Partial Class Home
         '
         'BackupButton
         '
-        Me.BackupButton.Location = New System.Drawing.Point(12, 332)
+        Me.BackupButton.Location = New System.Drawing.Point(12, 355)
         Me.BackupButton.Margin = New System.Windows.Forms.Padding(2)
         Me.BackupButton.Name = "BackupButton"
         Me.BackupButton.Size = New System.Drawing.Size(116, 23)
@@ -87,7 +87,7 @@ Partial Class Home
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(12, 389)
+        Me.HelpButton.Location = New System.Drawing.Point(12, 412)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(116, 23)
         Me.HelpButton.TabIndex = 4
@@ -96,7 +96,7 @@ Partial Class Home
         '
         'LogOutButton
         '
-        Me.LogOutButton.Location = New System.Drawing.Point(12, 418)
+        Me.LogOutButton.Location = New System.Drawing.Point(12, 441)
         Me.LogOutButton.Name = "LogOutButton"
         Me.LogOutButton.Size = New System.Drawing.Size(116, 23)
         Me.LogOutButton.TabIndex = 5
@@ -106,7 +106,7 @@ Partial Class Home
         'NameLabel
         '
         Me.NameLabel.AutoSize = True
-        Me.NameLabel.Location = New System.Drawing.Point(118, 34)
+        Me.NameLabel.Location = New System.Drawing.Point(169, 34)
         Me.NameLabel.Name = "NameLabel"
         Me.NameLabel.Size = New System.Drawing.Size(35, 13)
         Me.NameLabel.TabIndex = 7
@@ -115,7 +115,7 @@ Partial Class Home
         'UnusedLabel1
         '
         Me.UnusedLabel1.AutoSize = True
-        Me.UnusedLabel1.Location = New System.Drawing.Point(118, 12)
+        Me.UnusedLabel1.Location = New System.Drawing.Point(169, 12)
         Me.UnusedLabel1.Name = "UnusedLabel1"
         Me.UnusedLabel1.Size = New System.Drawing.Size(71, 13)
         Me.UnusedLabel1.TabIndex = 8
@@ -123,7 +123,7 @@ Partial Class Home
         '
         'ReportsButton
         '
-        Me.ReportsButton.Location = New System.Drawing.Point(12, 360)
+        Me.ReportsButton.Location = New System.Drawing.Point(12, 383)
         Me.ReportsButton.Name = "ReportsButton"
         Me.ReportsButton.Size = New System.Drawing.Size(116, 23)
         Me.ReportsButton.TabIndex = 9
@@ -132,7 +132,7 @@ Partial Class Home
         '
         'BranchButton
         '
-        Me.BranchButton.Location = New System.Drawing.Point(12, 304)
+        Me.BranchButton.Location = New System.Drawing.Point(12, 327)
         Me.BranchButton.Name = "BranchButton"
         Me.BranchButton.Size = New System.Drawing.Size(116, 23)
         Me.BranchButton.TabIndex = 10
@@ -141,7 +141,7 @@ Partial Class Home
         '
         'TypeButton
         '
-        Me.TypeButton.Location = New System.Drawing.Point(12, 275)
+        Me.TypeButton.Location = New System.Drawing.Point(12, 298)
         Me.TypeButton.Name = "TypeButton"
         Me.TypeButton.Size = New System.Drawing.Size(116, 23)
         Me.TypeButton.TabIndex = 11
@@ -152,7 +152,7 @@ Partial Class Home
         '
         Me.FaceBox.Location = New System.Drawing.Point(12, 12)
         Me.FaceBox.Name = "FaceBox"
-        Me.FaceBox.Size = New System.Drawing.Size(100, 141)
+        Me.FaceBox.Size = New System.Drawing.Size(116, 164)
         Me.FaceBox.TabIndex = 12
         Me.FaceBox.TabStop = False
         '
@@ -226,7 +226,7 @@ Partial Class Home
         '
         'BrowseButton
         '
-        Me.BrowseButton.Location = New System.Drawing.Point(12, 217)
+        Me.BrowseButton.Location = New System.Drawing.Point(12, 240)
         Me.BrowseButton.Name = "BrowseButton"
         Me.BrowseButton.Size = New System.Drawing.Size(116, 23)
         Me.BrowseButton.TabIndex = 14
@@ -237,7 +237,7 @@ Partial Class Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(910, 546)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.BrowseButton)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.FaceBox)
