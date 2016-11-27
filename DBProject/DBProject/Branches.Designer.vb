@@ -31,7 +31,7 @@ Partial Class Branches
         '
         'NewButton
         '
-        Me.NewButton.Location = New System.Drawing.Point(13, 13)
+        Me.NewButton.Location = New System.Drawing.Point(301, 172)
         Me.NewButton.Name = "NewButton"
         Me.NewButton.Size = New System.Drawing.Size(97, 23)
         Me.NewButton.TabIndex = 0
@@ -40,7 +40,7 @@ Partial Class Branches
         '
         'ModifyButton
         '
-        Me.ModifyButton.Location = New System.Drawing.Point(13, 43)
+        Me.ModifyButton.Location = New System.Drawing.Point(301, 202)
         Me.ModifyButton.Name = "ModifyButton"
         Me.ModifyButton.Size = New System.Drawing.Size(97, 23)
         Me.ModifyButton.TabIndex = 1
@@ -49,7 +49,7 @@ Partial Class Branches
         '
         'DeleteButton
         '
-        Me.DeleteButton.Location = New System.Drawing.Point(13, 73)
+        Me.DeleteButton.Location = New System.Drawing.Point(301, 232)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(97, 23)
         Me.DeleteButton.TabIndex = 2
@@ -59,7 +59,7 @@ Partial Class Branches
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(13, 103)
+        Me.HelpButton.Location = New System.Drawing.Point(301, 262)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(97, 23)
         Me.HelpButton.TabIndex = 3
@@ -68,7 +68,7 @@ Partial Class Branches
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(116, 103)
+        Me.CloseButton.Location = New System.Drawing.Point(301, 291)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(97, 23)
         Me.CloseButton.TabIndex = 4
@@ -79,7 +79,7 @@ Partial Class Branches
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.DeleteButton)
