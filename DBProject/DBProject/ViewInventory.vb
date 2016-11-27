@@ -82,7 +82,14 @@ Public Class ViewInventory
             vehicleInfo.Year = result("Year")
             vehicleInfo.Seats = result("Seats")
             vehicleInfo.Gvwr = result("GVWR")
-            vehicleInfo.Transmission = result("Transmission")
+            Dim transmission As String = result("Transmission")
+            If transmission IsNot Nothing Then
+                If transmission.Equals("1") Or transmission.ToLower().Equals("automatic") Then
+                    vehicleInfo.Transmission = "Automatic"
+                Else
+                    vehicleInfo.Transmission = "Standard"
+                End If
+            End If
             vehicleInfo.DailyRate = result("DailyRate")
             vehicleInfo.WeeklyRate = result("WeeklyRate")
             vehicleInfo.MonthlyRate = result("MonthlyRate")
