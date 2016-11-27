@@ -13,6 +13,16 @@ Public Class Inventory
     Private available As String
     Private coverage As String
     Private bid As String
+    Private imageUrl As String
+
+    Public Property ImageUrlProperty As String
+        Get
+            Return imageUrl
+        End Get
+        Set
+            imageUrl = Value
+        End Set
+    End Property
 
     Public Property VinProperty As String
         Get
@@ -137,7 +147,7 @@ Public Class Inventory
 
 
     Public Shared Function FindVehicle(vin As String) As Inventory
-        Dim checkSQL As String = "SELECT VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage, BID FROM Vehicle WHERE VIN = @vin"
+        Dim checkSQL As String = "SELECT VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage, BID, ImageUrl FROM Vehicle WHERE VIN = @vin"
         Dim returnedVin As String = ""
         Dim returnedMake As String
         Dim returnedModel As String
@@ -151,6 +161,7 @@ Public Class Inventory
         Dim returnedAvail As String
         Dim returnedCoverage As String
         Dim returnedBid As String
+        Dim returnedImgUrl As String
 
         Dim checkParams As New Dictionary(Of String, String)
         checkParams.Add("@vin", vin)
@@ -169,6 +180,7 @@ Public Class Inventory
             .Add("Available")
             .Add("Coverage")
             .Add("BID")
+            .Add("ImageUrl")
         End With
         For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(checkSQL, checkParams, checkColumns)
             returnedVin = result("VIN")
@@ -184,6 +196,7 @@ Public Class Inventory
             returnedAvail = result("Available")
             returnedCoverage = result("Coverage")
             returnedBid = result("BID")
+            returnedImgUrl = result("ImageUrl")
         Next
 
         If Not returnedVin.Equals(vin) Then
@@ -205,6 +218,7 @@ Public Class Inventory
             .AvailableProperty = returnedAvail
             .CoverageProperty = returnedCoverage
             .BidProperty = returnedBid
+            .ImageUrlProperty = returnedImgUrl
         End With
 
         Return newVehicle
