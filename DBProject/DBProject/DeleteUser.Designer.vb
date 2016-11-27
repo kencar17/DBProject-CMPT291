@@ -32,14 +32,14 @@ Partial Class DeleteUser
         '
         Me.UserSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.UserSelection.FormattingEnabled = True
-        Me.UserSelection.Location = New System.Drawing.Point(69, 12)
+        Me.UserSelection.Location = New System.Drawing.Point(208, 200)
         Me.UserSelection.Name = "UserSelection"
-        Me.UserSelection.Size = New System.Drawing.Size(121, 21)
+        Me.UserSelection.Size = New System.Drawing.Size(268, 21)
         Me.UserSelection.TabIndex = 0
         '
         'DeleteButton
         '
-        Me.DeleteButton.Location = New System.Drawing.Point(94, 39)
+        Me.DeleteButton.Location = New System.Drawing.Point(304, 227)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(75, 23)
         Me.DeleteButton.TabIndex = 1
@@ -48,7 +48,7 @@ Partial Class DeleteUser
         '
         'DoneButton
         '
-        Me.DoneButton.Location = New System.Drawing.Point(12, 68)
+        Me.DoneButton.Location = New System.Drawing.Point(401, 227)
         Me.DoneButton.Name = "DoneButton"
         Me.DoneButton.Size = New System.Drawing.Size(75, 23)
         Me.DoneButton.TabIndex = 2
@@ -57,7 +57,7 @@ Partial Class DeleteUser
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(176, 68)
+        Me.HelpButton.Location = New System.Drawing.Point(208, 227)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(75, 23)
         Me.HelpButton.TabIndex = 3
@@ -68,7 +68,7 @@ Partial Class DeleteUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(263, 103)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.DoneButton)
         Me.Controls.Add(Me.DeleteButton)
