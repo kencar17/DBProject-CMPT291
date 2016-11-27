@@ -61,8 +61,10 @@ Public Class UpdateUser
 
     Private Sub Init()
         UserSelection.Items.Clear()
+        FaceBox.Image = Nothing
+        PicturePath.Text = ""
 
-        Dim sql As String = "SELECT Username, Branch, FirstName, LastName, StreetAddress, PostalCode, City, State, Country, Email, EID FROM User JOIN Employee ON User.PersonID = Employee.EID"
+        Dim sql As String = "SELECT Username, Branch, FirstName, LastName, StreetAddress, PostalCode, City, State, Country, Email, EID, ImgUrl FROM User JOIN Employee ON User.PersonID = Employee.EID"
         Dim params As New Dictionary(Of String, String)
         Dim columns As New List(Of String)
         With columns
@@ -77,6 +79,7 @@ Public Class UpdateUser
             .Add("PostalCode")
             .Add("State")
             .Add("Branch")
+            .Add("ImgUrl")
         End With
         Dim results As List(Of Dictionary(Of String, String)) = SQLConnection.DoQuery(sql, params, columns)
         For Each result As Dictionary(Of String, String) In results
@@ -91,6 +94,7 @@ Public Class UpdateUser
             newUser.PostCodeProperty = result("PostalCode")
             newUser.StateProperty = result("State")
             newUser.BranchProperty = result("Branch")
+            newUser.ImgProperty = result("ImgUrl")
             UserSelection.Items.Add(newUser)
         Next
 
@@ -212,6 +216,8 @@ Public Class UpdateUser
                 Exit For
             End If
         Next
+
+        FaceBox.Load(selectedUser.ImgProperty)
     End Sub
 
     Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
@@ -233,6 +239,7 @@ Public Class UpdateUser
             If .ShowDialog() = DialogResult.OK Then
                 chosenFile = .FileName
                 PicturePath.Text = chosenFile
+                FaceBox.Load(chosenFile)
             End If
         End With
     End Sub
