@@ -56,6 +56,8 @@ Partial Class AddNewVehicle
         Me.ImageButton = New System.Windows.Forms.Button()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.ImageLabel = New System.Windows.Forms.Label()
+        Me.VehiclePicture = New System.Windows.Forms.PictureBox()
+        CType(Me.VehiclePicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -65,13 +67,13 @@ Partial Class AddNewVehicle
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(125, 13)
-        Me.Label1.TabIndex = 0
+        Me.Label1.TabIndex = 99
         Me.Label1.Text = "Enter Vehicle Information"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(87, 29)
+        Me.Label2.Location = New System.Drawing.Point(87, 93)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(25, 13)
@@ -80,80 +82,80 @@ Partial Class AddNewVehicle
         '
         'VINbox
         '
-        Me.VINbox.Location = New System.Drawing.Point(126, 29)
-        Me.VINbox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.VINbox.Location = New System.Drawing.Point(116, 90)
+        Me.VINbox.Margin = New System.Windows.Forms.Padding(2)
         Me.VINbox.Name = "VINbox"
         Me.VINbox.Size = New System.Drawing.Size(146, 20)
-        Me.VINbox.TabIndex = 1
+        Me.VINbox.TabIndex = 0
         '
         'GVWRBox
         '
-        Me.GVWRBox.Location = New System.Drawing.Point(126, 167)
-        Me.GVWRBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GVWRBox.Location = New System.Drawing.Point(388, 163)
+        Me.GVWRBox.Margin = New System.Windows.Forms.Padding(2)
         Me.GVWRBox.Name = "GVWRBox"
         Me.GVWRBox.Size = New System.Drawing.Size(146, 20)
-        Me.GVWRBox.TabIndex = 8
+        Me.GVWRBox.TabIndex = 7
         '
         'PlateBox
         '
-        Me.PlateBox.Location = New System.Drawing.Point(126, 205)
-        Me.PlateBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PlateBox.Location = New System.Drawing.Point(388, 186)
+        Me.PlateBox.Margin = New System.Windows.Forms.Padding(2)
         Me.PlateBox.Name = "PlateBox"
         Me.PlateBox.Size = New System.Drawing.Size(146, 20)
-        Me.PlateBox.TabIndex = 10
+        Me.PlateBox.TabIndex = 9
         '
         'CoverageBox
         '
-        Me.CoverageBox.Location = New System.Drawing.Point(126, 244)
-        Me.CoverageBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CoverageBox.Location = New System.Drawing.Point(388, 210)
+        Me.CoverageBox.Margin = New System.Windows.Forms.Padding(2)
         Me.CoverageBox.Name = "CoverageBox"
         Me.CoverageBox.Size = New System.Drawing.Size(146, 20)
-        Me.CoverageBox.TabIndex = 12
+        Me.CoverageBox.TabIndex = 11
         '
         'SeatsBox
         '
-        Me.SeatsBox.Location = New System.Drawing.Point(126, 148)
-        Me.SeatsBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SeatsBox.Location = New System.Drawing.Point(116, 162)
+        Me.SeatsBox.Margin = New System.Windows.Forms.Padding(2)
         Me.SeatsBox.Name = "SeatsBox"
         Me.SeatsBox.Size = New System.Drawing.Size(146, 20)
-        Me.SeatsBox.TabIndex = 7
+        Me.SeatsBox.TabIndex = 6
         '
         'YearBox
         '
-        Me.YearBox.Location = New System.Drawing.Point(126, 130)
-        Me.YearBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.YearBox.Location = New System.Drawing.Point(388, 139)
+        Me.YearBox.Margin = New System.Windows.Forms.Padding(2)
         Me.YearBox.Name = "YearBox"
         Me.YearBox.Size = New System.Drawing.Size(146, 20)
-        Me.YearBox.TabIndex = 6
+        Me.YearBox.TabIndex = 5
         '
         'KMBox
         '
-        Me.KMBox.Location = New System.Drawing.Point(126, 112)
-        Me.KMBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.KMBox.Location = New System.Drawing.Point(116, 138)
+        Me.KMBox.Margin = New System.Windows.Forms.Padding(2)
         Me.KMBox.Name = "KMBox"
         Me.KMBox.Size = New System.Drawing.Size(146, 20)
-        Me.KMBox.TabIndex = 5
+        Me.KMBox.TabIndex = 4
         '
         'ModelBox
         '
-        Me.ModelBox.Location = New System.Drawing.Point(126, 70)
-        Me.ModelBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ModelBox.Location = New System.Drawing.Point(116, 114)
+        Me.ModelBox.Margin = New System.Windows.Forms.Padding(2)
         Me.ModelBox.Name = "ModelBox"
         Me.ModelBox.Size = New System.Drawing.Size(146, 20)
-        Me.ModelBox.TabIndex = 3
+        Me.ModelBox.TabIndex = 2
         '
         'MakeBox
         '
-        Me.MakeBox.Location = New System.Drawing.Point(126, 49)
-        Me.MakeBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MakeBox.Location = New System.Drawing.Point(388, 90)
+        Me.MakeBox.Margin = New System.Windows.Forms.Padding(2)
         Me.MakeBox.Name = "MakeBox"
         Me.MakeBox.Size = New System.Drawing.Size(146, 20)
-        Me.MakeBox.TabIndex = 2
+        Me.MakeBox.TabIndex = 1
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(83, 51)
+        Me.Label3.Location = New System.Drawing.Point(266, 93)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(34, 13)
@@ -163,7 +165,7 @@ Partial Class AddNewVehicle
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(62, 228)
+        Me.Label4.Location = New System.Drawing.Point(62, 214)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(50, 13)
@@ -173,7 +175,7 @@ Partial Class AddNewVehicle
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 208)
+        Me.Label5.Location = New System.Drawing.Point(266, 189)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(111, 13)
@@ -183,7 +185,7 @@ Partial Class AddNewVehicle
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(49, 190)
+        Me.Label6.Location = New System.Drawing.Point(44, 189)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(68, 13)
@@ -193,7 +195,7 @@ Partial Class AddNewVehicle
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(76, 170)
+        Me.Label7.Location = New System.Drawing.Point(266, 165)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(41, 13)
@@ -203,7 +205,7 @@ Partial Class AddNewVehicle
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(30, 151)
+        Me.Label8.Location = New System.Drawing.Point(25, 162)
         Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(87, 13)
@@ -213,7 +215,7 @@ Partial Class AddNewVehicle
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(88, 133)
+        Me.Label9.Location = New System.Drawing.Point(266, 142)
         Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(29, 13)
@@ -223,7 +225,7 @@ Partial Class AddNewVehicle
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(89, 112)
+        Me.Label10.Location = New System.Drawing.Point(89, 141)
         Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(23, 13)
@@ -233,7 +235,7 @@ Partial Class AddNewVehicle
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(47, 91)
+        Me.Label11.Location = New System.Drawing.Point(266, 117)
         Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(70, 13)
@@ -243,7 +245,7 @@ Partial Class AddNewVehicle
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(81, 73)
+        Me.Label12.Location = New System.Drawing.Point(76, 117)
         Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(36, 13)
@@ -253,7 +255,7 @@ Partial Class AddNewVehicle
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(64, 247)
+        Me.Label13.Location = New System.Drawing.Point(266, 214)
         Me.Label13.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(53, 13)
@@ -262,11 +264,11 @@ Partial Class AddNewVehicle
         '
         'addVehicle
         '
-        Me.addVehicle.Location = New System.Drawing.Point(179, 351)
-        Me.addVehicle.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.addVehicle.Location = New System.Drawing.Point(117, 434)
+        Me.addVehicle.Margin = New System.Windows.Forms.Padding(2)
         Me.addVehicle.Name = "addVehicle"
         Me.addVehicle.Size = New System.Drawing.Size(93, 26)
-        Me.addVehicle.TabIndex = 13
+        Me.addVehicle.TabIndex = 14
         Me.addVehicle.Text = "Add Vehicle"
         Me.addVehicle.UseVisualStyleBackColor = True
         '
@@ -275,7 +277,7 @@ Partial Class AddNewVehicle
         Me.wrongInfo.AutoSize = True
         Me.wrongInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.wrongInfo.ForeColor = System.Drawing.Color.Red
-        Me.wrongInfo.Location = New System.Drawing.Point(28, 356)
+        Me.wrongInfo.Location = New System.Drawing.Point(323, 439)
         Me.wrongInfo.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.wrongInfo.Name = "wrongInfo"
         Me.wrongInfo.Size = New System.Drawing.Size(137, 17)
@@ -285,55 +287,58 @@ Partial Class AddNewVehicle
         '
         'GoBack
         '
-        Me.GoBack.Location = New System.Drawing.Point(298, 22)
-        Me.GoBack.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GoBack.Location = New System.Drawing.Point(226, 434)
+        Me.GoBack.Margin = New System.Windows.Forms.Padding(2)
         Me.GoBack.Name = "GoBack"
         Me.GoBack.Size = New System.Drawing.Size(93, 26)
-        Me.GoBack.TabIndex = 29
+        Me.GoBack.TabIndex = 16
         Me.GoBack.Text = "Back"
         Me.GoBack.UseVisualStyleBackColor = True
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(298, 51)
-        Me.HelpButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.HelpButton.Location = New System.Drawing.Point(9, 434)
+        Me.HelpButton.Margin = New System.Windows.Forms.Padding(2)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(93, 26)
-        Me.HelpButton.TabIndex = 30
+        Me.HelpButton.TabIndex = 15
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = True
         '
         'ClassCB
         '
+        Me.ClassCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ClassCB.FormattingEnabled = True
-        Me.ClassCB.Location = New System.Drawing.Point(126, 91)
-        Me.ClassCB.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ClassCB.Location = New System.Drawing.Point(388, 114)
+        Me.ClassCB.Margin = New System.Windows.Forms.Padding(2)
         Me.ClassCB.Name = "ClassCB"
         Me.ClassCB.Size = New System.Drawing.Size(146, 21)
-        Me.ClassCB.TabIndex = 4
+        Me.ClassCB.TabIndex = 3
         '
         'TransCB
         '
+        Me.TransCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.TransCB.FormattingEnabled = True
-        Me.TransCB.Location = New System.Drawing.Point(126, 187)
-        Me.TransCB.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TransCB.Location = New System.Drawing.Point(116, 186)
+        Me.TransCB.Margin = New System.Windows.Forms.Padding(2)
         Me.TransCB.Name = "TransCB"
         Me.TransCB.Size = New System.Drawing.Size(146, 21)
-        Me.TransCB.TabIndex = 9
+        Me.TransCB.TabIndex = 8
         '
         'AvailCB
         '
+        Me.AvailCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.AvailCB.FormattingEnabled = True
-        Me.AvailCB.Location = New System.Drawing.Point(126, 225)
-        Me.AvailCB.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.AvailCB.Location = New System.Drawing.Point(116, 211)
+        Me.AvailCB.Margin = New System.Windows.Forms.Padding(2)
         Me.AvailCB.Name = "AvailCB"
         Me.AvailCB.Size = New System.Drawing.Size(146, 21)
-        Me.AvailCB.TabIndex = 11
+        Me.AvailCB.TabIndex = 10
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(35, 269)
+        Me.Label14.Location = New System.Drawing.Point(30, 239)
         Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(82, 13)
@@ -342,26 +347,27 @@ Partial Class AddNewVehicle
         '
         'BranchCB
         '
+        Me.BranchCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.BranchCB.FormattingEnabled = True
-        Me.BranchCB.Location = New System.Drawing.Point(126, 266)
-        Me.BranchCB.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.BranchCB.Location = New System.Drawing.Point(116, 236)
+        Me.BranchCB.Margin = New System.Windows.Forms.Padding(2)
         Me.BranchCB.Name = "BranchCB"
         Me.BranchCB.Size = New System.Drawing.Size(146, 21)
-        Me.BranchCB.TabIndex = 13
+        Me.BranchCB.TabIndex = 12
         '
         'ImageButton
         '
-        Me.ImageButton.Location = New System.Drawing.Point(197, 292)
+        Me.ImageButton.Location = New System.Drawing.Point(424, 235)
         Me.ImageButton.Name = "ImageButton"
         Me.ImageButton.Size = New System.Drawing.Size(75, 23)
-        Me.ImageButton.TabIndex = 32
+        Me.ImageButton.TabIndex = 13
         Me.ImageButton.Text = "Select"
         Me.ImageButton.UseVisualStyleBackColor = True
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(81, 297)
+        Me.Label15.Location = New System.Drawing.Point(267, 239)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(36, 13)
         Me.Label15.TabIndex = 33
@@ -370,16 +376,26 @@ Partial Class AddNewVehicle
         'ImageLabel
         '
         Me.ImageLabel.AutoSize = True
-        Me.ImageLabel.Location = New System.Drawing.Point(123, 324)
+        Me.ImageLabel.Location = New System.Drawing.Point(268, 269)
         Me.ImageLabel.Name = "ImageLabel"
         Me.ImageLabel.Size = New System.Drawing.Size(0, 13)
         Me.ImageLabel.TabIndex = 34
+        '
+        'VehiclePicture
+        '
+        Me.VehiclePicture.Location = New System.Drawing.Point(28, 269)
+        Me.VehiclePicture.Name = "VehiclePicture"
+        Me.VehiclePicture.Size = New System.Drawing.Size(234, 155)
+        Me.VehiclePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.VehiclePicture.TabIndex = 100
+        Me.VehiclePicture.TabStop = False
         '
         'AddNewVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(460, 425)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
+        Me.Controls.Add(Me.VehiclePicture)
         Me.Controls.Add(Me.ImageLabel)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.ImageButton)
@@ -414,9 +430,10 @@ Partial Class AddNewVehicle
         Me.Controls.Add(Me.VINbox)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "AddNewVehicle"
         Me.Text = "AddNewVehicle"
+        CType(Me.VehiclePicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -456,4 +473,5 @@ Partial Class AddNewVehicle
     Friend WithEvents ImageButton As Button
     Friend WithEvents Label15 As Label
     Friend WithEvents ImageLabel As Label
+    Friend WithEvents VehiclePicture As PictureBox
 End Class
