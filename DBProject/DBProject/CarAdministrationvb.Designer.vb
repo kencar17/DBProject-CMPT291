@@ -30,27 +30,30 @@ Partial Class CarAdministrationvb
         '
         'AddVehicleB
         '
-        Me.AddVehicleB.Location = New System.Drawing.Point(12, 28)
+        Me.AddVehicleB.Location = New System.Drawing.Point(299, 196)
+        Me.AddVehicleB.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.AddVehicleB.Name = "AddVehicleB"
-        Me.AddVehicleB.Size = New System.Drawing.Size(204, 48)
+        Me.AddVehicleB.Size = New System.Drawing.Size(102, 25)
         Me.AddVehicleB.TabIndex = 0
         Me.AddVehicleB.Text = "Add Vehicle"
         Me.AddVehicleB.UseVisualStyleBackColor = True
         '
         'RemoveVehicleB
         '
-        Me.RemoveVehicleB.Location = New System.Drawing.Point(12, 136)
+        Me.RemoveVehicleB.Location = New System.Drawing.Point(299, 252)
+        Me.RemoveVehicleB.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.RemoveVehicleB.Name = "RemoveVehicleB"
-        Me.RemoveVehicleB.Size = New System.Drawing.Size(204, 48)
+        Me.RemoveVehicleB.Size = New System.Drawing.Size(102, 25)
         Me.RemoveVehicleB.TabIndex = 3
         Me.RemoveVehicleB.Text = "Remove Vehicle"
         Me.RemoveVehicleB.UseVisualStyleBackColor = True
         '
         'BackButton
         '
-        Me.BackButton.Location = New System.Drawing.Point(12, 461)
+        Me.BackButton.Location = New System.Drawing.Point(299, 281)
+        Me.BackButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BackButton.Name = "BackButton"
-        Me.BackButton.Size = New System.Drawing.Size(204, 48)
+        Me.BackButton.Size = New System.Drawing.Size(102, 25)
         Me.BackButton.TabIndex = 4
         Me.BackButton.Text = "Back"
         Me.BackButton.UseCompatibleTextRendering = True
@@ -58,22 +61,24 @@ Partial Class CarAdministrationvb
         '
         'UpdateButton
         '
-        Me.UpdateButton.Location = New System.Drawing.Point(12, 82)
+        Me.UpdateButton.Location = New System.Drawing.Point(299, 224)
+        Me.UpdateButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.UpdateButton.Name = "UpdateButton"
-        Me.UpdateButton.Size = New System.Drawing.Size(204, 48)
+        Me.UpdateButton.Size = New System.Drawing.Size(102, 25)
         Me.UpdateButton.TabIndex = 5
         Me.UpdateButton.Text = "Update Vehicle"
         Me.UpdateButton.UseVisualStyleBackColor = True
         '
         'CarAdministrationvb
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(620, 521)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.UpdateButton)
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.RemoveVehicleB)
         Me.Controls.Add(Me.AddVehicleB)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "CarAdministrationvb"
         Me.Text = "CarAdministrationvb"
         Me.ResumeLayout(False)
