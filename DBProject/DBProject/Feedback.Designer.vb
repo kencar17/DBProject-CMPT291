@@ -55,16 +55,16 @@ Partial Class Feedback
         '
         'TIDBox
         '
-        Me.TIDBox.Location = New System.Drawing.Point(126, 13)
+        Me.TIDBox.Location = New System.Drawing.Point(278, 116)
         Me.TIDBox.Name = "TIDBox"
-        Me.TIDBox.Size = New System.Drawing.Size(222, 20)
+        Me.TIDBox.Size = New System.Drawing.Size(260, 20)
         Me.TIDBox.TabIndex = 0
         '
         's1
         '
         Me.s1.Image = Global.DBProject.My.Resources.Resources.star
         Me.s1.InitialImage = Global.DBProject.My.Resources.Resources.star
-        Me.s1.Location = New System.Drawing.Point(12, 39)
+        Me.s1.Location = New System.Drawing.Point(164, 142)
         Me.s1.Name = "s1"
         Me.s1.Size = New System.Drawing.Size(32, 32)
         Me.s1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -75,7 +75,7 @@ Partial Class Feedback
         '
         Me.s2.Image = CType(resources.GetObject("s2.Image"), System.Drawing.Image)
         Me.s2.InitialImage = Global.DBProject.My.Resources.Resources.star_empty
-        Me.s2.Location = New System.Drawing.Point(50, 39)
+        Me.s2.Location = New System.Drawing.Point(202, 142)
         Me.s2.Name = "s2"
         Me.s2.Size = New System.Drawing.Size(32, 32)
         Me.s2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -86,7 +86,7 @@ Partial Class Feedback
         '
         Me.s3.Image = CType(resources.GetObject("s3.Image"), System.Drawing.Image)
         Me.s3.InitialImage = Global.DBProject.My.Resources.Resources.star_empty
-        Me.s3.Location = New System.Drawing.Point(88, 39)
+        Me.s3.Location = New System.Drawing.Point(240, 142)
         Me.s3.Name = "s3"
         Me.s3.Size = New System.Drawing.Size(32, 32)
         Me.s3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -97,7 +97,7 @@ Partial Class Feedback
         '
         Me.s4.Image = CType(resources.GetObject("s4.Image"), System.Drawing.Image)
         Me.s4.InitialImage = Global.DBProject.My.Resources.Resources.star_empty
-        Me.s4.Location = New System.Drawing.Point(126, 39)
+        Me.s4.Location = New System.Drawing.Point(278, 142)
         Me.s4.Name = "s4"
         Me.s4.Size = New System.Drawing.Size(32, 32)
         Me.s4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -108,7 +108,7 @@ Partial Class Feedback
         '
         Me.s5.Image = CType(resources.GetObject("s5.Image"), System.Drawing.Image)
         Me.s5.InitialImage = Global.DBProject.My.Resources.Resources.star_empty
-        Me.s5.Location = New System.Drawing.Point(164, 39)
+        Me.s5.Location = New System.Drawing.Point(316, 142)
         Me.s5.Name = "s5"
         Me.s5.Size = New System.Drawing.Size(32, 32)
         Me.s5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -119,7 +119,7 @@ Partial Class Feedback
         '
         Me.s6.Image = CType(resources.GetObject("s6.Image"), System.Drawing.Image)
         Me.s6.InitialImage = Global.DBProject.My.Resources.Resources.star_empty
-        Me.s6.Location = New System.Drawing.Point(202, 39)
+        Me.s6.Location = New System.Drawing.Point(354, 142)
         Me.s6.Name = "s6"
         Me.s6.Size = New System.Drawing.Size(32, 32)
         Me.s6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -130,7 +130,7 @@ Partial Class Feedback
         '
         Me.s7.Image = CType(resources.GetObject("s7.Image"), System.Drawing.Image)
         Me.s7.InitialImage = Global.DBProject.My.Resources.Resources.star_empty
-        Me.s7.Location = New System.Drawing.Point(240, 39)
+        Me.s7.Location = New System.Drawing.Point(392, 142)
         Me.s7.Name = "s7"
         Me.s7.Size = New System.Drawing.Size(32, 32)
         Me.s7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -141,7 +141,7 @@ Partial Class Feedback
         '
         Me.s8.Image = CType(resources.GetObject("s8.Image"), System.Drawing.Image)
         Me.s8.InitialImage = Global.DBProject.My.Resources.Resources.star_empty
-        Me.s8.Location = New System.Drawing.Point(278, 39)
+        Me.s8.Location = New System.Drawing.Point(430, 142)
         Me.s8.Name = "s8"
         Me.s8.Size = New System.Drawing.Size(32, 32)
         Me.s8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -152,7 +152,7 @@ Partial Class Feedback
         '
         Me.s9.Image = CType(resources.GetObject("s9.Image"), System.Drawing.Image)
         Me.s9.InitialImage = Global.DBProject.My.Resources.Resources.star_empty
-        Me.s9.Location = New System.Drawing.Point(316, 39)
+        Me.s9.Location = New System.Drawing.Point(468, 142)
         Me.s9.Name = "s9"
         Me.s9.Size = New System.Drawing.Size(32, 32)
         Me.s9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -163,7 +163,7 @@ Partial Class Feedback
         '
         Me.s10.Image = CType(resources.GetObject("s10.Image"), System.Drawing.Image)
         Me.s10.InitialImage = Global.DBProject.My.Resources.Resources.star_empty
-        Me.s10.Location = New System.Drawing.Point(354, 39)
+        Me.s10.Location = New System.Drawing.Point(506, 142)
         Me.s10.Name = "s10"
         Me.s10.Size = New System.Drawing.Size(32, 32)
         Me.s10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -172,16 +172,16 @@ Partial Class Feedback
         '
         'ReviewBox
         '
-        Me.ReviewBox.Location = New System.Drawing.Point(50, 78)
+        Me.ReviewBox.Location = New System.Drawing.Point(164, 181)
         Me.ReviewBox.MaxLength = 500
         Me.ReviewBox.Multiline = True
         Me.ReviewBox.Name = "ReviewBox"
-        Me.ReviewBox.Size = New System.Drawing.Size(298, 120)
+        Me.ReviewBox.Size = New System.Drawing.Size(374, 178)
         Me.ReviewBox.TabIndex = 11
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(12, 204)
+        Me.HelpButton.Location = New System.Drawing.Point(164, 365)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(75, 23)
         Me.HelpButton.TabIndex = 12
@@ -190,7 +190,7 @@ Partial Class Feedback
         '
         'SubmitButton
         '
-        Me.SubmitButton.Location = New System.Drawing.Point(164, 204)
+        Me.SubmitButton.Location = New System.Drawing.Point(316, 365)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(70, 23)
         Me.SubmitButton.TabIndex = 13
@@ -199,7 +199,7 @@ Partial Class Feedback
         '
         'CancelButton
         '
-        Me.CancelButton.Location = New System.Drawing.Point(311, 204)
+        Me.CancelButton.Location = New System.Drawing.Point(463, 365)
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(75, 23)
         Me.CancelButton.TabIndex = 14
@@ -209,7 +209,7 @@ Partial Class Feedback
         'CharCounter
         '
         Me.CharCounter.AutoSize = True
-        Me.CharCounter.Location = New System.Drawing.Point(161, 230)
+        Me.CharCounter.Location = New System.Drawing.Point(313, 391)
         Me.CharCounter.Name = "CharCounter"
         Me.CharCounter.Size = New System.Drawing.Size(42, 13)
         Me.CharCounter.TabIndex = 15
@@ -219,7 +219,7 @@ Partial Class Feedback
         'unusedLabelX
         '
         Me.unusedLabelX.AutoSize = True
-        Me.unusedLabelX.Location = New System.Drawing.Point(12, 16)
+        Me.unusedLabelX.Location = New System.Drawing.Point(164, 119)
         Me.unusedLabelX.Name = "unusedLabelX"
         Me.unusedLabelX.Size = New System.Drawing.Size(77, 13)
         Me.unusedLabelX.TabIndex = 16
@@ -229,7 +229,7 @@ Partial Class Feedback
         '
         Me.errorLabel.AutoSize = True
         Me.errorLabel.ForeColor = System.Drawing.Color.Red
-        Me.errorLabel.Location = New System.Drawing.Point(12, 230)
+        Me.errorLabel.Location = New System.Drawing.Point(164, 391)
         Me.errorLabel.Name = "errorLabel"
         Me.errorLabel.Size = New System.Drawing.Size(118, 13)
         Me.errorLabel.TabIndex = 17
@@ -240,7 +240,7 @@ Partial Class Feedback
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(398, 261)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.errorLabel)
         Me.Controls.Add(Me.unusedLabelX)
         Me.Controls.Add(Me.CharCounter)
