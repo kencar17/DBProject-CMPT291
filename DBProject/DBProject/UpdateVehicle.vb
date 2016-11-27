@@ -1,5 +1,8 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports Microsoft.VisualBasic.FileIO
+Imports MySql.Data.MySqlClient
 Public Class UpdateVehicle
+    Private chosenFile As String = ""
+
     Private Sub UpdateVehicle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim vsql As String = "SELECT Type FROM Types"
         Dim vparams As New Dictionary(Of String, String)
@@ -158,6 +161,17 @@ Public Class UpdateVehicle
         End With
         SQLConnection.DoNonQuery(sql, params)
 
+        If Not chosenFile.Equals("") Then
+            Dim uploadUrl As String = Faces.uploadVehicle(chosenFile)
+            Dim uploadSql As String = "UPDATE Vehicle SET ImageUrl=@url WHERE Vehicle.VIN = @vin"
+            Dim uploadParams As New Dictionary(Of String, String)
+            With uploadParams
+                .Add("@url", uploadUrl)
+                .Add("@vin", VINUpdate.Text)
+            End With
+            SQLConnection.DoNonQuery(uploadSql, uploadParams)
+        End If
+
         MsgBox("Vehicle Updated")
         Me.Close()
     End Sub
@@ -168,5 +182,20 @@ Public Class UpdateVehicle
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
         Help.GetHelp("UpdateVehicle")
+    End Sub
+
+    Private Sub ImageButton_Click(sender As Object, e As EventArgs) Handles ImageButton.Click
+        Dim fd As New OpenFileDialog
+
+        With fd
+            .Title = "Choose an image"
+            .InitialDirectory = SpecialDirectories.MyPictures
+            .Filter = "All Images (*.bmp, *.gif, *.jpg, *.jpeg, *.png)|*.bmp;*.gif;*.jpg;*.jpeg;*.png|BMP (*.bmp)|*.bmp|GIF (*.gif)|*.gif|JPEG (*.jpg, *.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png"
+
+            If .ShowDialog() = DialogResult.OK Then
+                chosenFile = .FileName
+                PicturePath.Text = chosenFile
+            End If
+        End With
     End Sub
 End Class

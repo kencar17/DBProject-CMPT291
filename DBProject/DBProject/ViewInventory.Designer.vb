@@ -44,7 +44,9 @@ Partial Class ViewInventory
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VehiclePicture = New System.Windows.Forms.PictureBox()
         CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VehiclePicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'backButton
@@ -249,11 +251,20 @@ Partial Class ViewInventory
         Me.Column9.ReadOnly = True
         Me.Column9.Width = 50
         '
+        'VehiclePicture
+        '
+        Me.VehiclePicture.Location = New System.Drawing.Point(578, 36)
+        Me.VehiclePicture.Name = "VehiclePicture"
+        Me.VehiclePicture.Size = New System.Drawing.Size(113, 75)
+        Me.VehiclePicture.TabIndex = 25
+        Me.VehiclePicture.TabStop = False
+        '
         'ViewInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(706, 487)
+        Me.Controls.Add(Me.VehiclePicture)
         Me.Controls.Add(Me.backButton)
         Me.Controls.Add(Me.stanRadio)
         Me.Controls.Add(Me.autoRadio)
@@ -269,6 +280,7 @@ Partial Class ViewInventory
         Me.Name = "ViewInventory"
         Me.Text = "View Inventory"
         CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VehiclePicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -295,4 +307,5 @@ Partial Class ViewInventory
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents VehiclePicture As PictureBox
 End Class

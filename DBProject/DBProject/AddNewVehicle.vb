@@ -1,5 +1,8 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports Microsoft.VisualBasic.FileIO
+Imports MySql.Data.MySqlClient
 Public Class AddNewVehicle
+    Dim chosenFile As String
+
     Private Sub AddNewVehicle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AcceptButton = Me.addVehicle
 
@@ -123,9 +126,14 @@ Public Class AddNewVehicle
             trans = "0"
         End If
 
+        Dim uploadUrl As String = "http://res.cloudinary.com/dmhf7fjrc/image/upload/c_scale,h_75,w_113/v1480226236/car-clipart-blue-toy-car-clipart_1_gkkjjn.png"
+        If Not chosenFile.Equals("") Then
+            uploadUrl = Faces.uploadVehicle(chosenFile)
+        End If
+
         Dim selectedBranch As Branch = BranchCB.SelectedItem
         Dim selectedClass As VehicleInfo = ClassCB.SelectedItem
-        Dim vehicleInsertSql As String = "INSERT INTO Vehicle (VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage, BID) VALUES (@vin, @make, @model, @class, @km, @year, @seats, @gvwr, @trans, @license, @avail, @coverage, @bid)"
+        Dim vehicleInsertSql As String = "INSERT INTO Vehicle (VIN, Make, Model, Class, Km, Year, Seats, GVWR, Transmission, License, Available, Coverage, BID, ImageUrl) VALUES (@vin, @make, @model, @class, @km, @year, @seats, @gvwr, @trans, @license, @avail, @coverage, @bid, @img)"
         Dim vehicleInsertParams As New Dictionary(Of String, String)
         With vehicleInsertParams
             .Add("@vin", VINbox.Text)
@@ -140,11 +148,12 @@ Public Class AddNewVehicle
             .Add("@license", PlateBox.Text)
             .Add("@avail", avail)
             .Add("@coverage", CoverageBox.Text)
-	    .Add("@bid", selectedBranch.BidProperty)
+            .Add("@bid", selectedBranch.BidProperty)
+            .Add("@img", uploadUrl)
         End With
         SQLConnection.DoNonQuery(vehicleInsertSql, vehicleInsertParams)
 
-	MsgBox("Vehicle Added")
+        MsgBox("Vehicle Added")
         Me.Close()
     End Sub
 
@@ -155,6 +164,21 @@ Public Class AddNewVehicle
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
         Help.GetHelp("addNewVehicle")
+    End Sub
+
+    Private Sub ImageButton_Click(sender As Object, e As EventArgs) Handles ImageButton.Click
+        Dim fd As New OpenFileDialog
+
+        With fd
+            .Title = "Choose an image"
+            .InitialDirectory = SpecialDirectories.MyPictures
+            .Filter = "All Images (*.bmp, *.gif, *.jpg, *.jpeg, *.png)|*.bmp;*.gif;*.jpg;*.jpeg;*.png|BMP (*.bmp)|*.bmp|GIF (*.gif)|*.gif|JPEG (*.jpg, *.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png"
+
+            If .ShowDialog() = DialogResult.OK Then
+                chosenFile = .FileName
+                ImageLabel.Text = chosenFile
+            End If
+        End With
     End Sub
 
     'FIDD.Items.Add(Something)

@@ -36,7 +36,9 @@ Partial Class ChooseRental
         Me.backButton = New System.Windows.Forms.Button()
         Me.nextButton = New System.Windows.Forms.Button()
         Me.helpButton = New System.Windows.Forms.Button()
+        Me.VehiclePicture = New System.Windows.Forms.PictureBox()
         CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VehiclePicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'vehicleTable
@@ -188,11 +190,20 @@ Partial Class ChooseRental
         Me.helpButton.Text = "Help"
         Me.helpButton.UseVisualStyleBackColor = True
         '
+        'VehiclePicture
+        '
+        Me.VehiclePicture.Location = New System.Drawing.Point(580, 20)
+        Me.VehiclePicture.Name = "VehiclePicture"
+        Me.VehiclePicture.Size = New System.Drawing.Size(113, 75)
+        Me.VehiclePicture.TabIndex = 14
+        Me.VehiclePicture.TabStop = False
+        '
         'ChooseRental
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(706, 487)
+        Me.Controls.Add(Me.VehiclePicture)
         Me.Controls.Add(Me.helpButton)
         Me.Controls.Add(Me.nextButton)
         Me.Controls.Add(Me.backButton)
@@ -211,6 +222,7 @@ Partial Class ChooseRental
         Me.Name = "ChooseRental"
         Me.Text = "ChooseRental"
         CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VehiclePicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -230,4 +242,5 @@ Partial Class ChooseRental
     Friend WithEvents backButton As Button
     Friend WithEvents nextButton As Button
     Friend WithEvents helpButton As Button
+    Friend WithEvents VehiclePicture As PictureBox
 End Class
