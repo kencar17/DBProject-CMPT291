@@ -29,7 +29,7 @@ Partial Class Backup
         '
         'BackupButton
         '
-        Me.BackupButton.Location = New System.Drawing.Point(13, 13)
+        Me.BackupButton.Location = New System.Drawing.Point(300, 204)
         Me.BackupButton.Name = "BackupButton"
         Me.BackupButton.Size = New System.Drawing.Size(96, 23)
         Me.BackupButton.TabIndex = 0
@@ -38,7 +38,7 @@ Partial Class Backup
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(13, 43)
+        Me.HelpButton.Location = New System.Drawing.Point(300, 234)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(96, 23)
         Me.HelpButton.TabIndex = 1
@@ -47,7 +47,7 @@ Partial Class Backup
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(13, 73)
+        Me.CloseButton.Location = New System.Drawing.Point(300, 264)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(96, 23)
         Me.CloseButton.TabIndex = 2
@@ -58,7 +58,7 @@ Partial Class Backup
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.BackupButton)
