@@ -34,21 +34,21 @@ Partial Class Form1
         '
         'UserBox
         '
-        Me.UserBox.Location = New System.Drawing.Point(260, 135)
+        Me.UserBox.Location = New System.Drawing.Point(296, 148)
         Me.UserBox.Name = "UserBox"
         Me.UserBox.Size = New System.Drawing.Size(100, 20)
         Me.UserBox.TabIndex = 0
         '
         'PassBox
         '
-        Me.PassBox.Location = New System.Drawing.Point(260, 161)
+        Me.PassBox.Location = New System.Drawing.Point(296, 174)
         Me.PassBox.Name = "PassBox"
         Me.PassBox.Size = New System.Drawing.Size(100, 20)
         Me.PassBox.TabIndex = 1
         '
         'SignInButton
         '
-        Me.SignInButton.Location = New System.Drawing.Point(260, 188)
+        Me.SignInButton.Location = New System.Drawing.Point(296, 201)
         Me.SignInButton.Name = "SignInButton"
         Me.SignInButton.Size = New System.Drawing.Size(100, 23)
         Me.SignInButton.TabIndex = 2
@@ -66,7 +66,7 @@ Partial Class Form1
         '
         'CheckButton
         '
-        Me.CheckButton.Location = New System.Drawing.Point(260, 217)
+        Me.CheckButton.Location = New System.Drawing.Point(296, 230)
         Me.CheckButton.Name = "CheckButton"
         Me.CheckButton.Size = New System.Drawing.Size(100, 23)
         Me.CheckButton.TabIndex = 5
@@ -75,7 +75,7 @@ Partial Class Form1
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(260, 304)
+        Me.CloseButton.Location = New System.Drawing.Point(296, 317)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(100, 23)
         Me.CloseButton.TabIndex = 6
@@ -84,7 +84,7 @@ Partial Class Form1
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(260, 275)
+        Me.HelpButton.Location = New System.Drawing.Point(296, 288)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(100, 23)
         Me.HelpButton.TabIndex = 7
@@ -93,7 +93,7 @@ Partial Class Form1
         '
         'RateButton
         '
-        Me.RateButton.Location = New System.Drawing.Point(260, 246)
+        Me.RateButton.Location = New System.Drawing.Point(296, 259)
         Me.RateButton.Name = "RateButton"
         Me.RateButton.Size = New System.Drawing.Size(100, 23)
         Me.RateButton.TabIndex = 8
@@ -104,7 +104,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(624, 441)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.RateButton)
         Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.CloseButton)
