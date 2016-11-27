@@ -150,6 +150,7 @@ Public Class ChooseLocation
 
         pickUpTime.Items.Add("00:00")
         dropOffTime.Items.Add("00:00")
+
         For time As Integer = 8 To 19
             Dim num As String = CStr(time)
             If time.Equals(8) OrElse time.Equals(9) Then
