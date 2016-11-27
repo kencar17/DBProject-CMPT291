@@ -27,14 +27,19 @@ Partial Class ChooseLocation
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.timeComboOne = New System.Windows.Forms.ComboBox()
+        Me.pickUpTime = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.timeComboTwo = New System.Windows.Forms.ComboBox()
+        Me.dropOffTime = New System.Windows.Forms.ComboBox()
         Me.nextButton = New System.Windows.Forms.Button()
         Me.backButton = New System.Windows.Forms.Button()
-        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
-        Me.MonthCalendar2 = New System.Windows.Forms.MonthCalendar()
+        Me.pickUp = New System.Windows.Forms.MonthCalendar()
+        Me.dropOff = New System.Windows.Forms.MonthCalendar()
         Me.helpButton = New System.Windows.Forms.Button()
+        Me.invalidPdate = New System.Windows.Forms.Label()
+        Me.invalidDDate = New System.Windows.Forms.Label()
+        Me.errorLocation = New System.Windows.Forms.Label()
+        Me.invalidPT = New System.Windows.Forms.Label()
+        Me.InvalidDT = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -58,7 +63,7 @@ Partial Class ChooseLocation
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(69, 102)
+        Me.Label2.Location = New System.Drawing.Point(69, 165)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(82, 25)
         Me.Label2.TabIndex = 3
@@ -67,7 +72,7 @@ Partial Class ChooseLocation
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(523, 102)
+        Me.Label3.Location = New System.Drawing.Point(523, 165)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(91, 25)
         Me.Label3.TabIndex = 4
@@ -76,40 +81,40 @@ Partial Class ChooseLocation
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(69, 444)
+        Me.Label4.Location = New System.Drawing.Point(69, 547)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(62, 25)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Time:"
         '
-        'timeComboOne
+        'pickUpTime
         '
-        Me.timeComboOne.FormattingEnabled = True
-        Me.timeComboOne.Location = New System.Drawing.Point(74, 478)
-        Me.timeComboOne.Name = "timeComboOne"
-        Me.timeComboOne.Size = New System.Drawing.Size(190, 32)
-        Me.timeComboOne.TabIndex = 7
+        Me.pickUpTime.FormattingEnabled = True
+        Me.pickUpTime.Location = New System.Drawing.Point(74, 575)
+        Me.pickUpTime.Name = "pickUpTime"
+        Me.pickUpTime.Size = New System.Drawing.Size(190, 32)
+        Me.pickUpTime.TabIndex = 7
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(523, 444)
+        Me.Label5.Location = New System.Drawing.Point(523, 547)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(62, 25)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Time:"
         '
-        'timeComboTwo
+        'dropOffTime
         '
-        Me.timeComboTwo.FormattingEnabled = True
-        Me.timeComboTwo.Location = New System.Drawing.Point(528, 478)
-        Me.timeComboTwo.Name = "timeComboTwo"
-        Me.timeComboTwo.Size = New System.Drawing.Size(195, 32)
-        Me.timeComboTwo.TabIndex = 9
+        Me.dropOffTime.FormattingEnabled = True
+        Me.dropOffTime.Location = New System.Drawing.Point(528, 575)
+        Me.dropOffTime.Name = "dropOffTime"
+        Me.dropOffTime.Size = New System.Drawing.Size(195, 32)
+        Me.dropOffTime.TabIndex = 9
         '
         'nextButton
         '
-        Me.nextButton.Location = New System.Drawing.Point(753, 575)
+        Me.nextButton.Location = New System.Drawing.Point(753, 699)
         Me.nextButton.Name = "nextButton"
         Me.nextButton.Size = New System.Drawing.Size(128, 39)
         Me.nextButton.TabIndex = 10
@@ -118,47 +123,104 @@ Partial Class ChooseLocation
         '
         'backButton
         '
-        Me.backButton.Location = New System.Drawing.Point(74, 575)
+        Me.backButton.Location = New System.Drawing.Point(79, 699)
         Me.backButton.Name = "backButton"
         Me.backButton.Size = New System.Drawing.Size(96, 39)
         Me.backButton.TabIndex = 11
         Me.backButton.Text = "Back"
         Me.backButton.UseVisualStyleBackColor = True
         '
-        'MonthCalendar1
+        'pickUp
         '
-        Me.MonthCalendar1.Location = New System.Drawing.Point(74, 138)
-        Me.MonthCalendar1.Name = "MonthCalendar1"
-        Me.MonthCalendar1.TabIndex = 12
+        Me.pickUp.Location = New System.Drawing.Point(74, 199)
+        Me.pickUp.MaxSelectionCount = 1
+        Me.pickUp.Name = "pickUp"
+        Me.pickUp.TabIndex = 12
         '
-        'MonthCalendar2
+        'dropOff
         '
-        Me.MonthCalendar2.Location = New System.Drawing.Point(528, 138)
-        Me.MonthCalendar2.Name = "MonthCalendar2"
-        Me.MonthCalendar2.TabIndex = 13
+        Me.dropOff.Location = New System.Drawing.Point(528, 199)
+        Me.dropOff.MaxSelectionCount = 1
+        Me.dropOff.Name = "dropOff"
+        Me.dropOff.TabIndex = 13
         '
         'helpButton
         '
-        Me.helpButton.Location = New System.Drawing.Point(197, 575)
+        Me.helpButton.Location = New System.Drawing.Point(192, 699)
         Me.helpButton.Name = "helpButton"
         Me.helpButton.Size = New System.Drawing.Size(96, 39)
         Me.helpButton.TabIndex = 14
         Me.helpButton.Text = "Help"
         Me.helpButton.UseVisualStyleBackColor = True
         '
+        'invalidPdate
+        '
+        Me.invalidPdate.AutoSize = True
+        Me.invalidPdate.Location = New System.Drawing.Point(69, 505)
+        Me.invalidPdate.Name = "invalidPdate"
+        Me.invalidPdate.Size = New System.Drawing.Size(186, 25)
+        Me.invalidPdate.TabIndex = 15
+        Me.invalidPdate.Text = "*Invalid Pickup Date"
+        Me.invalidPdate.Visible = False
+        '
+        'invalidDDate
+        '
+        Me.invalidDDate.AutoSize = True
+        Me.invalidDDate.Location = New System.Drawing.Point(523, 505)
+        Me.invalidDDate.Name = "invalidDDate"
+        Me.invalidDDate.Size = New System.Drawing.Size(195, 25)
+        Me.invalidDDate.TabIndex = 16
+        Me.invalidDDate.Text = "*Invalid DropOff Date"
+        Me.invalidDDate.Visible = False
+        '
+        'errorLocation
+        '
+        Me.errorLocation.AutoSize = True
+        Me.errorLocation.Location = New System.Drawing.Point(235, 97)
+        Me.errorLocation.Name = "errorLocation"
+        Me.errorLocation.Size = New System.Drawing.Size(282, 25)
+        Me.errorLocation.TabIndex = 17
+        Me.errorLocation.Text = "*Please select Branch Lcoation"
+        Me.errorLocation.Visible = False
+        '
+        'invalidPT
+        '
+        Me.invalidPT.AutoSize = True
+        Me.invalidPT.Location = New System.Drawing.Point(74, 614)
+        Me.invalidPT.Name = "invalidPT"
+        Me.invalidPT.Size = New System.Drawing.Size(205, 25)
+        Me.invalidPT.TabIndex = 18
+        Me.invalidPT.Text = "*Please Select a Time"
+        Me.invalidPT.Visible = False
+        '
+        'InvalidDT
+        '
+        Me.InvalidDT.AutoSize = True
+        Me.InvalidDT.Location = New System.Drawing.Point(528, 614)
+        Me.InvalidDT.Name = "InvalidDT"
+        Me.InvalidDT.Size = New System.Drawing.Size(205, 25)
+        Me.InvalidDT.TabIndex = 19
+        Me.InvalidDT.Text = "*Please Select a Time"
+        Me.InvalidDT.Visible = False
+        '
         'ChooseLocation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(934, 709)
+        Me.ClientSize = New System.Drawing.Size(1062, 857)
+        Me.Controls.Add(Me.InvalidDT)
+        Me.Controls.Add(Me.invalidPT)
+        Me.Controls.Add(Me.errorLocation)
+        Me.Controls.Add(Me.invalidDDate)
+        Me.Controls.Add(Me.invalidPdate)
         Me.Controls.Add(Me.helpButton)
-        Me.Controls.Add(Me.MonthCalendar2)
-        Me.Controls.Add(Me.MonthCalendar1)
+        Me.Controls.Add(Me.dropOff)
+        Me.Controls.Add(Me.pickUp)
         Me.Controls.Add(Me.backButton)
         Me.Controls.Add(Me.nextButton)
-        Me.Controls.Add(Me.timeComboTwo)
+        Me.Controls.Add(Me.dropOffTime)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.timeComboOne)
+        Me.Controls.Add(Me.pickUpTime)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -176,12 +238,17 @@ Partial Class ChooseLocation
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents timeComboOne As ComboBox
+    Friend WithEvents pickUpTime As ComboBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents timeComboTwo As ComboBox
+    Friend WithEvents dropOffTime As ComboBox
     Friend WithEvents nextButton As Button
     Friend WithEvents backButton As Button
-    Friend WithEvents MonthCalendar1 As MonthCalendar
-    Friend WithEvents MonthCalendar2 As MonthCalendar
+    Friend WithEvents pickUp As MonthCalendar
+    Friend WithEvents dropOff As MonthCalendar
     Friend WithEvents helpButton As Button
+    Friend WithEvents invalidPdate As Label
+    Friend WithEvents invalidDDate As Label
+    Friend WithEvents errorLocation As Label
+    Friend WithEvents invalidPT As Label
+    Friend WithEvents InvalidDT As Label
 End Class

@@ -237,6 +237,7 @@
     <Compile Include="RemoveVehicle.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RentalInfo.vb" />
     <Compile Include="Reports.Designer.vb">
       <DependentUpon>Reports.vb</DependentUpon>
     </Compile>

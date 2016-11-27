@@ -9,6 +9,8 @@
     Private email As String
     'Private phone As String
     Private age As String
+    Private Creditcard As String
+    Private CVV As String
 
 
     Public Property FnameProperty As String
@@ -98,6 +100,24 @@
         End Get
         Set
             age = Value
+        End Set
+    End Property
+
+    Public Property CreditcardProperty As String
+        Get
+            Return Creditcard
+        End Get
+        Set
+            Creditcard = Value
+        End Set
+    End Property
+
+    Public Property CVVProperty As String
+        Get
+            Return CVV
+        End Get
+        Set
+            CVV = Value
         End Set
     End Property
 

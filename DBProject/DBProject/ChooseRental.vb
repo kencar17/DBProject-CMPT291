@@ -1,6 +1,16 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class ChooseRental
     Private callingForm As ChooseLocation
+    Private rental As RentalInfo
+
+    Public Property RentalProperty As RentalInfo
+        Get
+            Return rental
+        End Get
+        Set
+            rental = Value
+        End Set
+    End Property
 
     Public WriteOnly Property CallingFormProperty As ChooseLocation
         Set
@@ -32,6 +42,13 @@ Public Class ChooseRental
     End Sub
 
     Private Sub ChooseRental_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Console.WriteLine(rental.PickUpProperty)
+        Console.WriteLine(rental.PickUpTimeProperty)
+        Console.WriteLine(rental.DropOffProperty)
+        Console.WriteLine(rental.DropOffTimeProperty)
+        Console.WriteLine(rental.LocationProperty)
+        Console.WriteLine()
+
         seatsCombo.Items.Add("All")
         For seat As Integer = 1 To 4
             seatsCombo.Items.Add(seat)

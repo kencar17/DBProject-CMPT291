@@ -1,6 +1,16 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class createOrder
     Private callingForm As ChooseRental
+    Private rental As RentalInfo
+
+    Public Property RentalProperty As RentalInfo
+        Get
+            Return rental
+        End Get
+        Set
+            rental = Value
+        End Set
+    End Property
 
     Public WriteOnly Property CallingFormProperty As ChooseRental
         Set
