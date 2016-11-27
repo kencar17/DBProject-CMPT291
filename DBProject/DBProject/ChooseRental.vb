@@ -84,7 +84,8 @@ Public Class ChooseRental
     End Sub
 
     Sub populateVehiclesTable(sqlText As String)
-        vehicleTable.Rows.Clear()
+        'vehicleTable.Rows.Clear()
+        Dim vehiclesList = New List(Of VehicleInfo)
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
         dbconn = SQLConnection.Instance.GetConnection()
         Using sqlComm As New MySqlCommand()
@@ -135,13 +136,18 @@ Public Class ChooseRental
             vehicleInfo.WeeklyRateProperty = result("WeeklyRate")
             vehicleInfo.MonthlyRateProperty = result("MonthlyRate")
 
-            Dim row = New String() {vehicleInfo.MakeProperty, vehicleInfo.ModelProperty,
-                                  vehicleInfo.VClassProperty, vehicleInfo.YearProperty,
-                                  vehicleInfo.SeatsProperty, vehicleInfo.TransmissionProperty,
-                                  vehicleInfo.GvwrProperty, vehicleInfo.DailyRateProperty,
-                                  vehicleInfo.WeeklyRateProperty, vehicleInfo.MonthlyRateProperty}
-            vehicleTable.Rows.Add(row)
+            vehiclesList.Add(vehicleInfo)
+
+            'Dim row = New String() {vehicleInfo.MakeProperty, vehicleInfo.ModelProperty,
+            'vehicleInfo.VClassProperty, vehicleInfo.YearProperty,
+            'vehicleInfo.SeatsProperty, vehicleInfo.TransmissionProperty,
+            'vehicleInfo.GvwrProperty, vehicleInfo.DailyRateProperty,
+            'vehicleInfo.WeeklyRateProperty, vehicleInfo.MonthlyRateProperty}
+
+            'vehicleTable.Rows.Add(row)
         Next
+        vehicleTable.DataSource = vehiclesList
+
     End Sub
 
     Public Function buildQueryString()
@@ -185,14 +191,14 @@ Public Class ChooseRental
     End Function
 
     Private Sub makeCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles makeCombo.SelectedIndexChanged
-        vehicleTable.Rows.Clear()
+
         If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
             populateVehiclesTable(buildQueryString())
         End If
     End Sub
 
     Private Sub typeCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles typeCombo.SelectedIndexChanged
-        vehicleTable.Rows.Clear()
+
         If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
             populateVehiclesTable(buildQueryString())
         End If

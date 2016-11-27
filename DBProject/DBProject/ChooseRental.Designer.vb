@@ -23,16 +23,6 @@ Partial Class ChooseRental
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.vehicleTable = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.typeCombo = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -52,73 +42,12 @@ Partial Class ChooseRental
         'vehicleTable
         '
         Me.vehicleTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.vehicleTable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column10, Me.Column8, Me.Column9})
         Me.vehicleTable.Location = New System.Drawing.Point(51, 195)
         Me.vehicleTable.MinimumSize = New System.Drawing.Size(1047, 532)
         Me.vehicleTable.Name = "vehicleTable"
         Me.vehicleTable.RowTemplate.Height = 31
         Me.vehicleTable.Size = New System.Drawing.Size(1219, 532)
         Me.vehicleTable.TabIndex = 0
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Make"
-        Me.Column1.Name = "Column1"
-        Me.Column1.Width = 75
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Model"
-        Me.Column2.Name = "Column2"
-        Me.Column2.Width = 75
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Class"
-        Me.Column3.Name = "Column3"
-        Me.Column3.Width = 75
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Year"
-        Me.Column4.Name = "Column4"
-        Me.Column4.Width = 50
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Seats"
-        Me.Column5.Name = "Column5"
-        Me.Column5.Width = 50
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Transmisson"
-        Me.Column6.Name = "Column6"
-        Me.Column6.Width = 75
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "GVWR"
-        Me.Column7.Name = "Column7"
-        Me.Column7.Width = 50
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "Daily Rate"
-        Me.Column10.Name = "Column10"
-        Me.Column10.Width = 50
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Weekly Rate"
-        Me.Column8.Name = "Column8"
-        Me.Column8.Width = 50
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Monthly Rate"
-        Me.Column9.Name = "Column9"
-        Me.Column9.Width = 50
         '
         'Label1
         '
@@ -283,15 +212,5 @@ Partial Class ChooseRental
     Friend WithEvents stanRadio As RadioButton
     Friend WithEvents backButton As Button
     Friend WithEvents nextButton As Button
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents helpButton As Button
 End Class
