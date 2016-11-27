@@ -182,18 +182,9 @@ Public Class ChooseRental
         Return newQuery
     End Function
 
-    Private Sub makeCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles makeCombo.SelectedIndexChanged
-
+    Private Sub makeCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles makeCombo.SelectedIndexChanged, typeCombo.SelectedIndexChanged, BothRadio.CheckedChanged, autoRadio.CheckedChanged, stanRadio.CheckedChanged
         If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
             populateVehiclesTable(buildQueryString())
         End If
     End Sub
-
-    Private Sub typeCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles typeCombo.SelectedIndexChanged
-
-        If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
-            populateVehiclesTable(buildQueryString())
-        End If
-    End Sub
-
 End Class
