@@ -182,5 +182,7 @@ Public Class AddNewUser
                 FaceBox.Load(chosenFile)
             End If
         End With
+
+        FaceBox.Load(chosenFile)
     End Sub
 End Class
