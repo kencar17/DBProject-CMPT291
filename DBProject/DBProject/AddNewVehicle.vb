@@ -177,6 +177,7 @@ Public Class AddNewVehicle
             If .ShowDialog() = DialogResult.OK Then
                 chosenFile = .FileName
                 ImageLabel.Text = chosenFile
+                VehiclePicture.Load(chosenFile)
             End If
         End With
     End Sub
