@@ -135,22 +135,15 @@ Public Class ViewInventory
         If BothRadio.Checked = True Then
             ' Do nothing
         ElseIf autoRadio.Checked = True Then
-            newQuery = newQuery & " and Vehicle.Transmission = 'Automatic'"
+            newQuery = newQuery & " and Vehicle.Transmission = '1'"
         ElseIf stanRadio.Checked = True Then
-            newQuery = newQuery & " and Vehicle.Transmission = 'Standard'"
+            newQuery = newQuery & " and Vehicle.Transmission = '0'"
         End If
 
         Return newQuery
     End Function
 
-    Private Sub makeCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles makeCombo.SelectedIndexChanged
-        vehicleTable.Rows.Clear()
-        If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
-            populateVehiclesTable(buildQueryString())
-        End If
-    End Sub
-
-    Private Sub typeCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles typeCombo.SelectedIndexChanged
+    Private Sub makeCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles makeCombo.SelectedIndexChanged, typeCombo.SelectedIndexChanged, BothRadio.CheckedChanged, autoRadio.CheckedChanged, stanRadio.CheckedChanged
         vehicleTable.Rows.Clear()
         If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
             populateVehiclesTable(buildQueryString())
