@@ -14,6 +14,7 @@ Public Class AddNewUser
 
     Private Sub AddNewUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.WindowState = FormWindowState.Maximized
+        PicturePath.TabStop = False
         Me.AcceptButton = SubmitButton
         SendMessage(Me.UsernameBox.Handle, &H1501, 0, "Username")
         SendMessage(Me.PassBox.Handle, &H1501, 0, "Password")
@@ -179,5 +180,7 @@ Public Class AddNewUser
                 PicturePath.Text = chosenFile
             End If
         End With
+
+        FaceBox.Load(chosenFile)
     End Sub
 End Class
