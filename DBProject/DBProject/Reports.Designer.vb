@@ -38,7 +38,7 @@ Partial Class Reports
         '
         'ViewUsersButton
         '
-        Me.ViewUsersButton.Location = New System.Drawing.Point(208, 117)
+        Me.ViewUsersButton.Location = New System.Drawing.Point(250, 138)
         Me.ViewUsersButton.Name = "ViewUsersButton"
         Me.ViewUsersButton.Size = New System.Drawing.Size(75, 23)
         Me.ViewUsersButton.TabIndex = 0
@@ -47,7 +47,7 @@ Partial Class Reports
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(208, 301)
+        Me.HelpButton.Location = New System.Drawing.Point(250, 322)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(75, 23)
         Me.HelpButton.TabIndex = 1
@@ -56,7 +56,7 @@ Partial Class Reports
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(289, 301)
+        Me.CloseButton.Location = New System.Drawing.Point(331, 322)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 2
@@ -65,7 +65,7 @@ Partial Class Reports
         '
         'FeedbackButton
         '
-        Me.FeedbackButton.Location = New System.Drawing.Point(208, 147)
+        Me.FeedbackButton.Location = New System.Drawing.Point(250, 168)
         Me.FeedbackButton.Name = "FeedbackButton"
         Me.FeedbackButton.Size = New System.Drawing.Size(75, 23)
         Me.FeedbackButton.TabIndex = 3
@@ -77,9 +77,9 @@ Partial Class Reports
         Me.Panel1.Controls.Add(Me.BothOption)
         Me.Panel1.Controls.Add(Me.ExcelOption)
         Me.Panel1.Controls.Add(Me.PDFOption)
-        Me.Panel1.Location = New System.Drawing.Point(309, 117)
+        Me.Panel1.Location = New System.Drawing.Point(351, 138)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(137, 100)
+        Me.Panel1.Size = New System.Drawing.Size(62, 100)
         Me.Panel1.TabIndex = 4
         '
         'BothOption
@@ -116,7 +116,7 @@ Partial Class Reports
         '
         'BranchButton
         '
-        Me.BranchButton.Location = New System.Drawing.Point(208, 177)
+        Me.BranchButton.Location = New System.Drawing.Point(250, 198)
         Me.BranchButton.Name = "BranchButton"
         Me.BranchButton.Size = New System.Drawing.Size(75, 23)
         Me.BranchButton.TabIndex = 5
@@ -125,7 +125,7 @@ Partial Class Reports
         '
         'TypeButton
         '
-        Me.TypeButton.Location = New System.Drawing.Point(207, 206)
+        Me.TypeButton.Location = New System.Drawing.Point(249, 227)
         Me.TypeButton.Name = "TypeButton"
         Me.TypeButton.Size = New System.Drawing.Size(76, 23)
         Me.TypeButton.TabIndex = 6
@@ -134,7 +134,7 @@ Partial Class Reports
         '
         'VehicleButton
         '
-        Me.VehicleButton.Location = New System.Drawing.Point(208, 235)
+        Me.VehicleButton.Location = New System.Drawing.Point(250, 256)
         Me.VehicleButton.Name = "VehicleButton"
         Me.VehicleButton.Size = New System.Drawing.Size(75, 23)
         Me.VehicleButton.TabIndex = 7
