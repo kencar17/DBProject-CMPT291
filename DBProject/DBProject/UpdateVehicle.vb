@@ -47,6 +47,13 @@ Public Class UpdateVehicle
         Dim avail As String
         Dim trans As String
 
+        Dim vin As String = VinBox.SelectedItem
+        If vin Is Nothing OrElse vin.Equals("") Then
+            ErrorLabel.Text = "A vehicle muse be selected"
+            ErrorLabel.Visible = True
+            Return
+        End If
+
         If MakeBox.Text.Equals("") Then
             ErrorLabel.Text = "A vehicle make must be given"
             Me.ErrorLabel.Visible = True
@@ -101,7 +108,6 @@ Public Class UpdateVehicle
         Else
             trans = "0"
         End If
-        Dim vin As String = VinBox.SelectedItem
 
         Dim abranch As Branch = BranchCB.SelectedItem
         Console.WriteLine("~~~~~~~~~~~~" & abranch.BidProperty & "~~~~~~~~~~~~")
@@ -173,6 +179,20 @@ Public Class UpdateVehicle
             Return
         End If
 
+        MakeBox.Enabled = True
+        ModelBox.Enabled = True
+        ClassCB.Enabled = True
+        KmBox.Enabled = True
+        YearBox.Enabled = True
+        SeatBox.Enabled = True
+        GVWRBox.Enabled = True
+        TransCB.Enabled = True
+        PlateBox.Enabled = True
+        AvailCB.Enabled = True
+        CoverageBox.Enabled = True
+        BranchCB.Enabled = True
+        ImageButton.Enabled = True
+        SubmitButton.Enabled = True
 
         MakeBox.Text = vehicle.MakeProperty
         ModelBox.Text = vehicle.ModelProperty
