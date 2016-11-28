@@ -46,14 +46,15 @@ Partial Class createOrder
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.creditCardTextbox = New System.Windows.Forms.TextBox()
+        Me.cvvTextbox = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.existingTextfield = New System.Windows.Forms.TextBox()
         Me.existingCustomers = New System.Windows.Forms.ListBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.searchButton = New System.Windows.Forms.Button()
+        Me.clearButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'nextButton
@@ -256,19 +257,19 @@ Partial Class createOrder
         Me.Label8.TabIndex = 23
         Me.Label8.Text = "CVV:"
         '
-        'TextBox1
+        'creditCardTextbox
         '
-        Me.TextBox1.Location = New System.Drawing.Point(215, 585)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(180, 29)
-        Me.TextBox1.TabIndex = 24
+        Me.creditCardTextbox.Location = New System.Drawing.Point(215, 585)
+        Me.creditCardTextbox.Name = "creditCardTextbox"
+        Me.creditCardTextbox.Size = New System.Drawing.Size(180, 29)
+        Me.creditCardTextbox.TabIndex = 24
         '
-        'TextBox2
+        'cvvTextbox
         '
-        Me.TextBox2.Location = New System.Drawing.Point(215, 635)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 29)
-        Me.TextBox2.TabIndex = 25
+        Me.cvvTextbox.Location = New System.Drawing.Point(215, 635)
+        Me.cvvTextbox.Name = "cvvTextbox"
+        Me.cvvTextbox.Size = New System.Drawing.Size(100, 29)
+        Me.cvvTextbox.TabIndex = 25
         '
         'Label9
         '
@@ -316,26 +317,36 @@ Partial Class createOrder
         '
         'searchButton
         '
-        Me.searchButton.Location = New System.Drawing.Point(215, 188)
+        Me.searchButton.Location = New System.Drawing.Point(215, 142)
         Me.searchButton.Name = "searchButton"
         Me.searchButton.Size = New System.Drawing.Size(161, 41)
         Me.searchButton.TabIndex = 31
         Me.searchButton.Text = "Search"
         Me.searchButton.UseVisualStyleBackColor = True
         '
+        'clearButton
+        '
+        Me.clearButton.Location = New System.Drawing.Point(214, 189)
+        Me.clearButton.Name = "clearButton"
+        Me.clearButton.Size = New System.Drawing.Size(162, 40)
+        Me.clearButton.TabIndex = 32
+        Me.clearButton.Text = "Clear"
+        Me.clearButton.UseVisualStyleBackColor = True
+        '
         'createOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(927, 826)
+        Me.Controls.Add(Me.clearButton)
         Me.Controls.Add(Me.searchButton)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.existingCustomers)
         Me.Controls.Add(Me.existingTextfield)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.cvvTextbox)
+        Me.Controls.Add(Me.creditCardTextbox)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -391,12 +402,13 @@ Partial Class createOrder
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents creditCardTextbox As TextBox
+    Friend WithEvents cvvTextbox As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents existingTextfield As TextBox
     Friend WithEvents existingCustomers As ListBox
     Friend WithEvents Button1 As Button
     Friend WithEvents searchButton As Button
+    Friend WithEvents clearButton As Button
 End Class
