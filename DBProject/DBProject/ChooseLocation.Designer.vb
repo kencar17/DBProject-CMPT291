@@ -89,6 +89,7 @@ Partial Class ChooseLocation
         '
         'pickUpTime
         '
+        Me.pickUpTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.pickUpTime.FormattingEnabled = True
         Me.pickUpTime.Location = New System.Drawing.Point(74, 575)
         Me.pickUpTime.Name = "pickUpTime"
@@ -106,6 +107,7 @@ Partial Class ChooseLocation
         '
         'dropOffTime
         '
+        Me.dropOffTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.dropOffTime.FormattingEnabled = True
         Me.dropOffTime.Location = New System.Drawing.Point(528, 575)
         Me.dropOffTime.Name = "dropOffTime"

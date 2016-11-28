@@ -44,52 +44,98 @@ Public Class ChooseRental
         callingForm.doAThing()
     End Sub
 
-    Private Sub seatsCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles seatsCombo.SelectedIndexChanged
-        vehicleTable.Rows.Clear()
-        If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
-            populateVehiclesTable(buildQueryString())
-        End If
-    End Sub
-
     Private Sub ChooseRental_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Console.WriteLine(rental.PickUpProperty)
-        Console.WriteLine(rental.PickUpTimeProperty)
-        Console.WriteLine(rental.DropOffProperty)
-        Console.WriteLine(rental.DropOffTimeProperty)
-        Console.WriteLine(rental.LocationProperty)
-        Console.WriteLine()
 
-        seatsCombo.Items.Add("All")
+        Dim seatsList = New List(Of String)
+        seatsList.Add("All")
         For seat As Integer = 1 To 4
-            seatsCombo.Items.Add(seat)
+            seatsList.Add(seat.ToString)
         Next
+        seatsCombo.DataSource = seatsList
         seatsCombo.SelectedItem = "All"
 
-        typeCombo.Items.Add("All")
-        Dim typeSql As String = "SELECT Type FROM Types"
-        Dim typeParams As New Dictionary(Of String, String)
-        Dim typeColumns As New List(Of String)
-        typeColumns.Add("Type")
-        For Each result In SQLConnection.DoQuery(typeSql, typeParams, typeColumns)
-            typeCombo.Items.Add(result("Type"))
-        Next
-        typeCombo.SelectedItem = "All"
+        Dim branch As String = RentalProperty.LocationProperty.BidProperty
+        Dim sqltext As String = "SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, Coverage, DailyRate, WeeklyRate, MonthlyRate
+                                FROM Vehicle, Types where Vehicle.Class = Types.Type and Vehicle.Available = 1 and Vehicle.BID = " & branch
 
-        makeCombo.Items.Add("All")
-        Dim makeSql As String = "SELECT DISTINCT Make FROM Vehicle"
-        Dim makeParams As New Dictionary(Of String, String)
-        Dim makeColumns As New List(Of String)
-        makeColumns.Add("Make")
-        For Each result In SQLConnection.DoQuery(makeSql, makeParams, makeColumns)
-            makeCombo.Items.Add(result("Make"))
+        Dim vehiclesList = New List(Of VehicleInfo)
+        Dim makeList = New List(Of String)
+        makeList.Add("All")
+        Dim typeList = New List(Of String)
+        typeList.Add("All")
+        Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
+        dbconn = SQLConnection.Instance.GetConnection()
+        Using sqlComm As New MySqlCommand()
+            With sqlComm
+                .Connection = dbconn
+                .CommandText = sqltext
+                .CommandType = CommandType.Text
+            End With
+            Try
+                Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+                While sqlReader.Read()
+                End While
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End Using
+        SQLConnection.Instance.CloseConnection()
+        Dim params As New Dictionary(Of String, String)
+        Dim columns As New List(Of String)
+        With columns
+            .Add("Make")
+            .Add("Model")
+            .Add("Class")
+            .Add("Year")
+            .Add("Seats")
+            .Add("GVWR")
+            .Add("Transmission")
+            .Add("Coverage")
+            .Add("DailyRate")
+            .Add("WeeklyRate")
+            .Add("MonthlyRate")
+        End With
+        For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(sqltext, params, columns)
+            Dim vehicleInfo As New VehicleInfo
+            vehicleInfo.Make = result("Make")
+            vehicleInfo.Model = result("Model")
+            vehicleInfo.VClass = result("Class")
+            vehicleInfo.Year = result("Year")
+            vehicleInfo.Seats = result("Seats")
+            vehicleInfo.Gvwr = result("GVWR")
+            Dim transmission As String = ""
+            If result("Transmission").Equals("0") Then
+                transmission = "Manual"
+            Else
+                transmission = "Automatic"
+            End If
+            vehicleInfo.Transmission = transmission
+            vehicleInfo.Coverage = result("Coverage")
+            vehicleInfo.DailyRate = result("DailyRate")
+            vehicleInfo.WeeklyRate = result("WeeklyRate")
+            vehicleInfo.MonthlyRate = result("MonthlyRate")
+
+            vehiclesList.Add(vehicleInfo)
+
+            If Not makeList.Contains(result("Make")) Then
+                makeList.Add(result("Make"))
+            End If
+
+            If Not typeList.Contains(result("Class")) Then
+                typeList.Add(result("Class"))
+            End If
+
         Next
+
+        vehicleTable.MultiSelect = False
+        vehicleTable.DataSource = vehiclesList
+
+        typeCombo.DataSource = typeList
+        typeCombo.SelectedItem = "All"
+        makeCombo.DataSource = makeList
         makeCombo.SelectedItem = "All"
 
-        BothRadio.Checked = True
-
-        populateVehiclesTable("SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, Coverage, DailyRate, WeeklyRate, MonthlyRate
-                                FROM Vehicle, Types where Vehicle.Class = Types.Type
-                                and Vehicle.Available = 1")
+        vehicleTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
 
 
     End Sub
@@ -154,12 +200,18 @@ Public Class ChooseRental
         vehicleTable.MultiSelect = False
         vehicleTable.DataSource = vehiclesList
 
+        vehicleTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+
+
     End Sub
 
     Public Function buildQueryString()
+        Console.WriteLine("Entering Build Query")
+
+        Dim branch As String = RentalProperty.LocationProperty.BidProperty
         Dim original As String = "SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, Coverage, DailyRate, WeeklyRate, MonthlyRate
                                 FROM Vehicle, Types where Vehicle.Class = Types.Type
-                                and Vehicle.Available = 1"
+                                and Vehicle.Available = 1 and Vehicle.BID = " & branch
 
         Dim newQuery As String = ""
 
@@ -197,12 +249,6 @@ Public Class ChooseRental
         Return newQuery
     End Function
 
-    Private Sub makeCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles makeCombo.SelectedIndexChanged, typeCombo.SelectedIndexChanged, BothRadio.CheckedChanged, autoRadio.CheckedChanged, stanRadio.CheckedChanged
-        If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
-            populateVehiclesTable(buildQueryString())
-        End If
-    End Sub
-
     Private Sub vehicleTable_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles vehicleTable.CellClick
         'Console.WriteLine("Clicked")
         Dim mode As SelectionMode = vehicleTable.SelectionMode
@@ -231,5 +277,23 @@ Public Class ChooseRental
                 VehiclePicture.Image = Nothing
             End If
         Next
+    End Sub
+
+    Private Sub searchButton_Click(sender As Object, e As EventArgs) Handles searchButton.Click
+        If Not (typeCombo.Items.Count = 0 Or makeCombo.Items.Count = 0) Then
+            populateVehiclesTable(buildQueryString())
+        End If
+    End Sub
+
+    Private Sub clearButton_Click(sender As Object, e As EventArgs) Handles clearButton.Click
+        seatsCombo.SelectedItem = "All"
+        typeCombo.SelectedItem = "All"
+        makeCombo.SelectedItem = "All"
+        BothRadio.Checked = True
+        autoRadio.Checked = False
+        stanRadio.Checked = False
+
+        populateVehiclesTable(buildQueryString())
+
     End Sub
 End Class
