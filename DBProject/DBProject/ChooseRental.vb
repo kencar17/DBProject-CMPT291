@@ -87,7 +87,6 @@ Public Class ChooseRental
 
         BothRadio.Checked = True
 
-
         populateVehiclesTable("SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, Coverage, DailyRate, WeeklyRate, MonthlyRate
                                 FROM Vehicle, Types where Vehicle.Class = Types.Type
                                 and Vehicle.Available = 1")
@@ -158,7 +157,6 @@ Public Class ChooseRental
     End Sub
 
     Public Function buildQueryString()
-
         Dim original As String = "SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, Coverage, DailyRate, WeeklyRate, MonthlyRate
                                 FROM Vehicle, Types where Vehicle.Class = Types.Type
                                 and Vehicle.Available = 1"
