@@ -57,7 +57,7 @@ Partial Class ChooseLocation
         Me.locationCombBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.locationCombBox.FormattingEnabled = True
         Me.locationCombBox.Location = New System.Drawing.Point(128, 25)
-        Me.locationCombBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.locationCombBox.Margin = New System.Windows.Forms.Padding(2)
         Me.locationCombBox.Name = "locationCombBox"
         Me.locationCombBox.Size = New System.Drawing.Size(209, 21)
         Me.locationCombBox.TabIndex = 1
@@ -94,9 +94,10 @@ Partial Class ChooseLocation
         '
         'pickUpTime
         '
+        Me.pickUpTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.pickUpTime.FormattingEnabled = True
         Me.pickUpTime.Location = New System.Drawing.Point(40, 311)
-        Me.pickUpTime.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pickUpTime.Margin = New System.Windows.Forms.Padding(2)
         Me.pickUpTime.Name = "pickUpTime"
         Me.pickUpTime.Size = New System.Drawing.Size(105, 21)
         Me.pickUpTime.TabIndex = 7
@@ -113,9 +114,10 @@ Partial Class ChooseLocation
         '
         'dropOffTime
         '
+        Me.dropOffTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.dropOffTime.FormattingEnabled = True
         Me.dropOffTime.Location = New System.Drawing.Point(288, 311)
-        Me.dropOffTime.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dropOffTime.Margin = New System.Windows.Forms.Padding(2)
         Me.dropOffTime.Name = "dropOffTime"
         Me.dropOffTime.Size = New System.Drawing.Size(108, 21)
         Me.dropOffTime.TabIndex = 9
@@ -123,7 +125,7 @@ Partial Class ChooseLocation
         'nextButton
         '
         Me.nextButton.Location = New System.Drawing.Point(411, 379)
-        Me.nextButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nextButton.Margin = New System.Windows.Forms.Padding(2)
         Me.nextButton.Name = "nextButton"
         Me.nextButton.Size = New System.Drawing.Size(70, 21)
         Me.nextButton.TabIndex = 10
@@ -133,7 +135,7 @@ Partial Class ChooseLocation
         'backButton
         '
         Me.backButton.Location = New System.Drawing.Point(43, 379)
-        Me.backButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.backButton.Margin = New System.Windows.Forms.Padding(2)
         Me.backButton.Name = "backButton"
         Me.backButton.Size = New System.Drawing.Size(52, 21)
         Me.backButton.TabIndex = 11
@@ -143,7 +145,7 @@ Partial Class ChooseLocation
         'pickUp
         '
         Me.pickUp.Location = New System.Drawing.Point(40, 108)
-        Me.pickUp.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.pickUp.Margin = New System.Windows.Forms.Padding(5)
         Me.pickUp.MaxSelectionCount = 1
         Me.pickUp.Name = "pickUp"
         Me.pickUp.TabIndex = 12
@@ -151,7 +153,7 @@ Partial Class ChooseLocation
         'dropOff
         '
         Me.dropOff.Location = New System.Drawing.Point(288, 108)
-        Me.dropOff.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.dropOff.Margin = New System.Windows.Forms.Padding(5)
         Me.dropOff.MaxSelectionCount = 1
         Me.dropOff.Name = "dropOff"
         Me.dropOff.TabIndex = 13
@@ -159,7 +161,7 @@ Partial Class ChooseLocation
         'helpButton
         '
         Me.helpButton.Location = New System.Drawing.Point(105, 379)
-        Me.helpButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.helpButton.Margin = New System.Windows.Forms.Padding(2)
         Me.helpButton.Name = "helpButton"
         Me.helpButton.Size = New System.Drawing.Size(52, 21)
         Me.helpButton.TabIndex = 14
@@ -244,11 +246,12 @@ Partial Class ChooseLocation
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.locationCombBox)
         Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "ChooseLocation"
         Me.Text = "ChooseLocation"
         Me.ResumeLayout(False)
         Me.PerformLayout()
+
     End Sub
 
     Friend WithEvents Label1 As Label
