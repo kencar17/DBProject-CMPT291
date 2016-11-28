@@ -75,4 +75,9 @@ Public Class Form1
         fback.CallingFormProperty = Me
         fback.Show()
     End Sub
+
+    Private Sub Form1_LostFocus() Handles MyBase.LostFocus
+        UserBox.Text = ""
+        PassBox.Text = ""
+    End Sub
 End Class
