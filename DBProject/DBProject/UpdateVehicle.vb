@@ -108,7 +108,6 @@ Public Class UpdateVehicle
         Else
             trans = "0"
         End If
-        Dim vin As String = VinBox.SelectedItem
 
         Dim abranch As Branch = BranchCB.SelectedItem
         Console.WriteLine("~~~~~~~~~~~~" & abranch.BidProperty & "~~~~~~~~~~~~")
