@@ -26,6 +26,14 @@ Public Class UpdateVehicle
             BranchCB.Items.Add(abranch)
         Next
 
+        Dim vSelect As String = "SELECT VIN FROM Vehicle"
+        Dim vinParams As New Dictionary(Of String, String)
+        Dim vinColumns As New List(Of String)
+        vinColumns.Add("VIN")
+        For Each vin As Dictionary(Of String, String) In SQLConnection.DoQuery(vSelect, vinParams, vinColumns)
+            VinBox.Items.Add(vin("VIN"))
+        Next
+
 
         TransCB.Items.Add("Automatic")
         TransCB.Items.Add("Manual")
@@ -33,56 +41,18 @@ Public Class UpdateVehicle
         AvailCB.Items.Add("Yes")
         AvailCB.Items.Add("No")
     End Sub
-    Private Sub FindButton_Click(sender As Object, e As EventArgs) Handles FindButton.Click
-        Dim vehicle = Inventory.FindVehicle(Me.VINUpdate.Text)
-        If vehicle Is Nothing Then
-            ErrorLabel.Text = "VIN not found"
-            ErrorLabel.Visible = True
-            Return
-        End If
 
-
-        MakeBox.Text = vehicle.MakeProperty
-        ModelBox.Text = vehicle.ModelProperty
-        For Each v As VehicleInfo In ClassCB.Items
-            If v.VClass = vehicle.VClassProperty Then
-                ClassCB.SelectedItem = v
-            End If
-        Next
-        KmBox.Text = vehicle.KmProperty
-        YearBox.Text = vehicle.YearProperty
-        SeatBox.Text = vehicle.SeatsProperty
-        GVWRBox.Text = vehicle.GvwrProperty
-
-        If vehicle.TransmissionProperty.Equals("1") Then
-            TransCB.SelectedIndex = 0
-        Else
-            TransCB.SelectedIndex = 1
-        End If
-        PlateBox.Text = vehicle.LPlateNumProperty
-        If vehicle.AvailableProperty.Equals("True") Then
-            AvailCB.SelectedIndex = 0
-        Else
-            AvailCB.SelectedIndex = 1
-        End If
-        AvailCB.SelectedItem = vehicle.AvailableProperty
-        CoverageBox.Text = vehicle.CoverageProperty
-
-        Dim i As Integer = 0
-        While i < BranchCB.Items.Count
-            Dim branch As New Branch
-            branch = BranchCB.Items.Item(i)
-            If branch.BidProperty.ToString().Equals(vehicle.BidProperty) Then
-                BranchCB.SelectedItem = branch
-            End If
-            i += 1
-        End While
-
-    End Sub
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         Me.ErrorLabel.Visible = False
         Dim avail As String
         Dim trans As String
+
+        Dim vin As String = VinBox.SelectedItem
+        If vin Is Nothing OrElse vin.Equals("") Then
+            ErrorLabel.Text = "A vehicle muse be selected"
+            ErrorLabel.Visible = True
+            Return
+        End If
 
         If MakeBox.Text.Equals("") Then
             ErrorLabel.Text = "A vehicle make must be given"
@@ -145,7 +115,7 @@ Public Class UpdateVehicle
         Dim sql As String = "UPDATE Vehicle SET Make=@make, Model=@model, Class=@class, Km=@km, Year=@year, Seats=@seats, GVWR=@gvwr, Transmission=@trans, License=@license, Available=@avail, Coverage=@coverage, BID=@bid WHERE Vehicle.VIN = @vin"
         Dim params As New Dictionary(Of String, String)
         With params
-            .Add("@vin", VINUpdate.Text)
+            .Add("@vin", vin)
             .Add("@make", MakeBox.Text)
             .Add("@model", ModelBox.Text)
             .Add("@class", vehicle.VClass)
@@ -167,7 +137,7 @@ Public Class UpdateVehicle
             Dim uploadParams As New Dictionary(Of String, String)
             With uploadParams
                 .Add("@url", uploadUrl)
-                .Add("@vin", VINUpdate.Text)
+                .Add("@vin", vin)
             End With
             SQLConnection.DoNonQuery(uploadSql, uploadParams)
         End If
@@ -195,7 +165,71 @@ Public Class UpdateVehicle
             If .ShowDialog() = DialogResult.OK Then
                 chosenFile = .FileName
                 PicturePath.Text = chosenFile
+                VehiclePicture.Load(chosenFile)
             End If
         End With
+    End Sub
+
+    Private Sub VinBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles VinBox.SelectedIndexChanged
+        Dim vin As String = VinBox.SelectedItem
+        Dim vehicle = Inventory.FindVehicle(vin)
+        If vehicle Is Nothing Then
+            ErrorLabel.Text = "VIN not found"
+            ErrorLabel.Visible = True
+            Return
+        End If
+
+        MakeBox.Enabled = True
+        ModelBox.Enabled = True
+        ClassCB.Enabled = True
+        KmBox.Enabled = True
+        YearBox.Enabled = True
+        SeatBox.Enabled = True
+        GVWRBox.Enabled = True
+        TransCB.Enabled = True
+        PlateBox.Enabled = True
+        AvailCB.Enabled = True
+        CoverageBox.Enabled = True
+        BranchCB.Enabled = True
+        ImageButton.Enabled = True
+        SubmitButton.Enabled = True
+
+        MakeBox.Text = vehicle.MakeProperty
+        ModelBox.Text = vehicle.ModelProperty
+        For Each v As VehicleInfo In ClassCB.Items
+            If v.VClass = vehicle.VClassProperty Then
+                ClassCB.SelectedItem = v
+            End If
+        Next
+        KmBox.Text = vehicle.KmProperty
+        YearBox.Text = vehicle.YearProperty
+        SeatBox.Text = vehicle.SeatsProperty
+        GVWRBox.Text = vehicle.GvwrProperty
+
+        If vehicle.TransmissionProperty.Equals("1") Then
+            TransCB.SelectedIndex = 0
+        Else
+            TransCB.SelectedIndex = 1
+        End If
+        PlateBox.Text = vehicle.LPlateNumProperty
+        If vehicle.AvailableProperty.Equals("True") Then
+            AvailCB.SelectedIndex = 0
+        Else
+            AvailCB.SelectedIndex = 1
+        End If
+        AvailCB.SelectedItem = vehicle.AvailableProperty
+        CoverageBox.Text = vehicle.CoverageProperty
+
+        Dim i As Integer = 0
+        While i < BranchCB.Items.Count
+            Dim branch As New Branch
+            branch = BranchCB.Items.Item(i)
+            If branch.BidProperty.ToString().Equals(vehicle.BidProperty) Then
+                BranchCB.SelectedItem = branch
+            End If
+            i += 1
+        End While
+
+        VehiclePicture.Load(vehicle.ImageUrlProperty)
     End Sub
 End Class

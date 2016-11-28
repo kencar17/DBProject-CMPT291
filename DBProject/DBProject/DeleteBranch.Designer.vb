@@ -33,14 +33,14 @@ Partial Class DeleteBranch
         '
         Me.BranchSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.BranchSelection.FormattingEnabled = True
-        Me.BranchSelection.Location = New System.Drawing.Point(74, 12)
+        Me.BranchSelection.Location = New System.Drawing.Point(214, 211)
         Me.BranchSelection.Name = "BranchSelection"
-        Me.BranchSelection.Size = New System.Drawing.Size(121, 21)
+        Me.BranchSelection.Size = New System.Drawing.Size(273, 21)
         Me.BranchSelection.TabIndex = 0
         '
         'HButton
         '
-        Me.HButton.Location = New System.Drawing.Point(12, 39)
+        Me.HButton.Location = New System.Drawing.Point(214, 238)
         Me.HButton.Name = "HButton"
         Me.HButton.Size = New System.Drawing.Size(75, 23)
         Me.HButton.TabIndex = 1
@@ -49,7 +49,7 @@ Partial Class DeleteBranch
         '
         'SubmitButton
         '
-        Me.SubmitButton.Location = New System.Drawing.Point(105, 39)
+        Me.SubmitButton.Location = New System.Drawing.Point(313, 238)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(75, 23)
         Me.SubmitButton.TabIndex = 2
@@ -58,7 +58,7 @@ Partial Class DeleteBranch
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(197, 39)
+        Me.CloseButton.Location = New System.Drawing.Point(412, 238)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 3
@@ -69,7 +69,7 @@ Partial Class DeleteBranch
         '
         Me.ErrLabel.AutoSize = True
         Me.ErrLabel.ForeColor = System.Drawing.Color.Red
-        Me.ErrLabel.Location = New System.Drawing.Point(105, 69)
+        Me.ErrLabel.Location = New System.Drawing.Point(310, 264)
         Me.ErrLabel.Name = "ErrLabel"
         Me.ErrLabel.Size = New System.Drawing.Size(39, 13)
         Me.ErrLabel.TabIndex = 4
@@ -80,7 +80,7 @@ Partial Class DeleteBranch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.ErrLabel)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.SubmitButton)

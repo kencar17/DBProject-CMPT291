@@ -1,7 +1,7 @@
 ﻿Imports Microsoft.VisualBasic.FileIO
 Imports MySql.Data.MySqlClient
 Public Class AddNewVehicle
-    Dim chosenFile As String
+    Dim chosenFile As String = ""
 
     Private Sub AddNewVehicle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AcceptButton = Me.addVehicle
@@ -177,6 +177,7 @@ Public Class AddNewVehicle
             If .ShowDialog() = DialogResult.OK Then
                 chosenFile = .FileName
                 ImageLabel.Text = chosenFile
+                VehiclePicture.Load(chosenFile)
             End If
         End With
     End Sub
