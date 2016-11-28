@@ -58,6 +58,7 @@
 
             vehicle.DataSource = list
 
+            vehicle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         End If
     End Sub
 
