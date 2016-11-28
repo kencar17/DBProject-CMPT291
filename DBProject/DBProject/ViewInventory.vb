@@ -178,4 +178,8 @@ Public Class ViewInventory
             End If
         Next
     End Sub
+
+    Private Sub HButton_Click(sender As Object, e As EventArgs) Handles HButton.Click
+        Help.GetHelp("viewinventory")
+    End Sub
 End Class
