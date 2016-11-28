@@ -81,7 +81,7 @@ Partial Class OrderSummary
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(308, 86)
+        Me.Label2.Location = New System.Drawing.Point(77, 209)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(54, 25)
         Me.Label2.TabIndex = 2
@@ -135,7 +135,7 @@ Partial Class OrderSummary
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(678, 327)
+        Me.Label8.Location = New System.Drawing.Point(698, 327)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(69, 25)
         Me.Label8.TabIndex = 8
@@ -144,7 +144,7 @@ Partial Class OrderSummary
         'pickUp
         '
         Me.pickUp.AutoSize = True
-        Me.pickUp.Location = New System.Drawing.Point(773, 327)
+        Me.pickUp.Location = New System.Drawing.Point(786, 327)
         Me.pickUp.Name = "pickUp"
         Me.pickUp.Size = New System.Drawing.Size(57, 25)
         Me.pickUp.TabIndex = 9
@@ -190,7 +190,7 @@ Partial Class OrderSummary
         'age
         '
         Me.age.AutoSize = True
-        Me.age.Location = New System.Drawing.Point(406, 86)
+        Me.age.Location = New System.Drawing.Point(189, 209)
         Me.age.Name = "age"
         Me.age.Size = New System.Drawing.Size(82, 25)
         Me.age.TabIndex = 29
@@ -345,7 +345,7 @@ Partial Class OrderSummary
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(654, 279)
+        Me.Label12.Location = New System.Drawing.Point(678, 279)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(176, 25)
         Me.Label12.TabIndex = 48
@@ -354,7 +354,7 @@ Partial Class OrderSummary
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(678, 368)
+        Me.Label13.Location = New System.Drawing.Point(698, 368)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(63, 25)
         Me.Label13.TabIndex = 49
@@ -363,7 +363,7 @@ Partial Class OrderSummary
         'daysLabel
         '
         Me.daysLabel.AutoSize = True
-        Me.daysLabel.Location = New System.Drawing.Point(776, 368)
+        Me.daysLabel.Location = New System.Drawing.Point(789, 368)
         Me.daysLabel.Name = "daysLabel"
         Me.daysLabel.Size = New System.Drawing.Size(54, 25)
         Me.daysLabel.TabIndex = 50
