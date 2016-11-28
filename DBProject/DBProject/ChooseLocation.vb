@@ -190,4 +190,8 @@ Public Class ChooseLocation
     Private Sub dropOffTime_SelectedIndexChanged(sender As Object, e As EventArgs) Handles dropOffTime.SelectedIndexChanged
         InvalidDT.Visible = False
     End Sub
+
+    Private Sub helpButton_Click(sender As Object, e As EventArgs) Handles helpButton.Click
+        Help.GetHelp("rentals")
+    End Sub
 End Class

@@ -151,7 +151,7 @@ Public Class UpdateVehicle
     End Sub
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
-        Help.GetHelp("UpdateVehicle")
+        Help.GetHelp("ca")
     End Sub
 
     Private Sub ImageButton_Click(sender As Object, e As EventArgs) Handles ImageButton.Click
