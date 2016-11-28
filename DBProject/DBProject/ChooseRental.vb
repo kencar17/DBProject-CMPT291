@@ -294,6 +294,9 @@ Public Class ChooseRental
         stanRadio.Checked = False
 
         populateVehiclesTable(buildQueryString())
+    End Sub
 
+    Private Sub helpButton_Click(sender As Object, e As EventArgs) Handles helpButton.Click
+        Help.GetHelp("rentals")
     End Sub
 End Class
