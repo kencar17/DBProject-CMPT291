@@ -37,21 +37,21 @@ Partial Class Form1
         Me.UserBox.Location = New System.Drawing.Point(296, 148)
         Me.UserBox.Name = "UserBox"
         Me.UserBox.Size = New System.Drawing.Size(100, 20)
-        Me.UserBox.TabIndex = 0
+        Me.UserBox.TabIndex = 2
         '
         'PassBox
         '
         Me.PassBox.Location = New System.Drawing.Point(296, 174)
         Me.PassBox.Name = "PassBox"
         Me.PassBox.Size = New System.Drawing.Size(100, 20)
-        Me.PassBox.TabIndex = 1
+        Me.PassBox.TabIndex = 3
         '
         'SignInButton
         '
         Me.SignInButton.Location = New System.Drawing.Point(296, 201)
         Me.SignInButton.Name = "SignInButton"
         Me.SignInButton.Size = New System.Drawing.Size(100, 23)
-        Me.SignInButton.TabIndex = 2
+        Me.SignInButton.TabIndex = 1
         Me.SignInButton.Text = "Sign In"
         Me.SignInButton.UseVisualStyleBackColor = True
         '
@@ -69,7 +69,7 @@ Partial Class Form1
         Me.CheckButton.Location = New System.Drawing.Point(296, 230)
         Me.CheckButton.Name = "CheckButton"
         Me.CheckButton.Size = New System.Drawing.Size(100, 23)
-        Me.CheckButton.TabIndex = 5
+        Me.CheckButton.TabIndex = 4
         Me.CheckButton.Text = "View Inventory"
         Me.CheckButton.UseVisualStyleBackColor = True
         '
@@ -78,7 +78,7 @@ Partial Class Form1
         Me.CloseButton.Location = New System.Drawing.Point(296, 317)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(100, 23)
-        Me.CloseButton.TabIndex = 6
+        Me.CloseButton.TabIndex = 7
         Me.CloseButton.Text = "Close"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
@@ -87,7 +87,7 @@ Partial Class Form1
         Me.HelpButton.Location = New System.Drawing.Point(296, 288)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(100, 23)
-        Me.HelpButton.TabIndex = 7
+        Me.HelpButton.TabIndex = 6
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = True
         '
@@ -96,7 +96,7 @@ Partial Class Form1
         Me.RateButton.Location = New System.Drawing.Point(296, 259)
         Me.RateButton.Name = "RateButton"
         Me.RateButton.Size = New System.Drawing.Size(100, 23)
-        Me.RateButton.TabIndex = 8
+        Me.RateButton.TabIndex = 5
         Me.RateButton.Text = "Give Feedback"
         Me.RateButton.UseVisualStyleBackColor = True
         '

@@ -31,7 +31,7 @@ Partial Class UserAdmin
         '
         'NewButton
         '
-        Me.NewButton.Location = New System.Drawing.Point(84, 12)
+        Me.NewButton.Location = New System.Drawing.Point(297, 166)
         Me.NewButton.Name = "NewButton"
         Me.NewButton.Size = New System.Drawing.Size(88, 23)
         Me.NewButton.TabIndex = 0
@@ -40,7 +40,7 @@ Partial Class UserAdmin
         '
         'RemoveButton
         '
-        Me.RemoveButton.Location = New System.Drawing.Point(84, 42)
+        Me.RemoveButton.Location = New System.Drawing.Point(297, 196)
         Me.RemoveButton.Name = "RemoveButton"
         Me.RemoveButton.Size = New System.Drawing.Size(88, 23)
         Me.RemoveButton.TabIndex = 1
@@ -49,7 +49,7 @@ Partial Class UserAdmin
         '
         'UpdateButton
         '
-        Me.UpdateButton.Location = New System.Drawing.Point(84, 72)
+        Me.UpdateButton.Location = New System.Drawing.Point(297, 226)
         Me.UpdateButton.Name = "UpdateButton"
         Me.UpdateButton.Size = New System.Drawing.Size(88, 23)
         Me.UpdateButton.TabIndex = 2
@@ -58,7 +58,7 @@ Partial Class UserAdmin
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(84, 102)
+        Me.CloseButton.Location = New System.Drawing.Point(297, 256)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(88, 23)
         Me.CloseButton.TabIndex = 3
@@ -67,7 +67,7 @@ Partial Class UserAdmin
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(84, 131)
+        Me.HelpButton.Location = New System.Drawing.Point(297, 285)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(88, 23)
         Me.HelpButton.TabIndex = 4
@@ -78,7 +78,7 @@ Partial Class UserAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(263, 167)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.UpdateButton)

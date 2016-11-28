@@ -32,12 +32,13 @@ Partial Class Reports
         Me.PDFOption = New System.Windows.Forms.RadioButton()
         Me.BranchButton = New System.Windows.Forms.Button()
         Me.TypeButton = New System.Windows.Forms.Button()
+        Me.VehicleButton = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ViewUsersButton
         '
-        Me.ViewUsersButton.Location = New System.Drawing.Point(13, 13)
+        Me.ViewUsersButton.Location = New System.Drawing.Point(208, 117)
         Me.ViewUsersButton.Name = "ViewUsersButton"
         Me.ViewUsersButton.Size = New System.Drawing.Size(75, 23)
         Me.ViewUsersButton.TabIndex = 0
@@ -46,7 +47,7 @@ Partial Class Reports
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(13, 197)
+        Me.HelpButton.Location = New System.Drawing.Point(208, 301)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(75, 23)
         Me.HelpButton.TabIndex = 1
@@ -55,7 +56,7 @@ Partial Class Reports
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(13, 226)
+        Me.CloseButton.Location = New System.Drawing.Point(289, 301)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 2
@@ -64,7 +65,7 @@ Partial Class Reports
         '
         'FeedbackButton
         '
-        Me.FeedbackButton.Location = New System.Drawing.Point(13, 43)
+        Me.FeedbackButton.Location = New System.Drawing.Point(208, 147)
         Me.FeedbackButton.Name = "FeedbackButton"
         Me.FeedbackButton.Size = New System.Drawing.Size(75, 23)
         Me.FeedbackButton.TabIndex = 3
@@ -76,7 +77,7 @@ Partial Class Reports
         Me.Panel1.Controls.Add(Me.BothOption)
         Me.Panel1.Controls.Add(Me.ExcelOption)
         Me.Panel1.Controls.Add(Me.PDFOption)
-        Me.Panel1.Location = New System.Drawing.Point(114, 13)
+        Me.Panel1.Location = New System.Drawing.Point(309, 117)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(137, 100)
         Me.Panel1.TabIndex = 4
@@ -115,7 +116,7 @@ Partial Class Reports
         '
         'BranchButton
         '
-        Me.BranchButton.Location = New System.Drawing.Point(13, 73)
+        Me.BranchButton.Location = New System.Drawing.Point(208, 177)
         Me.BranchButton.Name = "BranchButton"
         Me.BranchButton.Size = New System.Drawing.Size(75, 23)
         Me.BranchButton.TabIndex = 5
@@ -124,18 +125,28 @@ Partial Class Reports
         '
         'TypeButton
         '
-        Me.TypeButton.Location = New System.Drawing.Point(12, 102)
+        Me.TypeButton.Location = New System.Drawing.Point(207, 206)
         Me.TypeButton.Name = "TypeButton"
-        Me.TypeButton.Size = New System.Drawing.Size(75, 23)
+        Me.TypeButton.Size = New System.Drawing.Size(76, 23)
         Me.TypeButton.TabIndex = 6
         Me.TypeButton.Text = "Types"
         Me.TypeButton.UseVisualStyleBackColor = True
+        '
+        'VehicleButton
+        '
+        Me.VehicleButton.Location = New System.Drawing.Point(208, 235)
+        Me.VehicleButton.Name = "VehicleButton"
+        Me.VehicleButton.Size = New System.Drawing.Size(75, 23)
+        Me.VehicleButton.TabIndex = 7
+        Me.VehicleButton.Text = "Vehicles"
+        Me.VehicleButton.UseVisualStyleBackColor = True
         '
         'Reports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(263, 261)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
+        Me.Controls.Add(Me.VehicleButton)
         Me.Controls.Add(Me.TypeButton)
         Me.Controls.Add(Me.BranchButton)
         Me.Controls.Add(Me.Panel1)
@@ -161,4 +172,5 @@ Partial Class Reports
     Friend WithEvents PDFOption As RadioButton
     Friend WithEvents BranchButton As Button
     Friend WithEvents TypeButton As Button
+    Friend WithEvents VehicleButton As Button
 End Class
