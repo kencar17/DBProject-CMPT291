@@ -398,6 +398,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LICENSE.txt" />
+    <None Include="Resources\for-business-backgrounds-wallpapers[1].jpg" />
     <None Include="Resources\star-empty.png" />
     <None Include="Resources\star.png" />
   </ItemGroup>
