@@ -22,7 +22,6 @@ Partial Class ChooseRental
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-
         Me.vehicleTable = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.typeCombo = New System.Windows.Forms.ComboBox()
@@ -46,7 +45,7 @@ Partial Class ChooseRental
         '
         Me.vehicleTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.vehicleTable.Location = New System.Drawing.Point(28, 106)
-        Me.vehicleTable.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.vehicleTable.Margin = New System.Windows.Forms.Padding(2)
         Me.vehicleTable.MinimumSize = New System.Drawing.Size(571, 288)
         Me.vehicleTable.MultiSelect = False
         Me.vehicleTable.Name = "vehicleTable"
@@ -70,7 +69,7 @@ Partial Class ChooseRental
         Me.typeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.typeCombo.FormattingEnabled = True
         Me.typeCombo.Location = New System.Drawing.Point(111, 20)
-        Me.typeCombo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.typeCombo.Margin = New System.Windows.Forms.Padding(2)
         Me.typeCombo.Name = "typeCombo"
         Me.typeCombo.Size = New System.Drawing.Size(98, 21)
         Me.typeCombo.TabIndex = 2
@@ -90,7 +89,7 @@ Partial Class ChooseRental
         Me.makeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.makeCombo.FormattingEnabled = True
         Me.makeCombo.Location = New System.Drawing.Point(111, 47)
-        Me.makeCombo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.makeCombo.Margin = New System.Windows.Forms.Padding(2)
         Me.makeCombo.Name = "makeCombo"
         Me.makeCombo.Size = New System.Drawing.Size(98, 21)
         Me.makeCombo.TabIndex = 4
@@ -110,7 +109,7 @@ Partial Class ChooseRental
         Me.seatsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.seatsCombo.FormattingEnabled = True
         Me.seatsCombo.Location = New System.Drawing.Point(111, 74)
-        Me.seatsCombo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.seatsCombo.Margin = New System.Windows.Forms.Padding(2)
         Me.seatsCombo.Name = "seatsCombo"
         Me.seatsCombo.Size = New System.Drawing.Size(98, 21)
         Me.seatsCombo.TabIndex = 6
@@ -129,7 +128,7 @@ Partial Class ChooseRental
         '
         Me.BothRadio.AutoSize = True
         Me.BothRadio.Location = New System.Drawing.Point(253, 44)
-        Me.BothRadio.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.BothRadio.Margin = New System.Windows.Forms.Padding(2)
         Me.BothRadio.Name = "BothRadio"
         Me.BothRadio.Size = New System.Drawing.Size(47, 17)
         Me.BothRadio.TabIndex = 8
@@ -141,7 +140,7 @@ Partial Class ChooseRental
         '
         Me.autoRadio.AutoSize = True
         Me.autoRadio.Location = New System.Drawing.Point(314, 44)
-        Me.autoRadio.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.autoRadio.Margin = New System.Windows.Forms.Padding(2)
         Me.autoRadio.Name = "autoRadio"
         Me.autoRadio.Size = New System.Drawing.Size(72, 17)
         Me.autoRadio.TabIndex = 9
@@ -153,7 +152,7 @@ Partial Class ChooseRental
         '
         Me.stanRadio.AutoSize = True
         Me.stanRadio.Location = New System.Drawing.Point(394, 44)
-        Me.stanRadio.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.stanRadio.Margin = New System.Windows.Forms.Padding(2)
         Me.stanRadio.Name = "stanRadio"
         Me.stanRadio.Size = New System.Drawing.Size(68, 17)
         Me.stanRadio.TabIndex = 10
@@ -164,7 +163,7 @@ Partial Class ChooseRental
         'backButton
         '
         Me.backButton.Location = New System.Drawing.Point(28, 412)
-        Me.backButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.backButton.Margin = New System.Windows.Forms.Padding(2)
         Me.backButton.Name = "backButton"
         Me.backButton.Size = New System.Drawing.Size(51, 22)
         Me.backButton.TabIndex = 11
@@ -174,7 +173,7 @@ Partial Class ChooseRental
         'nextButton
         '
         Me.nextButton.Location = New System.Drawing.Point(642, 412)
-        Me.nextButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nextButton.Margin = New System.Windows.Forms.Padding(2)
         Me.nextButton.Name = "nextButton"
         Me.nextButton.Size = New System.Drawing.Size(51, 22)
         Me.nextButton.TabIndex = 12
@@ -184,7 +183,7 @@ Partial Class ChooseRental
         'helpButton
         '
         Me.helpButton.Location = New System.Drawing.Point(98, 412)
-        Me.helpButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.helpButton.Margin = New System.Windows.Forms.Padding(2)
         Me.helpButton.Name = "helpButton"
         Me.helpButton.Size = New System.Drawing.Size(51, 22)
         Me.helpButton.TabIndex = 13
@@ -219,13 +218,14 @@ Partial Class ChooseRental
         Me.Controls.Add(Me.typeCombo)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.vehicleTable)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "ChooseRental"
         Me.Text = "ChooseRental"
         CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VehiclePicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
+
     End Sub
 
     Friend WithEvents vehicleTable As DataGridView

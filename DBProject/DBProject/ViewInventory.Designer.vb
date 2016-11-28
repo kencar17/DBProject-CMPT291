@@ -45,6 +45,7 @@ Partial Class ViewInventory
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VehiclePicture = New System.Windows.Forms.PictureBox()
+        Me.HButton = New System.Windows.Forms.Button()
         CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VehiclePicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -259,11 +260,21 @@ Partial Class ViewInventory
         Me.VehiclePicture.TabIndex = 25
         Me.VehiclePicture.TabStop = False
         '
+        'HButton
+        '
+        Me.HButton.Location = New System.Drawing.Point(87, 429)
+        Me.HButton.Name = "HButton"
+        Me.HButton.Size = New System.Drawing.Size(50, 22)
+        Me.HButton.TabIndex = 26
+        Me.HButton.Text = "Help"
+        Me.HButton.UseVisualStyleBackColor = True
+        '
         'ViewInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(706, 496)
+        Me.Controls.Add(Me.HButton)
         Me.Controls.Add(Me.VehiclePicture)
         Me.Controls.Add(Me.backButton)
         Me.Controls.Add(Me.stanRadio)
@@ -308,4 +319,5 @@ Partial Class ViewInventory
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents VehiclePicture As PictureBox
+    Friend WithEvents HButton As Button
 End Class
