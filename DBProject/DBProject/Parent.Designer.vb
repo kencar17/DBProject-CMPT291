@@ -28,7 +28,7 @@ Partial Class Parent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(706, 496)
+        Me.ClientSize = New System.Drawing.Size(706, 519)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.IsMdiContainer = True
         Me.MaximizeBox = False

@@ -24,7 +24,7 @@ Public Class RemoveVehicle
     End Sub
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
-        Help.GetHelp("RemoveVehicle")
+        Help.GetHelp("ca")
     End Sub
 
     Private Sub RemoveVehicle_Load(sender As Object, e As EventArgs) Handles MyBase.Load

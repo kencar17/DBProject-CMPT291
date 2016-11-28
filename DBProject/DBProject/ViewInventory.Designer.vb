@@ -45,13 +45,14 @@ Partial Class ViewInventory
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VehiclePicture = New System.Windows.Forms.PictureBox()
+        Me.HButton = New System.Windows.Forms.Button()
         CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VehiclePicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'backButton
         '
-        Me.backButton.Location = New System.Drawing.Point(32, 429)
+        Me.backButton.Location = New System.Drawing.Point(32, 458)
         Me.backButton.Margin = New System.Windows.Forms.Padding(2)
         Me.backButton.Name = "backButton"
         Me.backButton.Size = New System.Drawing.Size(50, 22)
@@ -62,7 +63,7 @@ Partial Class ViewInventory
         'stanRadio
         '
         Me.stanRadio.AutoSize = True
-        Me.stanRadio.Location = New System.Drawing.Point(398, 60)
+        Me.stanRadio.Location = New System.Drawing.Point(383, 104)
         Me.stanRadio.Margin = New System.Windows.Forms.Padding(2)
         Me.stanRadio.Name = "stanRadio"
         Me.stanRadio.Size = New System.Drawing.Size(68, 17)
@@ -74,7 +75,7 @@ Partial Class ViewInventory
         'autoRadio
         '
         Me.autoRadio.AutoSize = True
-        Me.autoRadio.Location = New System.Drawing.Point(318, 60)
+        Me.autoRadio.Location = New System.Drawing.Point(307, 104)
         Me.autoRadio.Margin = New System.Windows.Forms.Padding(2)
         Me.autoRadio.Name = "autoRadio"
         Me.autoRadio.Size = New System.Drawing.Size(72, 17)
@@ -86,7 +87,7 @@ Partial Class ViewInventory
         'BothRadio
         '
         Me.BothRadio.AutoSize = True
-        Me.BothRadio.Location = New System.Drawing.Point(256, 61)
+        Me.BothRadio.Location = New System.Drawing.Point(256, 104)
         Me.BothRadio.Margin = New System.Windows.Forms.Padding(2)
         Me.BothRadio.Name = "BothRadio"
         Me.BothRadio.Size = New System.Drawing.Size(47, 17)
@@ -98,7 +99,7 @@ Partial Class ViewInventory
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(243, 36)
+        Me.Label4.Location = New System.Drawing.Point(232, 81)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(71, 13)
@@ -109,7 +110,7 @@ Partial Class ViewInventory
         '
         Me.seatsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.seatsCombo.FormattingEnabled = True
-        Me.seatsCombo.Location = New System.Drawing.Point(114, 90)
+        Me.seatsCombo.Location = New System.Drawing.Point(114, 128)
         Me.seatsCombo.Margin = New System.Windows.Forms.Padding(2)
         Me.seatsCombo.Name = "seatsCombo"
         Me.seatsCombo.Size = New System.Drawing.Size(98, 21)
@@ -118,7 +119,7 @@ Partial Class ViewInventory
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(29, 90)
+        Me.Label3.Location = New System.Drawing.Point(29, 131)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 13)
@@ -129,7 +130,7 @@ Partial Class ViewInventory
         '
         Me.makeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.makeCombo.FormattingEnabled = True
-        Me.makeCombo.Location = New System.Drawing.Point(114, 63)
+        Me.makeCombo.Location = New System.Drawing.Point(114, 103)
         Me.makeCombo.Margin = New System.Windows.Forms.Padding(2)
         Me.makeCombo.Name = "makeCombo"
         Me.makeCombo.Size = New System.Drawing.Size(98, 21)
@@ -138,7 +139,7 @@ Partial Class ViewInventory
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(29, 63)
+        Me.Label2.Location = New System.Drawing.Point(29, 106)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(76, 13)
@@ -149,7 +150,7 @@ Partial Class ViewInventory
         '
         Me.typeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.typeCombo.FormattingEnabled = True
-        Me.typeCombo.Location = New System.Drawing.Point(114, 36)
+        Me.typeCombo.Location = New System.Drawing.Point(114, 78)
         Me.typeCombo.Margin = New System.Windows.Forms.Padding(2)
         Me.typeCombo.Name = "typeCombo"
         Me.typeCombo.Size = New System.Drawing.Size(98, 21)
@@ -158,7 +159,7 @@ Partial Class ViewInventory
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(29, 36)
+        Me.Label1.Location = New System.Drawing.Point(29, 81)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(73, 13)
@@ -171,7 +172,7 @@ Partial Class ViewInventory
         Me.vehicleTable.AllowUserToDeleteRows = False
         Me.vehicleTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.vehicleTable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column10, Me.Column8, Me.Column9})
-        Me.vehicleTable.Location = New System.Drawing.Point(32, 122)
+        Me.vehicleTable.Location = New System.Drawing.Point(32, 158)
         Me.vehicleTable.Margin = New System.Windows.Forms.Padding(2)
         Me.vehicleTable.MinimumSize = New System.Drawing.Size(571, 288)
         Me.vehicleTable.MultiSelect = False
@@ -253,17 +254,29 @@ Partial Class ViewInventory
         '
         'VehiclePicture
         '
-        Me.VehiclePicture.Location = New System.Drawing.Point(588, 36)
+        Me.VehiclePicture.Location = New System.Drawing.Point(509, 78)
         Me.VehiclePicture.Name = "VehiclePicture"
         Me.VehiclePicture.Size = New System.Drawing.Size(113, 75)
         Me.VehiclePicture.TabIndex = 25
         Me.VehiclePicture.TabStop = False
         '
+        'HButton
+        '
+        Me.HButton.Location = New System.Drawing.Point(87, 458)
+        Me.HButton.Name = "HButton"
+        Me.HButton.Size = New System.Drawing.Size(50, 22)
+        Me.HButton.TabIndex = 26
+        Me.HButton.Text = "Help"
+        Me.HButton.UseVisualStyleBackColor = True
+        '
         'ViewInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(706, 496)
+        Me.BackgroundImage = Global.DBProject.My.Resources.Resources.for_business_backgrounds_wallpapers_1_
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(732, 532)
+        Me.Controls.Add(Me.HButton)
         Me.Controls.Add(Me.VehiclePicture)
         Me.Controls.Add(Me.backButton)
         Me.Controls.Add(Me.stanRadio)
@@ -308,4 +321,5 @@ Partial Class ViewInventory
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents VehiclePicture As PictureBox
+    Friend WithEvents HButton As Button
 End Class

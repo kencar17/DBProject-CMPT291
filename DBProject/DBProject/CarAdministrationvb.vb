@@ -20,4 +20,8 @@
         UpdateVehicle.MdiParent = Me.MdiParent
         UpdateVehicle.Show()
     End Sub
+
+    Private Sub HButton_Click(sender As Object, e As EventArgs) Handles HButton.Click
+        Help.GetHelp("ca")
+    End Sub
 End Class

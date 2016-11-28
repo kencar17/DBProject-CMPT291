@@ -8,10 +8,11 @@
     End Property
 
     Private Sub UserAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        MdiParent.Size = New Size(722, 535)
     End Sub
 
     Private Sub UserAdmin_Unload(sender As Object, e As EventArgs) Handles MyBase.Closing
+        MdiParent.Size = New Size(748, 571)
         callingForm.Show()
     End Sub
 

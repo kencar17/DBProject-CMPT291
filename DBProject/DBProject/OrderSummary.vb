@@ -18,6 +18,7 @@
     End Property
 
     Private Sub createOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(848, 519)
         If RentalProperty IsNot Nothing Then
             Fname.Text = RentalProperty.CustomerProperty.FnameProperty
             Lname.Text = RentalProperty.CustomerProperty.LnameProperty
@@ -69,5 +70,13 @@
     Private Sub finishButton_Click(sender As Object, e As EventArgs) Handles finishButton.Click
         callingform.doAThing()
         Close()
+    End Sub
+
+    Private Sub helpButton_Click(sender As Object, e As EventArgs) Handles helpButton.Click
+        Help.GetHelp("rentals")
+    End Sub
+
+    Private Sub OrderSummary_Unload() Handles MyBase.Closing
+        MdiParent.Size = New Size(722, 535)
     End Sub
 End Class

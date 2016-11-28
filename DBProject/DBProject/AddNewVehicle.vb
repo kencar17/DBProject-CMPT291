@@ -163,7 +163,7 @@ Public Class AddNewVehicle
     End Sub
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
-        Help.GetHelp("addNewVehicle")
+        Help.GetHelp("ca")
     End Sub
 
     Private Sub ImageButton_Click(sender As Object, e As EventArgs) Handles ImageButton.Click

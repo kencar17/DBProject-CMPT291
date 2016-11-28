@@ -21,6 +21,7 @@ Public Class ViewInventory
     End Sub
 
     Private Sub ViewInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(722, 535)
         seatsCombo.Items.Add("All")
         For seat As Integer = 1 To 4
             seatsCombo.Items.Add(seat)
@@ -177,5 +178,9 @@ Public Class ViewInventory
                 VehiclePicture.Image = Nothing
             End If
         Next
+    End Sub
+
+    Private Sub HButton_Click(sender As Object, e As EventArgs) Handles HButton.Click
+        Help.GetHelp("viewinventory")
     End Sub
 End Class
