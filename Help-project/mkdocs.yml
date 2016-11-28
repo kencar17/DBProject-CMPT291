@@ -5,8 +5,11 @@ pages:
     - Giving Feedback: feedback.md
     - The Home Screen: home.md
     - Branch Administration: branches.md
+    - Car Administration: ca.md
     - Type Administration: types.md
     - User Administration: ua.md
+    - Rentals: rentals.md
     - Reports: reports.md
     - System Backup: backup.md
+    - Viewing the Inventory: viewinventory.md
 theme: readthedocs
