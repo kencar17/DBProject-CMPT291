@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Type Administration - Car Rental documentation</title>
+  <title>Rentals - Car Rental documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Type Administration";
-    var mkdocs_page_input_path = "types.md";
-    var mkdocs_page_url = "/types/";
+    var mkdocs_page_name = "Rentals";
+    var mkdocs_page_input_path = "rentals.md";
+    var mkdocs_page_url = "/rentals/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -89,18 +89,8 @@
 <li>
           
             <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Type Administration</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#creating-a-vehicle-type">Creating a Vehicle Type</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#updating-a-vehicle-type">Updating a Vehicle Type</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../types/">Type Administration</a>
         
     </li>
 <li>
@@ -113,8 +103,24 @@
 <li>
           
             <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../rentals/">Rentals</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Rentals</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#pickup-information">Pickup Information</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#vehicle-selection">Vehicle Selection</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#customer-information">Customer Information</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#order-summary">Order Summary</a></li>
+                
+            
+            </ul>
         
     </li>
 <li>
@@ -162,7 +168,7 @@
     
       
     
-    <li>Type Administration</li>
+    <li>Rentals</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -172,23 +178,33 @@
           <div role="main">
             <div class="section">
               
-                <p>Vehicles come in many different types, and each type needs to have a different daily, weekly, and monthly rates. To accommodate this, logged-in employees can  create new vehicle types or update existing vehicle types. To begin using the vehicle type system, make sure you're <a href="../gs/">logged in</a> select Car Types from the employee home screen. You will be presented with the following screen:</p>
-<p><img alt="Type Administration" src="../TypeAdministration.png" /></p>
-<h1 id="creating-a-vehicle-type">Creating a Vehicle Type</h1>
-<p>To create a new vehicle type, select Create a Type from the Car Types screen. You will see the following window:</p>
-<p><img alt="New Car Type" src="../NewType.png" /></p>
-<p>Here, you will need to enter:</p>
+                <p>Of course, the major use for our system will be to create rentals for customers.</p>
+<h1 id="pickup-information">Pickup Information</h1>
+<p>First, we need to know some information about where the rental will be picked up:</p>
+<p><img alt="Pickup Information" src="../Pickup.png" /></p>
+<p>Here, you can select the branch that the customer will pick their vehicle up from, as well as how long they will rent the vehicle for. Select the date and time that the customer will pick the vehicle up at, then select the date and time that the customer will return their vehicle. Once you are finished entering this information, press the Next button.</p>
+<h1 id="vehicle-selection">Vehicle Selection</h1>
+<p><img alt="View Inventory Screen" src="../VehicleSelection.png" /></p>
+<p>There are many options that you can choose from. You can:</p>
 <ul>
-<li>A short description of the type, such as Small Car or SUV</li>
-<li>A daily rate</li>
-<li>A weekly rate</li>
-<li>A monthly rate</li>
+<li>Select the type of vehicle you're interested in, such as mini-van or SUV</li>
+<li>Select the make of the vehicle you're interested in, such as Ford or Dodge</li>
+<li>Select the number of seats you need in a vehicle</li>
+<li>The ideal transmission of the vehicle, if you prefer automatic or standard</li>
 </ul>
-<p>Once the information is entered, press submit. If there are any issues with the information you entered, the system will let you know; otherwise, the system will create the type and let you know that it was successful.</p>
-<h1 id="updating-a-vehicle-type">Updating a Vehicle Type</h1>
-<p>To update a vehicle type, select Modify a Type from the Car Types screen. You will see the following window:</p>
-<p><img alt="Updating a Type" src="../ModifyType.png" /></p>
-<p>First, you must select the vehicle type that you want to change from the drop-down list at the top of the screen. You can then change the description of the type, and any of the rates associated with it. Once you are satisfied with your changes, press the Submit button. The system will validate the information you entered, and will let you know if there were any errors. It will then update the vehicle type stored in the system, and let you know when the operation is completed.</p>
+<p>You can make any choices that you wish, or none at all. Once you have made your
+choices, you can see the various vehicles we offer that meet your requirements.
+If you click on any vehicle that interests you, you will be presented with a
+picture of the vehicle in the top right of the application.</p>
+<p>Once you have selected the desired vehicle, press the Next button.</p>
+<h1 id="customer-information">Customer Information</h1>
+<p>Next, we need some information from the customer:</p>
+<p><img alt="Customer Information" src="../CustomerInformation.png" /></p>
+<p>You can either enter the information of the customer if they are new to our rental system, or search by their last name if they are an existing customer. If you select an existing customer, their information will populate the boxes, and should be verified. Then, enter the customer's credit card information, and press Next.</p>
+<h1 id="order-summary">Order Summary</h1>
+<p>Finally, the order information will be summarized before charging the customer's credit card:</p>
+<p><img alt="Order Summary" src="../OrderSummary.png" /></p>
+<p>If all the information appears to be correct, press the Finish button.</p>
               
             </div>
           </div>
@@ -196,10 +212,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../ua/" class="btn btn-neutral float-right" title="User Administration">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../reports/" class="btn btn-neutral float-right" title="Reports">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../ca/" class="btn btn-neutral" title="Car Administration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ua/" class="btn btn-neutral" title="User Administration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -225,10 +241,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../ca/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../ua/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../ua/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../reports/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
