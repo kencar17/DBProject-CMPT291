@@ -27,41 +27,42 @@ Partial Class OrderSummary
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.address = New System.Windows.Forms.Label()
+        Me.cityProv = New System.Windows.Forms.Label()
+        Me.countryPostal = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.pickUp = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Fname = New System.Windows.Forms.Label()
+        Me.Lname = New System.Windows.Forms.Label()
+        Me.email = New System.Windows.Forms.Label()
+        Me.age = New System.Windows.Forms.Label()
         Me.backButton = New System.Windows.Forms.Button()
         Me.finishButton = New System.Windows.Forms.Button()
+        Me.vehicle = New System.Windows.Forms.DataGridView()
+        Me.helpButton = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.branchConPos = New System.Windows.Forms.Label()
+        Me.branchCityPro = New System.Windows.Forms.Label()
+        Me.branchAdd = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.branchEmail = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.branchPhone = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.branchFax = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.branchMan = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.daysLabel = New System.Windows.Forms.Label()
+        CType(Me.vehicle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(46, 36)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(225, 25)
@@ -80,7 +81,7 @@ Partial Class OrderSummary
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(77, 206)
+        Me.Label2.Location = New System.Drawing.Point(308, 86)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(54, 25)
         Me.Label2.TabIndex = 2
@@ -98,259 +99,106 @@ Partial Class OrderSummary
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(77, 166)
+        Me.Label4.Location = New System.Drawing.Point(77, 167)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(58, 25)
+        Me.Label4.Size = New System.Drawing.Size(66, 25)
         Me.Label4.TabIndex = 4
-        Me.Label4.Text = "email"
+        Me.Label4.Text = "Email:"
         '
-        'Label5
+        'address
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(340, 86)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(82, 25)
-        Me.Label5.TabIndex = 5
-        Me.Label5.Text = "address"
+        Me.address.AutoSize = True
+        Me.address.Location = New System.Drawing.Point(549, 86)
+        Me.address.Name = "address"
+        Me.address.Size = New System.Drawing.Size(82, 25)
+        Me.address.TabIndex = 5
+        Me.address.Text = "address"
         '
-        'Label6
+        'cityProv
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(340, 126)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(127, 25)
-        Me.Label6.TabIndex = 6
-        Me.Label6.Text = "city, Province"
+        Me.cityProv.AutoSize = True
+        Me.cityProv.Location = New System.Drawing.Point(549, 126)
+        Me.cityProv.Name = "cityProv"
+        Me.cityProv.Size = New System.Drawing.Size(127, 25)
+        Me.cityProv.TabIndex = 6
+        Me.cityProv.Text = "city, Province"
         '
-        'Label7
+        'countryPostal
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(340, 166)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(198, 25)
-        Me.Label7.TabIndex = 7
-        Me.Label7.Text = "Country, Postal Code"
+        Me.countryPostal.AutoSize = True
+        Me.countryPostal.Location = New System.Drawing.Point(549, 167)
+        Me.countryPostal.Name = "countryPostal"
+        Me.countryPostal.Size = New System.Drawing.Size(198, 25)
+        Me.countryPostal.TabIndex = 7
+        Me.countryPostal.Text = "Country, Postal Code"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(638, 86)
+        Me.Label8.Location = New System.Drawing.Point(678, 327)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(69, 25)
         Me.Label8.TabIndex = 8
         Me.Label8.Text = "Dates:"
         '
-        'Label9
+        'pickUp
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(703, 86)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(57, 25)
-        Me.Label9.TabIndex = 9
-        Me.Label9.Text = "From"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(703, 126)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(36, 25)
-        Me.Label10.TabIndex = 10
-        Me.Label10.Text = "To"
+        Me.pickUp.AutoSize = True
+        Me.pickUp.Location = New System.Drawing.Point(773, 327)
+        Me.pickUp.Name = "pickUp"
+        Me.pickUp.Size = New System.Drawing.Size(57, 25)
+        Me.pickUp.TabIndex = 9
+        Me.pickUp.Text = "From"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(51, 245)
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(46, 518)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(204, 25)
         Me.Label11.TabIndex = 11
         Me.Label11.Text = "Vehicle Information:"
         '
-        'Label12
+        'Fname
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(82, 290)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(67, 25)
-        Me.Label12.TabIndex = 12
-        Me.Label12.Text = "Make:"
+        Me.Fname.AutoSize = True
+        Me.Fname.Location = New System.Drawing.Point(189, 86)
+        Me.Fname.Name = "Fname"
+        Me.Fname.Size = New System.Drawing.Size(82, 25)
+        Me.Fname.TabIndex = 26
+        Me.Fname.Text = "Label26"
         '
-        'Label13
+        'Lname
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(82, 330)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(72, 25)
-        Me.Label13.TabIndex = 13
-        Me.Label13.Text = "Model:"
+        Me.Lname.AutoSize = True
+        Me.Lname.Location = New System.Drawing.Point(189, 126)
+        Me.Lname.Name = "Lname"
+        Me.Lname.Size = New System.Drawing.Size(82, 25)
+        Me.Lname.TabIndex = 27
+        Me.Lname.Text = "Label27"
         '
-        'Label14
+        'email
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(82, 370)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(59, 25)
-        Me.Label14.TabIndex = 14
-        Me.Label14.Text = "Year:"
+        Me.email.AutoSize = True
+        Me.email.Location = New System.Drawing.Point(189, 167)
+        Me.email.Name = "email"
+        Me.email.Size = New System.Drawing.Size(82, 25)
+        Me.email.TabIndex = 28
+        Me.email.Text = "Label28"
         '
-        'Label15
+        'age
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(82, 410)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(69, 25)
-        Me.Label15.TabIndex = 15
-        Me.Label15.Text = "Seats:"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(187, 290)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(82, 25)
-        Me.Label16.TabIndex = 16
-        Me.Label16.Text = "Label16"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(187, 330)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(82, 25)
-        Me.Label17.TabIndex = 17
-        Me.Label17.Text = "Label17"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(187, 370)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(82, 25)
-        Me.Label18.TabIndex = 18
-        Me.Label18.Text = "Label18"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(187, 410)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(82, 25)
-        Me.Label19.TabIndex = 19
-        Me.Label19.Text = "Label19"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(345, 290)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(135, 25)
-        Me.Label20.TabIndex = 20
-        Me.Label20.Text = "Transmission:"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(345, 330)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(80, 25)
-        Me.Label21.TabIndex = 21
-        Me.Label21.Text = "GVWR:"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(506, 290)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(82, 25)
-        Me.Label22.TabIndex = 22
-        Me.Label22.Text = "Label22"
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(506, 330)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(82, 25)
-        Me.Label23.TabIndex = 23
-        Me.Label23.Text = "Label23"
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(345, 370)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(49, 25)
-        Me.Label24.TabIndex = 24
-        Me.Label24.Text = "KM:"
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(506, 370)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(82, 25)
-        Me.Label25.TabIndex = 25
-        Me.Label25.Text = "Label25"
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(192, 86)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(82, 25)
-        Me.Label26.TabIndex = 26
-        Me.Label26.Text = "Label26"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(192, 126)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(82, 25)
-        Me.Label27.TabIndex = 27
-        Me.Label27.Text = "Label27"
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(192, 166)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(82, 25)
-        Me.Label28.TabIndex = 28
-        Me.Label28.Text = "Label28"
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(192, 206)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(82, 25)
-        Me.Label29.TabIndex = 29
-        Me.Label29.Text = "Label29"
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(638, 290)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(58, 25)
-        Me.Label30.TabIndex = 30
-        Me.Label30.Text = "Rate:"
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(703, 290)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(82, 25)
-        Me.Label31.TabIndex = 31
-        Me.Label31.Text = "Label31"
+        Me.age.AutoSize = True
+        Me.age.Location = New System.Drawing.Point(406, 86)
+        Me.age.Name = "age"
+        Me.age.Size = New System.Drawing.Size(82, 25)
+        Me.age.TabIndex = 29
+        Me.age.Text = "Label29"
         '
         'backButton
         '
-        Me.backButton.Location = New System.Drawing.Point(56, 553)
+        Me.backButton.Location = New System.Drawing.Point(51, 777)
         Me.backButton.Name = "backButton"
         Me.backButton.Size = New System.Drawing.Size(93, 40)
         Me.backButton.TabIndex = 32
@@ -359,47 +207,202 @@ Partial Class OrderSummary
         '
         'finishButton
         '
-        Me.finishButton.Location = New System.Drawing.Point(692, 553)
+        Me.finishButton.Location = New System.Drawing.Point(1404, 777)
         Me.finishButton.Name = "finishButton"
         Me.finishButton.Size = New System.Drawing.Size(93, 40)
         Me.finishButton.TabIndex = 33
         Me.finishButton.Text = "Finish"
         Me.finishButton.UseVisualStyleBackColor = True
         '
+        'vehicle
+        '
+        Me.vehicle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.vehicle.Location = New System.Drawing.Point(51, 573)
+        Me.vehicle.Name = "vehicle"
+        Me.vehicle.RowTemplate.Height = 31
+        Me.vehicle.Size = New System.Drawing.Size(1446, 163)
+        Me.vehicle.TabIndex = 34
+        '
+        'helpButton
+        '
+        Me.helpButton.Location = New System.Drawing.Point(194, 777)
+        Me.helpButton.Name = "helpButton"
+        Me.helpButton.Size = New System.Drawing.Size(93, 40)
+        Me.helpButton.TabIndex = 35
+        Me.helpButton.Text = "Help"
+        Me.helpButton.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(46, 279)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(200, 25)
+        Me.Label5.TabIndex = 36
+        Me.Label5.Text = "Branch Information:"
+        '
+        'branchConPos
+        '
+        Me.branchConPos.AutoSize = True
+        Me.branchConPos.Location = New System.Drawing.Point(77, 444)
+        Me.branchConPos.Name = "branchConPos"
+        Me.branchConPos.Size = New System.Drawing.Size(198, 25)
+        Me.branchConPos.TabIndex = 39
+        Me.branchConPos.Text = "Country, Postal Code"
+        '
+        'branchCityPro
+        '
+        Me.branchCityPro.AutoSize = True
+        Me.branchCityPro.Location = New System.Drawing.Point(77, 408)
+        Me.branchCityPro.Name = "branchCityPro"
+        Me.branchCityPro.Size = New System.Drawing.Size(127, 25)
+        Me.branchCityPro.TabIndex = 38
+        Me.branchCityPro.Text = "city, Province"
+        '
+        'branchAdd
+        '
+        Me.branchAdd.AutoSize = True
+        Me.branchAdd.Location = New System.Drawing.Point(77, 368)
+        Me.branchAdd.Name = "branchAdd"
+        Me.branchAdd.Size = New System.Drawing.Size(82, 25)
+        Me.branchAdd.TabIndex = 37
+        Me.branchAdd.Text = "address"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(308, 368)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(66, 25)
+        Me.Label6.TabIndex = 40
+        Me.Label6.Text = "Email:"
+        '
+        'branchEmail
+        '
+        Me.branchEmail.AutoSize = True
+        Me.branchEmail.Location = New System.Drawing.Point(406, 368)
+        Me.branchEmail.Name = "branchEmail"
+        Me.branchEmail.Size = New System.Drawing.Size(71, 25)
+        Me.branchEmail.TabIndex = 41
+        Me.branchEmail.Text = "Label7"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(308, 408)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(75, 25)
+        Me.Label7.TabIndex = 42
+        Me.Label7.Text = "Phone:"
+        '
+        'branchPhone
+        '
+        Me.branchPhone.AutoSize = True
+        Me.branchPhone.Location = New System.Drawing.Point(406, 408)
+        Me.branchPhone.Name = "branchPhone"
+        Me.branchPhone.Size = New System.Drawing.Size(71, 25)
+        Me.branchPhone.TabIndex = 43
+        Me.branchPhone.Text = "Label9"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(308, 444)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(51, 25)
+        Me.Label9.TabIndex = 44
+        Me.Label9.Text = "Fax:"
+        '
+        'branchFax
+        '
+        Me.branchFax.AutoSize = True
+        Me.branchFax.Location = New System.Drawing.Point(406, 444)
+        Me.branchFax.Name = "branchFax"
+        Me.branchFax.Size = New System.Drawing.Size(82, 25)
+        Me.branchFax.TabIndex = 45
+        Me.branchFax.Text = "Label10"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(77, 327)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(96, 25)
+        Me.Label10.TabIndex = 46
+        Me.Label10.Text = "Manager:"
+        '
+        'branchMan
+        '
+        Me.branchMan.AutoSize = True
+        Me.branchMan.Location = New System.Drawing.Point(189, 327)
+        Me.branchMan.Name = "branchMan"
+        Me.branchMan.Size = New System.Drawing.Size(82, 25)
+        Me.branchMan.TabIndex = 47
+        Me.branchMan.Text = "Label12"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(654, 279)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(176, 25)
+        Me.Label12.TabIndex = 48
+        Me.Label12.Text = "Rate Information:"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(678, 368)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(63, 25)
+        Me.Label13.TabIndex = 49
+        Me.Label13.Text = "Days:"
+        '
+        'daysLabel
+        '
+        Me.daysLabel.AutoSize = True
+        Me.daysLabel.Location = New System.Drawing.Point(776, 368)
+        Me.daysLabel.Name = "daysLabel"
+        Me.daysLabel.Size = New System.Drawing.Size(54, 25)
+        Me.daysLabel.TabIndex = 50
+        Me.daysLabel.Text = "days"
+        '
         'OrderSummary
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(940, 627)
-        Me.Controls.Add(Me.finishButton)
-        Me.Controls.Add(Me.backButton)
-        Me.Controls.Add(Me.Label31)
-        Me.Controls.Add(Me.Label30)
-        Me.Controls.Add(Me.Label29)
-        Me.Controls.Add(Me.Label28)
-        Me.Controls.Add(Me.Label27)
-        Me.Controls.Add(Me.Label26)
-        Me.Controls.Add(Me.Label25)
-        Me.Controls.Add(Me.Label24)
-        Me.Controls.Add(Me.Label23)
-        Me.Controls.Add(Me.Label22)
-        Me.Controls.Add(Me.Label21)
-        Me.Controls.Add(Me.Label20)
-        Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.Label18)
-        Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.Label16)
-        Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.Label14)
+        Me.ClientSize = New System.Drawing.Size(1525, 886)
+        Me.Controls.Add(Me.daysLabel)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.branchMan)
         Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.branchFax)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.branchPhone)
         Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.branchEmail)
         Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.branchConPos)
+        Me.Controls.Add(Me.branchCityPro)
+        Me.Controls.Add(Me.branchAdd)
         Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.helpButton)
+        Me.Controls.Add(Me.vehicle)
+        Me.Controls.Add(Me.finishButton)
+        Me.Controls.Add(Me.backButton)
+        Me.Controls.Add(Me.age)
+        Me.Controls.Add(Me.email)
+        Me.Controls.Add(Me.Lname)
+        Me.Controls.Add(Me.Fname)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.pickUp)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.countryPostal)
+        Me.Controls.Add(Me.cityProv)
+        Me.Controls.Add(Me.address)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -407,6 +410,7 @@ Partial Class OrderSummary
         Me.Controls.Add(Me.Label1)
         Me.Name = "OrderSummary"
         Me.Text = "OrderSummary"
+        CType(Me.vehicle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -417,33 +421,33 @@ Partial Class OrderSummary
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
+    Friend WithEvents address As Label
+    Friend WithEvents cityProv As Label
+    Friend WithEvents countryPostal As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
+    Friend WithEvents pickUp As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents Label19 As Label
-    Friend WithEvents Label20 As Label
-    Friend WithEvents Label21 As Label
-    Friend WithEvents Label22 As Label
-    Friend WithEvents Label23 As Label
-    Friend WithEvents Label24 As Label
-    Friend WithEvents Label25 As Label
-    Friend WithEvents Label26 As Label
-    Friend WithEvents Label27 As Label
-    Friend WithEvents Label28 As Label
-    Friend WithEvents Label29 As Label
-    Friend WithEvents Label30 As Label
-    Friend WithEvents Label31 As Label
+    Friend WithEvents Fname As Label
+    Friend WithEvents Lname As Label
+    Friend WithEvents email As Label
+    Friend WithEvents age As Label
     Friend WithEvents backButton As Button
     Friend WithEvents finishButton As Button
+    Friend WithEvents vehicle As DataGridView
+    Friend WithEvents helpButton As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents branchConPos As Label
+    Friend WithEvents branchCityPro As Label
+    Friend WithEvents branchAdd As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents branchEmail As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents branchPhone As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents branchFax As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents branchMan As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents daysLabel As Label
 End Class
