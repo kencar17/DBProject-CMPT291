@@ -40,7 +40,7 @@ Partial Class ModifyType
         '
         Me.TypeSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.TypeSelection.FormattingEnabled = True
-        Me.TypeSelection.Location = New System.Drawing.Point(79, 12)
+        Me.TypeSelection.Location = New System.Drawing.Point(270, 152)
         Me.TypeSelection.Name = "TypeSelection"
         Me.TypeSelection.Size = New System.Drawing.Size(121, 21)
         Me.TypeSelection.TabIndex = 0
@@ -48,7 +48,7 @@ Partial Class ModifyType
         'Type
         '
         Me.Type.Enabled = False
-        Me.Type.Location = New System.Drawing.Point(79, 39)
+        Me.Type.Location = New System.Drawing.Point(270, 179)
         Me.Type.Name = "Type"
         Me.Type.Size = New System.Drawing.Size(121, 20)
         Me.Type.TabIndex = 1
@@ -58,7 +58,7 @@ Partial Class ModifyType
         Me.DailyRate.DecimalPlaces = 2
         Me.DailyRate.Enabled = False
         Me.DailyRate.Increment = New Decimal(New Integer() {5, 0, 0, 131072})
-        Me.DailyRate.Location = New System.Drawing.Point(79, 66)
+        Me.DailyRate.Location = New System.Drawing.Point(270, 206)
         Me.DailyRate.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
         Me.DailyRate.Name = "DailyRate"
         Me.DailyRate.Size = New System.Drawing.Size(121, 20)
@@ -69,7 +69,7 @@ Partial Class ModifyType
         Me.WeeklyRate.DecimalPlaces = 2
         Me.WeeklyRate.Enabled = False
         Me.WeeklyRate.Increment = New Decimal(New Integer() {5, 0, 0, 131072})
-        Me.WeeklyRate.Location = New System.Drawing.Point(79, 93)
+        Me.WeeklyRate.Location = New System.Drawing.Point(270, 233)
         Me.WeeklyRate.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
         Me.WeeklyRate.Name = "WeeklyRate"
         Me.WeeklyRate.Size = New System.Drawing.Size(121, 20)
@@ -80,7 +80,7 @@ Partial Class ModifyType
         Me.MonthlyRate.DecimalPlaces = 2
         Me.MonthlyRate.Enabled = False
         Me.MonthlyRate.Increment = New Decimal(New Integer() {5, 0, 0, 131072})
-        Me.MonthlyRate.Location = New System.Drawing.Point(79, 120)
+        Me.MonthlyRate.Location = New System.Drawing.Point(270, 260)
         Me.MonthlyRate.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
         Me.MonthlyRate.Name = "MonthlyRate"
         Me.MonthlyRate.Size = New System.Drawing.Size(121, 20)
@@ -88,7 +88,7 @@ Partial Class ModifyType
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(12, 146)
+        Me.HelpButton.Location = New System.Drawing.Point(203, 286)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(75, 23)
         Me.HelpButton.TabIndex = 5
@@ -97,7 +97,7 @@ Partial Class ModifyType
         '
         'SubmitButton
         '
-        Me.SubmitButton.Location = New System.Drawing.Point(105, 146)
+        Me.SubmitButton.Location = New System.Drawing.Point(296, 286)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(75, 23)
         Me.SubmitButton.TabIndex = 6
@@ -106,7 +106,7 @@ Partial Class ModifyType
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(197, 146)
+        Me.CloseButton.Location = New System.Drawing.Point(388, 286)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 7
@@ -117,7 +117,7 @@ Partial Class ModifyType
         '
         Me.ErrLabel.AutoSize = True
         Me.ErrLabel.ForeColor = System.Drawing.Color.Red
-        Me.ErrLabel.Location = New System.Drawing.Point(105, 176)
+        Me.ErrLabel.Location = New System.Drawing.Point(296, 316)
         Me.ErrLabel.Name = "ErrLabel"
         Me.ErrLabel.Size = New System.Drawing.Size(39, 13)
         Me.ErrLabel.TabIndex = 8
@@ -128,7 +128,7 @@ Partial Class ModifyType
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.ErrLabel)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.SubmitButton)

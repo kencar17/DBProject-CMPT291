@@ -42,7 +42,7 @@ Partial Class UpdateBranch
         '
         Me.BranchSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.BranchSelection.FormattingEnabled = True
-        Me.BranchSelection.Location = New System.Drawing.Point(12, 12)
+        Me.BranchSelection.Location = New System.Drawing.Point(213, 137)
         Me.BranchSelection.Name = "BranchSelection"
         Me.BranchSelection.Size = New System.Drawing.Size(260, 21)
         Me.BranchSelection.TabIndex = 0
@@ -50,7 +50,7 @@ Partial Class UpdateBranch
         'AddressBox
         '
         Me.AddressBox.Enabled = False
-        Me.AddressBox.Location = New System.Drawing.Point(12, 39)
+        Me.AddressBox.Location = New System.Drawing.Point(213, 164)
         Me.AddressBox.Name = "AddressBox"
         Me.AddressBox.Size = New System.Drawing.Size(121, 20)
         Me.AddressBox.TabIndex = 1
@@ -58,7 +58,7 @@ Partial Class UpdateBranch
         'PostcodeBox
         '
         Me.PostcodeBox.Enabled = False
-        Me.PostcodeBox.Location = New System.Drawing.Point(151, 39)
+        Me.PostcodeBox.Location = New System.Drawing.Point(352, 164)
         Me.PostcodeBox.Name = "PostcodeBox"
         Me.PostcodeBox.Size = New System.Drawing.Size(121, 20)
         Me.PostcodeBox.TabIndex = 2
@@ -66,7 +66,7 @@ Partial Class UpdateBranch
         'CityBox
         '
         Me.CityBox.Enabled = False
-        Me.CityBox.Location = New System.Drawing.Point(12, 65)
+        Me.CityBox.Location = New System.Drawing.Point(213, 190)
         Me.CityBox.Name = "CityBox"
         Me.CityBox.Size = New System.Drawing.Size(121, 20)
         Me.CityBox.TabIndex = 3
@@ -74,7 +74,7 @@ Partial Class UpdateBranch
         'StateBox
         '
         Me.StateBox.Enabled = False
-        Me.StateBox.Location = New System.Drawing.Point(151, 65)
+        Me.StateBox.Location = New System.Drawing.Point(352, 190)
         Me.StateBox.Name = "StateBox"
         Me.StateBox.Size = New System.Drawing.Size(121, 20)
         Me.StateBox.TabIndex = 4
@@ -82,7 +82,7 @@ Partial Class UpdateBranch
         'CountryBox
         '
         Me.CountryBox.Enabled = False
-        Me.CountryBox.Location = New System.Drawing.Point(12, 92)
+        Me.CountryBox.Location = New System.Drawing.Point(213, 217)
         Me.CountryBox.Name = "CountryBox"
         Me.CountryBox.Size = New System.Drawing.Size(121, 20)
         Me.CountryBox.TabIndex = 5
@@ -90,7 +90,7 @@ Partial Class UpdateBranch
         'EmailBox
         '
         Me.EmailBox.Enabled = False
-        Me.EmailBox.Location = New System.Drawing.Point(151, 92)
+        Me.EmailBox.Location = New System.Drawing.Point(352, 217)
         Me.EmailBox.Name = "EmailBox"
         Me.EmailBox.Size = New System.Drawing.Size(121, 20)
         Me.EmailBox.TabIndex = 6
@@ -98,7 +98,7 @@ Partial Class UpdateBranch
         'PhoneBox
         '
         Me.PhoneBox.Enabled = False
-        Me.PhoneBox.Location = New System.Drawing.Point(12, 119)
+        Me.PhoneBox.Location = New System.Drawing.Point(213, 244)
         Me.PhoneBox.Name = "PhoneBox"
         Me.PhoneBox.Size = New System.Drawing.Size(121, 20)
         Me.PhoneBox.TabIndex = 7
@@ -106,7 +106,7 @@ Partial Class UpdateBranch
         'FaxBox
         '
         Me.FaxBox.Enabled = False
-        Me.FaxBox.Location = New System.Drawing.Point(151, 119)
+        Me.FaxBox.Location = New System.Drawing.Point(352, 244)
         Me.FaxBox.Name = "FaxBox"
         Me.FaxBox.Size = New System.Drawing.Size(121, 20)
         Me.FaxBox.TabIndex = 8
@@ -116,14 +116,14 @@ Partial Class UpdateBranch
         Me.MBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.MBox.Enabled = False
         Me.MBox.FormattingEnabled = True
-        Me.MBox.Location = New System.Drawing.Point(79, 145)
+        Me.MBox.Location = New System.Drawing.Point(280, 270)
         Me.MBox.Name = "MBox"
         Me.MBox.Size = New System.Drawing.Size(121, 21)
         Me.MBox.TabIndex = 9
         '
         'HButton
         '
-        Me.HButton.Location = New System.Drawing.Point(12, 172)
+        Me.HButton.Location = New System.Drawing.Point(213, 297)
         Me.HButton.Name = "HButton"
         Me.HButton.Size = New System.Drawing.Size(75, 23)
         Me.HButton.TabIndex = 10
@@ -132,7 +132,7 @@ Partial Class UpdateBranch
         '
         'SubmitButton
         '
-        Me.SubmitButton.Location = New System.Drawing.Point(105, 172)
+        Me.SubmitButton.Location = New System.Drawing.Point(306, 297)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(75, 23)
         Me.SubmitButton.TabIndex = 11
@@ -141,7 +141,7 @@ Partial Class UpdateBranch
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(197, 172)
+        Me.CloseButton.Location = New System.Drawing.Point(398, 297)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 12
@@ -152,7 +152,7 @@ Partial Class UpdateBranch
         '
         Me.ErrLabel.AutoSize = True
         Me.ErrLabel.ForeColor = System.Drawing.Color.Red
-        Me.ErrLabel.Location = New System.Drawing.Point(105, 202)
+        Me.ErrLabel.Location = New System.Drawing.Point(306, 327)
         Me.ErrLabel.Name = "ErrLabel"
         Me.ErrLabel.Size = New System.Drawing.Size(39, 13)
         Me.ErrLabel.TabIndex = 13
@@ -163,7 +163,7 @@ Partial Class UpdateBranch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 229)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.ErrLabel)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.SubmitButton)

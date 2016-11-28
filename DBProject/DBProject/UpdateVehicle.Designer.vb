@@ -71,6 +71,7 @@ Partial Class UpdateVehicle
         '
         'MakeBox
         '
+        Me.MakeBox.Enabled = False
         Me.MakeBox.Location = New System.Drawing.Point(86, 132)
         Me.MakeBox.Margin = New System.Windows.Forms.Padding(2)
         Me.MakeBox.Name = "MakeBox"
@@ -79,6 +80,7 @@ Partial Class UpdateVehicle
         '
         'ModelBox
         '
+        Me.ModelBox.Enabled = False
         Me.ModelBox.Location = New System.Drawing.Point(276, 132)
         Me.ModelBox.Margin = New System.Windows.Forms.Padding(2)
         Me.ModelBox.Name = "ModelBox"
@@ -87,6 +89,7 @@ Partial Class UpdateVehicle
         '
         'KmBox
         '
+        Me.KmBox.Enabled = False
         Me.KmBox.Location = New System.Drawing.Point(276, 156)
         Me.KmBox.Margin = New System.Windows.Forms.Padding(2)
         Me.KmBox.Name = "KmBox"
@@ -95,6 +98,7 @@ Partial Class UpdateVehicle
         '
         'YearBox
         '
+        Me.YearBox.Enabled = False
         Me.YearBox.Location = New System.Drawing.Point(86, 181)
         Me.YearBox.Margin = New System.Windows.Forms.Padding(2)
         Me.YearBox.Name = "YearBox"
@@ -103,6 +107,7 @@ Partial Class UpdateVehicle
         '
         'SeatBox
         '
+        Me.SeatBox.Enabled = False
         Me.SeatBox.Location = New System.Drawing.Point(276, 181)
         Me.SeatBox.Margin = New System.Windows.Forms.Padding(2)
         Me.SeatBox.Name = "SeatBox"
@@ -111,6 +116,7 @@ Partial Class UpdateVehicle
         '
         'GVWRBox
         '
+        Me.GVWRBox.Enabled = False
         Me.GVWRBox.Location = New System.Drawing.Point(86, 205)
         Me.GVWRBox.Margin = New System.Windows.Forms.Padding(2)
         Me.GVWRBox.Name = "GVWRBox"
@@ -119,6 +125,7 @@ Partial Class UpdateVehicle
         '
         'PlateBox
         '
+        Me.PlateBox.Enabled = False
         Me.PlateBox.Location = New System.Drawing.Point(86, 229)
         Me.PlateBox.Margin = New System.Windows.Forms.Padding(2)
         Me.PlateBox.Name = "PlateBox"
@@ -127,6 +134,7 @@ Partial Class UpdateVehicle
         '
         'CoverageBox
         '
+        Me.CoverageBox.Enabled = False
         Me.CoverageBox.Location = New System.Drawing.Point(86, 253)
         Me.CoverageBox.Margin = New System.Windows.Forms.Padding(2)
         Me.CoverageBox.Name = "CoverageBox"
@@ -135,6 +143,7 @@ Partial Class UpdateVehicle
         '
         'SubmitButton
         '
+        Me.SubmitButton.Enabled = False
         Me.SubmitButton.Location = New System.Drawing.Point(276, 323)
         Me.SubmitButton.Margin = New System.Windows.Forms.Padding(2)
         Me.SubmitButton.Name = "SubmitButton"
@@ -287,6 +296,8 @@ Partial Class UpdateVehicle
         '
         'BranchCB
         '
+        Me.BranchCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.BranchCB.Enabled = False
         Me.BranchCB.FormattingEnabled = True
         Me.BranchCB.Location = New System.Drawing.Point(276, 254)
         Me.BranchCB.Margin = New System.Windows.Forms.Padding(2)
@@ -306,6 +317,8 @@ Partial Class UpdateVehicle
         '
         'TransCB
         '
+        Me.TransCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TransCB.Enabled = False
         Me.TransCB.FormattingEnabled = True
         Me.TransCB.Location = New System.Drawing.Point(276, 205)
         Me.TransCB.Margin = New System.Windows.Forms.Padding(2)
@@ -316,6 +329,7 @@ Partial Class UpdateVehicle
         'ClassCB
         '
         Me.ClassCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ClassCB.Enabled = False
         Me.ClassCB.FormattingEnabled = True
         Me.ClassCB.Location = New System.Drawing.Point(86, 156)
         Me.ClassCB.Margin = New System.Windows.Forms.Padding(2)
@@ -325,6 +339,8 @@ Partial Class UpdateVehicle
         '
         'AvailCB
         '
+        Me.AvailCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.AvailCB.Enabled = False
         Me.AvailCB.FormattingEnabled = True
         Me.AvailCB.Location = New System.Drawing.Point(276, 229)
         Me.AvailCB.Margin = New System.Windows.Forms.Padding(2)
@@ -343,6 +359,7 @@ Partial Class UpdateVehicle
         '
         'ImageButton
         '
+        Me.ImageButton.Enabled = False
         Me.ImageButton.Location = New System.Drawing.Point(86, 278)
         Me.ImageButton.Name = "ImageButton"
         Me.ImageButton.Size = New System.Drawing.Size(75, 23)

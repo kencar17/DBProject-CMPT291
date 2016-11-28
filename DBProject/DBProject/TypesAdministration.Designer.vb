@@ -30,7 +30,7 @@ Partial Class TypesAdministration
         '
         'CreateButton
         '
-        Me.CreateButton.Location = New System.Drawing.Point(13, 13)
+        Me.CreateButton.Location = New System.Drawing.Point(299, 190)
         Me.CreateButton.Name = "CreateButton"
         Me.CreateButton.Size = New System.Drawing.Size(86, 23)
         Me.CreateButton.TabIndex = 0
@@ -39,7 +39,7 @@ Partial Class TypesAdministration
         '
         'ModifyButton
         '
-        Me.ModifyButton.Location = New System.Drawing.Point(13, 43)
+        Me.ModifyButton.Location = New System.Drawing.Point(299, 220)
         Me.ModifyButton.Name = "ModifyButton"
         Me.ModifyButton.Size = New System.Drawing.Size(86, 23)
         Me.ModifyButton.TabIndex = 1
@@ -48,7 +48,7 @@ Partial Class TypesAdministration
         '
         'HButton
         '
-        Me.HButton.Location = New System.Drawing.Point(13, 73)
+        Me.HButton.Location = New System.Drawing.Point(299, 250)
         Me.HButton.Name = "HButton"
         Me.HButton.Size = New System.Drawing.Size(86, 23)
         Me.HButton.TabIndex = 2
@@ -57,7 +57,7 @@ Partial Class TypesAdministration
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(13, 103)
+        Me.CloseButton.Location = New System.Drawing.Point(299, 280)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(86, 23)
         Me.CloseButton.TabIndex = 3
@@ -68,7 +68,7 @@ Partial Class TypesAdministration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 139)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.HButton)
         Me.Controls.Add(Me.ModifyButton)

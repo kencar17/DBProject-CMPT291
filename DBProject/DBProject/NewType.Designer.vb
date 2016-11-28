@@ -40,16 +40,16 @@ Partial Class NewType
         '
         'TypeBox
         '
-        Me.TypeBox.Location = New System.Drawing.Point(45, 13)
+        Me.TypeBox.Location = New System.Drawing.Point(210, 167)
         Me.TypeBox.Name = "TypeBox"
-        Me.TypeBox.Size = New System.Drawing.Size(200, 20)
+        Me.TypeBox.Size = New System.Drawing.Size(260, 20)
         Me.TypeBox.TabIndex = 0
         '
         'DailyRate
         '
         Me.DailyRate.DecimalPlaces = 2
         Me.DailyRate.Increment = New Decimal(New Integer() {5, 0, 0, 131072})
-        Me.DailyRate.Location = New System.Drawing.Point(93, 39)
+        Me.DailyRate.Location = New System.Drawing.Point(350, 193)
         Me.DailyRate.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
         Me.DailyRate.Name = "DailyRate"
         Me.DailyRate.Size = New System.Drawing.Size(120, 20)
@@ -59,7 +59,7 @@ Partial Class NewType
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 41)
+        Me.Label1.Location = New System.Drawing.Point(207, 195)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(56, 13)
         Me.Label1.TabIndex = 2
@@ -69,7 +69,7 @@ Partial Class NewType
         '
         Me.WeeklyRate.DecimalPlaces = 2
         Me.WeeklyRate.Increment = New Decimal(New Integer() {5, 0, 0, 131072})
-        Me.WeeklyRate.Location = New System.Drawing.Point(93, 65)
+        Me.WeeklyRate.Location = New System.Drawing.Point(350, 219)
         Me.WeeklyRate.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
         Me.WeeklyRate.Name = "WeeklyRate"
         Me.WeeklyRate.Size = New System.Drawing.Size(120, 20)
@@ -79,7 +79,7 @@ Partial Class NewType
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(10, 67)
+        Me.Label2.Location = New System.Drawing.Point(207, 221)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(69, 13)
         Me.Label2.TabIndex = 4
@@ -89,7 +89,7 @@ Partial Class NewType
         '
         Me.MonthlyRate.DecimalPlaces = 2
         Me.MonthlyRate.Increment = New Decimal(New Integer() {5, 0, 0, 131072})
-        Me.MonthlyRate.Location = New System.Drawing.Point(93, 92)
+        Me.MonthlyRate.Location = New System.Drawing.Point(350, 245)
         Me.MonthlyRate.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
         Me.MonthlyRate.Name = "MonthlyRate"
         Me.MonthlyRate.Size = New System.Drawing.Size(120, 20)
@@ -99,7 +99,7 @@ Partial Class NewType
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(10, 94)
+        Me.Label3.Location = New System.Drawing.Point(207, 247)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(70, 13)
         Me.Label3.TabIndex = 6
@@ -107,7 +107,7 @@ Partial Class NewType
         '
         'HButton
         '
-        Me.HButton.Location = New System.Drawing.Point(12, 118)
+        Me.HButton.Location = New System.Drawing.Point(210, 271)
         Me.HButton.Name = "HButton"
         Me.HButton.Size = New System.Drawing.Size(75, 23)
         Me.HButton.TabIndex = 7
@@ -116,7 +116,7 @@ Partial Class NewType
         '
         'SubmitButton
         '
-        Me.SubmitButton.Location = New System.Drawing.Point(104, 118)
+        Me.SubmitButton.Location = New System.Drawing.Point(302, 271)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(75, 23)
         Me.SubmitButton.TabIndex = 8
@@ -125,7 +125,7 @@ Partial Class NewType
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(197, 118)
+        Me.CloseButton.Location = New System.Drawing.Point(395, 271)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 9
@@ -136,7 +136,7 @@ Partial Class NewType
         '
         Me.ErrLabel.AutoSize = True
         Me.ErrLabel.ForeColor = System.Drawing.Color.Red
-        Me.ErrLabel.Location = New System.Drawing.Point(104, 148)
+        Me.ErrLabel.Location = New System.Drawing.Point(302, 301)
         Me.ErrLabel.Name = "ErrLabel"
         Me.ErrLabel.Size = New System.Drawing.Size(39, 13)
         Me.ErrLabel.TabIndex = 10
@@ -147,7 +147,7 @@ Partial Class NewType
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(706, 496)
         Me.Controls.Add(Me.ErrLabel)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.SubmitButton)
