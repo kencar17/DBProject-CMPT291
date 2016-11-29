@@ -48,7 +48,7 @@ Public Class ChooseRental
         MdiParent.Size = New Size(748, 594)
         Dim seatsList = New List(Of String)
         seatsList.Add("All")
-        For seat As Integer = 1 To 4
+        For seat As Integer = 1 To 10
             seatsList.Add(seat.ToString)
         Next
         seatsCombo.DataSource = seatsList
