@@ -14,10 +14,13 @@ Public Class createOrder
         End Set
     End Property
 
-    Public WriteOnly Property CallingFormProperty As ChooseRental
+    Public Property CallingFormProperty As ChooseRental
         Set
             callingForm = Value
         End Set
+        Get
+            Return callingForm
+        End Get
     End Property
 
 
@@ -41,15 +44,15 @@ Public Class createOrder
 
     Private Sub prepareInfo()
         'Dim personTest As Person = 
+        Dim person As New Person
 
         If existingCustomers.SelectedItem IsNot Nothing Then
 
             Console.WriteLine("selected index")
-            Dim person As Person = existingCustomers.SelectedItem
+            person = existingCustomers.SelectedItem
             rental.CustomerProperty = person
             conditionTest = 0
         Else
-            Dim person As New Person
             Dim count As Integer = 0
 
             If CFnameTextField.Text = "" Then
@@ -122,6 +125,39 @@ Public Class createOrder
             If count.Equals(11) Then
                 conditionTest = 0
                 RentalProperty.CustomerProperty = person
+
+                ' Insert the new customer
+                Dim isql As String = "INSERT INTO Customer (FirstName, LastName, CreditCard, PostalCode, StreetAddress, City, State, Country, Email, Age, Username, CVV) VALUES (@fname, @lname, @ccard, @pcode, @addr, @city, @state, @cty, @email, @age, @username, @cvv)"
+                Dim params As New Dictionary(Of String, String)
+                With params
+                    .Add("@fname", CFnameTextField.Text)
+                    .Add("@lname", CLnameTextField.Text)
+                    .Add("@ccard", creditCardTextbox.Text)
+                    .Add("@pcode", CPostalTextField.Text)
+                    .Add("@addr", CAddressTextField.Text)
+                    .Add("@city", CCityTextField.Text)
+                    .Add("@state", CProvinceTextField.Text)
+                    .Add("@cty", CCountryTextField.Text)
+                    .Add("@email", CEmailTextBox.Text)
+                    .Add("@age", CAgeTextBox.Text)
+                    .Add("@username", CLnameTextField.Text & CFnameTextField.Text.Substring(0, 1))
+                    .Add("@cvv", cvvTextbox.Text)
+                End With
+                SQLConnection.DoNonQuery(isql, params)
+
+                Dim ssql As String = "SELECT CID FROM Customer WHERE FirstName=@f AND LastName=@l AND CreditCard=@ccard AND PostalCode=@p"
+                params = New Dictionary(Of String, String)
+                params.Add("@f", CFnameTextField.Text)
+                params.Add("@l", CLnameTextField.Text)
+                params.Add("@ccard", creditCardTextbox.Text)
+                params.Add("@p", CPostalTextField.Text)
+                Dim columns As New List(Of String)
+                columns.Add("CID")
+                Dim cid As Integer
+                For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(ssql, params, columns)
+                    cid = CInt(result("CID"))
+                Next
+                person.IdProperty = cid
             End If
 
         End If
@@ -184,6 +220,7 @@ Public Class createOrder
                         person.StateProperty = sqlReader("State").ToString()
                         person.CountryProperty = sqlReader("Country").ToString()
                         person.ageProperty = sqlReader("age").ToString()
+                        person.IdProperty = sqlReader("CID").ToString()
                         'person.PhoneProperty = sqlReader("Phone").ToString()
 
                         existingCustomers.Items.Add(person)
@@ -209,6 +246,7 @@ Public Class createOrder
             CProvinceTextField.Text = person.StateProperty
             CCountryTextField.Text = person.CountryProperty
             CPostalTextField.Text = person.PostcodeProperty
+            Return
         End If
 
     End Sub
@@ -236,7 +274,7 @@ Public Class createOrder
                     person.CountryProperty = sqlReader("Country").ToString()
                     person.ageProperty = sqlReader("age").ToString()
                     'person.PhoneProperty = sqlReader("Phone").ToString()
-
+                    person.IdProperty = sqlReader("CID").ToString()
                     existingCustomers.Items.Add(person)
                 End While
             Catch ex As Exception

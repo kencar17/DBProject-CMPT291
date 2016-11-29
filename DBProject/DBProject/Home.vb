@@ -61,10 +61,13 @@ Public Class Home
     Private loggedInUser As User
     Private callingForm As Form1
 
-    Public WriteOnly Property LoggedInUserProperty As User
+    Public Property LoggedInUserProperty As User
         Set(value As User)
             loggedInUser = value
         End Set
+        Get
+            Return loggedInUser
+        End Get
     End Property
 
     Public WriteOnly Property CallingFormProperty As Form1
@@ -192,6 +195,7 @@ Public Class Home
 
     Private Sub RentalButton_Click(sender As Object, e As EventArgs) Handles RentalButton.Click
         Dim locationWindow As New ChooseLocation
+        locationWindow.CallingFormProperty = Me
         locationWindow.MdiParent = Me.MdiParent
         locationWindow.Show()
     End Sub
@@ -238,5 +242,7 @@ Public Class Home
         viewInventory.Show()
     End Sub
 
-
+    Private Sub Got_Focus() Handles MyBase.Enter
+        Init()
+    End Sub
 End Class

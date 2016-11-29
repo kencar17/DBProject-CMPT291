@@ -1,6 +1,7 @@
 ﻿Public Class OrderSummary
     Private callingform As createOrder
     Private rental As RentalInfo
+    Private cost As Double
 
     Public Property RentalProperty As RentalInfo
         Get
@@ -50,6 +51,17 @@
             daysLabel.Text = days.ToString
             daysLabel.BackColor = Color.Transparent
 
+            Dim d As New DateTime(New TimeSpan(days, 0, 0, 0).Ticks)
+            Dim months As Integer = d.Month - 1
+            Dim tdays As Integer = d.Day - 1
+            Dim weeks As Integer = 0
+            If tdays >= 7 Then
+                weeks = Math.Floor(tdays / 7)
+                tdays = tdays Mod 7
+            End If
+
+            cost = tdays * rental.VehicleProperty.DailyRate + weeks * rental.VehicleProperty.WeeklyRate + months * rental.VehicleProperty.MonthlyRate
+            costlabel.Text = "$" & cost
 
             Dim stateBranch As String = RentalProperty.LocationProperty.StateProperty
             Dim cityBranch As String = RentalProperty.LocationProperty.CityProperty
@@ -91,6 +103,7 @@
             vehicle.DataSource = list
 
             vehicle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+            vehicle.Columns(0).Visible = False
         End If
     End Sub
 
@@ -99,6 +112,24 @@
     End Sub
 
     Private Sub finishButton_Click(sender As Object, e As EventArgs) Handles finishButton.Click
+        Dim vehicle As VehicleInfo = rental.VehicleProperty
+
+        ' Commit to DB
+        Dim sql As String = "INSERT INTO Transaction (VIN, CID, EID, FromBID, ToBID, FromDate, ToDate, Cost) VALUES (@vin, @cid, @eid, @frombid, @tobid, @fromdate, @todate, @cost)"
+        Dim params As New Dictionary(Of String, String)
+        With params
+            .Add("@vin", vehicle.VinProperty)
+            .Add("@cid", RentalProperty.CustomerProperty.IdProperty)
+            .Add("@eid", callingform.CallingFormProperty.CallingFormProperty.CallingFormProperty.LoggedInUserProperty.IdProperty)
+            .Add("@frombid", callingform.CallingFormProperty.CallingFormProperty.CallingFormProperty.LoggedInUserProperty.BranchProperty)
+            .Add("@tobid", rental.LocationProperty.BidProperty)
+            .Add("@fromdate", rental.PickUpProperty)
+            .Add("@todate", rental.DropOffProperty)
+            .Add("@cost", cost)
+        End With
+        SQLConnection.DoNonQuery(sql, params)
+        MsgBox("The transaction has been created.")
+
         callingform.doAThing()
         Close()
     End Sub
