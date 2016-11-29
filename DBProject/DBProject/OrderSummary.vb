@@ -47,6 +47,9 @@
             pickUp.Text = pickUpDate & " at " & pickTime & "  to  " & dropOffDate & " at " & dropTime
             pickUp.BackColor = Color.Transparent
             Dim days As Int32 = dropOffDate.Subtract(pickUpDate).Days
+            If days = 0 Then
+                days = 1
+            End If
 
             daysLabel.Text = days.ToString
             daysLabel.BackColor = Color.Transparent
