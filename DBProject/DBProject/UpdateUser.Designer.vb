@@ -196,7 +196,7 @@ Partial Class UpdateUser
         'PicturePath
         '
         Me.PicturePath.AutoSize = True
-        Me.PicturePath.Location = New System.Drawing.Point(233, 271)
+        Me.PicturePath.Location = New System.Drawing.Point(267, 309)
         Me.PicturePath.Name = "PicturePath"
         Me.PicturePath.Size = New System.Drawing.Size(0, 13)
         Me.PicturePath.TabIndex = 28
