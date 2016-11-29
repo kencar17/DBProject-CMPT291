@@ -52,7 +52,7 @@ Partial Class Form1
         '
         'SignInButton
         '
-        Me.SignInButton.Location = New System.Drawing.Point(593, 371)
+        Me.SignInButton.Location = New System.Drawing.Point(593, 417)
         Me.SignInButton.Margin = New System.Windows.Forms.Padding(6)
         Me.SignInButton.Name = "SignInButton"
         Me.SignInButton.Size = New System.Drawing.Size(180, 42)
@@ -64,15 +64,16 @@ Partial Class Form1
         '
         Me.NotFoundLabel.AutoSize = True
         Me.NotFoundLabel.ForeColor = System.Drawing.Color.Red
-        Me.NotFoundLabel.Location = New System.Drawing.Point(22, 262)
+        Me.NotFoundLabel.Location = New System.Drawing.Point(582, 371)
         Me.NotFoundLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.NotFoundLabel.Name = "NotFoundLabel"
-        Me.NotFoundLabel.Size = New System.Drawing.Size(0, 25)
+        Me.NotFoundLabel.Size = New System.Drawing.Size(75, 25)
         Me.NotFoundLabel.TabIndex = 4
+        Me.NotFoundLabel.Text = "found it"
         '
         'CheckButton
         '
-        Me.CheckButton.Location = New System.Drawing.Point(593, 425)
+        Me.CheckButton.Location = New System.Drawing.Point(593, 471)
         Me.CheckButton.Margin = New System.Windows.Forms.Padding(6)
         Me.CheckButton.Name = "CheckButton"
         Me.CheckButton.Size = New System.Drawing.Size(180, 42)
@@ -82,7 +83,7 @@ Partial Class Form1
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(593, 585)
+        Me.CloseButton.Location = New System.Drawing.Point(593, 631)
         Me.CloseButton.Margin = New System.Windows.Forms.Padding(6)
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.Size = New System.Drawing.Size(180, 42)
@@ -92,7 +93,7 @@ Partial Class Form1
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(593, 532)
+        Me.HelpButton.Location = New System.Drawing.Point(593, 578)
         Me.HelpButton.Margin = New System.Windows.Forms.Padding(6)
         Me.HelpButton.Name = "HelpButton"
         Me.HelpButton.Size = New System.Drawing.Size(180, 42)
@@ -102,7 +103,7 @@ Partial Class Form1
         '
         'RateButton
         '
-        Me.RateButton.Location = New System.Drawing.Point(593, 478)
+        Me.RateButton.Location = New System.Drawing.Point(593, 524)
         Me.RateButton.Margin = New System.Windows.Forms.Padding(6)
         Me.RateButton.Name = "RateButton"
         Me.RateButton.Size = New System.Drawing.Size(180, 42)
@@ -114,7 +115,7 @@ Partial Class Form1
         '
         Me.PictureBox1.BackgroundImage = Global.DBProject.My.Resources.Resources.for_business_backgrounds_wallpapers_1_
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(0, -1)
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(1342, 984)
         Me.PictureBox1.TabIndex = 8
