@@ -50,10 +50,9 @@ Partial Class UpdateUser
         '
         Me.ErrorLabel.AutoSize = True
         Me.ErrorLabel.ForeColor = System.Drawing.Color.Red
-        Me.ErrorLabel.Location = New System.Drawing.Point(745, 669)
-        Me.ErrorLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
+        Me.ErrorLabel.Location = New System.Drawing.Point(406, 362)
         Me.ErrorLabel.Name = "ErrorLabel"
-        Me.ErrorLabel.Size = New System.Drawing.Size(177, 25)
+        Me.ErrorLabel.Size = New System.Drawing.Size(95, 13)
         Me.ErrorLabel.TabIndex = 23
         Me.ErrorLabel.Text = "User already exists"
         Me.ErrorLabel.Visible = False
@@ -61,10 +60,9 @@ Partial Class UpdateUser
         'SubmitButton
         '
         Me.SubmitButton.Enabled = False
-        Me.SubmitButton.Location = New System.Drawing.Point(495, 659)
-        Me.SubmitButton.Margin = New System.Windows.Forms.Padding(6)
+        Me.SubmitButton.Location = New System.Drawing.Point(270, 357)
         Me.SubmitButton.Name = "SubmitButton"
-        Me.SubmitButton.Size = New System.Drawing.Size(183, 42)
+        Me.SubmitButton.Size = New System.Drawing.Size(100, 23)
         Me.SubmitButton.TabIndex = 22
         Me.SubmitButton.Text = "Submit"
         Me.SubmitButton.UseVisualStyleBackColor = True
@@ -72,119 +70,115 @@ Partial Class UpdateUser
         'EmailBox
         '
         Me.EmailBox.Enabled = False
-        Me.EmailBox.Location = New System.Drawing.Point(495, 513)
-        Me.EmailBox.Margin = New System.Windows.Forms.Padding(6)
+        Me.EmailBox.Location = New System.Drawing.Point(270, 278)
+        Me.EmailBox.MaxLength = 100
         Me.EmailBox.Name = "EmailBox"
-        Me.EmailBox.Size = New System.Drawing.Size(180, 29)
+        Me.EmailBox.Size = New System.Drawing.Size(100, 20)
         Me.EmailBox.TabIndex = 21
         '
         'CountryBox
         '
         Me.CountryBox.Enabled = False
-        Me.CountryBox.Location = New System.Drawing.Point(750, 464)
-        Me.CountryBox.Margin = New System.Windows.Forms.Padding(6)
+        Me.CountryBox.Location = New System.Drawing.Point(409, 251)
+        Me.CountryBox.MaxLength = 50
         Me.CountryBox.Name = "CountryBox"
-        Me.CountryBox.Size = New System.Drawing.Size(180, 29)
+        Me.CountryBox.Size = New System.Drawing.Size(100, 20)
         Me.CountryBox.TabIndex = 20
         '
         'StateBox
         '
         Me.StateBox.Enabled = False
-        Me.StateBox.Location = New System.Drawing.Point(495, 464)
-        Me.StateBox.Margin = New System.Windows.Forms.Padding(6)
+        Me.StateBox.Location = New System.Drawing.Point(270, 251)
+        Me.StateBox.MaxLength = 50
         Me.StateBox.Name = "StateBox"
-        Me.StateBox.Size = New System.Drawing.Size(180, 29)
+        Me.StateBox.Size = New System.Drawing.Size(100, 20)
         Me.StateBox.TabIndex = 19
         '
         'CityBox
         '
         Me.CityBox.Enabled = False
-        Me.CityBox.Location = New System.Drawing.Point(750, 416)
-        Me.CityBox.Margin = New System.Windows.Forms.Padding(6)
+        Me.CityBox.Location = New System.Drawing.Point(409, 225)
+        Me.CityBox.MaxLength = 50
         Me.CityBox.Name = "CityBox"
-        Me.CityBox.Size = New System.Drawing.Size(180, 29)
+        Me.CityBox.Size = New System.Drawing.Size(100, 20)
         Me.CityBox.TabIndex = 18
         '
         'AddressBox
         '
         Me.AddressBox.Enabled = False
-        Me.AddressBox.Location = New System.Drawing.Point(495, 366)
-        Me.AddressBox.Margin = New System.Windows.Forms.Padding(6)
+        Me.AddressBox.Location = New System.Drawing.Point(270, 198)
+        Me.AddressBox.MaxLength = 50
         Me.AddressBox.Name = "AddressBox"
-        Me.AddressBox.Size = New System.Drawing.Size(435, 29)
+        Me.AddressBox.Size = New System.Drawing.Size(239, 20)
         Me.AddressBox.TabIndex = 16
         '
         'PostcodeBox
         '
         Me.PostcodeBox.Enabled = False
-        Me.PostcodeBox.Location = New System.Drawing.Point(495, 414)
-        Me.PostcodeBox.Margin = New System.Windows.Forms.Padding(6)
+        Me.PostcodeBox.Location = New System.Drawing.Point(270, 224)
+        Me.PostcodeBox.MaxLength = 6
         Me.PostcodeBox.Name = "PostcodeBox"
-        Me.PostcodeBox.Size = New System.Drawing.Size(180, 29)
+        Me.PostcodeBox.Size = New System.Drawing.Size(100, 20)
         Me.PostcodeBox.TabIndex = 17
         '
         'LastnameBox
         '
         Me.LastnameBox.Enabled = False
-        Me.LastnameBox.Location = New System.Drawing.Point(750, 318)
-        Me.LastnameBox.Margin = New System.Windows.Forms.Padding(6)
+        Me.LastnameBox.Location = New System.Drawing.Point(409, 172)
+        Me.LastnameBox.MaxLength = 40
         Me.LastnameBox.Name = "LastnameBox"
-        Me.LastnameBox.Size = New System.Drawing.Size(180, 29)
+        Me.LastnameBox.Size = New System.Drawing.Size(100, 20)
         Me.LastnameBox.TabIndex = 15
         '
         'FirstnameBox
         '
         Me.FirstnameBox.Enabled = False
-        Me.FirstnameBox.Location = New System.Drawing.Point(495, 318)
-        Me.FirstnameBox.Margin = New System.Windows.Forms.Padding(6)
+        Me.FirstnameBox.Location = New System.Drawing.Point(270, 172)
+        Me.FirstnameBox.MaxLength = 20
         Me.FirstnameBox.Name = "FirstnameBox"
-        Me.FirstnameBox.Size = New System.Drawing.Size(180, 29)
+        Me.FirstnameBox.Size = New System.Drawing.Size(100, 20)
         Me.FirstnameBox.TabIndex = 14
         '
         'PassBox
         '
         Me.PassBox.Enabled = False
-        Me.PassBox.Location = New System.Drawing.Point(750, 270)
-        Me.PassBox.Margin = New System.Windows.Forms.Padding(6)
+        Me.PassBox.Location = New System.Drawing.Point(409, 146)
         Me.PassBox.Name = "PassBox"
-        Me.PassBox.Size = New System.Drawing.Size(180, 29)
+        Me.PassBox.Size = New System.Drawing.Size(100, 20)
         Me.PassBox.TabIndex = 13
         '
         'UsernameBox
         '
         Me.UsernameBox.Enabled = False
-        Me.UsernameBox.Location = New System.Drawing.Point(495, 270)
-        Me.UsernameBox.Margin = New System.Windows.Forms.Padding(6)
+        Me.UsernameBox.Location = New System.Drawing.Point(270, 146)
+        Me.UsernameBox.MaxLength = 16
         Me.UsernameBox.Name = "UsernameBox"
-        Me.UsernameBox.Size = New System.Drawing.Size(180, 29)
+        Me.UsernameBox.Size = New System.Drawing.Size(100, 20)
         Me.UsernameBox.TabIndex = 12
         '
         'UserSelection
         '
         Me.UserSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.UserSelection.FormattingEnabled = True
-        Me.UserSelection.Location = New System.Drawing.Point(605, 220)
-        Me.UserSelection.Margin = New System.Windows.Forms.Padding(6)
+        Me.UserSelection.Location = New System.Drawing.Point(330, 119)
         Me.UserSelection.Name = "UserSelection"
-        Me.UserSelection.Size = New System.Drawing.Size(219, 32)
+        Me.UserSelection.Size = New System.Drawing.Size(121, 21)
         Me.UserSelection.TabIndex = 24
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(495, 713)
-        Me.CloseButton.Margin = New System.Windows.Forms.Padding(6)
+        Me.CloseButton.Location = New System.Drawing.Point(270, 386)
         Me.CloseButton.Name = "CloseButton"
-        Me.CloseButton.Size = New System.Drawing.Size(182, 42)
+        Me.CloseButton.Size = New System.Drawing.Size(99, 23)
         Me.CloseButton.TabIndex = 25
         Me.CloseButton.Text = "Close"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(750, 713)
-        Me.HelpButton.Margin = New System.Windows.Forms.Padding(6)
+        Me.HelpButton.Location = New System.Drawing.Point(409, 386)
         Me.HelpButton.Name = "HelpButton"
-        Me.HelpButton.Size = New System.Drawing.Size(183, 42)
+        Me.HelpButton.Size = New System.Drawing.Size(100, 23)
         Me.HelpButton.TabIndex = 26
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = True
@@ -192,10 +186,9 @@ Partial Class UpdateUser
         'ImgButton
         '
         Me.ImgButton.Enabled = False
-        Me.ImgButton.Location = New System.Drawing.Point(750, 513)
-        Me.ImgButton.Margin = New System.Windows.Forms.Padding(6)
+        Me.ImgButton.Location = New System.Drawing.Point(409, 278)
         Me.ImgButton.Name = "ImgButton"
-        Me.ImgButton.Size = New System.Drawing.Size(183, 42)
+        Me.ImgButton.Size = New System.Drawing.Size(100, 23)
         Me.ImgButton.TabIndex = 27
         Me.ImgButton.Text = "Change Image"
         Me.ImgButton.UseVisualStyleBackColor = True
@@ -203,10 +196,9 @@ Partial Class UpdateUser
         'PicturePath
         '
         Me.PicturePath.AutoSize = True
-        Me.PicturePath.Location = New System.Drawing.Point(427, 500)
-        Me.PicturePath.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
+        Me.PicturePath.Location = New System.Drawing.Point(267, 309)
         Me.PicturePath.Name = "PicturePath"
-        Me.PicturePath.Size = New System.Drawing.Size(0, 25)
+        Me.PicturePath.Size = New System.Drawing.Size(0, 13)
         Me.PicturePath.TabIndex = 28
         '
         'BranchSelection
@@ -214,18 +206,16 @@ Partial Class UpdateUser
         Me.BranchSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.BranchSelection.Enabled = False
         Me.BranchSelection.FormattingEnabled = True
-        Me.BranchSelection.Location = New System.Drawing.Point(495, 609)
-        Me.BranchSelection.Margin = New System.Windows.Forms.Padding(6)
+        Me.BranchSelection.Location = New System.Drawing.Point(270, 330)
         Me.BranchSelection.Name = "BranchSelection"
-        Me.BranchSelection.Size = New System.Drawing.Size(435, 32)
+        Me.BranchSelection.Size = New System.Drawing.Size(239, 21)
         Me.BranchSelection.TabIndex = 29
         '
         'FaceBox
         '
-        Me.FaceBox.Location = New System.Drawing.Point(152, 263)
-        Me.FaceBox.Margin = New System.Windows.Forms.Padding(6)
+        Me.FaceBox.Location = New System.Drawing.Point(83, 142)
         Me.FaceBox.Name = "FaceBox"
-        Me.FaceBox.Size = New System.Drawing.Size(317, 378)
+        Me.FaceBox.Size = New System.Drawing.Size(173, 205)
         Me.FaceBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.FaceBox.TabIndex = 30
         Me.FaceBox.TabStop = False
@@ -235,17 +225,18 @@ Partial Class UpdateUser
         Me.PictureBox1.BackgroundImage = Global.DBProject.My.Resources.Resources.for_business_backgrounds_wallpapers_1_
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Location = New System.Drawing.Point(0, -1)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1342, 984)
+        Me.PictureBox1.Size = New System.Drawing.Size(732, 533)
         Me.PictureBox1.TabIndex = 31
         Me.PictureBox1.TabStop = False
         '
         'UpdateUser
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1342, 982)
+        Me.ClientSize = New System.Drawing.Size(732, 532)
         Me.Controls.Add(Me.FaceBox)
         Me.Controls.Add(Me.BranchSelection)
         Me.Controls.Add(Me.PicturePath)
@@ -266,7 +257,6 @@ Partial Class UpdateUser
         Me.Controls.Add(Me.PassBox)
         Me.Controls.Add(Me.UsernameBox)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "UpdateUser"
         Me.Text = "Update a User"
         CType(Me.FaceBox, System.ComponentModel.ISupportInitialize).EndInit()

@@ -165,7 +165,7 @@ Public Class Reports
             table.AddCell("Rating")
             table.AddCell("Comments")
 
-            sql = "SELECT TID, ExperienceRating, ReviewComments FROM Transaction"
+            sql = "SELECT TID, ExperienceRating, ReviewComments FROM Transaction WHERE ExperienceRating > 0"
             columns = New List(Of String)
             With columns
                 .Add("TID")
@@ -201,7 +201,7 @@ Public Class Reports
             Dim writer As New StreamWriter(fpath, False)
             writer.Write("TID,Rating,Comments")
 
-            sql = "SELECT TID, ExperienceRating, ReviewComments FROM Transaction"
+            sql = "SELECT TID, ExperienceRating, ReviewComments FROM Transaction WHERE ExperienceRating > 0"
             columns = New List(Of String)
             With columns
                 .Add("TID")
@@ -562,7 +562,7 @@ Public Class Reports
 
         If ExcelOption.Checked Or BothOption.Checked Then
             Dim report As String = ""
-            Dim fname As String = "Types " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
+            Dim fname As String = "Vehicles " & DateTime.Now.ToString("yyyyMMdd HHmm") & ".csv"
             Dim fpath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.Desktop, fname)
             Dim writer As New StreamWriter(fpath, False)
             writer.Write("VIN, Make, Model, Class, KM, Year, Seats, GVWR, Transmission, License, Available, Coverage, Street Address, City, State, Rentals")

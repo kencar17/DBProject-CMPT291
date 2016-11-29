@@ -42,19 +42,18 @@ Partial Class ModifyType
         '
         Me.TypeSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.TypeSelection.FormattingEnabled = True
-        Me.TypeSelection.Location = New System.Drawing.Point(556, 316)
-        Me.TypeSelection.Margin = New System.Windows.Forms.Padding(6)
+        Me.TypeSelection.Location = New System.Drawing.Point(303, 171)
         Me.TypeSelection.Name = "TypeSelection"
-        Me.TypeSelection.Size = New System.Drawing.Size(219, 32)
+        Me.TypeSelection.Size = New System.Drawing.Size(121, 21)
         Me.TypeSelection.TabIndex = 0
         '
         'Type
         '
         Me.Type.Enabled = False
-        Me.Type.Location = New System.Drawing.Point(556, 365)
-        Me.Type.Margin = New System.Windows.Forms.Padding(6)
+        Me.Type.Location = New System.Drawing.Point(303, 198)
+        Me.Type.MaxLength = 50
         Me.Type.Name = "Type"
-        Me.Type.Size = New System.Drawing.Size(219, 29)
+        Me.Type.Size = New System.Drawing.Size(121, 20)
         Me.Type.TabIndex = 1
         '
         'DailyRate
@@ -62,11 +61,10 @@ Partial Class ModifyType
         Me.DailyRate.DecimalPlaces = 2
         Me.DailyRate.Enabled = False
         Me.DailyRate.Increment = New Decimal(New Integer() {5, 0, 0, 131072})
-        Me.DailyRate.Location = New System.Drawing.Point(556, 415)
-        Me.DailyRate.Margin = New System.Windows.Forms.Padding(6)
+        Me.DailyRate.Location = New System.Drawing.Point(303, 225)
         Me.DailyRate.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
         Me.DailyRate.Name = "DailyRate"
-        Me.DailyRate.Size = New System.Drawing.Size(222, 29)
+        Me.DailyRate.Size = New System.Drawing.Size(121, 20)
         Me.DailyRate.TabIndex = 2
         '
         'WeeklyRate
@@ -74,11 +72,10 @@ Partial Class ModifyType
         Me.WeeklyRate.DecimalPlaces = 2
         Me.WeeklyRate.Enabled = False
         Me.WeeklyRate.Increment = New Decimal(New Integer() {5, 0, 0, 131072})
-        Me.WeeklyRate.Location = New System.Drawing.Point(556, 465)
-        Me.WeeklyRate.Margin = New System.Windows.Forms.Padding(6)
+        Me.WeeklyRate.Location = New System.Drawing.Point(303, 252)
         Me.WeeklyRate.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
         Me.WeeklyRate.Name = "WeeklyRate"
-        Me.WeeklyRate.Size = New System.Drawing.Size(222, 29)
+        Me.WeeklyRate.Size = New System.Drawing.Size(121, 20)
         Me.WeeklyRate.TabIndex = 3
         '
         'MonthlyRate
@@ -86,39 +83,35 @@ Partial Class ModifyType
         Me.MonthlyRate.DecimalPlaces = 2
         Me.MonthlyRate.Enabled = False
         Me.MonthlyRate.Increment = New Decimal(New Integer() {5, 0, 0, 131072})
-        Me.MonthlyRate.Location = New System.Drawing.Point(556, 515)
-        Me.MonthlyRate.Margin = New System.Windows.Forms.Padding(6)
+        Me.MonthlyRate.Location = New System.Drawing.Point(303, 279)
         Me.MonthlyRate.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
         Me.MonthlyRate.Name = "MonthlyRate"
-        Me.MonthlyRate.Size = New System.Drawing.Size(222, 29)
+        Me.MonthlyRate.Size = New System.Drawing.Size(121, 20)
         Me.MonthlyRate.TabIndex = 4
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(433, 563)
-        Me.HelpButton.Margin = New System.Windows.Forms.Padding(6)
+        Me.HelpButton.Location = New System.Drawing.Point(236, 305)
         Me.HelpButton.Name = "HelpButton"
-        Me.HelpButton.Size = New System.Drawing.Size(138, 42)
+        Me.HelpButton.Size = New System.Drawing.Size(75, 23)
         Me.HelpButton.TabIndex = 5
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = True
         '
         'SubmitButton
         '
-        Me.SubmitButton.Location = New System.Drawing.Point(604, 563)
-        Me.SubmitButton.Margin = New System.Windows.Forms.Padding(6)
+        Me.SubmitButton.Location = New System.Drawing.Point(329, 305)
         Me.SubmitButton.Name = "SubmitButton"
-        Me.SubmitButton.Size = New System.Drawing.Size(138, 42)
+        Me.SubmitButton.Size = New System.Drawing.Size(75, 23)
         Me.SubmitButton.TabIndex = 6
         Me.SubmitButton.Text = "Submit"
         Me.SubmitButton.UseVisualStyleBackColor = True
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(772, 563)
-        Me.CloseButton.Margin = New System.Windows.Forms.Padding(6)
+        Me.CloseButton.Location = New System.Drawing.Point(421, 305)
         Me.CloseButton.Name = "CloseButton"
-        Me.CloseButton.Size = New System.Drawing.Size(138, 42)
+        Me.CloseButton.Size = New System.Drawing.Size(75, 23)
         Me.CloseButton.TabIndex = 7
         Me.CloseButton.Text = "Close"
         Me.CloseButton.UseVisualStyleBackColor = True
@@ -127,10 +120,9 @@ Partial Class ModifyType
         '
         Me.ErrLabel.AutoSize = True
         Me.ErrLabel.ForeColor = System.Drawing.Color.Red
-        Me.ErrLabel.Location = New System.Drawing.Point(604, 618)
-        Me.ErrLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
+        Me.ErrLabel.Location = New System.Drawing.Point(329, 335)
         Me.ErrLabel.Name = "ErrLabel"
-        Me.ErrLabel.Size = New System.Drawing.Size(71, 25)
+        Me.ErrLabel.Size = New System.Drawing.Size(39, 13)
         Me.ErrLabel.TabIndex = 8
         Me.ErrLabel.Text = "Label1"
         Me.ErrLabel.Visible = False
@@ -140,17 +132,18 @@ Partial Class ModifyType
         Me.PictureBox1.BackgroundImage = Global.DBProject.My.Resources.Resources.for_business_backgrounds_wallpapers_1_
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Location = New System.Drawing.Point(0, -1)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1342, 984)
+        Me.PictureBox1.Size = New System.Drawing.Size(732, 533)
         Me.PictureBox1.TabIndex = 9
         Me.PictureBox1.TabStop = False
         '
         'ModifyType
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1342, 982)
+        Me.ClientSize = New System.Drawing.Size(732, 532)
         Me.Controls.Add(Me.ErrLabel)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.SubmitButton)
@@ -161,7 +154,6 @@ Partial Class ModifyType
         Me.Controls.Add(Me.Type)
         Me.Controls.Add(Me.TypeSelection)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "ModifyType"
         Me.Text = "ModifyType"
         CType(Me.DailyRate, System.ComponentModel.ISupportInitialize).EndInit()

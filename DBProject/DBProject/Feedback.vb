@@ -124,7 +124,7 @@ Public Class Feedback
         Me.Close()
     End Sub
 
-    Private Sub TIDBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles TIDBox.KeyPress, TIDBox.TextChanged
+    Private Sub TIDBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles TIDBox.KeyPress
         If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
             e.Handled = True
         End If
@@ -134,4 +134,7 @@ Public Class Feedback
         Help.GetHelp("feedback")
     End Sub
 
+    Private Sub TIDBox_TextChanged(sender As Object, e As EventArgs) Handles TIDBox.TextChanged, TIDBox.KeyPress
+
+    End Sub
 End Class

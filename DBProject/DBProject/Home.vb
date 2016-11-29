@@ -7,6 +7,16 @@ Public Class Home
         Dim model As String
         Dim name As String
         Dim thedate As Date
+        Dim vin As String
+
+        Public Property VinProperty As String
+            Get
+                Return vin
+            End Get
+            Set
+                vin = Value
+            End Set
+        End Property
 
         Public Property NameProperty As String
             Get
@@ -61,10 +71,13 @@ Public Class Home
     Private loggedInUser As User
     Private callingForm As Form1
 
-    Public WriteOnly Property LoggedInUserProperty As User
+    Public Property LoggedInUserProperty As User
         Set(value As User)
             loggedInUser = value
         End Set
+        Get
+            Return loggedInUser
+        End Get
     End Property
 
     Public WriteOnly Property CallingFormProperty As Form1
@@ -86,7 +99,7 @@ Public Class Home
 
     Private Sub Init()
         DeliveryBox.Items.Clear()
-        Dim deliveriesSql As String = "SELECT FirstName, LastName, TID, Make, Model, ToDate FROM Transaction JOIN Vehicle ON Transaction.VIN = Vehicle.VIN JOIN Customer ON Transaction.CID = Customer.CID WHERE ToDate <= CURDATE() AND ToBID = @branch AND Complete=0 AND PickedUp=1"
+        Dim deliveriesSql As String = "SELECT FirstName, LastName, TID, Make, Model, ToDate, Vehicle.VIN FROM Transaction JOIN Vehicle ON Transaction.VIN = Vehicle.VIN JOIN Customer ON Transaction.CID = Customer.CID WHERE ToDate <= CURDATE() AND ToBID = @branch AND Complete=0 AND PickedUp=1"
         Dim params As New Dictionary(Of String, String)
         params.Add("@branch", loggedInUser.BranchProperty)
         Dim columns As New List(Of String)
@@ -96,18 +109,20 @@ Public Class Home
         columns.Add("FirstName")
         columns.Add("LastName")
         columns.Add("ToDate")
+        columns.Add("VIN")
         For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(deliveriesSql, params, columns)
             Dim aDelivery As New Delivery
             aDelivery.MakeProperty = result("Make").ToString()
             aDelivery.ModelProperty = result("Model").ToString()
             aDelivery.TransactionIdProperty = CInt(result("TID").ToString())
             aDelivery.NameProperty = result("FirstName") & " " & result("LastName")
+            aDelivery.VinProperty = result("VIN")
             aDelivery.DateProperty = Date.ParseExact(Replace(result("ToDate"), " AM", ""), "yyyy-MM-dd HH:mm:ss", System.Globalization.DateTimeFormatInfo.InvariantInfo, Globalization.DateTimeStyles.None)
             DeliveryBox.Items.Add(aDelivery)
         Next
 
         PickupBox.Items.Clear()
-        Dim pickupsSql As String = "SELECT FirstName, LastName, TID, Make, Model, FromDate FROM Transaction JOIN Vehicle ON Transaction.VIN = Vehicle.VIN JOIN Customer ON Transaction.CID = Customer.CID WHERE FromDate <= CURDATE() AND FromBID = @branch AND Complete=0 AND PickedUp=0"
+        Dim pickupsSql As String = "SELECT FirstName, LastName, TID, Make, Model, FromDate, Vehicle.VIN FROM Transaction JOIN Vehicle ON Transaction.VIN = Vehicle.VIN JOIN Customer ON Transaction.CID = Customer.CID WHERE FromDate <= CURDATE() AND FromBID = @branch AND Complete=0 AND PickedUp=0"
         params = New Dictionary(Of String, String)
         params.Add("@branch", loggedInUser.BranchProperty)
         columns = New List(Of String)
@@ -117,11 +132,13 @@ Public Class Home
         columns.Add("FirstName")
         columns.Add("LastName")
         columns.Add("FromDate")
+        columns.Add("VIN")
         For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(pickupsSql, params, columns)
             Dim aDelivery As New Delivery
             aDelivery.MakeProperty = result("Make").ToString()
             aDelivery.ModelProperty = result("Model").ToString()
             aDelivery.TransactionIdProperty = CInt(result("TID").ToString())
+            aDelivery.VinProperty = result("VIN")
             aDelivery.NameProperty = result("FirstName") & " " & result("LastName")
             aDelivery.DateProperty = Date.ParseExact(Replace(result("FromDate"), " AM", ""), "yyyy-MM-dd HH:mm:ss", System.Globalization.DateTimeFormatInfo.InvariantInfo, Globalization.DateTimeStyles.None)
             Dim diff As Long = DateDiff(DateInterval.Day, aDelivery.DateProperty, Date.Today) + 1
@@ -192,6 +209,7 @@ Public Class Home
 
     Private Sub RentalButton_Click(sender As Object, e As EventArgs) Handles RentalButton.Click
         Dim locationWindow As New ChooseLocation
+        locationWindow.CallingFormProperty = Me
         locationWindow.MdiParent = Me.MdiParent
         locationWindow.Show()
     End Sub
@@ -212,6 +230,12 @@ Public Class Home
         Dim sql As String = "UPDATE Transaction SET Complete=1 WHERE TID=@tid"
         Dim params As New Dictionary(Of String, String)
         params.Add("@tid", selectedDelivery.TransactionIdProperty)
+        SQLConnection.DoNonQuery(sql, params)
+
+        sql = "UPDATE Vehicle SET BID=@bid WHERE VIN=@vin"
+        params = New Dictionary(Of String, String)
+        params.Add("@bid", loggedInUser.BranchProperty)
+        params.Add("@vin", selectedDelivery.VinProperty)
         SQLConnection.DoNonQuery(sql, params)
 
         Init()
@@ -238,5 +262,7 @@ Public Class Home
         viewInventory.Show()
     End Sub
 
-
+    Private Sub Got_Focus() Handles MyBase.Enter
+        Init()
+    End Sub
 End Class

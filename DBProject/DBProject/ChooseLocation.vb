@@ -6,6 +6,16 @@ Public Class ChooseLocation
     Private conditionTestL As Integer
     Private conditionTestPT As Integer
     Private conditionTestDT As Integer
+    Private callingForm As Home
+
+    Public Property CallingFormProperty As Home
+        Get
+            Return callingForm
+        End Get
+        Set
+            callingForm = Value
+        End Set
+    End Property
 
     Public Property RentalProperty As RentalInfo
         Get
