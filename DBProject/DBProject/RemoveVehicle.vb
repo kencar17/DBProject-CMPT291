@@ -28,7 +28,10 @@ Public Class RemoveVehicle
     End Sub
 
     Private Sub RemoveVehicle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         Init()
+        removeLabel.BackColor = Color.Transparent
+        ErrorLabel.BackColor = Color.Transparent
     End Sub
 
     Private Sub Init()

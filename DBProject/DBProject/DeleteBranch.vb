@@ -28,8 +28,10 @@ Public Class DeleteBranch
     End Sub
 
     Private Sub DeleteBranch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         Me.AcceptButton = SubmitButton
         Init()
+        ErrLabel.BackColor = Color.Transparent
     End Sub
 
     Private Sub Init()
@@ -54,4 +56,5 @@ Public Class DeleteBranch
         Next
 
     End Sub
+
 End Class

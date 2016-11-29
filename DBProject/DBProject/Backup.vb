@@ -22,4 +22,9 @@ Public Class Backup
         End Using
         MsgBox("System saved to " & filepath)
     End Sub
+
+    Private Sub Backup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
+    End Sub
+
 End Class

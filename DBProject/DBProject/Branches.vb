@@ -24,4 +24,9 @@
     Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
         Close()
     End Sub
+
+    Private Sub Branches_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
+    End Sub
+
 End Class

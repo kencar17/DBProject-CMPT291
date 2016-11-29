@@ -748,4 +748,8 @@ Public Class Reports
             End Set
         End Property
     End Class
+
+    Private Sub Reports_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
+    End Sub
 End Class

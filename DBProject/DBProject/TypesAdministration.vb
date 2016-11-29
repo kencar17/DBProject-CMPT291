@@ -18,4 +18,8 @@
         mtype.MdiParent = Me.MdiParent
         mtype.Show()
     End Sub
+
+    Private Sub TypesAdministration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
+    End Sub
 End Class

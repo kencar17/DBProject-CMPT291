@@ -11,6 +11,7 @@ Public Class DeleteUser
     End Property
 
     Private Sub DeleteUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         Me.WindowState = FormWindowState.Maximized
         Me.Init()
     End Sub

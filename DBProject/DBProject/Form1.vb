@@ -14,6 +14,7 @@ Public Class Form1
     End Property
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         Me.AcceptButton = SignInButton
         SendMessage(Me.UserBox.Handle, &H1501, 0, "Username")
         SendMessage(Me.PassBox.Handle, &H1501, 0, "Password")

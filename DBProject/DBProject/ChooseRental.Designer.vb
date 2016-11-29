@@ -23,13 +23,13 @@ Partial Class ChooseRental
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.vehicleTable = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.typeLabel = New System.Windows.Forms.Label()
         Me.typeCombo = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.makeLabel = New System.Windows.Forms.Label()
         Me.makeCombo = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.seatsLabel = New System.Windows.Forms.Label()
         Me.seatsCombo = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.transmissionLabel = New System.Windows.Forms.Label()
         Me.BothRadio = New System.Windows.Forms.RadioButton()
         Me.autoRadio = New System.Windows.Forms.RadioButton()
         Me.stanRadio = New System.Windows.Forms.RadioButton()
@@ -39,14 +39,16 @@ Partial Class ChooseRental
         Me.VehiclePicture = New System.Windows.Forms.PictureBox()
         Me.searchButton = New System.Windows.Forms.Button()
         Me.clearButton = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VehiclePicture, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'vehicleTable
         '
         Me.vehicleTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.vehicleTable.Location = New System.Drawing.Point(51, 196)
+        Me.vehicleTable.Location = New System.Drawing.Point(59, 292)
         Me.vehicleTable.Margin = New System.Windows.Forms.Padding(4)
         Me.vehicleTable.MinimumSize = New System.Drawing.Size(1047, 532)
         Me.vehicleTable.MultiSelect = False
@@ -56,81 +58,81 @@ Partial Class ChooseRental
         Me.vehicleTable.Size = New System.Drawing.Size(1219, 532)
         Me.vehicleTable.TabIndex = 0
         '
-        'Label1
+        'typeLabel
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(46, 37)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(137, 25)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Choose Type:"
+        Me.typeLabel.AutoSize = True
+        Me.typeLabel.Location = New System.Drawing.Point(53, 150)
+        Me.typeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.typeLabel.Name = "typeLabel"
+        Me.typeLabel.Size = New System.Drawing.Size(137, 25)
+        Me.typeLabel.TabIndex = 1
+        Me.typeLabel.Text = "Choose Type:"
         '
         'typeCombo
         '
         Me.typeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.typeCombo.FormattingEnabled = True
-        Me.typeCombo.Location = New System.Drawing.Point(204, 37)
+        Me.typeCombo.Location = New System.Drawing.Point(209, 144)
         Me.typeCombo.Margin = New System.Windows.Forms.Padding(4)
         Me.typeCombo.Name = "typeCombo"
         Me.typeCombo.Size = New System.Drawing.Size(176, 32)
         Me.typeCombo.TabIndex = 2
         '
-        'Label2
+        'makeLabel
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(46, 87)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(141, 25)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Choose Make:"
+        Me.makeLabel.AutoSize = True
+        Me.makeLabel.Location = New System.Drawing.Point(53, 196)
+        Me.makeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.makeLabel.Name = "makeLabel"
+        Me.makeLabel.Size = New System.Drawing.Size(141, 25)
+        Me.makeLabel.TabIndex = 3
+        Me.makeLabel.Text = "Choose Make:"
         '
         'makeCombo
         '
         Me.makeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.makeCombo.FormattingEnabled = True
-        Me.makeCombo.Location = New System.Drawing.Point(204, 87)
+        Me.makeCombo.Location = New System.Drawing.Point(209, 190)
         Me.makeCombo.Margin = New System.Windows.Forms.Padding(4)
         Me.makeCombo.Name = "makeCombo"
         Me.makeCombo.Size = New System.Drawing.Size(176, 32)
         Me.makeCombo.TabIndex = 4
         '
-        'Label3
+        'seatsLabel
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(46, 137)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(69, 25)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Seats:"
+        Me.seatsLabel.AutoSize = True
+        Me.seatsLabel.Location = New System.Drawing.Point(53, 242)
+        Me.seatsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.seatsLabel.Name = "seatsLabel"
+        Me.seatsLabel.Size = New System.Drawing.Size(69, 25)
+        Me.seatsLabel.TabIndex = 5
+        Me.seatsLabel.Text = "Seats:"
         '
         'seatsCombo
         '
         Me.seatsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.seatsCombo.FormattingEnabled = True
-        Me.seatsCombo.Location = New System.Drawing.Point(204, 137)
+        Me.seatsCombo.Location = New System.Drawing.Point(209, 236)
         Me.seatsCombo.Margin = New System.Windows.Forms.Padding(4)
         Me.seatsCombo.Name = "seatsCombo"
         Me.seatsCombo.Size = New System.Drawing.Size(176, 32)
         Me.seatsCombo.TabIndex = 6
         '
-        'Label4
+        'transmissionLabel
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(438, 37)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(135, 25)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Transmission:"
+        Me.transmissionLabel.AutoSize = True
+        Me.transmissionLabel.Location = New System.Drawing.Point(425, 150)
+        Me.transmissionLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.transmissionLabel.Name = "transmissionLabel"
+        Me.transmissionLabel.Size = New System.Drawing.Size(135, 25)
+        Me.transmissionLabel.TabIndex = 7
+        Me.transmissionLabel.Text = "Transmission:"
         '
         'BothRadio
         '
         Me.BothRadio.AutoSize = True
         Me.BothRadio.Checked = True
-        Me.BothRadio.Location = New System.Drawing.Point(464, 81)
+        Me.BothRadio.Location = New System.Drawing.Point(469, 192)
         Me.BothRadio.Margin = New System.Windows.Forms.Padding(4)
         Me.BothRadio.Name = "BothRadio"
         Me.BothRadio.Size = New System.Drawing.Size(77, 29)
@@ -142,7 +144,7 @@ Partial Class ChooseRental
         'autoRadio
         '
         Me.autoRadio.AutoSize = True
-        Me.autoRadio.Location = New System.Drawing.Point(576, 81)
+        Me.autoRadio.Location = New System.Drawing.Point(563, 192)
         Me.autoRadio.Margin = New System.Windows.Forms.Padding(4)
         Me.autoRadio.Name = "autoRadio"
         Me.autoRadio.Size = New System.Drawing.Size(124, 29)
@@ -153,7 +155,7 @@ Partial Class ChooseRental
         'stanRadio
         '
         Me.stanRadio.AutoSize = True
-        Me.stanRadio.Location = New System.Drawing.Point(722, 81)
+        Me.stanRadio.Location = New System.Drawing.Point(702, 192)
         Me.stanRadio.Margin = New System.Windows.Forms.Padding(4)
         Me.stanRadio.Name = "stanRadio"
         Me.stanRadio.Size = New System.Drawing.Size(117, 29)
@@ -163,7 +165,7 @@ Partial Class ChooseRental
         '
         'backButton
         '
-        Me.backButton.Location = New System.Drawing.Point(51, 761)
+        Me.backButton.Location = New System.Drawing.Point(59, 846)
         Me.backButton.Margin = New System.Windows.Forms.Padding(4)
         Me.backButton.Name = "backButton"
         Me.backButton.Size = New System.Drawing.Size(94, 41)
@@ -173,7 +175,7 @@ Partial Class ChooseRental
         '
         'nextButton
         '
-        Me.nextButton.Location = New System.Drawing.Point(1177, 761)
+        Me.nextButton.Location = New System.Drawing.Point(1184, 846)
         Me.nextButton.Margin = New System.Windows.Forms.Padding(4)
         Me.nextButton.Name = "nextButton"
         Me.nextButton.Size = New System.Drawing.Size(94, 41)
@@ -183,7 +185,7 @@ Partial Class ChooseRental
         '
         'helpButton
         '
-        Me.helpButton.Location = New System.Drawing.Point(180, 761)
+        Me.helpButton.Location = New System.Drawing.Point(160, 846)
         Me.helpButton.Margin = New System.Windows.Forms.Padding(4)
         Me.helpButton.Name = "helpButton"
         Me.helpButton.Size = New System.Drawing.Size(94, 41)
@@ -193,7 +195,7 @@ Partial Class ChooseRental
         '
         'VehiclePicture
         '
-        Me.VehiclePicture.Location = New System.Drawing.Point(1063, 37)
+        Me.VehiclePicture.Location = New System.Drawing.Point(956, 144)
         Me.VehiclePicture.Margin = New System.Windows.Forms.Padding(6)
         Me.VehiclePicture.Name = "VehiclePicture"
         Me.VehiclePicture.Size = New System.Drawing.Size(207, 138)
@@ -202,7 +204,7 @@ Partial Class ChooseRental
         '
         'searchButton
         '
-        Me.searchButton.Location = New System.Drawing.Point(443, 128)
+        Me.searchButton.Location = New System.Drawing.Point(430, 229)
         Me.searchButton.Margin = New System.Windows.Forms.Padding(4)
         Me.searchButton.Name = "searchButton"
         Me.searchButton.Size = New System.Drawing.Size(192, 41)
@@ -212,7 +214,7 @@ Partial Class ChooseRental
         '
         'clearButton
         '
-        Me.clearButton.Location = New System.Drawing.Point(647, 128)
+        Me.clearButton.Location = New System.Drawing.Point(627, 229)
         Me.clearButton.Margin = New System.Windows.Forms.Padding(4)
         Me.clearButton.Name = "clearButton"
         Me.clearButton.Size = New System.Drawing.Size(192, 41)
@@ -220,11 +222,22 @@ Partial Class ChooseRental
         Me.clearButton.Text = "Clear"
         Me.clearButton.UseVisualStyleBackColor = True
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.DBProject.My.Resources.Resources.for_business_backgrounds_wallpapers_1_
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.Location = New System.Drawing.Point(0, -1)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1342, 984)
+        Me.PictureBox1.TabIndex = 17
+        Me.PictureBox1.TabStop = False
+        '
         'ChooseRental
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1294, 899)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1342, 982)
         Me.Controls.Add(Me.clearButton)
         Me.Controls.Add(Me.searchButton)
         Me.Controls.Add(Me.VehiclePicture)
@@ -234,32 +247,34 @@ Partial Class ChooseRental
         Me.Controls.Add(Me.stanRadio)
         Me.Controls.Add(Me.autoRadio)
         Me.Controls.Add(Me.BothRadio)
-        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.transmissionLabel)
         Me.Controls.Add(Me.seatsCombo)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.seatsLabel)
         Me.Controls.Add(Me.makeCombo)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.makeLabel)
         Me.Controls.Add(Me.typeCombo)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.typeLabel)
         Me.Controls.Add(Me.vehicleTable)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "ChooseRental"
         Me.Text = "ChooseRental"
         CType(Me.vehicleTable, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VehiclePicture, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents vehicleTable As DataGridView
-    Friend WithEvents Label1 As Label
+    Friend WithEvents typeLabel As Label
     Friend WithEvents typeCombo As ComboBox
-    Friend WithEvents Label2 As Label
+    Friend WithEvents makeLabel As Label
     Friend WithEvents makeCombo As ComboBox
-    Friend WithEvents Label3 As Label
+    Friend WithEvents seatsLabel As Label
     Friend WithEvents seatsCombo As ComboBox
-    Friend WithEvents Label4 As Label
+    Friend WithEvents transmissionLabel As Label
     Friend WithEvents BothRadio As RadioButton
     Friend WithEvents autoRadio As RadioButton
     Friend WithEvents stanRadio As RadioButton
@@ -269,4 +284,5 @@ Partial Class ChooseRental
     Friend WithEvents VehiclePicture As PictureBox
     Friend WithEvents searchButton As Button
     Friend WithEvents clearButton As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

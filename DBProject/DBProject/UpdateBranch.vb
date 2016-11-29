@@ -11,6 +11,7 @@ Public Class UpdateBranch
     End Sub
 
     Private Sub UpdateBranch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         SendMessage(Me.AddressBox.Handle, &H1501, 0, "Address")
         SendMessage(Me.PostcodeBox.Handle, &H1501, 0, "Postal Code")
         SendMessage(Me.CityBox.Handle, &H1501, 0, "City")
@@ -37,6 +38,7 @@ Public Class UpdateBranch
             MBox.Items.Add(aUser)
         Next
 
+        ErrLabel.BackColor = Color.Transparent
         Init()
     End Sub
 

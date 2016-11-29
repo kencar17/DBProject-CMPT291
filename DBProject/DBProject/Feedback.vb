@@ -28,6 +28,7 @@ Public Class Feedback
     End Sub
 
     Private Sub Feedback_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         CharCounter.ForeColor = Color.Green
         TIDBox.TextAlign = HorizontalAlignment.Right
         stars.Add(Me.s1)
@@ -40,6 +41,9 @@ Public Class Feedback
         stars.Add(Me.s8)
         stars.Add(Me.s9)
         stars.Add(Me.s10)
+        unusedLabelX.BackColor = Color.Transparent
+        errorLabel.BackColor = Color.Transparent
+        CharCounter.BackColor = Color.Transparent
     End Sub
 
     Private Sub Feedback_Unload(sender As Object, e As EventArgs) Handles MyBase.Closing
@@ -120,7 +124,7 @@ Public Class Feedback
         Me.Close()
     End Sub
 
-    Private Sub TIDBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles TIDBox.KeyPress
+    Private Sub TIDBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles TIDBox.KeyPress, TIDBox.TextChanged
         If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
             e.Handled = True
         End If
@@ -129,4 +133,5 @@ Public Class Feedback
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
         Help.GetHelp("feedback")
     End Sub
+
 End Class

@@ -21,7 +21,7 @@ Public Class ViewInventory
     End Sub
 
     Private Sub ViewInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MdiParent.Size = New Size(722, 535)
+        MdiParent.Size = New Size(748, 594)
         seatsCombo.Items.Add("All")
         For seat As Integer = 1 To 4
             seatsCombo.Items.Add(seat)

@@ -4,7 +4,23 @@ Public Class AddNewVehicle
     Dim chosenFile As String = ""
 
     Private Sub AddNewVehicle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         Me.AcceptButton = Me.addVehicle
+        vinLabel.BackColor = Color.Transparent
+        modelLabel.BackColor = Color.Transparent
+        kmLabel.BackColor = Color.Transparent
+        seatingLabel.BackColor = Color.Transparent
+        transmissionLabel.BackColor = Color.Transparent
+        availableLabel.BackColor = Color.Transparent
+        branchLabel.BackColor = Color.Transparent
+        makeLabel.BackColor = Color.Transparent
+        classLabel.BackColor = Color.Transparent
+        yearLabel.BackColor = Color.Transparent
+        gvwrLabel.BackColor = Color.Transparent
+        plateLabel.BackColor = Color.Transparent
+        coverageLabel.BackColor = Color.Transparent
+        wrongInfo.BackColor = Color.Transparent
+        enterVehicleLabel.BackColor = Color.Transparent
 
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
         Using sqlComm As New MySqlCommand()

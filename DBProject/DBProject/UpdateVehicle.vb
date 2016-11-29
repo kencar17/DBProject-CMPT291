@@ -4,6 +4,7 @@ Public Class UpdateVehicle
     Private chosenFile As String = ""
 
     Private Sub UpdateVehicle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         Dim vsql As String = "SELECT Type FROM Types"
         Dim vparams As New Dictionary(Of String, String)
         Dim vcolumns As New List(Of String)

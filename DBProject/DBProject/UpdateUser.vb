@@ -13,6 +13,7 @@ Public Class UpdateUser
     End Property
 
     Private Sub UpdateUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         Me.AcceptButton = Me.SubmitButton
         SendMessage(Me.UsernameBox.Handle, &H1501, 0, "Username")
         SendMessage(Me.PassBox.Handle, &H1501, 0, "Password")
