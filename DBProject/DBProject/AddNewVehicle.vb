@@ -22,6 +22,12 @@ Public Class AddNewVehicle
         wrongInfo.BackColor = Color.Transparent
         enterVehicleLabel.BackColor = Color.Transparent
 
+        Dim seatsList = New List(Of String)
+        For seat As Integer = 1 To 10
+            seatsList.Add(seat.ToString)
+        Next
+        seatsCB.DataSource = seatsList
+
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
         Using sqlComm As New MySqlCommand()
             With sqlComm
@@ -79,6 +85,10 @@ Public Class AddNewVehicle
             wrongInfo.Text = "A VIN number must be given"
             Me.wrongInfo.Visible = True
             Return
+        ElseIf VINbox.Text.Length < 13 Then
+            wrongInfo.Text = "VIN must atleast 13 characters"
+            Me.wrongInfo.Visible = True
+            Return
         End If
 
         If MakeBox.Text.Equals("") Then
@@ -103,10 +113,8 @@ Public Class AddNewVehicle
             wrongInfo.Text = "The year the vehicle was made must be given"
             Me.wrongInfo.Visible = True
             Return
-        End If
-
-        If SeatsBox.Text.Equals("") Then
-            wrongInfo.Text = "Seating capacity must be given"
+        ElseIf YearBox.Text.Length < 4 Then
+            wrongInfo.Text = "The year must be 4 digits long"
             Me.wrongInfo.Visible = True
             Return
         End If
@@ -158,7 +166,7 @@ Public Class AddNewVehicle
             .Add("@class", selectedClass.VClass)
             .Add("@km", KMBox.Text)
             .Add("@year", YearBox.Text)
-            .Add("@seats", SeatsBox.Text)
+            .Add("@seats", seatsCB.SelectedItem)
             .Add("@gvwr", GVWRBox.Text)
             .Add("@trans", trans)
             .Add("@license", PlateBox.Text)
@@ -198,7 +206,33 @@ Public Class AddNewVehicle
         End With
     End Sub
 
-    'FIDD.Items.Add(Something)
+    Private Sub VINBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles VINbox.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
+            e.Handled = True
+        End If
+    End Sub
 
-    'Something must have ToString implemented to display it.
+    Private Sub YearBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles YearBox.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub GVWRBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles GVWRBox.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub KMBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles KMBox.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub CoverageBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles CoverageBox.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
+            e.Handled = True
+        End If
+    End Sub
 End Class

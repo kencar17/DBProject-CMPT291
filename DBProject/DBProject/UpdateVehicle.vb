@@ -78,6 +78,10 @@ Public Class UpdateVehicle
             ErrorLabel.Text = "The year the vehicle was made must be given"
             Me.ErrorLabel.Visible = True
             Return
+        ElseIf YearBox.Text.Length < 4 Then
+            ErrorLabel.Text = "The year must be 4 digits long"
+            Me.ErrorLabel.Visible = True
+            Return
         End If
 
         If SeatBox.Text.Equals("") Then
@@ -232,5 +236,34 @@ Public Class UpdateVehicle
         End While
 
         VehiclePicture.Load(vehicle.ImageUrlProperty)
+    End Sub
+    Private Sub VINBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles VinBox.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub YearBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles YearBox.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub GVWRBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles GVWRBox.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub KMBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles KmBox.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub CoverageBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles CoverageBox.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
+            e.Handled = True
+        End If
     End Sub
 End Class
