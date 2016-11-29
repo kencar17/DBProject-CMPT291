@@ -64,7 +64,7 @@ FROM Vehicle
   JOIN Types on Vehicle.Class = Types.Type
   LEFT JOIN Transaction ON Vehicle.VIN = Transaction.VIN
 WHERE Vehicle.Available = 1
-  AND Vehicle.BID = " & branch & "
+  AND Vehicle.BID = " & callingForm.CallingFormProperty.LoggedInUserProperty.BranchProperty & "
   AND Vehicle.VIN NOT IN (
     SELECT Vehicle.VIN
     FROM Vehicle
@@ -239,7 +239,7 @@ FROM Vehicle
   JOIN Types on Vehicle.Class = Types.Type
   LEFT JOIN Transaction ON Vehicle.VIN = Transaction.VIN
 WHERE Vehicle.Available = 1
-  AND Vehicle.BID = " & branch & "
+  AND Vehicle.BID = " & callingForm.CallingFormProperty.LoggedInUserProperty.BranchProperty & "
   AND Vehicle.VIN NOT IN (
     SELECT Vehicle.VIN
     FROM Vehicle
