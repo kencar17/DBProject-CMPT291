@@ -12,6 +12,17 @@
     Private Creditcard As String
     Private CVV As String
 
+    Private id As String
+
+    Public Property IdProperty As String
+        Get
+            Return id
+        End Get
+        Set
+            id = Value
+        End Set
+    End Property
+
 
     Public Property FnameProperty As String
         Get

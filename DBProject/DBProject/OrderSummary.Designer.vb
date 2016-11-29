@@ -57,6 +57,8 @@ Partial Class OrderSummary
         Me.rateDaysLabel = New System.Windows.Forms.Label()
         Me.daysLabel = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.costlabel = New System.Windows.Forms.Label()
         CType(Me.vehicle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -414,6 +416,23 @@ Partial Class OrderSummary
         Me.PictureBox1.Size = New System.Drawing.Size(1342, 984)
         Me.PictureBox1.TabIndex = 51
         Me.PictureBox1.TabStop = False
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(384, 221)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(31, 13)
+        Me.Label14.TabIndex = 51
+        Me.Label14.Text = "Cost:"
+        '
+        'costlabel
+        '
+        Me.costlabel.AutoSize = True
+        Me.costlabel.Location = New System.Drawing.Point(432, 221)
+        Me.costlabel.Name = "costlabel"
+        Me.costlabel.Size = New System.Drawing.Size(45, 13)
+        Me.costlabel.TabIndex = 52
+        Me.costlabel.Text = "Label15"
         '
         'OrderSummary
         '
@@ -421,6 +440,8 @@ Partial Class OrderSummary
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1342, 982)
+        Me.Controls.Add(Me.costlabel)
+        Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.daysLabel)
         Me.Controls.Add(Me.rateDaysLabel)
         Me.Controls.Add(Me.rateLabel)
@@ -457,6 +478,11 @@ Partial Class OrderSummary
         Me.Controls.Add(Me.customerLabel)
         Me.Controls.Add(Me.PictureBox1)
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Firstname)
+        Me.Controls.Add(Me.Label1)
         Me.Name = "OrderSummary"
         Me.Text = "OrderSummary"
         CType(Me.vehicle, System.ComponentModel.ISupportInitialize).EndInit()
@@ -501,4 +527,9 @@ Partial Class OrderSummary
     Friend WithEvents rateDaysLabel As Label
     Friend WithEvents daysLabel As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents daysLabel As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents costlabel As Label
 End Class

@@ -12,10 +12,13 @@ Public Class ChooseRental
         End Set
     End Property
 
-    Public WriteOnly Property CallingFormProperty As ChooseLocation
+    Public Property CallingFormProperty As ChooseLocation
         Set
             callingForm = Value
         End Set
+        Get
+            Return callingForm
+        End Get
     End Property
 
     Private Sub backButton_Click(sender As Object, e As EventArgs) Handles backButton.Click
@@ -55,8 +58,21 @@ Public Class ChooseRental
         seatsCombo.SelectedItem = "All"
 
         Dim branch As String = RentalProperty.LocationProperty.BidProperty
-        Dim sqltext As String = "SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, Coverage, DailyRate, WeeklyRate, MonthlyRate
-                                FROM Vehicle, Types where Vehicle.Class = Types.Type and Vehicle.Available = 1 and Vehicle.BID = " & branch
+        'Dim sqltext As String = "SELECT DISTINCT Vehicle.VIN, Make, Model, Class, Year, Seats, GVWR, Transmission, Coverage, DailyRate, WeeklyRate, MonthlyRate, FromDate, ToDate FROM Vehicle JOIN Types ON Vehicle.Class = Types.Type LEFT JOIN Transaction ON Vehicle.VIN = Transaction.VIN where Vehicle.Available = 1 and NOT (" & rental.PickUpProperty & " < ToDate AND " & rental.DropOffProperty & " > FromDate) AND Vehicle.BID = " & branch & " GROUP BY (Vehicle.VIN)"
+        Dim sqltext As String = "SELECT DISTINCT Vehicle.VIN, Make, Model, Class, Year, Seats, GVWR, Transmission, Coverage, DailyRate, WeeklyRate, MonthlyRate
+FROM Vehicle
+  JOIN Types on Vehicle.Class = Types.Type
+  LEFT JOIN Transaction ON Vehicle.VIN = Transaction.VIN
+WHERE Vehicle.Available = 1
+  AND Vehicle.BID = " & branch & "
+  AND Vehicle.VIN NOT IN (
+    SELECT Vehicle.VIN
+    FROM Vehicle
+      JOIN Types on Vehicle.Class = Types.Type
+      LEFT JOIN Transaction ON Vehicle.VIN = Transaction.VIN
+    WHERE CAST('" & rental.PickUpProperty & "' AS DATE) < ToDate AND CAST('" & rental.DropOffProperty & "' AS DATE) > FromDate
+  )
+GROUP BY Vehicle.VIN"
 
         Dim vehiclesList = New List(Of VehicleInfo)
         Dim makeList = New List(Of String)
@@ -94,6 +110,7 @@ Public Class ChooseRental
             .Add("DailyRate")
             .Add("WeeklyRate")
             .Add("MonthlyRate")
+            .Add("VIN")
         End With
         For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(sqltext, params, columns)
             Dim vehicleInfo As New VehicleInfo
@@ -114,7 +131,7 @@ Public Class ChooseRental
             vehicleInfo.DailyRate = result("DailyRate")
             vehicleInfo.WeeklyRate = result("WeeklyRate")
             vehicleInfo.MonthlyRate = result("MonthlyRate")
-
+            vehicleInfo.VinProperty = result("VIN")
             vehiclesList.Add(vehicleInfo)
 
             If Not makeList.Contains(result("Make")) Then
@@ -136,6 +153,7 @@ Public Class ChooseRental
         makeCombo.SelectedItem = "All"
 
         vehicleTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        vehicleTable.Columns(0).Visible = False
 
         typeLabel.BackColor = Color.Transparent
         makeLabel.BackColor = Color.Transparent
@@ -181,6 +199,7 @@ Public Class ChooseRental
             .Add("DailyRate")
             .Add("WeeklyRate")
             .Add("MonthlyRate")
+            .Add("VIN")
         End With
         For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(sqlText, params, columns)
             Dim vehicleInfo As New VehicleInfo
@@ -201,7 +220,7 @@ Public Class ChooseRental
             vehicleInfo.DailyRate = result("DailyRate")
             vehicleInfo.WeeklyRate = result("WeeklyRate")
             vehicleInfo.MonthlyRate = result("MonthlyRate")
-
+            vehicleInfo.VinProperty = result("VIN")
             vehiclesList.Add(vehicleInfo)
         Next
         vehicleTable.MultiSelect = False
@@ -213,12 +232,21 @@ Public Class ChooseRental
     End Sub
 
     Public Function buildQueryString()
-        Console.WriteLine("Entering Build Query")
-
         Dim branch As String = RentalProperty.LocationProperty.BidProperty
-        Dim original As String = "SELECT Make, Model, Class, Year, Seats, GVWR, Transmission, Coverage, DailyRate, WeeklyRate, MonthlyRate
-                                FROM Vehicle, Types where Vehicle.Class = Types.Type
-                                and Vehicle.Available = 1 and Vehicle.BID = " & branch
+        'Dim original As String = "SELECT DISTINCT Vehicle.VIN, Make, Model, Class, Year, Seats, GVWR, Transmission, Coverage, DailyRate, WeeklyRate, MonthlyRate, FromDate, ToDate FROM Vehicle JOIN Types ON Vehicle.Class = Types.Type LEFT JOIN Transaction ON Vehicle.VIN = Transaction.VIN where Vehicle.Available = 1 and NOT (" & rental.PickUpProperty & " < ToDate AND " & rental.DropOffProperty & " > FromDate) AND Vehicle.BID = " & branch & " GROUP BY (Vehicle.VIN)"
+        Dim original As String = "SELECT DISTINCT Vehicle.VIN, Make, Model, Class, Year, Seats, GVWR, Transmission, Coverage, DailyRate, WeeklyRate, MonthlyRate
+FROM Vehicle
+  JOIN Types on Vehicle.Class = Types.Type
+  LEFT JOIN Transaction ON Vehicle.VIN = Transaction.VIN
+WHERE Vehicle.Available = 1
+  AND Vehicle.BID = " & branch & "
+  AND Vehicle.VIN NOT IN (
+    SELECT Vehicle.VIN
+    FROM Vehicle
+      JOIN Types on Vehicle.Class = Types.Type
+      LEFT JOIN Transaction ON Vehicle.VIN = Transaction.VIN
+    WHERE CAST('" & rental.PickUpProperty & "' AS DATE) < ToDate AND CAST('" & rental.DropOffProperty & "' AS DATE) > FromDate
+  )"
 
         Dim newQuery As String = ""
 
@@ -253,26 +281,21 @@ Public Class ChooseRental
             newQuery = newQuery & " and Vehicle.Transmission = '0'"
         End If
 
-        Return newQuery
+        Return newQuery & " GROUP BY Vehicle.VIN"
     End Function
 
     Private Sub vehicleTable_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles vehicleTable.CellClick
-        'Console.WriteLine("Clicked")
         Dim mode As SelectionMode = vehicleTable.SelectionMode
         If mode = SelectionMode.None Then
             Return
         End If
         Dim row As Integer = vehicleTable.SelectedCells(0).RowIndex
-        Dim make As String = vehicleTable.Rows(row).Cells(0).Value
-        Dim model As String = vehicleTable.Rows(row).Cells(1).Value
-        Dim year As String = vehicleTable.Rows(row).Cells(3).Value
+        Dim vin As String = vehicleTable.Rows(row).Cells(0).Value
 
-        Dim imgSql = "SELECT ImageUrl FROM Vehicle WHERE make=@make AND model=@model AND year=@year"
+        Dim imgSql = "SELECT ImageUrl FROM Vehicle WHERE VIN=@vin"
         Dim params As New Dictionary(Of String, String)
         With params
-            .Add("@make", make)
-            .Add("@model", model)
-            .Add("@year", year)
+            .Add("@vin", vin)
         End With
         Dim columns As New List(Of String)
         columns.Add("ImageUrl")
