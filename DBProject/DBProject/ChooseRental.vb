@@ -26,6 +26,12 @@ Public Class ChooseRental
     End Sub
 
     Private Sub nextButton_Click(sender As Object, e As EventArgs) Handles nextButton.Click
+        ' Error check
+        Dim mode As SelectionMode = vehicleTable.SelectionMode
+        If mode = SelectionMode.None Then
+            Return
+        End If
+
         prepareInfo()
         Dim createOrderWindow As New createOrder
         createOrderWindow.RentalProperty = Me.RentalProperty
@@ -35,10 +41,10 @@ Public Class ChooseRental
     End Sub
 
     Private Sub prepareInfo()
-        For Each row As DataGridViewRow In vehicleTable.SelectedRows
-            Dim vehicle As VehicleInfo = TryCast(row.DataBoundItem, VehicleInfo)
-            rental.VehicleProperty = vehicle
-        Next
+        Dim row As Integer = vehicleTable.SelectedCells(0).RowIndex
+        Dim vin As String = vehicleTable.Rows(row).Cells(0).Value
+        Dim vehicle As VehicleInfo = TryCast(vehicleTable.Rows(row).DataBoundItem, VehicleInfo)
+        rental.VehicleProperty = vehicle
     End Sub
 
 
