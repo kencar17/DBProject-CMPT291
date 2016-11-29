@@ -58,7 +58,6 @@ Partial Class Feedback
         'TIDBox
         '
         Me.TIDBox.Location = New System.Drawing.Point(299, 114)
-        Me.TIDBox.MaxLength = 7
         Me.TIDBox.Name = "TIDBox"
         Me.TIDBox.Size = New System.Drawing.Size(260, 20)
         Me.TIDBox.TabIndex = 0
@@ -244,7 +243,7 @@ Partial Class Feedback
         Me.PictureBox1.BackgroundImage = Global.DBProject.My.Resources.Resources.for_business_backgrounds_wallpapers_1_
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Location = New System.Drawing.Point(0, -1)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(732, 533)
         Me.PictureBox1.TabIndex = 18
