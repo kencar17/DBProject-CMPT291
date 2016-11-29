@@ -11,6 +11,17 @@
     Private _weeklyRate As String
     Private _monthlyRate As String
 
+    Private vin As String
+
+    Public Property VinProperty As String
+        Get
+            Return vin
+        End Get
+        Set
+            vin = Value
+        End Set
+    End Property
+
 
     Public Property Make As String
         Get
