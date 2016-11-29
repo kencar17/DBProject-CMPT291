@@ -478,11 +478,6 @@ Partial Class OrderSummary
         Me.Controls.Add(Me.customerLabel)
         Me.Controls.Add(Me.PictureBox1)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Firstname)
-        Me.Controls.Add(Me.Label1)
         Me.Name = "OrderSummary"
         Me.Text = "OrderSummary"
         CType(Me.vehicle, System.ComponentModel.ISupportInitialize).EndInit()
