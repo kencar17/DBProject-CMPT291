@@ -85,26 +85,29 @@ Partial Class AddNewVehicle
         '
         'VINbox
         '
-        Me.VINbox.Location = New System.Drawing.Point(232, 173)
-        Me.VINbox.Margin = New System.Windows.Forms.Padding(4)
+        Me.VINbox.Location = New System.Drawing.Point(116, 90)
+        Me.VINbox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.VINbox.MaxLength = 13
         Me.VINbox.Name = "VINbox"
-        Me.VINbox.Size = New System.Drawing.Size(288, 31)
+        Me.VINbox.Size = New System.Drawing.Size(146, 20)
         Me.VINbox.TabIndex = 0
         '
         'GVWRBox
         '
-        Me.GVWRBox.Location = New System.Drawing.Point(776, 314)
-        Me.GVWRBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.GVWRBox.Location = New System.Drawing.Point(388, 163)
+        Me.GVWRBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GVWRBox.MaxLength = 7
         Me.GVWRBox.Name = "GVWRBox"
-        Me.GVWRBox.Size = New System.Drawing.Size(288, 31)
+        Me.GVWRBox.Size = New System.Drawing.Size(146, 20)
         Me.GVWRBox.TabIndex = 7
         '
         'PlateBox
         '
-        Me.PlateBox.Location = New System.Drawing.Point(776, 357)
-        Me.PlateBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.PlateBox.Location = New System.Drawing.Point(388, 186)
+        Me.PlateBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PlateBox.MaxLength = 10
         Me.PlateBox.Name = "PlateBox"
-        Me.PlateBox.Size = New System.Drawing.Size(288, 31)
+        Me.PlateBox.Size = New System.Drawing.Size(146, 20)
         Me.PlateBox.TabIndex = 9
         '
         'CoverageBox
@@ -121,30 +124,42 @@ Partial Class AddNewVehicle
         Me.YearBox.Margin = New System.Windows.Forms.Padding(4)
         Me.YearBox.Name = "YearBox"
         Me.YearBox.Size = New System.Drawing.Size(288, 31)
+        '
+        'SeatsBox
+        '
+        Me.SeatsBox.Location = New System.Drawing.Point(116, 162)
+        Me.SeatsBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SeatsBox.MaxLength = 2
+        Me.SeatsBox.Name = "SeatsBox"
+        Me.SeatsBox.Size = New System.Drawing.Size(146, 20)
+        Me.SeatsBox.TabIndex = 6
         Me.YearBox.TabIndex = 5
         '
         'KMBox
         '
-        Me.KMBox.Location = New System.Drawing.Point(232, 266)
-        Me.KMBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.KMBox.Location = New System.Drawing.Point(116, 138)
+        Me.KMBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.KMBox.MaxLength = 7
         Me.KMBox.Name = "KMBox"
-        Me.KMBox.Size = New System.Drawing.Size(288, 31)
+        Me.KMBox.Size = New System.Drawing.Size(146, 20)
         Me.KMBox.TabIndex = 4
         '
         'ModelBox
         '
-        Me.ModelBox.Location = New System.Drawing.Point(232, 219)
-        Me.ModelBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.ModelBox.Location = New System.Drawing.Point(116, 114)
+        Me.ModelBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ModelBox.MaxLength = 25
         Me.ModelBox.Name = "ModelBox"
-        Me.ModelBox.Size = New System.Drawing.Size(288, 31)
+        Me.ModelBox.Size = New System.Drawing.Size(146, 20)
         Me.ModelBox.TabIndex = 2
         '
         'MakeBox
         '
-        Me.MakeBox.Location = New System.Drawing.Point(776, 173)
-        Me.MakeBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.MakeBox.Location = New System.Drawing.Point(388, 90)
+        Me.MakeBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MakeBox.MaxLength = 20
         Me.MakeBox.Name = "MakeBox"
-        Me.MakeBox.Size = New System.Drawing.Size(288, 31)
+        Me.MakeBox.Size = New System.Drawing.Size(146, 20)
         Me.MakeBox.TabIndex = 1
         '
         'makeLabel
@@ -262,7 +277,6 @@ Partial Class AddNewVehicle
         Me.addVehicle.Location = New System.Drawing.Point(235, 834)
         Me.addVehicle.Margin = New System.Windows.Forms.Padding(4)
         Me.addVehicle.Name = "addVehicle"
-        Me.addVehicle.Size = New System.Drawing.Size(187, 50)
         Me.addVehicle.TabIndex = 14
         Me.addVehicle.Text = "Add Vehicle"
         Me.addVehicle.UseVisualStyleBackColor = True
@@ -376,7 +390,7 @@ Partial Class AddNewVehicle
         Me.ImageLabel.Location = New System.Drawing.Point(536, 518)
         Me.ImageLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.ImageLabel.Name = "ImageLabel"
-        Me.ImageLabel.Size = New System.Drawing.Size(0, 25)
+        Me.ImageLabel.Size = New System.Drawing.Size(0, 13)
         Me.ImageLabel.TabIndex = 34
         '
         'VehiclePicture
@@ -394,6 +408,7 @@ Partial Class AddNewVehicle
         Me.PictureBox1.BackgroundImage = Global.DBProject.My.Resources.Resources.for_business_backgrounds_wallpapers_1_
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Location = New System.Drawing.Point(0, -1)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(1464, 1025)
         Me.PictureBox1.TabIndex = 101
@@ -450,7 +465,7 @@ Partial Class AddNewVehicle
         Me.Controls.Add(Me.vinLabel)
         Me.Controls.Add(Me.enterVehicleLabel)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "AddNewVehicle"
         Me.Text = "AddNewVehicle"
         CType(Me.VehiclePicture, System.ComponentModel.ISupportInitialize).EndInit()

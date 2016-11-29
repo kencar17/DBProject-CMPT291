@@ -61,10 +61,10 @@ Partial Class createOrder
         '
         'nextButton
         '
-        Me.nextButton.Location = New System.Drawing.Point(923, 833)
-        Me.nextButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.nextButton.Location = New System.Drawing.Point(503, 451)
+        Me.nextButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.nextButton.Name = "nextButton"
-        Me.nextButton.Size = New System.Drawing.Size(128, 41)
+        Me.nextButton.Size = New System.Drawing.Size(70, 22)
         Me.nextButton.TabIndex = 0
         Me.nextButton.Text = "Next"
         Me.nextButton.UseVisualStyleBackColor = True
@@ -72,28 +72,29 @@ Partial Class createOrder
         'CFnameLabel
         '
         Me.CFnameLabel.AutoSize = True
-        Me.CFnameLabel.Location = New System.Drawing.Point(275, 449)
-        Me.CFnameLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.CFnameLabel.Location = New System.Drawing.Point(150, 243)
+        Me.CFnameLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.CFnameLabel.Name = "CFnameLabel"
-        Me.CFnameLabel.Size = New System.Drawing.Size(93, 25)
+        Me.CFnameLabel.Size = New System.Drawing.Size(49, 13)
         Me.CFnameLabel.TabIndex = 1
         Me.CFnameLabel.Text = "Firstame:"
         '
         'CFnameTextField
         '
-        Me.CFnameTextField.Location = New System.Drawing.Point(414, 449)
-        Me.CFnameTextField.Margin = New System.Windows.Forms.Padding(4)
+        Me.CFnameTextField.Location = New System.Drawing.Point(226, 243)
+        Me.CFnameTextField.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CFnameTextField.MaxLength = 20
         Me.CFnameTextField.Name = "CFnameTextField"
-        Me.CFnameTextField.Size = New System.Drawing.Size(162, 29)
+        Me.CFnameTextField.Size = New System.Drawing.Size(90, 20)
         Me.CFnameTextField.TabIndex = 2
         '
         'CLnameLabel
         '
         Me.CLnameLabel.AutoSize = True
-        Me.CLnameLabel.Location = New System.Drawing.Point(275, 498)
-        Me.CLnameLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.CLnameLabel.Location = New System.Drawing.Point(150, 270)
+        Me.CLnameLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.CLnameLabel.Name = "CLnameLabel"
-        Me.CLnameLabel.Size = New System.Drawing.Size(104, 25)
+        Me.CLnameLabel.Size = New System.Drawing.Size(56, 13)
         Me.CLnameLabel.TabIndex = 3
         Me.CLnameLabel.Text = "Lastname:"
         '
@@ -101,153 +102,161 @@ Partial Class createOrder
         '
         Me.customerLabel.AutoSize = True
         Me.customerLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.customerLabel.Location = New System.Drawing.Point(248, 413)
-        Me.customerLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.customerLabel.Location = New System.Drawing.Point(135, 224)
+        Me.customerLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.customerLabel.Name = "customerLabel"
-        Me.customerLabel.Size = New System.Drawing.Size(204, 25)
+        Me.customerLabel.Size = New System.Drawing.Size(109, 13)
         Me.customerLabel.TabIndex = 4
         Me.customerLabel.Text = "Customer Information:"
         '
         'CLnameTextField
         '
-        Me.CLnameTextField.Location = New System.Drawing.Point(414, 494)
-        Me.CLnameTextField.Margin = New System.Windows.Forms.Padding(4)
+        Me.CLnameTextField.Location = New System.Drawing.Point(226, 268)
+        Me.CLnameTextField.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CLnameTextField.MaxLength = 40
         Me.CLnameTextField.Name = "CLnameTextField"
-        Me.CLnameTextField.Size = New System.Drawing.Size(162, 29)
+        Me.CLnameTextField.Size = New System.Drawing.Size(90, 20)
         Me.CLnameTextField.TabIndex = 5
         '
         'CemailLabel
         '
         Me.CemailLabel.AutoSize = True
-        Me.CemailLabel.Location = New System.Drawing.Point(275, 545)
-        Me.CemailLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.CemailLabel.Location = New System.Drawing.Point(150, 295)
+        Me.CemailLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.CemailLabel.Name = "CemailLabel"
-        Me.CemailLabel.Size = New System.Drawing.Size(66, 25)
+        Me.CemailLabel.Size = New System.Drawing.Size(35, 13)
         Me.CemailLabel.TabIndex = 6
         Me.CemailLabel.Text = "Email:"
         '
         'CEmailTextBox
         '
-        Me.CEmailTextBox.Location = New System.Drawing.Point(414, 545)
-        Me.CEmailTextBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.CEmailTextBox.Location = New System.Drawing.Point(226, 295)
+        Me.CEmailTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CEmailTextBox.MaxLength = 100
         Me.CEmailTextBox.Name = "CEmailTextBox"
-        Me.CEmailTextBox.Size = New System.Drawing.Size(162, 29)
+        Me.CEmailTextBox.Size = New System.Drawing.Size(90, 20)
         Me.CEmailTextBox.TabIndex = 7
         '
         'AgeLabel
         '
         Me.AgeLabel.AutoSize = True
-        Me.AgeLabel.Location = New System.Drawing.Point(275, 594)
-        Me.AgeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.AgeLabel.Location = New System.Drawing.Point(150, 322)
+        Me.AgeLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.AgeLabel.Name = "AgeLabel"
-        Me.AgeLabel.Size = New System.Drawing.Size(54, 25)
+        Me.AgeLabel.Size = New System.Drawing.Size(29, 13)
         Me.AgeLabel.TabIndex = 8
         Me.AgeLabel.Text = "Age:"
         '
         'CAgeTextBox
         '
-        Me.CAgeTextBox.Location = New System.Drawing.Point(414, 590)
-        Me.CAgeTextBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.CAgeTextBox.Location = New System.Drawing.Point(226, 320)
+        Me.CAgeTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CAgeTextBox.MaxLength = 3
         Me.CAgeTextBox.Name = "CAgeTextBox"
-        Me.CAgeTextBox.Size = New System.Drawing.Size(61, 29)
+        Me.CAgeTextBox.Size = New System.Drawing.Size(35, 20)
         Me.CAgeTextBox.TabIndex = 9
         '
         'addressLabel
         '
         Me.addressLabel.AutoSize = True
-        Me.addressLabel.Location = New System.Drawing.Point(733, 449)
-        Me.addressLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.addressLabel.Location = New System.Drawing.Point(400, 243)
+        Me.addressLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.addressLabel.Name = "addressLabel"
-        Me.addressLabel.Size = New System.Drawing.Size(91, 25)
+        Me.addressLabel.Size = New System.Drawing.Size(48, 13)
         Me.addressLabel.TabIndex = 10
         Me.addressLabel.Text = "Address:"
         '
         'CCountryTextField
         '
-        Me.CCountryTextField.Location = New System.Drawing.Point(832, 586)
-        Me.CCountryTextField.Margin = New System.Windows.Forms.Padding(4)
+        Me.CCountryTextField.Location = New System.Drawing.Point(454, 317)
+        Me.CCountryTextField.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CCountryTextField.MaxLength = 40
         Me.CCountryTextField.Name = "CCountryTextField"
-        Me.CCountryTextField.Size = New System.Drawing.Size(219, 29)
+        Me.CCountryTextField.Size = New System.Drawing.Size(121, 20)
         Me.CCountryTextField.TabIndex = 11
         '
         'cityLabel
         '
         Me.cityLabel.AutoSize = True
-        Me.cityLabel.Location = New System.Drawing.Point(733, 498)
-        Me.cityLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.cityLabel.Location = New System.Drawing.Point(400, 270)
+        Me.cityLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.cityLabel.Name = "cityLabel"
-        Me.cityLabel.Size = New System.Drawing.Size(52, 25)
+        Me.cityLabel.Size = New System.Drawing.Size(27, 13)
         Me.cityLabel.TabIndex = 12
         Me.cityLabel.Text = "City:"
         '
         'CAddressTextField
         '
-        Me.CAddressTextField.Location = New System.Drawing.Point(832, 449)
-        Me.CAddressTextField.Margin = New System.Windows.Forms.Padding(4)
+        Me.CAddressTextField.Location = New System.Drawing.Point(454, 243)
+        Me.CAddressTextField.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CAddressTextField.MaxLength = 50
         Me.CAddressTextField.Name = "CAddressTextField"
-        Me.CAddressTextField.Size = New System.Drawing.Size(219, 29)
+        Me.CAddressTextField.Size = New System.Drawing.Size(121, 20)
         Me.CAddressTextField.TabIndex = 13
         '
         'provinceLabel
         '
         Me.provinceLabel.AutoSize = True
-        Me.provinceLabel.Location = New System.Drawing.Point(733, 545)
-        Me.provinceLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.provinceLabel.Location = New System.Drawing.Point(400, 295)
+        Me.provinceLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.provinceLabel.Name = "provinceLabel"
-        Me.provinceLabel.Size = New System.Drawing.Size(94, 25)
+        Me.provinceLabel.Size = New System.Drawing.Size(52, 13)
         Me.provinceLabel.TabIndex = 14
         Me.provinceLabel.Text = "Province:"
         '
         'CCityTextField
         '
-        Me.CCityTextField.Location = New System.Drawing.Point(832, 498)
-        Me.CCityTextField.Margin = New System.Windows.Forms.Padding(4)
+        Me.CCityTextField.Location = New System.Drawing.Point(454, 270)
+        Me.CCityTextField.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CCityTextField.MaxLength = 50
         Me.CCityTextField.Name = "CCityTextField"
-        Me.CCityTextField.Size = New System.Drawing.Size(219, 29)
+        Me.CCityTextField.Size = New System.Drawing.Size(121, 20)
         Me.CCityTextField.TabIndex = 15
         '
         'countryLabel
         '
         Me.countryLabel.AutoSize = True
-        Me.countryLabel.Location = New System.Drawing.Point(733, 590)
-        Me.countryLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.countryLabel.Location = New System.Drawing.Point(400, 320)
+        Me.countryLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.countryLabel.Name = "countryLabel"
-        Me.countryLabel.Size = New System.Drawing.Size(81, 25)
+        Me.countryLabel.Size = New System.Drawing.Size(43, 13)
         Me.countryLabel.TabIndex = 16
         Me.countryLabel.Text = "Country"
         '
         'CProvinceTextField
         '
-        Me.CProvinceTextField.Location = New System.Drawing.Point(832, 545)
-        Me.CProvinceTextField.Margin = New System.Windows.Forms.Padding(4)
+        Me.CProvinceTextField.Location = New System.Drawing.Point(454, 295)
+        Me.CProvinceTextField.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CProvinceTextField.MaxLength = 50
         Me.CProvinceTextField.Name = "CProvinceTextField"
-        Me.CProvinceTextField.Size = New System.Drawing.Size(219, 29)
+        Me.CProvinceTextField.Size = New System.Drawing.Size(121, 20)
         Me.CProvinceTextField.TabIndex = 17
         '
         'postalLabel
         '
         Me.postalLabel.AutoSize = True
-        Me.postalLabel.Location = New System.Drawing.Point(733, 635)
-        Me.postalLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.postalLabel.Location = New System.Drawing.Point(400, 344)
+        Me.postalLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.postalLabel.Name = "postalLabel"
-        Me.postalLabel.Size = New System.Drawing.Size(125, 25)
+        Me.postalLabel.Size = New System.Drawing.Size(67, 13)
         Me.postalLabel.TabIndex = 18
         Me.postalLabel.Text = "Postal Code:"
         '
         'CPostalTextField
         '
-        Me.CPostalTextField.Location = New System.Drawing.Point(866, 635)
-        Me.CPostalTextField.Margin = New System.Windows.Forms.Padding(4)
+        Me.CPostalTextField.Location = New System.Drawing.Point(472, 344)
+        Me.CPostalTextField.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CPostalTextField.MaxLength = 10
         Me.CPostalTextField.Name = "CPostalTextField"
-        Me.CPostalTextField.Size = New System.Drawing.Size(185, 29)
+        Me.CPostalTextField.Size = New System.Drawing.Size(103, 20)
         Me.CPostalTextField.TabIndex = 19
         '
         'backButton
         '
-        Me.backButton.Location = New System.Drawing.Point(253, 833)
-        Me.backButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.backButton.Location = New System.Drawing.Point(138, 451)
+        Me.backButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.backButton.Name = "backButton"
-        Me.backButton.Size = New System.Drawing.Size(128, 41)
+        Me.backButton.Size = New System.Drawing.Size(70, 22)
         Me.backButton.TabIndex = 20
         Me.backButton.Text = "Back"
         Me.backButton.UseVisualStyleBackColor = True
@@ -256,114 +265,115 @@ Partial Class createOrder
         '
         Me.cardLabel.AutoSize = True
         Me.cardLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cardLabel.Location = New System.Drawing.Point(248, 675)
-        Me.cardLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.cardLabel.Location = New System.Drawing.Point(135, 366)
+        Me.cardLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.cardLabel.Name = "cardLabel"
-        Me.cardLabel.Size = New System.Drawing.Size(162, 25)
+        Me.cardLabel.Size = New System.Drawing.Size(87, 13)
         Me.cardLabel.TabIndex = 21
         Me.cardLabel.Text = "Card Information:"
         '
         'cardNumberLabel
         '
         Me.cardNumberLabel.AutoSize = True
-        Me.cardNumberLabel.Location = New System.Drawing.Point(275, 716)
-        Me.cardNumberLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.cardNumberLabel.Location = New System.Drawing.Point(150, 388)
+        Me.cardNumberLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.cardNumberLabel.Name = "cardNumberLabel"
-        Me.cardNumberLabel.Size = New System.Drawing.Size(135, 25)
+        Me.cardNumberLabel.Size = New System.Drawing.Size(72, 13)
         Me.cardNumberLabel.TabIndex = 22
         Me.cardNumberLabel.Text = "Card Number:"
         '
         'cvvLabel
         '
         Me.cvvLabel.AutoSize = True
-        Me.cvvLabel.Location = New System.Drawing.Point(275, 766)
-        Me.cvvLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.cvvLabel.Location = New System.Drawing.Point(150, 415)
+        Me.cvvLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.cvvLabel.Name = "cvvLabel"
-        Me.cvvLabel.Size = New System.Drawing.Size(61, 25)
+        Me.cvvLabel.Size = New System.Drawing.Size(31, 13)
         Me.cvvLabel.TabIndex = 23
         Me.cvvLabel.Text = "CVV:"
         '
         'creditCardTextbox
         '
-        Me.creditCardTextbox.Location = New System.Drawing.Point(414, 716)
-        Me.creditCardTextbox.Margin = New System.Windows.Forms.Padding(4)
+        Me.creditCardTextbox.Location = New System.Drawing.Point(226, 388)
+        Me.creditCardTextbox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.creditCardTextbox.MaxLength = 16
         Me.creditCardTextbox.Name = "creditCardTextbox"
-        Me.creditCardTextbox.Size = New System.Drawing.Size(180, 29)
+        Me.creditCardTextbox.Size = New System.Drawing.Size(112, 20)
         Me.creditCardTextbox.TabIndex = 24
         '
         'cvvTextbox
         '
-        Me.cvvTextbox.Location = New System.Drawing.Point(418, 763)
-        Me.cvvTextbox.Margin = New System.Windows.Forms.Padding(4)
+        Me.cvvTextbox.Location = New System.Drawing.Point(228, 413)
+        Me.cvvTextbox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cvvTextbox.MaxLength = 3
         Me.cvvTextbox.Name = "cvvTextbox"
-        Me.cvvTextbox.Size = New System.Drawing.Size(99, 29)
+        Me.cvvTextbox.Size = New System.Drawing.Size(56, 20)
         Me.cvvTextbox.TabIndex = 25
         '
         'existingLabel
         '
         Me.existingLabel.AutoSize = True
         Me.existingLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.142858!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.existingLabel.Location = New System.Drawing.Point(248, 197)
-        Me.existingLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.existingLabel.Location = New System.Drawing.Point(135, 107)
+        Me.existingLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.existingLabel.Name = "existingLabel"
-        Me.existingLabel.Size = New System.Drawing.Size(176, 25)
+        Me.existingLabel.Size = New System.Drawing.Size(93, 13)
         Me.existingLabel.TabIndex = 26
         Me.existingLabel.Text = "Existing Customer:"
         '
         'lastname1Label
         '
         Me.lastname1Label.AutoSize = True
-        Me.lastname1Label.Location = New System.Drawing.Point(275, 248)
-        Me.lastname1Label.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lastname1Label.Location = New System.Drawing.Point(150, 134)
+        Me.lastname1Label.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lastname1Label.Name = "lastname1Label"
-        Me.lastname1Label.Size = New System.Drawing.Size(104, 25)
+        Me.lastname1Label.Size = New System.Drawing.Size(56, 13)
         Me.lastname1Label.TabIndex = 27
         Me.lastname1Label.Text = "Lastname:"
         '
         'existingTextfield
         '
-        Me.existingTextfield.Location = New System.Drawing.Point(414, 245)
-        Me.existingTextfield.Margin = New System.Windows.Forms.Padding(4)
+        Me.existingTextfield.Location = New System.Drawing.Point(226, 133)
+        Me.existingTextfield.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.existingTextfield.Name = "existingTextfield"
-        Me.existingTextfield.Size = New System.Drawing.Size(162, 29)
+        Me.existingTextfield.Size = New System.Drawing.Size(90, 20)
         Me.existingTextfield.TabIndex = 28
         '
         'existingCustomers
         '
         Me.existingCustomers.FormattingEnabled = True
-        Me.existingCustomers.ItemHeight = 24
-        Me.existingCustomers.Location = New System.Drawing.Point(626, 245)
-        Me.existingCustomers.Margin = New System.Windows.Forms.Padding(4)
+        Me.existingCustomers.Location = New System.Drawing.Point(341, 133)
+        Me.existingCustomers.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.existingCustomers.Name = "existingCustomers"
-        Me.existingCustomers.Size = New System.Drawing.Size(425, 148)
+        Me.existingCustomers.Size = New System.Drawing.Size(234, 82)
         Me.existingCustomers.TabIndex = 29
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(418, 833)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button1.Location = New System.Drawing.Point(228, 451)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(128, 41)
+        Me.Button1.Size = New System.Drawing.Size(70, 22)
         Me.Button1.TabIndex = 30
         Me.Button1.Text = "Help"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'searchButton
         '
-        Me.searchButton.Location = New System.Drawing.Point(414, 294)
-        Me.searchButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.searchButton.Location = New System.Drawing.Point(226, 159)
+        Me.searchButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.searchButton.Name = "searchButton"
-        Me.searchButton.Size = New System.Drawing.Size(161, 41)
+        Me.searchButton.Size = New System.Drawing.Size(88, 22)
         Me.searchButton.TabIndex = 31
         Me.searchButton.Text = "Search"
         Me.searchButton.UseVisualStyleBackColor = True
         '
         'clearButton
         '
-        Me.clearButton.Location = New System.Drawing.Point(414, 352)
-        Me.clearButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.clearButton.Location = New System.Drawing.Point(226, 191)
+        Me.clearButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.clearButton.Name = "clearButton"
-        Me.clearButton.Size = New System.Drawing.Size(161, 41)
+        Me.clearButton.Size = New System.Drawing.Size(88, 22)
         Me.clearButton.TabIndex = 32
         Me.clearButton.Text = "Clear"
         Me.clearButton.UseVisualStyleBackColor = True
@@ -373,17 +383,18 @@ Partial Class createOrder
         Me.PictureBox1.BackgroundImage = Global.DBProject.My.Resources.Resources.for_business_backgrounds_wallpapers_1_
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Location = New System.Drawing.Point(0, -1)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1342, 984)
+        Me.PictureBox1.Size = New System.Drawing.Size(732, 533)
         Me.PictureBox1.TabIndex = 33
         Me.PictureBox1.TabStop = False
         '
         'createOrder
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1342, 982)
+        Me.ClientSize = New System.Drawing.Size(732, 532)
         Me.Controls.Add(Me.clearButton)
         Me.Controls.Add(Me.searchButton)
         Me.Controls.Add(Me.Button1)
@@ -418,7 +429,7 @@ Partial Class createOrder
         Me.Controls.Add(Me.CFnameLabel)
         Me.Controls.Add(Me.nextButton)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "createOrder"
         Me.Text = "createOrder"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

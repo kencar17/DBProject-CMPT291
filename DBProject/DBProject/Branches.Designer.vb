@@ -33,51 +33,45 @@ Partial Class Branches
         '
         'NewButton
         '
-        Me.NewButton.Location = New System.Drawing.Point(594, 345)
-        Me.NewButton.Margin = New System.Windows.Forms.Padding(6)
+        Me.NewButton.Location = New System.Drawing.Point(324, 187)
         Me.NewButton.Name = "NewButton"
-        Me.NewButton.Size = New System.Drawing.Size(178, 42)
+        Me.NewButton.Size = New System.Drawing.Size(97, 23)
         Me.NewButton.TabIndex = 0
         Me.NewButton.Text = "Create a Branch"
         Me.NewButton.UseVisualStyleBackColor = True
         '
         'ModifyButton
         '
-        Me.ModifyButton.Location = New System.Drawing.Point(594, 400)
-        Me.ModifyButton.Margin = New System.Windows.Forms.Padding(6)
+        Me.ModifyButton.Location = New System.Drawing.Point(324, 217)
         Me.ModifyButton.Name = "ModifyButton"
-        Me.ModifyButton.Size = New System.Drawing.Size(178, 42)
+        Me.ModifyButton.Size = New System.Drawing.Size(97, 23)
         Me.ModifyButton.TabIndex = 1
         Me.ModifyButton.Text = "Modify a Branch"
         Me.ModifyButton.UseVisualStyleBackColor = True
         '
         'DeleteButton
         '
-        Me.DeleteButton.Location = New System.Drawing.Point(594, 455)
-        Me.DeleteButton.Margin = New System.Windows.Forms.Padding(6)
+        Me.DeleteButton.Location = New System.Drawing.Point(324, 246)
         Me.DeleteButton.Name = "DeleteButton"
-        Me.DeleteButton.Size = New System.Drawing.Size(178, 42)
+        Me.DeleteButton.Size = New System.Drawing.Size(97, 23)
         Me.DeleteButton.TabIndex = 2
         Me.DeleteButton.Text = "Close a Branch"
         Me.DeleteButton.UseVisualStyleBackColor = True
-        Me.DeleteButton.Visible = False
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(594, 511)
-        Me.HelpButton.Margin = New System.Windows.Forms.Padding(6)
+        Me.HelpButton.Location = New System.Drawing.Point(324, 277)
         Me.HelpButton.Name = "HelpButton"
-        Me.HelpButton.Size = New System.Drawing.Size(178, 42)
+        Me.HelpButton.Size = New System.Drawing.Size(97, 23)
         Me.HelpButton.TabIndex = 3
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = True
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(594, 564)
-        Me.CloseButton.Margin = New System.Windows.Forms.Padding(6)
+        Me.CloseButton.Location = New System.Drawing.Point(324, 306)
         Me.CloseButton.Name = "CloseButton"
-        Me.CloseButton.Size = New System.Drawing.Size(178, 42)
+        Me.CloseButton.Size = New System.Drawing.Size(97, 23)
         Me.CloseButton.TabIndex = 4
         Me.CloseButton.Text = "Close"
         Me.CloseButton.UseVisualStyleBackColor = True
@@ -87,24 +81,24 @@ Partial Class Branches
         Me.PictureBox1.BackgroundImage = Global.DBProject.My.Resources.Resources.for_business_backgrounds_wallpapers_1_
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Location = New System.Drawing.Point(0, -1)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1342, 984)
+        Me.PictureBox1.Size = New System.Drawing.Size(732, 533)
         Me.PictureBox1.TabIndex = 16
         Me.PictureBox1.TabStop = False
         '
         'Branches
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1342, 982)
+        Me.ClientSize = New System.Drawing.Size(732, 532)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.ModifyButton)
         Me.Controls.Add(Me.NewButton)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "Branches"
         Me.Text = "Branches"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
