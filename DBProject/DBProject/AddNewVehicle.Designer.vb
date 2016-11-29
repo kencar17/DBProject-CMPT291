@@ -125,16 +125,6 @@ Partial Class AddNewVehicle
         Me.YearBox.Name = "YearBox"
         Me.YearBox.Size = New System.Drawing.Size(288, 31)
         '
-        'SeatsBox
-        '
-        Me.SeatsBox.Location = New System.Drawing.Point(116, 162)
-        Me.SeatsBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.SeatsBox.MaxLength = 2
-        Me.SeatsBox.Name = "SeatsBox"
-        Me.SeatsBox.Size = New System.Drawing.Size(146, 20)
-        Me.SeatsBox.TabIndex = 6
-        Me.YearBox.TabIndex = 5
-        '
         'KMBox
         '
         Me.KMBox.Location = New System.Drawing.Point(116, 138)
