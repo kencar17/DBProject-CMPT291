@@ -71,6 +71,7 @@ Public Class NewBranch
     End Sub
 
     Private Sub NewBranch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         SendMessage(Me.AddressBox.Handle, &H1501, 0, "Address")
         SendMessage(Me.PostcodeBox.Handle, &H1501, 0, "Postal Code")
         SendMessage(Me.CityBox.Handle, &H1501, 0, "City")
@@ -97,6 +98,8 @@ Public Class NewBranch
         Next
 
         ManagerBox.SelectedIndex = 0
+
+        ErrLabel.BackColor = Color.Transparent
     End Sub
 
 

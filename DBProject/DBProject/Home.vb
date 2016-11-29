@@ -74,7 +74,7 @@ Public Class Home
     End Property
 
     Private Sub Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MdiParent.Size = New Size(748, 571)
+        MdiParent.Size = New Size(748, 594)
         Me.NameLabel.Text = loggedInUser.NameProperty
         Me.WindowState = FormWindowState.Maximized
         FaceBox.Load(loggedInUser.ImgProperty)
@@ -138,7 +138,7 @@ Public Class Home
     End Sub
 
     Private Sub Home_Unload(sender As Object, e As EventArgs) Handles MyBase.Closing
-        MdiParent.Size = New Size(748, 571)
+        'MdiParent.Size = New Size(748, 571)
         callingForm.Show()
         callingForm.WindowState = FormWindowState.Maximized
     End Sub
@@ -237,4 +237,6 @@ Public Class Home
         viewInventory.CallingFormProperty = Me
         viewInventory.Show()
     End Sub
+
+
 End Class

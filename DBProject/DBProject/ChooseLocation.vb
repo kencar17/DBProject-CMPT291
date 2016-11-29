@@ -117,6 +117,7 @@ Public Class ChooseLocation
     End Sub
 
     Private Sub ChooseLocation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         locationCombBox.Items.Add("Location")
         Dim dbconn As MySqlConnection = SQLConnection.Instance.GetConnection()
         Using sqlComm As New MySqlCommand()
@@ -168,6 +169,16 @@ Public Class ChooseLocation
         pickUpTime.SelectedItem = "00:00"
         dropOffTime.SelectedItem = "00:00"
 
+        locationLabel.BackColor = Color.Transparent
+        pickLabel.BackColor = Color.Transparent
+        dropLabel.BackColor = Color.Transparent
+        dtimeLabel.BackColor = Color.Transparent
+        ptimeLabel.BackColor = Color.Transparent
+        errorLocation.BackColor = Color.Transparent
+        invalidDDate.BackColor = Color.Transparent
+        invalidPdate.BackColor = Color.Transparent
+        invalidPT.BackColor = Color.Transparent
+        InvalidDT.BackColor = Color.Transparent
 
     End Sub
 

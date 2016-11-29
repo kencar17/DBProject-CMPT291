@@ -13,6 +13,7 @@ Public Class AddNewUser
     End Property
 
     Private Sub AddNewUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         Me.WindowState = FormWindowState.Maximized
         PicturePath.TabStop = False
         Me.AcceptButton = SubmitButton
@@ -183,4 +184,6 @@ Public Class AddNewUser
             End If
         End With
     End Sub
+
+
 End Class

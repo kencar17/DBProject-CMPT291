@@ -24,4 +24,9 @@
     Private Sub HButton_Click(sender As Object, e As EventArgs) Handles HButton.Click
         Help.GetHelp("ca")
     End Sub
+
+    Private Sub CarAdministration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
+    End Sub
+
 End Class

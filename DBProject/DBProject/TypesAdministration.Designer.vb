@@ -26,55 +26,75 @@ Partial Class TypesAdministration
         Me.ModifyButton = New System.Windows.Forms.Button()
         Me.HButton = New System.Windows.Forms.Button()
         Me.CloseButton = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CreateButton
         '
-        Me.CreateButton.Location = New System.Drawing.Point(299, 190)
+        Me.CreateButton.Location = New System.Drawing.Point(604, 355)
+        Me.CreateButton.Margin = New System.Windows.Forms.Padding(6)
         Me.CreateButton.Name = "CreateButton"
-        Me.CreateButton.Size = New System.Drawing.Size(86, 23)
+        Me.CreateButton.Size = New System.Drawing.Size(158, 42)
         Me.CreateButton.TabIndex = 0
         Me.CreateButton.Text = "Create a Type"
         Me.CreateButton.UseVisualStyleBackColor = True
         '
         'ModifyButton
         '
-        Me.ModifyButton.Location = New System.Drawing.Point(299, 220)
+        Me.ModifyButton.Location = New System.Drawing.Point(604, 410)
+        Me.ModifyButton.Margin = New System.Windows.Forms.Padding(6)
         Me.ModifyButton.Name = "ModifyButton"
-        Me.ModifyButton.Size = New System.Drawing.Size(86, 23)
+        Me.ModifyButton.Size = New System.Drawing.Size(158, 42)
         Me.ModifyButton.TabIndex = 1
         Me.ModifyButton.Text = "Modify a Type"
         Me.ModifyButton.UseVisualStyleBackColor = True
         '
         'HButton
         '
-        Me.HButton.Location = New System.Drawing.Point(299, 250)
+        Me.HButton.Location = New System.Drawing.Point(604, 466)
+        Me.HButton.Margin = New System.Windows.Forms.Padding(6)
         Me.HButton.Name = "HButton"
-        Me.HButton.Size = New System.Drawing.Size(86, 23)
+        Me.HButton.Size = New System.Drawing.Size(158, 42)
         Me.HButton.TabIndex = 2
         Me.HButton.Text = "Help"
         Me.HButton.UseVisualStyleBackColor = True
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(299, 280)
+        Me.CloseButton.Location = New System.Drawing.Point(604, 521)
+        Me.CloseButton.Margin = New System.Windows.Forms.Padding(6)
         Me.CloseButton.Name = "CloseButton"
-        Me.CloseButton.Size = New System.Drawing.Size(86, 23)
+        Me.CloseButton.Size = New System.Drawing.Size(158, 42)
         Me.CloseButton.TabIndex = 3
         Me.CloseButton.Text = "Close"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.DBProject.My.Resources.Resources.for_business_backgrounds_wallpapers_1_
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.Location = New System.Drawing.Point(0, -1)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1342, 984)
+        Me.PictureBox1.TabIndex = 10
+        Me.PictureBox1.TabStop = False
+        '
         'TypesAdministration
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(706, 496)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1342, 982)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.HButton)
         Me.Controls.Add(Me.ModifyButton)
         Me.Controls.Add(Me.CreateButton)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "TypesAdministration"
         Me.Text = "TypesAdministration"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -83,4 +103,5 @@ Partial Class TypesAdministration
     Friend WithEvents ModifyButton As Button
     Friend WithEvents HButton As Button
     Friend WithEvents CloseButton As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

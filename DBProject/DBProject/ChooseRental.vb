@@ -45,7 +45,7 @@ Public Class ChooseRental
     End Sub
 
     Private Sub ChooseRental_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        MdiParent.Size = New Size(748, 594)
         Dim seatsList = New List(Of String)
         seatsList.Add("All")
         For seat As Integer = 1 To 4
@@ -137,6 +137,13 @@ Public Class ChooseRental
 
         vehicleTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
 
+        typeLabel.BackColor = Color.Transparent
+        makeLabel.BackColor = Color.Transparent
+        seatsLabel.BackColor = Color.Transparent
+        transmissionLabel.BackColor = Color.Transparent
+        BothRadio.BackColor = Color.Transparent
+        stanRadio.BackColor = Color.Transparent
+        autoRadio.BackColor = Color.Transparent
 
     End Sub
 

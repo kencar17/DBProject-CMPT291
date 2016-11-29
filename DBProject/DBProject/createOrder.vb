@@ -141,6 +141,22 @@ Public Class createOrder
 
     Private Sub createOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         conditionTest = 1
+        MdiParent.Size = New Size(748, 594)
+        existingLabel.BackColor = Color.Transparent
+        customerLabel.BackColor = Color.Transparent
+        cardLabel.BackColor = Color.Transparent
+        lastname1Label.BackColor = Color.Transparent
+        CFnameLabel.BackColor = Color.Transparent
+        CLnameLabel.BackColor = Color.Transparent
+        CemailLabel.BackColor = Color.Transparent
+        AgeLabel.BackColor = Color.Transparent
+        addressLabel.BackColor = Color.Transparent
+        postalLabel.BackColor = Color.Transparent
+        provinceLabel.BackColor = Color.Transparent
+        countryLabel.BackColor = Color.Transparent
+        cardNumberLabel.BackColor = Color.Transparent
+        cvvLabel.BackColor = Color.Transparent
+        cityLabel.BackColor = Color.Transparent
     End Sub
 
     Private Sub existingTextfield_TextChanged(sender As Object, e As EventArgs) Handles existingTextfield.TextChanged
@@ -249,4 +265,6 @@ Public Class createOrder
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Help.GetHelp("rentals")
     End Sub
+
+
 End Class

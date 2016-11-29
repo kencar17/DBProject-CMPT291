@@ -25,45 +25,90 @@ Partial Class Backup
         Me.BackupButton = New System.Windows.Forms.Button()
         Me.HelpButton = New System.Windows.Forms.Button()
         Me.CloseButton = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BackupButton
         '
-        Me.BackupButton.Location = New System.Drawing.Point(300, 204)
+        Me.BackupButton.Location = New System.Drawing.Point(583, 390)
+        Me.BackupButton.Margin = New System.Windows.Forms.Padding(6)
         Me.BackupButton.Name = "BackupButton"
-        Me.BackupButton.Size = New System.Drawing.Size(96, 23)
+        Me.BackupButton.Size = New System.Drawing.Size(176, 42)
         Me.BackupButton.TabIndex = 0
         Me.BackupButton.Text = "Back Up System"
         Me.BackupButton.UseVisualStyleBackColor = True
         '
         'HelpButton
         '
-        Me.HelpButton.Location = New System.Drawing.Point(300, 234)
+        Me.HelpButton.Location = New System.Drawing.Point(583, 445)
+        Me.HelpButton.Margin = New System.Windows.Forms.Padding(6)
         Me.HelpButton.Name = "HelpButton"
-        Me.HelpButton.Size = New System.Drawing.Size(96, 23)
+        Me.HelpButton.Size = New System.Drawing.Size(176, 42)
         Me.HelpButton.TabIndex = 1
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = True
         '
         'CloseButton
         '
-        Me.CloseButton.Location = New System.Drawing.Point(300, 264)
+        Me.CloseButton.Location = New System.Drawing.Point(583, 500)
+        Me.CloseButton.Margin = New System.Windows.Forms.Padding(6)
         Me.CloseButton.Name = "CloseButton"
-        Me.CloseButton.Size = New System.Drawing.Size(96, 23)
+        Me.CloseButton.Size = New System.Drawing.Size(176, 42)
         Me.CloseButton.TabIndex = 2
         Me.CloseButton.Text = "Close"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.DBProject.My.Resources.Resources.for_business_backgrounds_wallpapers_1_
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.Location = New System.Drawing.Point(0, -1)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1342, 984)
+        Me.PictureBox1.TabIndex = 9
+        Me.PictureBox1.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(550, 488)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(176, 42)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "Close"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackgroundImage = Global.DBProject.My.Resources.Resources.for_business_backgrounds_wallpapers_1_
+        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(1342, 984)
+        Me.PictureBox2.TabIndex = 11
+        Me.PictureBox2.TabStop = False
+        '
         'Backup
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(706, 496)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1342, 982)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.HelpButton)
         Me.Controls.Add(Me.BackupButton)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "Backup"
         Me.Text = "Backup"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -71,4 +116,7 @@ Partial Class Backup
     Friend WithEvents BackupButton As Button
     Friend WithEvents HelpButton As Button
     Friend WithEvents CloseButton As Button
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

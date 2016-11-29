@@ -54,7 +54,14 @@ Public Class NewType
     End Function
 
     Private Sub NewType_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         SendMessage(Me.TypeBox.Handle, &H1501, 0, "Description")
         AcceptButton = SubmitButton
+
+        dailyLabel.BackColor = Color.Transparent
+        weeklyLabel.BackColor = Color.Transparent
+        monthlyLabel.BackColor = Color.Transparent
+        ErrLabel.BackColor = Color.Transparent
+
     End Sub
 End Class

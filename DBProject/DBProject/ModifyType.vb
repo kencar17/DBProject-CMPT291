@@ -3,8 +3,10 @@ Imports MySql.Data.MySqlClient
 
 Public Class ModifyType
     Private Sub ModifyType_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent.Size = New Size(748, 594)
         SendMessage(Me.Type.Handle, &H1501, 0, "Description")
 
+        ErrLabel.BackColor = Color.Transparent
         Init()
     End Sub
 

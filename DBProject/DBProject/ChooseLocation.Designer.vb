@@ -22,13 +22,13 @@ Partial Class ChooseLocation
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.locationLabel = New System.Windows.Forms.Label()
         Me.locationCombBox = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.pickLabel = New System.Windows.Forms.Label()
+        Me.dropLabel = New System.Windows.Forms.Label()
+        Me.ptimeLabel = New System.Windows.Forms.Label()
         Me.pickUpTime = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.dtimeLabel = New System.Windows.Forms.Label()
         Me.dropOffTime = New System.Windows.Forms.ComboBox()
         Me.nextButton = New System.Windows.Forms.Button()
         Me.backButton = New System.Windows.Forms.Button()
@@ -40,130 +40,130 @@ Partial Class ChooseLocation
         Me.errorLocation = New System.Windows.Forms.Label()
         Me.invalidPT = New System.Windows.Forms.Label()
         Me.InvalidDT = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label1
+        'locationLabel
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(38, 25)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(87, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Choose Location"
+        Me.locationLabel.AutoSize = True
+        Me.locationLabel.Location = New System.Drawing.Point(251, 146)
+        Me.locationLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.locationLabel.Name = "locationLabel"
+        Me.locationLabel.Size = New System.Drawing.Size(160, 25)
+        Me.locationLabel.TabIndex = 0
+        Me.locationLabel.Text = "Choose Location"
         '
         'locationCombBox
         '
         Me.locationCombBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.locationCombBox.FormattingEnabled = True
-        Me.locationCombBox.Location = New System.Drawing.Point(128, 25)
-        Me.locationCombBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.locationCombBox.Location = New System.Drawing.Point(433, 143)
+        Me.locationCombBox.Margin = New System.Windows.Forms.Padding(4)
         Me.locationCombBox.Name = "locationCombBox"
-        Me.locationCombBox.Size = New System.Drawing.Size(209, 21)
+        Me.locationCombBox.Size = New System.Drawing.Size(380, 32)
         Me.locationCombBox.TabIndex = 1
         '
-        'Label2
+        'pickLabel
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(38, 89)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 13)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Pick up:"
+        Me.pickLabel.AutoSize = True
+        Me.pickLabel.Location = New System.Drawing.Point(251, 240)
+        Me.pickLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.pickLabel.Name = "pickLabel"
+        Me.pickLabel.Size = New System.Drawing.Size(82, 25)
+        Me.pickLabel.TabIndex = 3
+        Me.pickLabel.Text = "Pick up:"
         '
-        'Label3
+        'dropLabel
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(285, 89)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(50, 13)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Drop Off:"
+        Me.dropLabel.AutoSize = True
+        Me.dropLabel.Location = New System.Drawing.Point(733, 240)
+        Me.dropLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.dropLabel.Name = "dropLabel"
+        Me.dropLabel.Size = New System.Drawing.Size(91, 25)
+        Me.dropLabel.TabIndex = 4
+        Me.dropLabel.Text = "Drop Off:"
         '
-        'Label4
+        'ptimeLabel
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(38, 296)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(33, 13)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Time:"
+        Me.ptimeLabel.AutoSize = True
+        Me.ptimeLabel.Location = New System.Drawing.Point(251, 631)
+        Me.ptimeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.ptimeLabel.Name = "ptimeLabel"
+        Me.ptimeLabel.Size = New System.Drawing.Size(62, 25)
+        Me.ptimeLabel.TabIndex = 6
+        Me.ptimeLabel.Text = "Time:"
         '
         'pickUpTime
         '
         Me.pickUpTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.pickUpTime.FormattingEnabled = True
-        Me.pickUpTime.Location = New System.Drawing.Point(40, 311)
-        Me.pickUpTime.Margin = New System.Windows.Forms.Padding(2)
+        Me.pickUpTime.Location = New System.Drawing.Point(256, 660)
+        Me.pickUpTime.Margin = New System.Windows.Forms.Padding(4)
         Me.pickUpTime.Name = "pickUpTime"
-        Me.pickUpTime.Size = New System.Drawing.Size(105, 21)
+        Me.pickUpTime.Size = New System.Drawing.Size(189, 32)
         Me.pickUpTime.TabIndex = 7
         '
-        'Label5
+        'dtimeLabel
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(285, 296)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(33, 13)
-        Me.Label5.TabIndex = 8
-        Me.Label5.Text = "Time:"
+        Me.dtimeLabel.AutoSize = True
+        Me.dtimeLabel.Location = New System.Drawing.Point(733, 631)
+        Me.dtimeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.dtimeLabel.Name = "dtimeLabel"
+        Me.dtimeLabel.Size = New System.Drawing.Size(62, 25)
+        Me.dtimeLabel.TabIndex = 8
+        Me.dtimeLabel.Text = "Time:"
         '
         'dropOffTime
         '
         Me.dropOffTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.dropOffTime.FormattingEnabled = True
-        Me.dropOffTime.Location = New System.Drawing.Point(288, 311)
-        Me.dropOffTime.Margin = New System.Windows.Forms.Padding(2)
+        Me.dropOffTime.Location = New System.Drawing.Point(733, 660)
+        Me.dropOffTime.Margin = New System.Windows.Forms.Padding(4)
         Me.dropOffTime.Name = "dropOffTime"
-        Me.dropOffTime.Size = New System.Drawing.Size(108, 21)
+        Me.dropOffTime.Size = New System.Drawing.Size(195, 32)
         Me.dropOffTime.TabIndex = 9
         '
         'nextButton
         '
-        Me.nextButton.Location = New System.Drawing.Point(411, 379)
-        Me.nextButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.nextButton.Location = New System.Drawing.Point(958, 831)
+        Me.nextButton.Margin = New System.Windows.Forms.Padding(4)
         Me.nextButton.Name = "nextButton"
-        Me.nextButton.Size = New System.Drawing.Size(70, 21)
+        Me.nextButton.Size = New System.Drawing.Size(128, 39)
         Me.nextButton.TabIndex = 10
         Me.nextButton.Text = "Next"
         Me.nextButton.UseVisualStyleBackColor = True
         '
         'backButton
         '
-        Me.backButton.Location = New System.Drawing.Point(43, 379)
-        Me.backButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.backButton.Location = New System.Drawing.Point(256, 831)
+        Me.backButton.Margin = New System.Windows.Forms.Padding(4)
         Me.backButton.Name = "backButton"
-        Me.backButton.Size = New System.Drawing.Size(52, 21)
+        Me.backButton.Size = New System.Drawing.Size(95, 39)
         Me.backButton.TabIndex = 11
         Me.backButton.Text = "Back"
         Me.backButton.UseVisualStyleBackColor = True
         '
         'pickUp
         '
-        Me.pickUp.Location = New System.Drawing.Point(40, 108)
-        Me.pickUp.Margin = New System.Windows.Forms.Padding(5)
+        Me.pickUp.Location = New System.Drawing.Point(256, 274)
         Me.pickUp.MaxSelectionCount = 1
         Me.pickUp.Name = "pickUp"
         Me.pickUp.TabIndex = 12
         '
         'dropOff
         '
-        Me.dropOff.Location = New System.Drawing.Point(288, 108)
-        Me.dropOff.Margin = New System.Windows.Forms.Padding(5)
+        Me.dropOff.Location = New System.Drawing.Point(733, 274)
         Me.dropOff.MaxSelectionCount = 1
         Me.dropOff.Name = "dropOff"
         Me.dropOff.TabIndex = 13
         '
         'helpButton
         '
-        Me.helpButton.Location = New System.Drawing.Point(105, 379)
-        Me.helpButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.helpButton.Location = New System.Drawing.Point(359, 831)
+        Me.helpButton.Margin = New System.Windows.Forms.Padding(4)
         Me.helpButton.Name = "helpButton"
-        Me.helpButton.Size = New System.Drawing.Size(52, 21)
+        Me.helpButton.Size = New System.Drawing.Size(95, 39)
         Me.helpButton.TabIndex = 14
         Me.helpButton.Text = "Help"
         Me.helpButton.UseVisualStyleBackColor = True
@@ -171,10 +171,10 @@ Partial Class ChooseLocation
         'invalidPdate
         '
         Me.invalidPdate.AutoSize = True
-        Me.invalidPdate.Location = New System.Drawing.Point(38, 274)
-        Me.invalidPdate.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.invalidPdate.Location = New System.Drawing.Point(251, 581)
+        Me.invalidPdate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.invalidPdate.Name = "invalidPdate"
-        Me.invalidPdate.Size = New System.Drawing.Size(104, 13)
+        Me.invalidPdate.Size = New System.Drawing.Size(186, 25)
         Me.invalidPdate.TabIndex = 15
         Me.invalidPdate.Text = "*Invalid Pickup Date"
         Me.invalidPdate.Visible = False
@@ -182,10 +182,10 @@ Partial Class ChooseLocation
         'invalidDDate
         '
         Me.invalidDDate.AutoSize = True
-        Me.invalidDDate.Location = New System.Drawing.Point(285, 274)
-        Me.invalidDDate.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.invalidDDate.Location = New System.Drawing.Point(733, 581)
+        Me.invalidDDate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.invalidDDate.Name = "invalidDDate"
-        Me.invalidDDate.Size = New System.Drawing.Size(108, 13)
+        Me.invalidDDate.Size = New System.Drawing.Size(195, 25)
         Me.invalidDDate.TabIndex = 16
         Me.invalidDDate.Text = "*Invalid DropOff Date"
         Me.invalidDDate.Visible = False
@@ -193,10 +193,10 @@ Partial Class ChooseLocation
         'errorLocation
         '
         Me.errorLocation.AutoSize = True
-        Me.errorLocation.Location = New System.Drawing.Point(128, 53)
-        Me.errorLocation.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.errorLocation.Location = New System.Drawing.Point(428, 188)
+        Me.errorLocation.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.errorLocation.Name = "errorLocation"
-        Me.errorLocation.Size = New System.Drawing.Size(155, 13)
+        Me.errorLocation.Size = New System.Drawing.Size(282, 25)
         Me.errorLocation.TabIndex = 17
         Me.errorLocation.Text = "*Please select Branch Lcoation"
         Me.errorLocation.Visible = False
@@ -204,10 +204,10 @@ Partial Class ChooseLocation
         'invalidPT
         '
         Me.invalidPT.AutoSize = True
-        Me.invalidPT.Location = New System.Drawing.Point(40, 333)
-        Me.invalidPT.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.invalidPT.Location = New System.Drawing.Point(251, 709)
+        Me.invalidPT.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.invalidPT.Name = "invalidPT"
-        Me.invalidPT.Size = New System.Drawing.Size(111, 13)
+        Me.invalidPT.Size = New System.Drawing.Size(205, 25)
         Me.invalidPT.TabIndex = 18
         Me.invalidPT.Text = "*Please Select a Time"
         Me.invalidPT.Visible = False
@@ -215,19 +215,30 @@ Partial Class ChooseLocation
         'InvalidDT
         '
         Me.InvalidDT.AutoSize = True
-        Me.InvalidDT.Location = New System.Drawing.Point(288, 333)
-        Me.InvalidDT.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.InvalidDT.Location = New System.Drawing.Point(733, 709)
+        Me.InvalidDT.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.InvalidDT.Name = "InvalidDT"
-        Me.InvalidDT.Size = New System.Drawing.Size(111, 13)
+        Me.InvalidDT.Size = New System.Drawing.Size(205, 25)
         Me.InvalidDT.TabIndex = 19
         Me.InvalidDT.Text = "*Please Select a Time"
         Me.InvalidDT.Visible = False
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.DBProject.My.Resources.Resources.for_business_backgrounds_wallpapers_1_
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.Location = New System.Drawing.Point(0, -1)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1342, 984)
+        Me.PictureBox1.TabIndex = 20
+        Me.PictureBox1.TabStop = False
+        '
         'ChooseLocation
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(579, 464)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1342, 982)
         Me.Controls.Add(Me.InvalidDT)
         Me.Controls.Add(Me.invalidPT)
         Me.Controls.Add(Me.errorLocation)
@@ -239,28 +250,30 @@ Partial Class ChooseLocation
         Me.Controls.Add(Me.backButton)
         Me.Controls.Add(Me.nextButton)
         Me.Controls.Add(Me.dropOffTime)
-        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.dtimeLabel)
         Me.Controls.Add(Me.pickUpTime)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.ptimeLabel)
+        Me.Controls.Add(Me.dropLabel)
+        Me.Controls.Add(Me.pickLabel)
         Me.Controls.Add(Me.locationCombBox)
-        Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Controls.Add(Me.locationLabel)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "ChooseLocation"
         Me.Text = "ChooseLocation"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents locationLabel As Label
     Friend WithEvents locationCombBox As ComboBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
+    Friend WithEvents pickLabel As Label
+    Friend WithEvents dropLabel As Label
+    Friend WithEvents ptimeLabel As Label
     Friend WithEvents pickUpTime As ComboBox
-    Friend WithEvents Label5 As Label
+    Friend WithEvents dtimeLabel As Label
     Friend WithEvents dropOffTime As ComboBox
     Friend WithEvents nextButton As Button
     Friend WithEvents backButton As Button
@@ -272,4 +285,5 @@ Partial Class ChooseLocation
     Friend WithEvents errorLocation As Label
     Friend WithEvents invalidPT As Label
     Friend WithEvents InvalidDT As Label
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
