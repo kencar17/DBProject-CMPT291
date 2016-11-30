@@ -108,6 +108,22 @@
             vehicle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
             vehicle.Columns(0).Visible = False
         End If
+
+        Dim custSql As String = "SELECT CID FROM Transaction WHERE CURDATE() > CAST('" & Now.Year & "-01-01' AS DATE) AND CID=" & RentalProperty.CustomerProperty.IdProperty & " GROUP BY CID HAVING COUNT(*) >= 3"
+        Console.WriteLine(custSql)
+        Dim custParams As New Dictionary(Of String, String)
+        Dim custColumns As New List(Of String)
+        custColumns.Add("CID")
+        Dim isGold As Boolean = False
+        For Each cust As Dictionary(Of String, String) In SQLConnection.DoQuery(custSql, custParams, custColumns)
+            'Only get a result if the customer is a gold member. If so, set isGold to true. Else keep it false
+            isGold = True
+        Next
+        If isGold Then
+            goldLabel.Text = "The Customer is a Gold Member"
+            Me.goldLabel.Visible = True
+        End If
+
     End Sub
 
     Private Sub backButton_Click(sender As Object, e As EventArgs) Handles backButton.Click
