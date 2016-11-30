@@ -147,7 +147,25 @@
             .Add("@cost", cost)
         End With
         SQLConnection.DoNonQuery(sql, params)
-        MsgBox("The transaction has been created.")
+        sql = "SELECT TID FROM Transaction WHERE VIN=@vin AND CID=@cid AND EID=@eid AND FromBID=@frombid AND ToBID=@tobid AND FromDate=@fromdate AND ToDate=@todate AND Cost=@cost"
+        params = New Dictionary(Of String, String)
+        With params
+            .Add("@vin", vehicle.VinProperty)
+            .Add("@cid", RentalProperty.CustomerProperty.IdProperty)
+            .Add("@eid", callingform.CallingFormProperty.CallingFormProperty.CallingFormProperty.LoggedInUserProperty.IdProperty)
+            .Add("@frombid", callingform.CallingFormProperty.CallingFormProperty.CallingFormProperty.LoggedInUserProperty.BranchProperty)
+            .Add("@tobid", rental.LocationProperty.BidProperty)
+            .Add("@fromdate", rental.PickUpProperty)
+            .Add("@todate", rental.DropOffProperty)
+            .Add("@cost", cost)
+        End With
+        Dim columns As New List(Of String)
+        columns.Add("TID")
+        Dim tid As String
+        For Each result As Dictionary(Of String, String) In SQLConnection.DoQuery(sql, params, columns)
+            tid = result("TID")
+        Next
+        MsgBox("The car is rented. The transaction ID is " & tid)
 
         callingform.doAThing()
         Close()
