@@ -50,9 +50,9 @@ Partial Class ChooseLocation
         Me.locationLabel.Location = New System.Drawing.Point(251, 146)
         Me.locationLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.locationLabel.Name = "locationLabel"
-        Me.locationLabel.Size = New System.Drawing.Size(160, 25)
+        Me.locationLabel.Size = New System.Drawing.Size(164, 25)
         Me.locationLabel.TabIndex = 0
-        Me.locationLabel.Text = "Choose Location"
+        Me.locationLabel.Text = "Drop Off Location"
         '
         'locationCombBox
         '
