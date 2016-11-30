@@ -158,6 +158,6 @@
     End Sub
 
     Private Sub OrderSummary_Unload() Handles MyBase.Closing
-        MdiParent.Size = New Size(722, 535)
+        'MdiParent.Size = New Size(722, 535)
     End Sub
 End Class

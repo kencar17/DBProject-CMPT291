@@ -55,67 +55,69 @@ Public Class createOrder
         Else
             Dim count As Integer = 0
 
-            If CFnameTextField.Text = "" Then
+            If CFnameTextField.Text.Equals("") Then
                 SendMessage(Me.CFnameTextField.Handle, &H1501, 0, "*Invaild")
             Else
                 person.FnameProperty = CFnameTextField.Text
                 count = count + 1
             End If
-            If CLnameTextField.Text = "" Then
+            If CLnameTextField.Text.Equals("") Then
                 SendMessage(Me.CLnameTextField.Handle, &H1501, 0, "*Invaild")
             Else
                 person.LnameProperty = CLnameTextField.Text
                 count = count + 1
             End If
-            If CPostalTextField.Text = "" Then
+            If CPostalTextField.Text.Equals("") Then
                 SendMessage(Me.CPostalTextField.Handle, &H1501, 0, "*Invaild")
             Else
                 person.PostcodeProperty = CPostalTextField.Text
                 count = count + 1
             End If
-            If CAddressTextField.Text = "" Then
+            If CAddressTextField.Text.Equals("") Then
                 SendMessage(Me.CAddressTextField.Handle, &H1501, 0, "*Invaild")
             Else
                 person.AddressProperty = CAddressTextField.Text
                 count = count + 1
             End If
-            If CCityTextField.Text = "" Then
+            If CCityTextField.Text.Equals("") Then
                 SendMessage(Me.CCityTextField.Handle, &H1501, 0, "*Invaild")
             Else
                 person.CityProperty = CCityTextField.Text
                 count = count + 1
             End If
-            If CProvinceTextField.Text = "" Then
+            If CProvinceTextField.Text.Equals("") Then
                 SendMessage(Me.CProvinceTextField.Handle, &H1501, 0, "*Invaild")
             Else
                 person.StateProperty = CProvinceTextField.Text
                 count = count + 1
             End If
-            If CCountryTextField.Text = "" Then
+            If CCountryTextField.Text.Equals("") Then
                 SendMessage(Me.CCountryTextField.Handle, &H1501, 0, "*Invaild")
             Else
                 person.CountryProperty = CCountryTextField.Text
                 count = count + 1
             End If
-            If CEmailTextBox.Text = "" Then
+            If CEmailTextBox.Text.Equals("") Then
                 SendMessage(Me.CEmailTextBox.Handle, &H1501, 0, "*Invaild")
             Else
                 person.EmailProperty = CEmailTextBox.Text
                 count = count + 1
             End If
-            If CAgeTextBox.Text = "" Then
+            If CAgeTextBox.Text.Equals("") Then
                 SendMessage(Me.CAgeTextBox.Handle, &H1501, 0, "*Invaild")
             Else
                 person.ageProperty = CAgeTextBox.Text = ""
                 count = count + 1
             End If
-            If creditCardTextbox.Text = "" Then
+            If creditCardTextbox.Text.Length <> 16 Then
+                creditCardTextbox.Text = ""
                 SendMessage(Me.creditCardTextbox.Handle, &H1501, 0, "*Invaild")
             Else
                 person.CreditcardProperty = creditCardTextbox.Text
                 count = count + 1
             End If
-            If cvvTextbox.Text = "" Then
+            If cvvTextbox.Text.Length <> 3 Then
+                cvvTextbox.Text = ""
                 SendMessage(Me.cvvTextbox.Handle, &H1501, 0, "*Invaild")
             Else
                 person.CVVProperty = cvvTextbox.Text
@@ -221,6 +223,8 @@ Public Class createOrder
                         person.CountryProperty = sqlReader("Country").ToString()
                         person.ageProperty = sqlReader("age").ToString()
                         person.IdProperty = sqlReader("CID").ToString()
+                        person.CreditcardProperty = sqlReader("CreditCard").ToString()
+                        person.CVVProperty = sqlReader("CVV").ToString()
                         'person.PhoneProperty = sqlReader("Phone").ToString()
 
                         existingCustomers.Items.Add(person)
@@ -246,6 +250,8 @@ Public Class createOrder
             CProvinceTextField.Text = person.StateProperty
             CCountryTextField.Text = person.CountryProperty
             CPostalTextField.Text = person.PostcodeProperty
+            creditCardTextbox.Text = "************" & person.CreditcardProperty.Substring(11, 4)
+            cvvTextbox.Text = person.CVVProperty.Substring(0, 1) & "**"
             Return
         End If
 
@@ -273,6 +279,8 @@ Public Class createOrder
                     person.StateProperty = sqlReader("State").ToString()
                     person.CountryProperty = sqlReader("Country").ToString()
                     person.ageProperty = sqlReader("age").ToString()
+                    person.CreditcardProperty = sqlReader("CreditCard").ToString()
+                    person.CVVProperty = sqlReader("CVV").ToString()
                     'person.PhoneProperty = sqlReader("Phone").ToString()
                     person.IdProperty = sqlReader("CID").ToString()
                     existingCustomers.Items.Add(person)
