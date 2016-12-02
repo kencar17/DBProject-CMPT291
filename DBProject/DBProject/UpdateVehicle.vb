@@ -4,6 +4,11 @@ Public Class UpdateVehicle
     Private chosenFile As String = ""
 
     Private Sub UpdateVehicle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim seatsList = New List(Of String)
+        For seat As Integer = 1 To 10
+            seatsList.Add(seat.ToString)
+        Next
+        seatsBox.DataSource = seatsList
         MdiParent.Size = New Size(748, 594)
         Dim vsql As String = "SELECT Type FROM Types"
         Dim vparams As New Dictionary(Of String, String)
@@ -84,12 +89,6 @@ Public Class UpdateVehicle
             Return
         End If
 
-        If SeatBox.Text.Equals("") Then
-            ErrorLabel.Text = "Seating capacity must be given"
-            Me.ErrorLabel.Visible = True
-            Return
-        End If
-
         If GVWRBox.Text.Equals("") Then
             ErrorLabel.Text = "The Gross Vehicle Weight Rating must be given"
             Me.ErrorLabel.Visible = True
@@ -119,6 +118,7 @@ Public Class UpdateVehicle
         Dim vehicle As VehicleInfo = ClassCB.SelectedItem
         Dim sql As String = "UPDATE Vehicle SET Make=@make, Model=@model, Class=@class, Km=@km, Year=@year, Seats=@seats, GVWR=@gvwr, Transmission=@trans, License=@license, Available=@avail, Coverage=@coverage, BID=@bid WHERE Vehicle.VIN = @vin"
         Dim params As New Dictionary(Of String, String)
+        Dim seat As Integer = seatsBox.SelectedItem
         With params
             .Add("@vin", vin)
             .Add("@make", MakeBox.Text)
@@ -126,7 +126,7 @@ Public Class UpdateVehicle
             .Add("@class", vehicle.VClass)
             .Add("@km", KmBox.Text)
             .Add("@year", YearBox.Text)
-            .Add("@seats", SeatBox.Text)
+            .Add("@seats", seat)
             .Add("@gvwr", GVWRBox.Text)
             .Add("@trans", trans)
             .Add("@license", PlateBox.Text)
@@ -189,7 +189,7 @@ Public Class UpdateVehicle
         ClassCB.Enabled = True
         KmBox.Enabled = True
         YearBox.Enabled = True
-        SeatBox.Enabled = True
+        seatsBox.Enabled = True
         GVWRBox.Enabled = True
         TransCB.Enabled = True
         PlateBox.Enabled = True
@@ -208,7 +208,7 @@ Public Class UpdateVehicle
         Next
         KmBox.Text = vehicle.KmProperty
         YearBox.Text = vehicle.YearProperty
-        SeatBox.Text = vehicle.SeatsProperty
+        seatsBox.SelectedIndex = CInt(vehicle.SeatsProperty) - 1
         GVWRBox.Text = vehicle.GvwrProperty
 
         If vehicle.TransmissionProperty.Equals("1") Then

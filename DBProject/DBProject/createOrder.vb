@@ -312,5 +312,22 @@ Public Class createOrder
         Help.GetHelp("rentals")
     End Sub
 
+    Private Sub ccBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles creditCardTextbox.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub CvvBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles cvvTextbox.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub AgeBox_TextChanged(sender As Object, e As KeyPressEventArgs) Handles CAgeTextBox.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8) Then
+            e.Handled = True
+        End If
+    End Sub
 
 End Class
